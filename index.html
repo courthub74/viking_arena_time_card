@@ -62,6 +62,36 @@
                     <p>Login:</p>
                 </div>
             </header>
+
+            <!-- Select Dropdown -->
+            <div class="users_drop_container">
+                <label for="name_select">Select your Name:</label>
+                <select name="users" id="users_dropdown">
+                    <option value="" selected class="drop_label"></option>
+                    <option value="#">One</option> 
+                    <option value="#">Two</option> 
+                    <option value="#">Three</option> 
+                    <option value="#">Four</option> 
+                </select>
+
+                <p class="or">or <a href="./html/registration.html" class="create_acct">Create an Account</a></p>
+            </div>
+
+            <!-- Pin # -->
+            <div class="pin_number">
+                <label for="pin_num">Enter your pin #:</label>
+                    <div class="pin_field" id="pin_field">
+                        <input type="password" class="pin_put" maxlength="1">
+                        <input type="password" class="pin_put" maxlength="1">
+                        <input type="password" class="pin_put" maxlength="1">
+                        <input type="password" class="pin_put" maxlength="1">
+                    </div>
+                    <!-- Reset Pins Button -->
+                     <button class="reset_button" id="reset_button">Reset Pin</button>
+            </div>
+
+            <!-- Submit Button -->
+            <button class="submit" id="submit_login">Login</button>
         </form>
     </div>
     
