@@ -398,6 +398,9 @@ label {
 @media screen and (min-width: 1200px) {
     form {
         width: 30%;
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
     }
 
     /* Logo a bit bigger */
@@ -407,7 +410,7 @@ label {
     }
 
     .hazel_park_logo {
-        width: 6em;
-        height: 6em;
+        width: 5em;
+        height: 5em;
     }
 }
