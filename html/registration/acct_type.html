@@ -3,58 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Card</title>
+    <title>Viking Time Card</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/acct_type.css">
+      <!-- CSS -->
+      <link rel="stylesheet" href="/css/acct_type.css">
 </head>
 <body>
 
-     <!-- THE NAVBAR AND SIDE MENU-->
-     <nav class="main_nav">
-        <!-- Burger -->
-        <div class="menu_button">
-            <button id="menu_burgers">
-                <img src="../img/hamburgers/hamburger-black.png" class="burger" id="burger_one" alt="menu">
-                <img src="../img/hamburgers/hamburger-white.png" class="burger" id="burger_two" alt="menu">
-            </button>
+    <!-- Container -->
+    <div class="container">
+
+        <!-- THE NAVBAR AND SIDE MENU-->
+        <nav class="main_nav">
+            <!-- Burger -->
+            <div class="menu_button">
+                <button id="menu_burgers">
+                    <img src="/img/hamburgers/hamburger-black.png" class="burger" id="burger_one" alt="menu">
+                    <img src="/img/hamburgers/hamburger-white.png" class="burger" id="burger_two" alt="menu">
+                </button>
+            </div>
+            
+            <!-- Light/Dark -->
+            <div class="theme_switch">
+                <!-- Day/Nite -->
+                <button id="theme_switch">
+                    <img src="/img/day-nite/litemode_circle.png" alt="light mode" id="day_puck" class="day-nite">
+                    <img src="/img/day-nite/darkmode_circle.png" alt="dark mode" id="nite_puck" class="day-nite">
+                </button>
+            </div>
+        </nav>
+
+        <!-- SLIDE IN MENU -->
+        <div class="side-menu">
+            <a href="#" class="menu-item"><span>Profile</span></a>
+            <a href="#" class="menu-item"><span>Settings</span></a>
+            <a href="#" class="menu-item"><span>Tech Support</span></a>
+            <!-- <a href="#" class="menu-item">👤 <span>Profile</span></a>
+            <a href="#" class="menu-item">⚙️ <span>Settings</span></a>
+            <a href="#" class="menu-item">📱 <span>Tech Support</span></a> -->
         </div>
-        
-        <!-- Light/Dark -->
-        <div class="theme_switch">
-            <!-- Day/Nite -->
-            <button id="theme_switch">
-                <img src="../img/day-nite/litemode_circle.png" alt="light mode" id="day_puck" class="day-nite">
-                <img src="../img/day-nite/darkmode_circle.png" alt="dark mode" id="nite_puck" class="day-nite">
-            </button>
-        </div>
-    </nav>
 
-    <!-- SLIDE IN MENU -->
-    <div class="side-menu">
-        <a href="#" class="menu-item"><span>Profile</span></a>
-        <a href="#" class="menu-item"><span>Settings</span></a>
-        <a href="#" class="menu-item"><span>Tech Support</span></a>
-        <!-- <a href="#" class="menu-item">👤 <span>Profile</span></a>
-        <a href="#" class="menu-item">⚙️ <span>Settings</span></a>
-        <a href="#" class="menu-item">📱 <span>Tech Support</span></a> -->
-    </div>
+        <!-- Overlay -->
+        <div class="menu-overlay"></div>
 
-    <!-- Overlay -->
-    <div class="menu-overlay"></div>
+        <!-- THE PAGE -->
 
-
-    <!-- Main Body of the Page -->
-    <main>
-
-        <!-- FORM -->
-         <form>
-
+        <!-- THE FORM -->
+        <form>
             <!-- HEADER -->
             <header>
                 <div class="logo_name">
-                        <p>Time Card</p>
-                        <img class="hazel_park_logo" src="../img/hazel-park-logo/Logo.png">
+                    <p>Time Card</p>
+                    <img class="hazel_park_logo" src="/img/hazel-park-logo/Logo.png">
                 </div>
 
                 <!-- App State -->
@@ -63,17 +63,41 @@
                 </div>
             </header>
 
-         </form>
+            <label>Now choose your account type:</label>
 
-    </main>
+            <!-- ACCOUNT TYPE BUTTONS -->
+            <div class="acct_types">
 
+                <!-- Each button -->
+                <button class="acct_button" value="manager" id="manager">
+                    <p>Manager</p>
+                </button>
 
-    <!-- JS -->
+                <button class="acct_button" value="zamboni" id="zamboni_driver">
+                    <p>Zamboni Driver</p>
+                </button>
+
+                <button class="acct_button" value="instructor" id="skate_instructor">
+                    <p>Skate Instructor</p>
+                </button>
+
+                <button class="acct_button" value="guard" id="skate_guard">
+                    <p>Skate Guard</p>
+                </button>
+
+                <!-- Submit Button -->
+            <button class="submit" id="submit_login">Next</button>
+
+            </div>
+
+        </form>
+    </div>
 
     <!-- DARKMODE -->
-    <script src="../js/darkmode.js"></script>
+    <script src="/js/darkmode.js"></script>
 
     <!-- SLIDE IN -->
-    <script src="../js/slide-in.js"></script>
+    <script src="/js/slide-in.js"></script>
+    
 </body>
 </html>
