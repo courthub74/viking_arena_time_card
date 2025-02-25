@@ -356,17 +356,17 @@ label {
 /* Desktop */
 @media screen and (min-width: 1200px) {
     form {
-        width: 30%;
+        width: 25%;
     }
 
-    /* Logo a bit bigger */
-    .logo_name p {
+     /* Logo a bit bigger */
+     .logo_name p {
         font-size: 2.5rem;
         font-weight: bold;
     }
 
     .hazel_park_logo {
-        width: 5em;
-        height: 5em;
+        width: 6em;
+        height: 6em;
     }
 }

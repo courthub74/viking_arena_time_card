@@ -342,7 +342,7 @@ input {
 /* Desktop */
 @media screen and (min-width: 1200px) {
     form {
-        width: 30%;
+        width: 25%;
     }
 
     /* Logo a bit bigger */
@@ -352,7 +352,7 @@ input {
     }
 
     .hazel_park_logo {
-        width: 5em;
-        height: 5em;
+        width: 6em;
+        height: 6em;
     }
 }
