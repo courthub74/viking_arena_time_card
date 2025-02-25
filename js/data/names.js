@@ -32,5 +32,5 @@ names_form.addEventListener('submit', (e) => {
     const encodedLast = encodeURIComponent(last);
     
     // Redirect with URL parameters
-    window.location.href = `received.html?first_init=${encodedName}&last_name=${encodedLast}&pin_num=${encodedPin}`;
+    window.location.href = `received.html?first_init=${encodedFirst}&last_name=${encodedLast}`;
 });
