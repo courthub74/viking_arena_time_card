@@ -3,12 +3,6 @@
 // Query the names form
 const names_form = document.getElementById('names_form');
 
-// Query the firstname
-const firstname = document.getElementById('firstname');
-
-// Query the lastname
-const lastname = document.getElementById('lastname');
-
 // Add event listener to submit button to register the user
 names_form.addEventListener('submit', (e) => {
     // so submit doesn't refresh the page
@@ -16,6 +10,12 @@ names_form.addEventListener('submit', (e) => {
 
     // Test print button function
     console.log("Submit Button Pressed");
+
+    // Query the firstname
+    const firstname = document.getElementById('firstname');
+
+    // Query the lastname
+    const lastname = document.getElementById('lastname');
 
     //Retrieve user first name text, store it in variable
     let first = firstname.value;
@@ -26,4 +26,11 @@ names_form.addEventListener('submit', (e) => {
     let last = lastname.value;
     // Test print for now
     console.log(last);
+
+    // Encode parameters
+    const encodedFirst = encodeURIComponent(first);
+    const encodedLast = encodeURIComponent(last);
+    
+    // Redirect with URL parameters
+    window.location.href = `received.html?first_init=${encodedName}&last_name=${encodedLast}&pin_num=${encodedPin}`;
 });
