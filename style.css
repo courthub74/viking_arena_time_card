@@ -48,12 +48,13 @@ body.dark-mode {
     --menu-background: #101010;
     --menu-background: #000000;
     --menu-hover: #0d0d0d;
-    --menu-shadow: rgb(22, 33, 38);
+    --menu-shadow: rgb(18, 27, 31);
 
      /* Input Colors */
-     --input-background: #101316;
-     --input-background: #1b2025;
+     /* --input-background: #101316;
+     --input-background: #1b2025; */
      --input-background: #15191d;
+     --input-background: #20252c;
      
      /* Button Colors */
      --button-background: #009DF8;
@@ -381,4 +382,32 @@ label {
     /* font-weight: bold; */
     cursor: pointer;
     font-size: medium;
+}
+
+/* For wider screens narrow the form */
+
+/* Landscape */
+@media screen and (min-width: 700px) {
+    form {
+        width: 50%;
+        gap: 1em;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+    form {
+        width: 30%;
+    }
+
+    /* Logo a bit bigger */
+    .logo_name p {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .hazel_park_logo {
+        width: 6em;
+        height: 6em;
+    }
 }
