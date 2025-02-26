@@ -94,6 +94,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: var(--background-color);
+    background: none;
     width: 100%;
     /* box-shadow: 0 2px 5px var(--menu-shadow); */
     position: relative;
