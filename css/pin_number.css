@@ -306,17 +306,25 @@ label {
     width: 100%;
 }
 
-.pin_put {
+/* The Pin Puts */
+.pin_put_set {
     flex: 1;
     background-color: var(--input-background);
     border: none;
     color: var(--text-color);
     text-align: center;
     width: 4em;
-    /* width: 4.5em; */
     height: 4em;
-    /* width: 3em;
-    height: 3em; */
+}
+
+.pin_put_confirm {
+    flex: 1;
+    background-color: var(--input-background);
+    border: none;
+    color: var(--text-color);
+    text-align: center;
+    width: 4em;
+    height: 4em;
 }
 
 /* Reset Pins Button */
@@ -328,6 +336,64 @@ label {
     cursor: pointer;
     font-size: small;
     /* font-weight: bold; */
+}
+
+/* PINS NOTIFY DIV */
+.pin_match_confirm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: -1em; */
+    transition: all .4s ease-in;
+    /* padding: 1em; */
+    /* background-color: #0AA51C; */
+    width: 100%;
+}
+
+/* Match (first-child)*/
+.match_ {
+    display: none;
+    /* opacity: 0; */
+}
+
+.match_.entered {
+    opacity: 1;
+    position: absolute;
+    display: flex;
+    /* display: inline-block; */
+    justify-content: center;
+    align-items: center;
+    color: var(--pins-match);
+    background-color: var(--match-background);
+    /* padding: .7em 6em; */
+    border-radius: 5px;
+    /* border: 1px solid var(--pins-match); */
+    font-size: .8em;
+    width: 100%;
+}
+
+/* No Match (last-child) */
+.no_match {
+    display: none;
+    /* opacity: 0; */
+}
+
+.no_match.entered {
+    opacity: 1;
+    position: relative;
+    /* display: inline-block; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--pins-no-match);
+    /* margin-top: -1em; */
+    background-color: var(--match-background);
+    border-radius: 5px;
+    /* border: 1px solid var(--pins-no-match); */
+    /* padding: .7em 5em; */
+    font-size: .8em;
+    width: 100%;
 }
 
 /* Submit Button */

@@ -68,26 +68,32 @@
             <!-- PIN FIELDS -->
             <div class="pin_number">
                 <label for="pin_num">Set pin #:</label>
-                <div class="pin_field" id="pin_field">
-                    <input type="password" class="pin_put" maxlength="1">
-                    <input type="password" class="pin_put" maxlength="1">
-                    <input type="password" class="pin_put" maxlength="1">
-                    <input type="password" class="pin_put" maxlength="1">
+                <div class="pin_field" id="pin_field_set">
+                    <input type="password" class="pin_put_set" maxlength="1">
+                    <input type="password" class="pin_put_set" maxlength="1">
+                    <input type="password" class="pin_put_set" maxlength="1">
+                    <input type="password" class="pin_put_set" maxlength="1">
                 </div>
             </div>
 
              <!-- Pin # -->
              <div class="pin_number">
                 <label for="pin_num">Confirm pin #:</label>
-                <div class="pin_field" id="pin_field">
-                    <input type="password" class="pin_put" maxlength="1">
-                    <input type="password" class="pin_put" maxlength="1">
-                    <input type="password" class="pin_put" maxlength="1">
-                    <input type="password" class="pin_put" maxlength="1">
+                <div class="pin_field" id="pin_field_confirm">
+                    <input type="password" class="pin_put_confirm" maxlength="1">
+                    <input type="password" class="pin_put_confirm" maxlength="1">
+                    <input type="password" class="pin_put_confirm" maxlength="1">
+                    <input type="password" class="pin_put_confirm" maxlength="1">
                 </div>
                 <!-- Reset Pins Button -->
                 <button class="reset_button" id="reset_button">Reset Pin</button>
             </div>
+
+            <!-- Pin Match Alert-->
+            <div class="pin_match_confirm" id="pin_match_confirm">
+                <p class="match_">Pins Match <img src="/viking_arena_time_card/pins-match/img/match.png" alt="match"></p>
+                <p class="no_match ">Pins Don't Match <img src="/viking_arena_time_card/pins-match/img/no_match.png" alt="no_match"></p>
+           </div>
 
 
             <!-- Submit Button -->
