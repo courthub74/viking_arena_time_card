@@ -408,6 +408,11 @@ label {
     /* margin-top: 1em; */
 }
 
+/* No outline on focus */
+.submit:focus {
+    outline: none;
+}
+
 /* For wider screens narrow the form */
 
 /* Landscape */
