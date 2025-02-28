@@ -81,3 +81,27 @@ pin_confirm.forEach((input_2, key_2) => {
     }
   });
 });
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+// COMPARISON MAPS BELOW
+// This is where the notification will be displayed also
+
+
+
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+// Event Listener for Submit Button
+submit_pins.addEventListener('click', (e) => {
+  // so submit doesn't refresh the page
+  e.preventDefault();
+  // Test print button function
+  console.log("Submit Button Pressed");
+  // This is where you encode the pin numbers
+  // and Grab the First Name and Last Name from the URL
+  // Redirect to the next page (pin number) with URL parameters
+  // Query the set pin numbers
+});

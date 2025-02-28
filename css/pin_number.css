@@ -365,11 +365,11 @@ label {
     justify-content: center;
     align-items: center;
     color: var(--pins-match);
+    color: green;
     background-color: var(--match-background);
-    /* padding: .7em 6em; */
     border-radius: 5px;
-    /* border: 1px solid var(--pins-match); */
-    font-size: .8em;
+    font-size: 1rem;
+    font-size: small;
     width: 100%;
 }
 
@@ -387,12 +387,12 @@ label {
     justify-content: center;
     align-items: center;
     color: var(--pins-no-match);
+    color: red;
     /* margin-top: -1em; */
     background-color: var(--match-background);
     border-radius: 5px;
-    /* border: 1px solid var(--pins-no-match); */
-    /* padding: .7em 5em; */
-    font-size: .8em;
+    font-size: 1rem;
+    font-size: small;
     width: 100%;
 }
 
