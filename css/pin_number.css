@@ -401,12 +401,16 @@ label {
     width: 100%;
 }
 
-
 .match_, .no_match {
     position: absolute;
     top: 0;
     left: 0;
     margin: 0;
+  }
+
+  .pin_match {
+    width: 1.5em;
+    height: 1.5em;
   }
 
 /* Submit Button */
