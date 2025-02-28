@@ -156,6 +156,8 @@ pin_confirm.forEach((input_2, key_2) => {
               match_notify.classList.remove('entered');
               // match_notify.style.display = "none";
               no_match_notify.classList.add('entered');
+              // Disable the Submit Button
+              submit_pins.disabled = true;
             }
           }
         });
@@ -172,9 +174,11 @@ const reset = () => {
   // Reset the form
   form.reset();
   // Delete the Match Notify
-  match_notify.classList.remove('entered');
+  // match_notify.classList.remove('entered');
+  no_match_notify.style.display = "none";
   // Delete the No Match
-  no_match_notify.classList.remove('entered');
+  // no_match_notify.classList.remove('entered');
+  match_notify.style.display = "none";
   // Disable the Submit Button
   submit_pins.disabled = true;
 };

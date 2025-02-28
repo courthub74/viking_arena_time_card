@@ -353,11 +353,9 @@ label {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin-top: -1em; */
     transition: all .4s ease-in;
-    /* padding: 1em; */
-    /* background-color: #0AA51C; */
     width: 100%;
+    position: relative;
 }
 
 /* Match (first-child)*/
@@ -368,16 +366,14 @@ label {
 
 .match_.entered {
     opacity: 1;
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     /* display: inline-block; */
     justify-content: center;
     align-items: center;
     color: var(--pins-match);
     color: green;
-    background-color: var(--match-background);
-    border-radius: 5px;
-    font-size: 1rem;
+    /* background-color: var(--match-background); */
     font-size: small;
     width: 100%;
 }
@@ -390,7 +386,7 @@ label {
 
 .no_match.entered {
     opacity: 1;
-    position: relative;
+    /* position: relative; */
     /* display: inline-block; */
     display: flex;
     justify-content: center;
@@ -404,6 +400,14 @@ label {
     font-size: small;
     width: 100%;
 }
+
+
+.match_, .no_match {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
 
 /* Submit Button */
 .submit {
