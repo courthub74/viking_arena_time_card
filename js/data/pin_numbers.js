@@ -25,23 +25,36 @@ let no_match_notify = document.querySelector('.no_match');
 // const pin_set_value = [...pin_set].map((each_pin_set) => each_pin_set.value.join(""));
 
 // JS for pin puts for key behavior
+// pin_set.forEach((input, key) => {
+//     input.addEventListener('keyup', (e) => {
+//         if (e.key === 'Backspace') {
+//             if (key > 0) {
+//                 pin_set[key - 1].focus();
+//             }
+//         } else {
+//             if (key < pin_set.length - 1) {
+//                 pin_set[key + 1].focus();
+//             }
+//         }
+//     });
+// });
+
 pin_set.forEach((input, key) => {
-    // Add event listener function to the input argument that iterates thru the inputs
-    input.addEventListener("keyup", function() {
-        // IF each input has a value:
-        if (this.value.length === 1) {
-            // Move to the next input
-            // pin_set[key + 1].focus();
-            input.nextElementSibling.focus();
-        }
-        // if all 4 inputs are entered:
-        if (key === 4) {
-            // Map through and read the whole row of nums
-            const pin_set_value = [...pin_set].map((each_pin_set) => each_pin_set.value.join(""));
-            //Print the digits to the console
-            console.log(`The First Pin Number is: ${pin_set_value}`);
-            // After all 4 entered, jump to confirm
+  // Add event listener function to input that iterates through the inputs
+  input.addEventListener("keyup", (e) => {
+    if (input.value) {
+        // If all 4 inputs are filled, focus on the first confirm input
+        if (key === 3) {
+            // Let's read the Pin Nums for matching to the confirm pin
+            const pin_set_value = [...pin_set].map((each_pin_set) => each_pin_set.value).join("");
+            // Print digits to console
+            console.log(`The First Pin #: ${pin_set_value}`);
+            // Focus on the first confirm input
             pin_confirm[0].focus();
+        } else {
+            // Focus on the next input
+            pin_set[key + 1].focus();
         }
-    });
+    }
+  });
 });
