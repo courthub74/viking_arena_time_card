@@ -39,6 +39,8 @@ let no_match_notify = document.querySelector('.no_match');
 //     });
 // });
 
+// JS for pin puts for key behavior
+// First Row
 pin_set.forEach((input, key) => {
   // Add event listener function to input that iterates through the inputs
   input.addEventListener("keyup", (e) => {
@@ -54,6 +56,27 @@ pin_set.forEach((input, key) => {
         } else {
             // Focus on the next input
             pin_set[key + 1].focus();
+        }
+    }
+  });
+});
+
+// Second Row
+pin_confirm.forEach((input_2, key_2) => {
+  // Add event listener function to input that iterates through the inputs
+  input_2.addEventListener("keyup", (e) => {
+    if (input_2.value) {
+        // If all 4 inputs are filled, focus on the submit button
+        if (key_2 === 3) {
+            // Let's read the Pin Nums for matching to the confirm pin
+            const pin_confirm_value = [...pin_confirm].map((each_pin_confirm) => each_pin_confirm.value).join("");
+            // Print digits to console
+            console.log(`The Confirm Pin #: ${pin_confirm_value}`);
+            // Focus on the submit button
+            submit_pins.focus();
+        } else {
+            // Focus on the next input
+            pin_confirm[key_2 + 1].focus();
         }
     }
   });
