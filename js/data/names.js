@@ -32,5 +32,5 @@ names_form.addEventListener('submit', (e) => {
     const encodedLast = encodeURIComponent(last);
     
     // Redirect to the next page (pin number) with URL parameters 
-    window.location.href = `pin_number.html?first_init=${encodedFirst}&last_name=${encodedLast}`;
+    window.location.href = `pin_number.html?first_name=${encodedFirst}&last_name=${encodedLast}`;
 });
