@@ -31,7 +31,8 @@ pin_set.forEach((input, key) => {
         // IF each input has a value:
         if (this.value.length === 1) {
             // Move to the next input
-            pin_set[key + 1].focus();
+            // pin_set[key + 1].focus();
+            input.nextElementSibling.focus();
         }
         // if all 4 inputs are entered:
         if (key === 4) {
