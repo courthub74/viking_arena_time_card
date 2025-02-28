@@ -109,6 +109,56 @@ pin_set.forEach((input_1) => {
   });
 });
 
+// Pin Confirm Row
+// (always have to map through the inputs)
+// (and provide a key for the comparison after all inputs are filled)
+pin_confirm.forEach((input_2, key_2) => {
+  // Record Keys for confirm pin field comparison
+  input_2.addEventListener("keyup", () => {
+    // For the values entered in pin confirm row
+    if (input_2.value) {
+      // You need all 4 inputs to compare
+      if (key_2 === 3) {
+        // Test print
+        console.log("pin confirm row: compare");
+        // Map through the inputs for pin confirm row
+        const pin_confirm_compare = [...pin_confirm].map((compare_pin_confirm) => compare_pin_confirm.value).join("");
+        // Print digits to console
+        console.log(`The Confirm Pin #: ${pin_confirm_compare}`);
+        // Compare the values
+        // first get the values from the pin set row
+        pin_set.forEach((input_1) => {
+          if (input_1.value) {
+            // Map through the inputs for pin set row
+            const pin_set_compare = [...pin_set].map((compare_pin_set) => compare_pin_set.value).join("");
+            // Print digits to console
+            console.log(`The First Pin #: ${pin_set_compare}`);
+            // Compare the values
+            if (pin_set_compare === pin_confirm_compare) {
+              // If the values match
+              console.log("Match");
+              // Display the Match Notification
+              // match_notify.style.display = "block";
+              match_notify.classList.add('entered');
+              // no_match_notify.style.display = "none";
+              // remove pins don't match
+              no_match_notify.classList.remove('entered');
+            } else {
+              // If the values don't match
+              console.log("No Match");
+              // Display the No Match Notification
+              // no_match_notify.style.display = "block";
+              match_notify.classList.remove('entered');
+              // match_notify.style.display = "none";
+              no_match_notify.classList.add('entered');
+            }
+          }
+        });
+      }
+    }
+  });
+});
+
 
 
 
