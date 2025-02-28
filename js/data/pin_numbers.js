@@ -20,6 +20,9 @@ let match_notify = document.querySelector('.match_');
 // No Match
 let no_match_notify = document.querySelector('.no_match');
 
+// Query the form
+const form = document.querySelector('form');
+
 
 // Map through the Set Pin
 // const pin_set_value = [...pin_set].map((each_pin_set) => each_pin_set.value.join(""));
@@ -143,6 +146,8 @@ pin_confirm.forEach((input_2, key_2) => {
               // no_match_notify.style.display = "none";
               // remove pins don't match
               no_match_notify.classList.remove('entered');
+              // Enable the Submit Button
+              submit_pins.disabled = false;
             } else {
               // If the values don't match
               console.log("No Match");
@@ -159,7 +164,30 @@ pin_confirm.forEach((input_2, key_2) => {
   });
 });
 
+// CLEAR BUTTON FUNCTIONALITY
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+// Call this function in the Clear button
+const reset = () => {
+  // Reset the form
+  form.reset();
+  // Delete the Match Notify
+  match_notify.classList.remove('entered');
+  // Delete the No Match
+  no_match_notify.classList.remove('entered');
+  // Disable the Submit Button
+  submit_pins.disabled = true;
+};
 
+// Add event listener to the reset button
+reset_pins.addEventListener('click', (e) => {
+  // so submit doesn't refresh the page
+  e.preventDefault();
+  // Test print button function
+  console.log("Reset Button Pressed");
+  // Call the reset function
+  reset();
+});
 
 
 //////////////////////////////////////////////////////////////
