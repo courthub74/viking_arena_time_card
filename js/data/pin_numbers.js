@@ -39,7 +39,11 @@ let no_match_notify = document.querySelector('.no_match');
 //     });
 // });
 
+
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 // JS for pin puts for key behavior
+
 // First Row
 pin_set.forEach((input, key) => {
   // Add event listener function to input that iterates through the inputs
@@ -87,6 +91,23 @@ pin_confirm.forEach((input_2, key_2) => {
 //////////////////////////////////////////////////////////////
 // COMPARISON MAPS BELOW
 // This is where the notification will be displayed also
+
+// Pin Set Row
+// (always have to map through the inputs)
+pin_set.forEach((input_1) => {
+  // Record Keys for first pin field comparison
+  input_1.addEventListener("keyup", () => {
+    // For the values entered in pin set row
+    if (input_1.value) {
+      // Test print
+      console.log("pin set row: compare");
+      // Map through the inputs for pin set row
+      const pin_set_compare = [...pin_set].map((compare_pin_set) => compare_pin_set.value).join("");
+      // Print digits to console
+      console.log(`The First Pin #: ${pin_set_compare}`);
+    }
+  });
+});
 
 
 
