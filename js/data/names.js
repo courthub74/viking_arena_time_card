@@ -27,6 +27,13 @@ names_form.addEventListener('submit', (e) => {
     // Test print for now
     console.log(last);
 
+    // Check if the user has entered a first name
+    if (!first) {
+        // Display error message
+        alert("Please enter your first name");
+        return;
+    }
+
     // Encode parameters
     const encodedFirst = encodeURIComponent(first);
     const encodedLast = encodeURIComponent(last);
