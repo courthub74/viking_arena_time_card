@@ -315,6 +315,10 @@ label {
     text-align: center;
     width: 4em;
     height: 4em;
+    outline: none;
+    font-size: 16px;
+    max-height: 100%;
+    -webkit-appearance: none;
 }
 
 .pin_put_confirm {
@@ -325,6 +329,11 @@ label {
     text-align: center;
     width: 4em;
     height: 4em;
+    outline: none;
+    font-size: 16px;
+    max-height: 100%;
+    -webkit-appearance: none;
+
 }
 
 /* Reset Pins Button */
