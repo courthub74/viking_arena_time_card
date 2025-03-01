@@ -3,6 +3,29 @@
 // Query the names form
 const names_form = document.getElementById('names_form');
 
+// Query the submit button
+const submit_names = document.getElementById('submit_login');
+
+// Query the names notify
+const names_alert = document.getElementById('name_notify');
+
+// Query the first name
+const firstname = document.getElementById('firstname');
+
+// Query the last name
+const lastname = document.getElementById('lastname');
+
+// Enable submit button when both inputs are filled
+lastname.addEventListener('keyup', (e) => {
+    e.preventDefault();
+    if (firstname.value && lastname.value) {
+        console.log("Both inputs are filled");
+        submit_names.disabled = false;
+    } else {
+        submit_names.disabled = true;
+    }
+});
+
 // Add event listener to submit button to register the user
 names_form.addEventListener('submit', (e) => {
     // so submit doesn't refresh the page
@@ -28,11 +51,13 @@ names_form.addEventListener('submit', (e) => {
     console.log(last);
 
     // Check if the user has entered a first name
-    if (!first) {
-        // Display error message
-        alert("Please enter your first name");
-        return;
-    }
+    // if (!first) {
+    //     // Display error message
+    //     // alert("Please enter your first name");
+    //     // return;
+    //     // Add HTML to name notify
+    //     names_alert.innerHTML = "Please enter your first name";
+    // }
 
     // Encode parameters
     const encodedFirst = encodeURIComponent(first);
