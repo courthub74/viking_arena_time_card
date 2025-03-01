@@ -315,6 +315,10 @@ label {
     text-align: center;
     width: 4em;
     height: 4em;
+    outline: none;
+    font-size: 16px;
+    max-height: 100%;
+    -webkit-appearance: none;
 }
 
 .pin_put_confirm {
@@ -325,6 +329,11 @@ label {
     text-align: center;
     width: 4em;
     height: 4em;
+    outline: none;
+    font-size: 16px;
+    max-height: 100%;
+    -webkit-appearance: none;
+
 }
 
 /* Reset Pins Button */
@@ -344,11 +353,9 @@ label {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin-top: -1em; */
     transition: all .4s ease-in;
-    /* padding: 1em; */
-    /* background-color: #0AA51C; */
     width: 100%;
+    position: relative;
 }
 
 /* Match (first-child)*/
@@ -359,17 +366,15 @@ label {
 
 .match_.entered {
     opacity: 1;
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     /* display: inline-block; */
     justify-content: center;
     align-items: center;
     color: var(--pins-match);
-    background-color: var(--match-background);
-    /* padding: .7em 6em; */
-    border-radius: 5px;
-    /* border: 1px solid var(--pins-match); */
-    font-size: .8em;
+    color: green;
+    /* background-color: var(--match-background); */
+    font-size: small;
     width: 100%;
 }
 
@@ -381,20 +386,32 @@ label {
 
 .no_match.entered {
     opacity: 1;
-    position: relative;
+    /* position: relative; */
     /* display: inline-block; */
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--pins-no-match);
+    color: red;
     /* margin-top: -1em; */
     background-color: var(--match-background);
     border-radius: 5px;
-    /* border: 1px solid var(--pins-no-match); */
-    /* padding: .7em 5em; */
-    font-size: .8em;
+    font-size: 1rem;
+    font-size: small;
     width: 100%;
 }
+
+.match_, .no_match {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+
+  .pin_match {
+    width: 1.5em;
+    height: 1.5em;
+  }
 
 /* Submit Button */
 .submit {
@@ -406,6 +423,19 @@ label {
     cursor: pointer;
     width: 100%;
     /* margin-top: 1em; */
+}
+
+/* No outline on focus */
+.submit:focus {
+    outline: none;
+}
+
+ /* Submit Disabled */
+ .submit:disabled {
+    background-color: var(--button-background);
+    color: var(--text-color);
+    opacity: .6;
+    cursor: not-allowed;
 }
 
 /* For wider screens narrow the form */
