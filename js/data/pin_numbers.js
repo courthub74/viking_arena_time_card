@@ -203,8 +203,22 @@ submit_pins.addEventListener('click', (e) => {
   e.preventDefault();
   // Test print button function
   console.log("Submit Button Pressed");
+  // Encode and send the pin values
   // This is where you encode the pin numbers
-  // and Grab the First Name and Last Name from the URL
+  // Map through the confirm Pin
+  const pin_confirm_value = [...pin_confirm].map((each_pin_confirm) => each_pin_confirm.value).join("");
+  // Encode parameters
+  const encodedPinConfirm = encodeURIComponent(pin_confirm_value);
   // Redirect to the next page (pin number) with URL parameters
-  // Query the set pin numbers
+  window.location.href = `pin_number.html?pin_confirm=${encodedPinConfirm}`;
 });
+
+
+// // search for first name and last name in the URL
+// const urlParams = new URLSearchParams(window.location.search);  
+// // get the first name from the URL
+// const first_name = urlParams.get('first_name') ? decodeURIComponent (urlParams.get('first_name')) : 'No First Name';
+// // get the last name from the URL
+// const last_name = urlParams.get('last_name') ? decodeURIComponent (urlParams.get('last_name')) : 'No Last Name';
+// // get the pin number from the URL
+// const encodedPinConfirm = urlParams.get('pin_confirm') ? decodeURIComponent (urlParams.get('pin_confirm')) : 'No Pin Number';
