@@ -210,7 +210,7 @@ submit_pins.addEventListener('click', (e) => {
   // Encode parameters
   const encodedPinConfirm = encodeURIComponent(pin_confirm_value);
   // Redirect to the next page (pin number) with URL parameters
-  window.location.href = `pin_number.html?pin_confirm=${encodedPinConfirm}`;
+  window.location.href = `acct_type.html?pin_confirm=${encodedPinConfirm}`;
 });
 
 

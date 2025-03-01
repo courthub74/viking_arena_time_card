@@ -63,30 +63,40 @@
                 </div>
             </header>
 
-            <label>Now choose your account type:</label>
+            <!-- <label>Now choose your account type:</label> -->
+             <label>Select your position at Viking Ice Arena:</label>
 
             <!-- ACCOUNT TYPE BUTTONS -->
             <div class="acct_types">
 
                 <!-- Each button -->
-                <button class="acct_button" value="manager" id="manager">
-                    <p>Manager</p>
-                </button>
 
-                <button class="acct_button" value="zamboni" id="zamboni_driver">
-                    <p>Zamboni Driver</p>
-                </button>
+                <!-- Manager -->
+                <div class="radio-container">
+                    <input type="radio" name="role" value="manager" id="manager" class="acct_radio">
+                    <label for="manager">Manager</label>
+                </div>
 
-                <button class="acct_button" value="instructor" id="skate_instructor">
-                    <p>Skate Instructor</p>
-                </button>
+                <!-- Zamboni -->
+                <div class="radio-container">
+                    <input type="radio" name="role" value="zamboni" id="zamboni_driver" class="acct_radio">
+                    <label for="zamboni_driver">Zamboni Driver</label>
+                </div>
 
-                <button class="acct_button" value="guard" id="skate_guard">
-                    <p>Skate Guard</p>
-                </button>
+                <!-- Zamboni -->
+                <div class="radio-container">
+                    <input type="radio" name="role" value="instructor" id="skate_instructor" class="acct_radio">
+                    <label for="skate_instructor">Skate Instructor</label>
+                </div>
+
+                <!-- Zamboni -->
+                <div class="radio-container">
+                    <input type="radio" name="role" value="guard" id="skate_guard" class="acct_radio">
+                    <label for="skate_guard">Skate Guard</label>
+                </div>
 
                 <!-- Submit Button -->
-            <button class="submit" id="submit_login">Next</button>
+            <button class="submit" id="submit_acct_type">Next</button>
 
             </div>
 

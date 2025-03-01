@@ -29,6 +29,9 @@
      /* Button Colors */
      --button-background: #009DF8;
      --button-text: white;
+
+     /* Account Type Colors */
+    --acct-type-selected: #2065a58a;
 }
 
 /* DARK MODE */
@@ -58,6 +61,12 @@ body.dark-mode {
      /* Button Colors */
      --button-background: #009DF8;
      --button-text: white;
+
+     /* Account Type Colors */
+    --acct-type-selected: #38536D;
+    --acct-type-selected: #38536d9b;
+    --acct-type-selected: #17426b7c;
+
 }
 
 /* WHOLE BODY */
@@ -298,17 +307,38 @@ label {
     gap: 2em;
 }
 
-.acct_button {
+
+.acct_radio {
+    margin-right: 8px;
+    position: absolute;
+    /* opacity: 0; */
+    width: 0;
+    height: 0;
+  }
+
+
+.radio-container label {
+    display: flex;
+    justify-content: center;
     width: 100%;
     background-color: var(--input-background);
     border: none;
-    padding: 1em;
+    padding: 1.5em;
     color: var(--text-color);
     font-size: small;
-    /* font-weight: bold; */
     cursor: pointer;
     font-family: 'Poppins';
-}
+  }
+  
+  .radio-container:hover {
+    background-color: #e8e8e8;
+  }
+
+  .acct_radio:checked + label {
+    /* border: 1px solid var(--button-background); */
+    box-sizing: border-box;
+    background-color: var(--acct-type-selected);
+  }
 
 
 /* Submit Button */
@@ -317,7 +347,7 @@ label {
     color: white;
     border: none;
     padding: 1.5em;
-    font-weight: bold;
+    /* font-weight: bold; */
     cursor: pointer;
     width: 100%;
     /* margin-top: 1em; */
