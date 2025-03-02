@@ -1,10 +1,16 @@
  // Get URL Parameters (it's a search)
  const urlParams = new URLSearchParams(window.location.search);
 
-    // Get the Name from the URL Parameters and decode it
-    // The Name | Account Type | Pin Number are all retrieved by ID
-    const confirmed_name = urlParams.get('name') ? decodeURIComponent(urlParams.get('name')) : 'No Name';
-    console.log(confirmed_name);
+    
+    // First Name | Last Name | Account Type | Pin Number are all retrieved by ID
+
+    // Get the First Name from the URL Parameters and decode it
+    const encodedFirstName = urlParams.get('first_name') ? decodeURIComponent(urlParams.get('first_name')) : 'No First Name';
+    console.log(encodedFirstName);
+
+    // Get the Last Name from the URL Parameters and decode it
+    const encodedLastName = urlParams.get('last_name') ? decodeURIComponent(urlParams.get('last_name')) : 'No Last Name';
+    console.log(encodedLastName);
 
     // Get the Account Type from the URL Parameters
     const acct_type = urlParams.get('acct_type');

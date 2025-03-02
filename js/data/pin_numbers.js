@@ -209,8 +209,16 @@ submit_pins.addEventListener('click', (e) => {
   const pin_confirm_value = [...pin_confirm].map((each_pin_confirm) => each_pin_confirm.value).join("");
   // Encode parameters
   const encodedPinConfirm = encodeURIComponent(pin_confirm_value);
-  // Redirect to the next page (pin number) with URL parameters
-  window.location.href = `acct_type.html?pin_confirm=${encodedPinConfirm}`;
+  // Retrieve the URL Parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  // Get the Encoded First Name from the URL Parameters and decode it
+  const encodedFirstName = urlParams.get('first_name') ? decodeURIComponent(urlParams.get('first_name')) : 'No First Name';
+  // May need to get the name by value 
+  console.log(encodedFirstName);
+  // Get the Encoded Last Name from the URL Parameters and decode it
+  const encodedLastName = urlParams.get('last_name') ? decodeURIComponent(urlParams.get('last_name')) : 'No Last Name';
+  // Redirect to the URL parameters to the next page
+  window.location.href = `acct_type.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&pin_confirm=${encodedPinConfirm}`;
 });
 
 
