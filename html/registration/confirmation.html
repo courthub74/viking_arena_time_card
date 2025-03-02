@@ -59,34 +59,33 @@
 
                 <!-- App State -->
                 <div class="app_state">
-                    <p>Confirmation:</p>
+                    <p>You are registered as:</p>
                 </div>
             </header>
 
-            <label>You are registered as:</label>
 
             <!-- CONFIRMED FIELDS (Change the HTML with JS on these) -->
 
             <!-- NAME -->
             <div class="confirmed_field">
-                <label for="confirmed_name">Name:</label>
+                <label for="confirmed_name" class="confirmed_label">Name:</label>
                 <p class="confirmed_info" id="confirmed_name"></p>
             </div>
 
             <!-- ACCOUNT TYPE -->
             <div class="confirmed_field">
-                <label for="confirmed_acct_type">Account Type:</label>
+                <label for="confirmed_acct_type" class="confirmed_label">Account Type:</label>
                 <p class="confirmed_info" id="confirmed_acct_type"></p>
             </div>
 
             <!-- NAME -->
             <div class="confirmed_field">
-                <label for="confirmed_pin_num">Pin #:</label>
-                <p class="confirmed_info" id="confirmed_pin_num"></p>
+                <label for="confirmed_pin_num" class="confirmed_label">Pin #:</label>
+                <p class="confirmed_info" id="confirmed_pin"></p>
             </div>
 
             <!-- EDIT OPTION -->
-            <p class="confirmation_edit">Click <button class="edit" id="edit_info">Here</button> if you need to change anything</p>
+            <p class="confirmation_edit"><button class="edit" id="edit_info">Edit Here</button></p>
 
 
             <!-- Submit Button -->
@@ -94,7 +93,7 @@
             <!-- This is where Authorization comes into play -->
             <!-- If Manager Account / Button should say (Go to Employee hours) -->
             <!-- If Employee Account / Button should say (Go to your Calendar) -->
-            <button class="submit" id="submit_login">Next</button>
+            <button class="submit" id="confirmation_advance">Next</button>
         </form>
     </div>
 

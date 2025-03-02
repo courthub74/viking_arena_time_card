@@ -62,9 +62,9 @@ form.addEventListener('submit', (e) => {
     } else if (zamboni.checked) {
         window.location.href = `confirmation.html?acct_type=Zamboni Driver&first_name=${encodedFirstName}&last_name=${encodedLastName}&encodedPinConfirm=${encodedPinConfirm}`;
     } else if (skateInstructor.checked) {
-        window.location.href = `confirmation.html?acct_type=skate_instructor&first_name=${encodedFirstName}&last_name=${encodedLastName}&encodedPinConfirm=${encodedPinConfirm}`;
+        window.location.href = `confirmation.html?acct_type=Skate Instructor&first_name=${encodedFirstName}&last_name=${encodedLastName}&encodedPinConfirm=${encodedPinConfirm}`;
     } else if (skateGuard.checked) {
-        window.location.href = `confirmation.html?acct_type=skate_guard&first_name=${encodedFirstName}&last_name=${encodedLastName}&encodedPinConfirm=${encodedPinConfirm}`;
+        window.location.href = `confirmation.html?acct_type=Skate Guard&first_name=${encodedFirstName}&last_name=${encodedLastName}&encodedPinConfirm=${encodedPinConfirm}`;
     }
 });
 

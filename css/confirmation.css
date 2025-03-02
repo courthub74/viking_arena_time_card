@@ -66,6 +66,7 @@ body.dark-mode {
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
+    border-radius: 5px;
 }
 
 /* Body for All */
@@ -293,64 +294,45 @@ header {
     /* width: 100%; */
 }
 
+/* The Labels */
 label {
     opacity: 100%;
     font-size: small;
 }
 
-.pin_field {
-    display: flex;
-    gap: 1.7em;
-    gap: 1.1em;
-    gap: .6em;
-    width: 100%;
-}
-
-/* The Pin Puts */
-.pin_put_set {
-    flex: 1;
-    background-color: var(--input-background);
-    border: none;
-    color: var(--text-color);
-    text-align: center;
-    width: 4em;
-    height: 4em;
-    outline: none;
-    font-size: 16px;
-    max-height: 100%;
-    -webkit-appearance: none;
-}
-
-.pin_put_confirm {
-    flex: 1;
-    background-color: var(--input-background);
-    border: none;
-    color: var(--text-color);
-    text-align: center;
-    width: 4em;
-    height: 4em;
-    outline: none;
-    font-size: 16px;
-    max-height: 100%;
-    -webkit-appearance: none;
-
-}
-
-/* Reset Pins Button */
-#reset_button {
-    background: none;
-    color: var(--menu-text-color);
-    border: none;
-    text-align: left;
-    cursor: pointer;
+.confirmed_label {
+    opacity: 60%;
     font-size: small;
-    /* font-weight: bold; */
 }
 
+/* Confirmed Field */
+.confirmed_field {
+    background-color: var(--input-background);
+    padding: .8em;
+    border: none;
+    color: var(--text-color);
+    margin-top: .5em;
+}
+
+.confirmed_info {
+    /* font-weight: bold; */
+    font-size: medium;
+    opacity: 100%;
+}
 
 /* Edit Button */
 .confirmation_edit {
     font-size: small;
+    /* font-size: 1rem; */
+}
+
+.edit {
+    background: none;
+    border: none;
+    color: var(--button-background);
+    cursor: pointer;
+    /* font-weight: bold; */
+    font-size: .9rem;
 }
 
 /* Submit Button */
