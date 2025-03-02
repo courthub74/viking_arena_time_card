@@ -58,9 +58,9 @@ form.addEventListener('submit', (e) => {
 
     // Redirect to the next page (pin number) with URL parameters 
     if (manager.checked) {
-        window.location.href = `confirmation.html?acct_type=manager&first_name=${encodedFirstName}&last_name=${encodedLastName}&encodedPinConfirm=${encodedPinConfirm}`;
+        window.location.href = `confirmation.html?acct_type=Manager&first_name=${encodedFirstName}&last_name=${encodedLastName}&encodedPinConfirm=${encodedPinConfirm}`;
     } else if (zamboni.checked) {
-        window.location.href = `confirmation.html?acct_type=zamboni&first_name=${encodedFirstName}&last_name=${encodedLastName}&encodedPinConfirm=${encodedPinConfirm}`;
+        window.location.href = `confirmation.html?acct_type=Zamboni Driver&first_name=${encodedFirstName}&last_name=${encodedLastName}&encodedPinConfirm=${encodedPinConfirm}`;
     } else if (skateInstructor.checked) {
         window.location.href = `confirmation.html?acct_type=skate_instructor&first_name=${encodedFirstName}&last_name=${encodedLastName}&encodedPinConfirm=${encodedPinConfirm}`;
     } else if (skateGuard.checked) {

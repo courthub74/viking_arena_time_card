@@ -6,7 +6,7 @@
     <title>Viking Time Card</title>
 
       <!-- CSS -->
-      <link rel="stylesheet" href="/../../css/pin_number.css">
+      <link rel="stylesheet" href="/../../css/confirmation.css">
 </head>
 <body>
 
@@ -86,11 +86,15 @@
             </div>
 
             <!-- EDIT OPTION -->
-            <p>Click <button class="edit" id="edit_info">Here</button> if you need to change anything</p>
+            <p class="confirmation_edit">Click <button class="edit" id="edit_info">Here</button> if you need to change anything</p>
 
 
             <!-- Submit Button -->
-            <button class="submit" id="submit_login" disabled>Next</button>
+
+            <!-- This is where Authorization comes into play -->
+            <!-- If Manager Account / Button should say (Go to Employee hours) -->
+            <!-- If Employee Account / Button should say (Go to your Calendar) -->
+            <button class="submit" id="submit_login">Next</button>
         </form>
     </div>
 

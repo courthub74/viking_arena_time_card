@@ -22,9 +22,11 @@
 
 \*Compare the pin number to the pin number in the database
 
-### Registration Page
+### Registration
 
 \*~Pin Code Match JavaScript~
+
+\*Implement authorization to the Submit Button at Confirmation
 
 ### Database
 
