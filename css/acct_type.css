@@ -354,6 +354,19 @@ label {
     /* margin-top: 1em; */
 }
 
+/* No outline on focus */
+.submit:focus {
+    outline: none;
+}
+
+ /* Submit Disabled */
+ .submit:disabled {
+    background-color: var(--button-background);
+    color: var(--text-color);
+    opacity: .6;
+    cursor: not-allowed;
+}
+
 /* For wider screens narrow the form */
 
 /* Landscape */
