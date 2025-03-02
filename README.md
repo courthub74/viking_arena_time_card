@@ -40,6 +40,10 @@
 
 \*Add Names registered to Name dropdown at login
 
+## Calendar
+
+\* implement a calendar API
+
 ## Messaging
 
 \*Add direct messaging between all users
