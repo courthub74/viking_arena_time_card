@@ -165,6 +165,31 @@ pin_set.forEach((input_1, key_1) => {
   });
 });
 
+// Pin Confirm Row
+pin_confirm.forEach((input_2, key_2) => {
+  // Add event listener function to input that iterates through the inputs
+  input_2.addEventListener("keydown", (e) => {
+    if (e.key === "Backspace") {
+      // If the backspace is pressed on the first input, focus on the first input (prevents backspacing to the previous input)
+      if (key_2 === 0) {
+        // Focus on the first input
+        pin_confirm[0].focus();
+      } else {
+        // Focus on the previous input
+        pin_confirm[key_2 - 1].focus();
+      }
+    }
+  });
+});
+
+// Optional: Auto-focus the first input when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  if (pinInputs.length > 0) {
+    pinInputs[0].focus();
+  }
+});
+
+
 // CLEAR BUTTON FUNCTIONALITY
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
