@@ -155,40 +155,68 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// BACKSPACE FUNCTIONALITY
-// Pin Set Row
-pin_set.forEach((input_1, key_1) => {
-  // Add event listener function to input that iterates through the inputs
-  input_1.addEventListener("keydown", (e) => {
+
+// PIN BACKSPACE FUNCTIONALITY
+
+pin_set.forEach((input, index) => {
+  // Add keydown event listener to each input
+  input.addEventListener("keydown", (e) => {
+    // Check if backspace key is pressed
     if (e.key === "Backspace") {
-      // If the backspace is pressed on the first input, focus on the first input (prevents backspacing to the previous input)
-      if (key_1 === 0) {
-        // Focus on the first input
-        pin_set[0].focus();
-      } else {
-        // Focus on the previous input
-        pin_set[key_1 - 1].focus();
+      // If the input is empty AND we're not on the first input, move to previous input
+      if (input.value === "" && index > 0) {
+        e.preventDefault(); // Prevent default backspace behavior
+        pin_set[index - 1].focus(); // Focus previous input
+        pin_set[index - 1].value = ""; // Clear the previous input's value
       }
+      
+      // If the input has a value, just let the backspace clear it normally
+      // No need to change focus in this case
     }
   });
+  
+  // Add input event listener to auto-advance to next field
+  // input.addEventListener("input", () => {
+  //   // If this input has a value and there's a next input, focus on it
+  //   if (input.value !== "" && index < pin_set.length - 1) {
+  //     pin_set[index + 1].focus();
+  //   }
+  // });
 });
 
-// Pin Confirm Row
-pin_confirm.forEach((input_2, key_2) => {
-  // Add event listener function to input that iterates through the inputs
-  input_2.addEventListener("keydown", (e) => {
-    if (e.key === "Backspace") {
-      // If the backspace is pressed on the first input, focus on the first input (prevents backspacing to the previous input)
-      if (key_2 === 0) {
-        // Focus on the first input
-        pin_confirm[0].focus();
-      } else {
-        // Focus on the previous input
-        pin_confirm[key_2 - 1].focus();
-      }
-    }
-  });
-});
+// Pin Set Row
+// pin_set.forEach((input_1, key_1) => {
+//   // Add event listener function to input that iterates through the inputs
+//   input_1.addEventListener("keydown", (e) => {
+//     if (e.key_1 === "Backspace") {
+//       // If the backspace is pressed on the first input, focus on the first input (prevents backspacing to the previous input)
+//       if (key_1 === 0) {
+//         // Focus on the first input
+//         pin_set[0].focus();
+//       } else {
+//         // Focus on the previous input
+//         pin_set[key_1 - 1].focus();
+//       }
+//     }
+//   });
+// });
+
+// // Pin Confirm Row
+// pin_confirm.forEach((input_2, key_2) => {
+//   // Add event listener function to input that iterates through the inputs
+//   input_2.addEventListener("keydown", (e) => {
+//     if (e.key === "Backspace") {
+//       // If the backspace is pressed on the first input, focus on the first input (prevents backspacing to the previous input)
+//       if (key_2 === 0) {
+//         // Focus on the first input
+//         pin_confirm[0].focus();
+//       } else {
+//         // Focus on the previous input
+//         pin_confirm[key_2 - 1].focus();
+//       }
+//     }
+//   });
+// });
 
 
 
