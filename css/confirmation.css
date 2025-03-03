@@ -305,6 +305,13 @@ label {
     font-size: small;
 }
 
+/* Confirmed Field Div */
+.confirmed_fields {
+    display: flex;
+    flex-direction: column;
+    gap: .8em;
+}
+
 /* Confirmed Field */
 .confirmed_field {
     background-color: var(--input-background);
