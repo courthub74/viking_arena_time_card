@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // PIN BACKSPACE FUNCTIONALITY
 
+// Pin Set Row
 pin_set.forEach((input, index) => {
   // Add keydown event listener to each input
   input.addEventListener("keydown", (e) => {
@@ -173,7 +174,25 @@ pin_set.forEach((input, index) => {
       // If the input has a value, just let the backspace clear it normally
       // No need to change focus in this case
     }
-  });
+});
+
+// Pin Confirm Row
+pin_confirm.forEach((input, index) => {
+  // Add keydown event listener to each input
+  input.addEventListener("keydown", (e) => {
+    // Check if backspace key is pressed
+    if (e.key === "Backspace") {
+      // If the input is empty AND we're not on the first input, move to previous input
+      if (input.value === "" && index > 0) {
+        e.preventDefault(); // Prevent default backspace behavior
+        pin_confirm[index - 1].focus(); // Focus previous input
+        pin_confirm[index - 1].value = ""; // Clear the previous input's value
+      }
+      
+      // If the input has a value, just let the backspace clear it normally
+      // No need to change focus in this case
+    }
+});
   
   // Add input event listener to auto-advance to next field
   // input.addEventListener("input", () => {
