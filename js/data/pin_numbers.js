@@ -24,25 +24,6 @@ let no_match_notify = document.querySelector('.no_match');
 const form = document.querySelector('form');
 
 
-// Map through the Set Pin
-// const pin_set_value = [...pin_set].map((each_pin_set) => each_pin_set.value.join(""));
-
-// JS for pin puts for key behavior
-// pin_set.forEach((input, key) => {
-//     input.addEventListener('keyup', (e) => {
-//         if (e.key === 'Backspace') {
-//             if (key > 0) {
-//                 pin_set[key - 1].focus();
-//             }
-//         } else {
-//             if (key < pin_set.length - 1) {
-//                 pin_set[key + 1].focus();
-//             }
-//         }
-//     });
-// });
-
-
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
 // JS for pin puts for key behavior
@@ -161,6 +142,24 @@ pin_confirm.forEach((input_2, key_2) => {
             }
           }
         });
+      }
+    }
+  });
+});
+
+// BACKSPACE FUNCTIONALITY
+// Pin Set Row
+pin_set.forEach((input_1, key_1) => {
+  // Add event listener function to input that iterates through the inputs
+  input_1.addEventListener("keydown", (e) => {
+    if (e.key === "Backspace") {
+      // If the backspace is pressed on the first input, focus on the first input
+      if (key_1 === 0) {
+        // Focus on the first input
+        pin_set[0].focus();
+      } else {
+        // Focus on the previous input
+        pin_set[key_1 - 1].focus();
       }
     }
   });
