@@ -153,7 +153,7 @@ pin_set.forEach((input_1, key_1) => {
   // Add event listener function to input that iterates through the inputs
   input_1.addEventListener("keydown", (e) => {
     if (e.key === "Backspace") {
-      // If the backspace is pressed on the first input, focus on the first input
+      // If the backspace is pressed on the first input, focus on the first input (prevents backspacing to the previous input)
       if (key_1 === 0) {
         // Focus on the first input
         pin_set[0].focus();
