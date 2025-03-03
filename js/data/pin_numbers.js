@@ -147,11 +147,10 @@ pin_confirm.forEach((input_2, key_2) => {
   });
 });
 
-// Select all PIN input fields
-const pinInputs = document.querySelectorAll('.pin_put_set');
+// // BACKSPACE FUNCTIONALITY
 
 // Add event listeners to each input field
-pinInputs.forEach((input, index) => {
+pin_set.forEach((input, index) => {
   // Handle input (for moving to next field)
   input.addEventListener('input', (e) => {
     // Move to next input field if this one is filled
@@ -178,6 +177,38 @@ pinInputs.forEach((input, index) => {
     }
   });
 });
+
+// Add event listeners to each input field
+pin_confirm.forEach((input, index) => {
+  // Handle input (for moving to next field)
+  input.addEventListener('input', (e) => {
+    // Move to next input field if this one is filled
+    if (e.target.value.length === 1 && index < pinInputs.length - 1) {
+      pinInputs[index + 1].focus();
+    }
+  });
+
+  // Handle keydown for backspace
+  input.addEventListener('keydown', (e) => {
+    // Check if backspace key was pressed
+    if (e.key === 'Backspace') {
+      // If current input is empty and not the first input, move to previous input
+      if (e.target.value.length === 0 && index > 0) {
+        pinInputs[index - 1].focus();
+        // Optional: Clear the previous input as well
+        // pinInputs[index - 1].value = '';
+        
+        // Prevent default backspace behavior when moving to previous field
+        e.preventDefault();
+      }
+      
+      // If current input has content, the default backspace behavior will clear it
+    }
+  });
+});
+
+
+
 
 // Optional: Auto-focus the first input when the page loads
 document.addEventListener('DOMContentLoaded', () => {
