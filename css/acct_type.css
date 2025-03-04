@@ -333,9 +333,9 @@ label {
     font-family: 'Poppins';
   }
   
-  .radio-container:hover {
+  /* .radio-container:hover {
     background-color: #e8e8e8;
-  }
+  } */
 
   .acct_radio:checked + label {
     /* border: 1px solid var(--button-background); */
