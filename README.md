@@ -16,7 +16,7 @@
 
 \*~Registration Pin Code Error Handle~
 
-\*Add Pin code back spacing
+\*~Add Pin code back spacing~
 
 \*Add Names registered to Name dropdown at login (read from database)
 
