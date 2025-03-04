@@ -150,7 +150,7 @@ pin_confirm.forEach((input_2, key_2) => {
 
 // Optional: Auto-focus the first input when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-  if (pinInputs.length > 0) {
+  if (pinInputs.length ==! 0) {
     pinInputs[0].focus();
   }
 });
@@ -158,51 +158,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // PIN BACKSPACE FUNCTIONALITY
 
-// // Pin Set Row
-// pin_set.forEach((input, index) => {
-//   // Add keydown event listener to each input
-//   input.addEventListener("keydown", (e) => {
-//     // Check if backspace key is pressed
-//     if (e.key === "Backspace") {
-//       // If the input is empty AND we're not on the first input, move to previous input
-//       if (input.value === "" && index !== 0) {
-//         // Prevent default backspace behavior
-//         e.preventDefault(); 
-//         // Focus previous input
-//         pin_set[index - 1].focus(); 
-//         // Clear the previous input's value
-//         pin_set[index - 1].value = ""; 
-//       }
+// Pin Set Row
+pin_set.forEach((input, index) => {
+  // Add keydown event listener to each input
+  input.addEventListener("keydown", (e) => {
+    // Check if backspace key is pressed
+    if (e.key === "Backspace") {
+      // If the input is empty AND we're not on the first input, move to previous input
+      if (input.value === "" && index !== 0) {
+        // Prevent default backspace behavior
+        e.preventDefault(); 
+        // Focus previous input
+        pin_set[index - 1].focus(); 
+        // Clear the previous input's value
+        pin_set[index - 1].value = ""; 
+      }
       
-//       // If the input has a value, just let the backspace clear it normally
-//       // No need to change focus in this case
-//     }
-//   });
+      // If the input has a value, just let the backspace clear it normally
+      // No need to change focus in this case
+    }
+  });
   
-// });
+});
 
 
 // // Pin Confirm Row
-// pin_confirm.forEach((input, index) => {
-//   // Add keydown event listener to each input
-//   input.addEventListener("keydown", (e) => {
-//     // Check if backspace key is pressed
-//     if (e.key === "Backspace") {
-//       // If the input is empty AND we're not on the first input, move to previous input
-//       if (input.value === "" && index > 0) {
-//         // Prevent default backspace behavior
-//         e.preventDefault(); 
-//         // Focus previous input
-//         pin_confirm[index - 1].focus(); 
-//         // Clear the previous input's value
-//         pin_confirm[index - 1].value = ""; 
-//       }
+pin_confirm.forEach((input, index) => {
+  // Add keydown event listener to each input
+  input.addEventListener("keydown", (e) => {
+    // Check if backspace key is pressed
+    if (e.key === "Backspace") {
+      // If the input is empty AND we're not on the first input, move to previous input
+      if (input.value === "" && index > 0) {
+        // Prevent default backspace behavior
+        e.preventDefault(); 
+        // Focus previous input
+        pin_confirm[index - 1].focus(); 
+        // Clear the previous input's value
+        pin_confirm[index - 1].value = ""; 
+      }
       
-//       // If the input has a value, just let the backspace clear it normally
-//       // No need to change focus in this case
-//     }
-//   });
-// });
+      // If the input has a value, just let the backspace clear it normally
+      // No need to change focus in this case
+    }
+  });
+});
 
 
 
