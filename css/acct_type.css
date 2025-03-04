@@ -355,6 +355,7 @@ label {
     /* font-weight: bold; */
     cursor: pointer;
     width: 100%;
+    transition: all 0.3s ease;
     /* margin-top: 1em; */
 }
 

@@ -327,6 +327,7 @@ input {
     /* font-weight: bold; */
     cursor: pointer;
     font-size: medium;
+    transition: all 0.3s ease;
 }
 
 /* No outline on focus */

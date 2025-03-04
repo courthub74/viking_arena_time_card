@@ -351,7 +351,7 @@ label {
     font-weight: bold;
     cursor: pointer;
     width: 100%;
-    /* margin-top: 1em; */
+    transition: all 0.3s ease;
 }
 
 /* No outline on focus */

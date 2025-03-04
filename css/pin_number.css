@@ -377,6 +377,7 @@ label {
     /* background-color: var(--match-background); */
     font-size: small;
     width: 100%;
+    transition: all 0.3s ease;
 }
 
 /* No Match (last-child) */
@@ -400,6 +401,7 @@ label {
     font-size: 1rem;
     font-size: small;
     width: 100%;
+    transition: all 0.3s ease;
 }
 
 .match_, .no_match {
@@ -423,7 +425,7 @@ label {
     font-weight: bold;
     cursor: pointer;
     width: 100%;
-    /* margin-top: 1em; */
+    transition: all 0.3s ease;
 }
 
 /* No outline on focus */
