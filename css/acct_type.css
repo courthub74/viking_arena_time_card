@@ -32,7 +32,10 @@
 
      /* Account Type Colors */
     --acct-type-selected: #2065a58a;
+    /* Trim */
     --acct-type-trim: #2065a5;
+    /* Hover */
+    --acct-type-hover: #e8e8e8;
 }
 
 /* DARK MODE */
@@ -67,7 +70,11 @@ body.dark-mode {
     --acct-type-selected: #38536D;
     --acct-type-selected: #38536d9b;
     --acct-type-selected: #17426b7c;
+    /* Trim */
     --acct-type-trim: #2065a5;
+    /* Hover */
+    --acct-type-hover: #17426b;
+    
 
 }
 
@@ -333,9 +340,9 @@ label {
     font-family: 'Poppins';
   }
   
-  /* .radio-container:hover {
+  .radio-container:hover {
     background-color: #e8e8e8;
-  } */
+  }
 
   .acct_radio:checked + label {
     /* border: 1px solid var(--button-background); */
@@ -343,6 +350,7 @@ label {
     background-color: var(--acct-type-selected);
     border: 1px solid var(--acct-type-trim);
     color: var(--text-color);
+    transition: all 0.3s ease;
   }
 
 
