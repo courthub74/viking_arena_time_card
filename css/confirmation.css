@@ -297,7 +297,7 @@ header {
 /* The Labels */
 label {
     opacity: 100%;
-    font-size: small;
+    font-size: medium;
 }
 
 .confirmed_label {
@@ -329,7 +329,7 @@ label {
 
 /* Edit Button */
 .confirmation_edit {
-    font-size: small;
+    font-size: medium;
     /* font-size: 1rem; */
 }
 
@@ -340,6 +340,7 @@ label {
     cursor: pointer;
     /* font-weight: bold; */
     font-size: .9rem;
+    font-size: medium;
 }
 
 /* Submit Button */
@@ -347,8 +348,9 @@ label {
     background-color: var(--button-background);
     color: white;
     border: none;
-    padding: 1.5em;
-    font-weight: bold;
+    padding: 10px;
+    font-size: large;
+    /* font-weight: bold; */
     cursor: pointer;
     width: 100%;
     transition: all 0.3s ease;
