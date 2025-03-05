@@ -502,6 +502,20 @@ label {
     /* font-weight: bold; */
     cursor: pointer;
     font-size: large;
+    transition: all 0.3s ease;
+}
+
+/* No outline on focus */
+.submit:focus {
+    outline: none;
+}
+
+ /* Submit Disabled */
+ .submit:disabled {
+    background-color: var(--button-background);
+    color: var(--text-color);
+    opacity: .6;
+    cursor: not-allowed;
 }
 
 /* For wider screens narrow the form */
