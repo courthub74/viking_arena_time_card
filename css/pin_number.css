@@ -379,7 +379,7 @@ label {
     color: var(--pins-match);
     color: green;
     /* background-color: var(--match-background); */
-    font-size: small;
+    font-size: medium;
     width: 100%;
     transition: all 0.3s ease;
 }
@@ -403,7 +403,7 @@ label {
     background-color: var(--match-background);
     border-radius: 5px;
     font-size: 1rem;
-    font-size: small;
+    font-size: medium;
     width: 100%;
     transition: all 0.3s ease;
 }
