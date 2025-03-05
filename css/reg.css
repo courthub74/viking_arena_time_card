@@ -29,13 +29,6 @@
      /* Button Colors */
      --button-background: #009DF8;
      --button-text: white;
-
-     /* Account Type Colors */
-    --acct-type-selected: #2065a58a;
-    /* Trim */
-    --acct-type-trim: #000000;
-    /* Hover */
-    --acct-type-hover: #e8e8e8;
 }
 
 /* DARK MODE */
@@ -65,17 +58,6 @@ body.dark-mode {
      /* Button Colors */
      --button-background: #009DF8;
      --button-text: white;
-
-     /* Account Type Colors */
-    --acct-type-selected: #38536D;
-    --acct-type-selected: #38536d9b;
-    --acct-type-selected: #17426b7c;
-    /* Trim */
-    --acct-type-trim: #2065a5;
-    /* Hover */
-    --acct-type-hover: #17426b;
-    
-
 }
 
 /* WHOLE BODY */
@@ -84,7 +66,6 @@ body.dark-mode {
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-    border-radius: 5px;
 }
 
 /* Body for All */
@@ -113,7 +94,6 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: var(--background-color);
-    background: none;
     width: 100%;
     /* box-shadow: 0 2px 5px var(--menu-shadow); */
     position: relative;
@@ -267,7 +247,6 @@ form {
     gap: 3em;
     width: 100%;
     padding: 0 2em 0 2em;
-    margin-top: 3em;
 }
 
 /* THE HEADER */
@@ -288,7 +267,7 @@ header {
 }
 
 .logo_name p {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -300,124 +279,6 @@ header {
 
 
 .hazel_park_logo {
-    width: 4em;
-    height: 4em;
-}
-
-label {
-    opacity: 100%;
-    font-size: medium;
-}
-
-/* The Account Type Buttons Div */
-.acct_types {
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-}
-
-
-.acct_radio {
-    margin-right: 8px;
-    position: absolute;
-    /* opacity: 0; */
-    width: 0;
-    height: 0;
-  }
-
-
-.radio-container label {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    background-color: var(--input-background);
-    border: none;
-    padding: 1.5em;
-    padding: 10px;
-    color: var(--text-color);
-    font-size: medium;
-    cursor: pointer;
-    font-family: 'Poppins';
-  }
-  
-  .radio-container:hover {
-    background-color: #e8e8e8;
-  }
-
-  .acct_radio:checked + label {
-    /* border: 1px solid var(--button-background); */
-    box-sizing: border-box;
-    background-color: var(--acct-type-selected);
-    border: 2px solid var(--acct-type-trim);
-    color: var(--text-color);
-    /* transition: all 0.3s ease; */
-  }
-
-
-/* Submit Button */
-.submit {
-    background-color: var(--button-background);
-    color: white;
-    border: none;
-    padding: 15px;
-    /* font-weight: bold; */
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.3s ease;
-    /* margin-top: 1em; */
-    font-size: medium;
-}
-
-/* No outline on focus */
-.submit:focus {
-    outline: none;
-}
-
- /* Submit Disabled */
- .submit:disabled {
-    background-color: var(--button-background);
-    color: var(--text-color);
-    opacity: .6;
-    cursor: not-allowed;
-}
-
-/* For wider screens narrow the form */
-
-/* Landscape */
-@media screen and (min-width: 700px) {
-    form {
-        width: 50%;
-        /* display: flex;
-        flex-direction: column;
-        gap: 1em; */
-    }
-}
-
-/* Desktop */
-@media screen and (min-width: 1200px) {
-    form {
-        width: 25%;
-        display: flex;
-        flex-direction: column;
-        gap: 4em;
-        gap: 3em;
-        margin-top: 1em;
-    }
-
-    .menu-item {
-        font-size: x-large;
-    }
-
-    /* Logo a bit bigger */
-    .logo_name p {
-        font-size: 2.5rem;
-        font-weight: bold;
-    }
-
-    .hazel_park_logo {
-        width: 6em;
-        height: 6em;
-    }
+    width: 3em;
+    height: 3em;
 }

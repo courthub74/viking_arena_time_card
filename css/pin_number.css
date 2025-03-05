@@ -468,6 +468,10 @@ label {
         margin-top: 1em;
     }
 
+    .menu-item {
+        font-size: x-large;
+    }
+
     .pin_match_confirm {
         padding: 11px;
     }
