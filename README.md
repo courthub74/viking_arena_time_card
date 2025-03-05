@@ -40,6 +40,8 @@
 
 \*Add Names registered to Name dropdown at login
 
+\*Profile page reads profile from the database
+
 ## Calendar
 
 \* implement a calendar API
