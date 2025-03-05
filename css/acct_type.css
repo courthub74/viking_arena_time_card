@@ -33,7 +33,7 @@
      /* Account Type Colors */
     --acct-type-selected: #2065a58a;
     /* Trim */
-    --acct-type-trim: #2065a5;
+    --acct-type-trim: #000000;
     /* Hover */
     --acct-type-hover: #e8e8e8;
 }
@@ -305,7 +305,7 @@ header {
 
 label {
     opacity: 100%;
-    font-size: small;
+    font-size: medium;
 }
 
 /* The Account Type Buttons Div */
@@ -334,8 +334,9 @@ label {
     background-color: var(--input-background);
     border: none;
     padding: 1.5em;
+    padding: 10px;
     color: var(--text-color);
-    font-size: small;
+    font-size: medium;
     cursor: pointer;
     font-family: 'Poppins';
   }
@@ -348,7 +349,7 @@ label {
     /* border: 1px solid var(--button-background); */
     box-sizing: border-box;
     background-color: var(--acct-type-selected);
-    border: 1px solid var(--acct-type-trim);
+    border: 2px solid var(--acct-type-trim);
     color: var(--text-color);
     transition: all 0.3s ease;
   }
@@ -359,12 +360,13 @@ label {
     background-color: var(--button-background);
     color: white;
     border: none;
-    padding: 1.5em;
+    padding: 10px;
     /* font-weight: bold; */
     cursor: pointer;
     width: 100%;
     transition: all 0.3s ease;
     /* margin-top: 1em; */
+    font-size: large;
 }
 
 /* No outline on focus */
