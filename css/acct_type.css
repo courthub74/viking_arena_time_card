@@ -32,6 +32,10 @@
 
      /* Account Type Colors */
     --acct-type-selected: #2065a58a;
+    /* Trim */
+    --acct-type-trim: #000000;
+    /* Hover */
+    --acct-type-hover: #e8e8e8;
 }
 
 /* DARK MODE */
@@ -66,7 +70,11 @@ body.dark-mode {
     --acct-type-selected: #38536D;
     --acct-type-selected: #38536d9b;
     --acct-type-selected: #17426b7c;
-    /* --acct-type-selected: #ffffffa0; */
+    /* Trim */
+    --acct-type-trim: #2065a5;
+    /* Hover */
+    --acct-type-hover: #17426b;
+    
 
 }
 
@@ -259,6 +267,7 @@ form {
     gap: 3em;
     width: 100%;
     padding: 0 2em 0 2em;
+    margin-top: 3em;
 }
 
 /* THE HEADER */
@@ -279,7 +288,7 @@ header {
 }
 
 .logo_name p {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
@@ -291,13 +300,13 @@ header {
 
 
 .hazel_park_logo {
-    width: 3em;
-    height: 3em;
+    width: 4em;
+    height: 4em;
 }
 
 label {
     opacity: 100%;
-    font-size: small;
+    font-size: medium;
 }
 
 /* The Account Type Buttons Div */
@@ -326,8 +335,9 @@ label {
     background-color: var(--input-background);
     border: none;
     padding: 1.5em;
+    padding: 10px;
     color: var(--text-color);
-    font-size: small;
+    font-size: medium;
     cursor: pointer;
     font-family: 'Poppins';
   }
@@ -340,6 +350,9 @@ label {
     /* border: 1px solid var(--button-background); */
     box-sizing: border-box;
     background-color: var(--acct-type-selected);
+    border: 2px solid var(--acct-type-trim);
+    color: var(--text-color);
+    /* transition: all 0.3s ease; */
   }
 
 
@@ -348,11 +361,13 @@ label {
     background-color: var(--button-background);
     color: white;
     border: none;
-    padding: 1.5em;
+    padding: 15px;
     /* font-weight: bold; */
     cursor: pointer;
     width: 100%;
+    transition: all 0.3s ease;
     /* margin-top: 1em; */
+    font-size: medium;
 }
 
 /* No outline on focus */
@@ -384,10 +399,29 @@ label {
 @media screen and (min-width: 1200px) {
     form {
         width: 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 4em;
+        gap: 3em;
+        margin-top: 1em;
     }
 
-     /* Logo a bit bigger */
-     .logo_name p {
+    .burger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .day-nite {
+        width: 40px;
+        height: 40px;
+    }
+
+    .menu-item {
+        font-size: x-large;
+    }
+
+    /* Logo a bit bigger */
+    .logo_name p {
         font-size: 2.5rem;
         font-weight: bold;
     }

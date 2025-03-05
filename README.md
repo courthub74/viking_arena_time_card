@@ -16,7 +16,7 @@
 
 \*~Registration Pin Code Error Handle~
 
-\*Add Pin code back spacing
+\*~Add Pin code back spacing~
 
 \*Add Names registered to Name dropdown at login (read from database)
 
@@ -39,6 +39,8 @@
 \*Add Authorization for Employers (see Employees in a list. Click on each employee and see hours as a chart)
 
 \*Add Names registered to Name dropdown at login
+
+\*Profile page reads profile from the database
 
 ## Calendar
 

@@ -51,9 +51,10 @@ body.dark-mode {
     --menu-shadow: rgb(22, 33, 38);
 
      /* Input Colors */
-     --input-background: #101316;
+     /* --input-background: #101316;
      --input-background: #1b2025;
-     --input-background: #15191d;
+     --input-background: #15191d; */
+     --input-background: #20252c;
      
      /* Button Colors */
      --button-background: #009DF8;
@@ -249,6 +250,7 @@ form {
     gap: 3em;
     width: 100%;
     padding: 0 2em 0 2em;
+    margin-top: 3em;
 }
 
 /* THE HEADER */
@@ -265,11 +267,12 @@ header {
     /* flex-direction: column; */
     justify-content: left;
     align-items: center;
+    width: 100%;
     gap: .5em;
 }
 
 .logo_name p {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
@@ -281,8 +284,8 @@ header {
 
 
 .hazel_park_logo {
-    width: 3em;
-    height: 3em;
+    width: 4em;
+    height: 4em;
 }
 
 
@@ -297,6 +300,7 @@ header {
 label {
     opacity: 100%;
     font-size: small;
+    font-size: medium;
 }
 
 .pin_field {
@@ -354,7 +358,7 @@ label {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all .4s ease-in;
+    transition: all .3s ease-in;
     width: 100%;
     position: relative;
 }
@@ -375,8 +379,9 @@ label {
     color: var(--pins-match);
     color: green;
     /* background-color: var(--match-background); */
-    font-size: small;
+    font-size: medium;
     width: 100%;
+    transition: all 0.3s ease;
 }
 
 /* No Match (last-child) */
@@ -398,8 +403,9 @@ label {
     background-color: var(--match-background);
     border-radius: 5px;
     font-size: 1rem;
-    font-size: small;
+    font-size: medium;
     width: 100%;
+    transition: all 0.3s ease;
 }
 
 .match_, .no_match {
@@ -419,11 +425,12 @@ label {
     background-color: var(--button-background);
     color: white;
     border: none;
-    padding: 1.5em;
-    font-weight: bold;
+    padding: 15px;
+    font-size: large;
+    /* font-weight: bold; */
     cursor: pointer;
     width: 100%;
-    /* margin-top: 1em; */
+    transition: all 0.5s ease;
 }
 
 /* No outline on focus */
@@ -455,10 +462,36 @@ label {
 @media screen and (min-width: 1200px) {
     form {
         width: 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin-top: 1em;
     }
 
-     /* Logo a bit bigger */
-     .logo_name p {
+    .burger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .day-nite {
+        width: 40px;
+        height: 40px;
+    }
+
+    .menu-item {
+        font-size: x-large;
+    }
+
+    .pin_match_confirm {
+        padding: 11px;
+    }
+
+    label {
+        margin-top: 2em;
+    }
+
+    /* Logo a bit bigger */
+    .logo_name p {
         font-size: 2.5rem;
         font-weight: bold;
     }

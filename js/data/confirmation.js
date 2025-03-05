@@ -56,10 +56,23 @@ submit_acct_type.addEventListener('click', (e) => {
     // Test print button function
     console.log("Submit Button Pressed");
 
-    // Redirect to the next page (acct_type) with URL parameters
+    // Redirect to the Manager or Calendar page based on account type
+    if (acct_type === 'Manager') {
+        // Send encoded data to the database
+        console.log("Redirecting to Manager Page");
+        // Redirect to Manager Page
+        window.location.href = `manager.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
+    } else {
+        window.location.href = `calendar.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
+    }
     // window.location.href = `acct_type.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
 
     // This is where you send info to database    
     // const url = 'https://jsonplaceholder.typicode.com/posts';
-    // const data = {}
+    // const data = {
+    //     name: 'John Doe',
+    //     account: 'Manager'
+    //     pin: '1234'
+    // };
+    // fetch(url, {});
 });
