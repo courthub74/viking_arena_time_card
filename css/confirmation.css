@@ -249,6 +249,7 @@ form {
     gap: 3em;
     width: 100%;
     padding: 0 2em 0 2em;
+    margin-top: 3em;
 }
 
 /* THE HEADER */
@@ -269,7 +270,7 @@ header {
 }
 
 .logo_name p {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
@@ -281,8 +282,8 @@ header {
 
 
 .hazel_park_logo {
-    width: 3em;
-    height: 3em;
+    width: 4em;
+    height: 4em;
 }
 
 
@@ -329,7 +330,7 @@ label {
 
 /* Edit Button */
 .confirmation_edit {
-    font-size: medium;
+    font-size: small;
     /* font-size: 1rem; */
 }
 
@@ -348,8 +349,8 @@ label {
     background-color: var(--button-background);
     color: white;
     border: none;
-    padding: 10px;
-    font-size: large;
+    padding: 15px;
+    font-size: medium;
     /* font-weight: bold; */
     cursor: pointer;
     width: 100%;
@@ -385,13 +386,17 @@ label {
 @media screen and (min-width: 1200px) {
     form {
         width: 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        margin-top: 1em;
     }
 
-     /* Logo a bit bigger */
-     .logo_name p {
-        font-size: 2.5rem;
-        font-weight: bold;
-    }
+   /* Logo a bit bigger */
+   .logo_name p {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
 
     .hazel_park_logo {
         width: 6em;
