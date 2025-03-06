@@ -226,6 +226,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     display: block;
     color: var(--text-color);
     text-decoration: none;
+    font-size: medium;
     transition: background-color 0.2s ease;
 }
 
@@ -299,7 +300,7 @@ header {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 400px;
+    max-width: 700px;
 }
 
 .users_drop_container label,
@@ -541,6 +542,20 @@ label {
         flex-direction: column;
         gap: 2em;
         margin-top: 1em;
+    }
+
+    .burger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .day-nite {
+        width: 40px;
+        height: 40px;
+    }
+
+    .menu-item {
+        font-size: x-large;
     }
 
     /* Logo a bit bigger */
