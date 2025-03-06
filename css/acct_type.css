@@ -343,7 +343,7 @@ label {
   }
   
   .radio-container:hover {
-    background-color: #e8e8e8;
+    background-color: none;
   }
 
   .acct_radio:checked + label {

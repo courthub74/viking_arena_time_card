@@ -33,12 +33,42 @@ document.addEventListener('DOMContentLoaded', (e) => {
     console.log("Auto-focus the first input");
      firstPinInput.focus();
    }
-  // If the pin set is not empty
-  // if (pin_set.length ==! 0) {
-  //   console.log("Auto-focus the first input");
-  //   pin_set[0].focus();
-  // }
 });
+
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+  // Get all PIN inputs
+  const pinInputs = document.querySelectorAll('.pin_put_set');
+  
+  pinInputs.forEach((input, index) => {
+    // Add input type="number" or pattern attribute to HTML elements
+    input.setAttribute('inputmode', 'numeric'); // Shows number keyboard on mobile
+    
+    // Prevent non-numeric input
+    input.addEventListener('keypress', function(event) {
+      // Allow only digits (0-9)
+      if (!/[0-9]/.test(event.key)) {
+        event.preventDefault();
+      }
+    });
+    
+    // Clean any non-numeric characters that might get pasted
+    input.addEventListener('input', function() {
+      this.value = this.value.replace(/[^0-9]/g, '');
+      
+      // Move to next input when a digit is entered
+      if (this.value.length === 1 && index < pinInputs.length - 1) {
+        pinInputs[index + 1].focus();
+      }
+    });
+    
+    // Handle backspace to go to previous input
+    input.addEventListener('keydown', function(event) {
+      if (event.key === 'Backspace' && this.value.length === 0 && index > 0) {
+        pinInputs[index - 1].focus();
+      }
+    });
+  });
 
 
 ///////////////////////////////////////////////////////////////
