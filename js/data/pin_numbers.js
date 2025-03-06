@@ -24,6 +24,23 @@ let no_match_notify = document.querySelector('.no_match');
 const form = document.querySelector('form');
 
 
+// Optional: Auto-focus the first input when the page loads
+document.addEventListener('DOMContentLoaded', (e) => {
+  e.preventDefault();
+   // Focus the first PIN input when the page loads
+   const firstPinInput = document.querySelector('.pin_put_set');
+   if (firstPinInput) {
+    console.log("Auto-focus the first input");
+     firstPinInput.focus();
+   }
+  // If the pin set is not empty
+  // if (pin_set.length ==! 0) {
+  //   console.log("Auto-focus the first input");
+  //   pin_set[0].focus();
+  // }
+});
+
+
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
 // JS for pin puts for key behavior
@@ -145,14 +162,6 @@ pin_confirm.forEach((input_2, key_2) => {
       }
     }
   });
-});
-
-
-// Optional: Auto-focus the first input when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-  if (pinInputs.length ==! 0) {
-    pinInputs[0].focus();
-  }
 });
 
 
