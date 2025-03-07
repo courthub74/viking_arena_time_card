@@ -45,7 +45,7 @@ const submit_acct_type = document.getElementById('confirmation_advance');
 if (acct_type === 'Manager') {
     submit_acct_type.innerHTML = 'Go to Manager Page';
 } else {
-    submit_acct_type.innerHTML = 'Go to Your Calendar';
+    submit_acct_type.innerHTML = 'Go to Employee Calendar';
 };
 
 // Add Event Listener to Submit Button
