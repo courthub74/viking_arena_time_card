@@ -37,9 +37,10 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
-  // Get all PIN inputs
+  // Get all PIN inputs for the pin set and confirm fields for numeric input
   const pinInputs = document.querySelectorAll('.pin_put_set');
   
+  // For set pin inputs
   pinInputs.forEach((input, index) => {
     // Add input type="number" or pattern attribute to HTML elements
     input.setAttribute('inputmode', 'numeric'); // Shows number keyboard on mobile
@@ -69,6 +70,10 @@ document.addEventListener('DOMContentLoaded', (e) => {
       }
     });
   });
+
+  // For confirm pin inputs
+  const confirmPinInputs = document.querySelectorAll('.pin_put_confirm');
+  
 
 
 ///////////////////////////////////////////////////////////////
