@@ -35,44 +35,76 @@ document.addEventListener('DOMContentLoaded', (e) => {
    }
 });
 
+
+//////// NUMERIC INPUT BEHAVIOR (for mobile devices) ////////
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
-  // Get all PIN inputs for the pin set and confirm fields for numeric input
-  const pinInputs = document.querySelectorAll('.pin_put_set');
+// Get all PIN inputs for the pin set and confirm fields for numeric input
+const pinInputs = document.querySelectorAll('.pin_put_set');
+
+const pinInputsConfirm = document.querySelectorAll('.pin_put_confirm');
+
+// For set pin inputs
+pinInputs.forEach((input, index) => {
+  // Add input type="number" or pattern attribute to HTML elements
+  input.setAttribute('inputmode', 'numeric'); // Shows number keyboard on mobile
   
-  // For set pin inputs
-  pinInputs.forEach((input, index) => {
-    // Add input type="number" or pattern attribute to HTML elements
-    input.setAttribute('inputmode', 'numeric'); // Shows number keyboard on mobile
+  // Prevent non-numeric input
+  input.addEventListener('keypress', function(event) {
+    // Allow only digits (0-9)
+    if (!/[0-9]/.test(event.key)) {
+      event.preventDefault();
+    }
+  });
+  
+  // Clean any non-numeric characters that might get pasted
+  input.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
     
-    // Prevent non-numeric input
-    input.addEventListener('keypress', function(event) {
-      // Allow only digits (0-9)
-      if (!/[0-9]/.test(event.key)) {
-        event.preventDefault();
-      }
-    });
-    
-    // Clean any non-numeric characters that might get pasted
-    input.addEventListener('input', function() {
-      this.value = this.value.replace(/[^0-9]/g, '');
-      
-      // Move to next input when a digit is entered
-      if (this.value.length === 1 && index < pinInputs.length - 1) {
-        pinInputs[index + 1].focus();
-      }
-    });
-    
-    // Handle backspace to go to previous input
-    input.addEventListener('keydown', function(event) {
-      if (event.key === 'Backspace' && this.value.length === 0 && index > 0) {
-        pinInputs[index - 1].focus();
-      }
-    });
+    // Move to next input when a digit is entered
+    if (this.value.length === 1 && index < pinInputs.length - 1) {
+      pinInputs[index + 1].focus();
+    }
+  });
+  
+  // Handle backspace to go to previous input
+  input.addEventListener('keydown', function(event) {
+    if (event.key === 'Backspace' && this.value.length === 0 && index > 0) {
+      pinInputs[index - 1].focus();
+    }
+  });
+});
+
+
+// For confirm pin inputs
+pinInputsConfirm.forEach((input, index) => {
+  // Add input type="number" or pattern attribute to HTML elements
+  input.setAttribute('inputmode', 'numeric'); // Shows number keyboard on mobile
+  // Prevent non-numeric input
+  input.addEventListener('keypress', function(event) {
+    // Allow only digits (0-9)
+    if (!/[0-9]/.test(event.key)) {
+      event.preventDefault();
+    }
   });
 
-  // For confirm pin inputs
-  const confirmPinInputs = document.querySelectorAll('.pin_put_confirm');
+  // Clean any non-numeric characters that might get pasted
+  input.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+    
+    // Move to next input when a digit is entered
+    if (this.value.length === 1 && index < pinInputsConfirm.length - 1) {
+      pinInputsConfirm[index + 1].focus();
+    }
+  });
+
+  // Handle backspace to go to previous input
+  input.addEventListener('keydown', function(event) {
+    if (event.key === 'Backspace' && this.value.length === 0 && index > 0) {
+      pinInputsConfirm[index - 1].focus();
+    }
+  });
+});
   
 
 

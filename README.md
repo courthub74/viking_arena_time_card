@@ -52,4 +52,6 @@
 
 \*Add messaging for tech support
 
+\*Add messaging for pin retrieval
+
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/courthub74/hazel_park_time_card?style=flat&logo=GitHub)
