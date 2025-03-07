@@ -469,8 +469,15 @@ label {
     -webkit-appearance: none;
 }
 
+/* Pin Buttons Div */
+.pin_buttons {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+}
+
 /* Reset Pins Button */
-#reset_button {
+.reset_button {
     background: none;
     color: var(--menu-text-color);
     border: none;
@@ -480,8 +487,14 @@ label {
     /* font-weight: bold; */
 }
 
+/* Create Account Links */
+
+.create_acct_div {
+    margin-top: .5em;
+}
+
 .or {
-    font-size: small;
+    font-size: medium;
 }
 
 /* Create Account Link */

@@ -73,8 +73,10 @@
                     <option value="#">Three</option> 
                     <option value="#">Four</option> 
                 </select>
-
-                <p class="or">or <a href="./html/registration/name.html" class="create_acct">Create an Account</a></p>
+                <!-- Create account button -->
+                <div class="create_acct_div">
+                    <p class="or">or <a href="./html/registration/name.html" class="create_acct">Create an Account</a></p>
+                </div>
             </div>
 
             <!-- Pin # -->
@@ -86,8 +88,13 @@
                         <input type="password" class="pin_put" maxlength="1">
                         <input type="password" class="pin_put" maxlength="1">
                     </div>
-                    <!-- Reset Pins Button -->
-                     <button class="reset_button" id="reset_button">Clear Pin fields</button>
+                    <!-- Pin Handling Buttons -->
+                    <div class="pin_buttons">
+                        <!-- Reset Pins Button -->
+                        <button class="reset_button" id="reset_button">Clear Pin fields</button>
+                        <!-- Forgot Pin Button -->
+                        <button class="reset_button" id="forgot_button">Forgot Pin?</button>
+                    </div>
             </div>
 
             <!-- Submit Button -->
