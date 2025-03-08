@@ -42,6 +42,8 @@
 
 \*Profile page reads profile from the database
 
+\*Add delete profile feature
+
 ## Calendar
 
 \* implement a calendar API
