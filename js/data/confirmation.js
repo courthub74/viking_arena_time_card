@@ -43,9 +43,9 @@ const submit_acct_type = document.getElementById('confirmation_advance');
 
 // Change the inner HTML of the Submit Button upon account type selection
 if (acct_type === 'Manager') {
-    submit_acct_type.innerHTML = 'Go to Manager Page';
+    submit_acct_type.innerHTML = 'Go to manager dashboard';
 } else {
-    submit_acct_type.innerHTML = 'Go to Employee Calendar';
+    submit_acct_type.innerHTML = 'Lets start entering your hours';
 };
 
 // Add Event Listener to Submit Button
