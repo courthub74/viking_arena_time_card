@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
     // Add the default empty option
     const defaultOption = document.createElement('option');
-    defaultOption.value = '';
-    defaultOption.classList.add('drop_label');
+    defaultOption.value = ''; // Set the value as empty
+    // Set the default option as selected
     defaultOption.selected = true;
     defaultOption.textContent = ''
     usersDropdown.appendChild(defaultOption);

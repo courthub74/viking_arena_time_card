@@ -314,6 +314,7 @@ header {
     width: 100%;
     gap: 8px;
     color: var(--text-color);
+    font-family: 'Poppins';
 }
 
 .users_drop_container select,
@@ -323,12 +324,16 @@ header {
     -moz-appearance: none;
     padding: 10px;
     padding: 1em;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border: none;
     background-color: var(--input-background);
     border-radius: 4px;
     font-size: 16px;
 }
+
+#users_dropdown, #users_dropdown option {
+    font-family: 'Poppins', sans-serif;
+  }
 
 /* Custom dropdown arrow */
 .users_drop_container {
@@ -343,7 +348,8 @@ header {
     transform: translateY(20%);
     pointer-events: none;
     color: #666;
-    font-size: 0.8em;
+    /* color: var(--button-background); */
+    font-size: .5em;
 }
 
 .pin_field {
