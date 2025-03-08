@@ -36,7 +36,7 @@ function submitRegistration() {
     var accountType = document.getElementById('confirmed_acct_type').innerHTML;
     var pin = document.getElementById('confirmed_pin').innerHTML;
 
-    console.log(username);
+    console.log(`User ${username} is in the database as a ${accountType}.  Their pin# is: ${pin}`);
 
     // Conditionals for the account type
     if (accountType === 'Manager') {
@@ -64,5 +64,4 @@ submitButton.addEventListener('click', (e) => {
     submitRegistration();
 });
 
-// Next check if that user exists in the local storage
 

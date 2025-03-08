@@ -33,7 +33,7 @@ confirmed_name.innerHTML = `${encodedFirstName} ${encodedLastName}`;
 
 // The Account Type div
 confirmed_acct_type.innerHTML = acct_type;
-console.log(acct_type);
+// console.log(acct_type);
 
 // The Pin Number div
 confirmed_pin.innerHTML = pin_number;
@@ -76,3 +76,33 @@ submit_acct_type.addEventListener('click', (e) => {
     // };
     // fetch(url, {});
 });
+
+// Query username
+const username = document.getElementById("confirmed_name").innerHTML;
+
+// Next check if that user exists in the local storage
+function isUsernameAvailable(username) {
+    // parse the json (which is what is stored in local storage)
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+    // check if a username is already taken in your users array
+    return !users.some(user => user.username === username);
+}
+
+// // Check if the username is available
+function checkUsername() {
+    // Get the username from the input field
+    var username = document.getElementById('username').value;
+
+    // Check if the username is available
+    if (isUsernameAvailable(username)) {
+        // If the username is available, show a success message
+        // document.getElementById('username_message').innerHTML = 'Username is available';
+        // document.getElementById('username_message').style.color = 'green';
+        console.log("Username is available");
+    } else {
+        // If the username is not available, show an error message
+        // document.getElementById('username_message').innerHTML = 'Username is not available';
+        // document.getElementById('username_message').style.color = 'red';
+        console.log("Username is Not available");
+    }
+}
