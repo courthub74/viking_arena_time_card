@@ -30,19 +30,39 @@ function registerUser(username, pin) {
 // Save the user data to the local storage
 function submitRegistration() {
     // Get the username account type and pin from the confirmation page
-    var username = document.getElementById('confirmed_name').value;
-    var accountType = document.getElementById('confirmed_acct_type').value;
-    var pin = document.getElementById('confirmed_pin').value;
+    var username = document.getElementById('confirmed_name').innerHTML;
+    // If ABOVE doesn't work, try this:
+    // var username = document.getElementById('confirmed_name').textContent;
+    var accountType = document.getElementById('confirmed_acct_type').innerHTML;
+    var pin = document.getElementById('confirmed_pin').innerHTML;
 
-    // Register the user
-    var user = registerUser(username, accountType, pin);
+    console.log(username);
 
     // Conditionals for the account type
-    if (accountType === 'manager') {
+    if (accountType === 'Manager') {
         // Redirect to the manager page
-        window.location = 'manager.html';
+        window.location.href = '../../html/manager/manager.html';
     } else {
         // Redirect to the customer page
-        window.location = 'calendar.html';
+        window.location.href = '../../html/calendar/calendar.html';
     }
+    
+    return registerUser(username, accountType, pin);
 }
+
+
+// Call the submitRegistration function upon submit button click
+// Query the submit button from the confirmation page
+const submitButton = document.getElementById('confirmation_advance');
+
+// Add an event listener to the submit button
+submitButton.addEventListener('click', (e) => {
+    // Prevent the default action of the submit button
+    e.preventDefault();
+
+    // Call the submitRegistration function
+    submitRegistration();
+});
+
+// Next check if that user exists in the local storage
+
