@@ -30,13 +30,13 @@
 
 ### Database
 
-\*Add Account Registration
+\*~Add Account Registration~
 
 \*Store Account Information (with SQLite database)
 
-\*Add Authorization for Employees (see current day to enter hours. Also access to personal calendar)
+\*~Add Authorization for Employees (see current day to enter hours. Also access to personal calendar)~
 
-\*Add Authorization for Employers (see Employees in a list. Click on each employee and see hours as a chart)
+\*~Add Authorization for Employers (see Employees in a list. Click on each employee and see hours as a chart)~
 
 \*Add Names registered to Name dropdown at login
 
@@ -45,6 +45,10 @@
 ## Calendar
 
 \* implement a calendar API
+
+\* Add a calendar for scheduling
+
+\* Add a calendar for hour entry
 
 ## Messaging
 
