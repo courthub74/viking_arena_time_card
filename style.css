@@ -539,6 +539,74 @@ label {
     cursor: not-allowed;
 }
 
+/* PINS NOTIFY DIV */
+.pin_match_confirm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease-in;
+    width: 100%;
+    position: relative;
+}
+
+/* Match (first-child)*/
+.match_ {
+    display: none;
+    /* opacity: 0; */
+}
+
+.match_.entered {
+    opacity: 1;
+    /* position: absolute; */
+    display: flex;
+    /* display: inline-block; */
+    justify-content: center;
+    align-items: center;
+    color: var(--pins-match);
+    color: green;
+    /* background-color: var(--match-background); */
+    font-size: medium;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* No Match (last-child) */
+.no_match {
+    display: none;
+    /* opacity: 0; */
+}
+
+.no_match.entered {
+    opacity: 1;
+    /* position: relative; */
+    /* display: inline-block; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--pins-no-match);
+    color: red;
+    /* margin-top: -1em; */
+    background-color: var(--match-background);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-size: medium;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.match_, .no_match {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+
+  .pin_match {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
 /* For wider screens narrow the form */
 
 /* Landscape */

@@ -33,12 +33,20 @@ document.addEventListener('DOMContentLoaded', (e) => {
         noUsersOption.textContent = 'No users found';
         usersDropdown.appendChild(noUsersOption);
     }
+
+    // Query the pin inputs by whole div
+
+    // Query the login pin field
+    const login_pins = document.getElementById("login_pin_field");
+
+    // JS to map through pin focus
+
+    // JS to clear the pin fields
+
+    // JS to match the name to the pin entered in DB
+
+    // Query the login button
+    const submit_login = document.getElementById("submit_login");
+    // JS to enable the Login button
 });
 
-// JS to map through pin focus
-
-// JS to clear the pin fields
-
-// JS to match the name to the pin entered in DB
-
-// JS to enable the Login button
