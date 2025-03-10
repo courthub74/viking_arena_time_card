@@ -105,7 +105,7 @@ submitButton.addEventListener('click', (e) => {
     e.preventDefault();
 
     // Register the User
-    registerUser();
+    // registerUser();
 
     // Call the submitRegistration function
     submitRegistration();
