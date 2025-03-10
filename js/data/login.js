@@ -72,26 +72,21 @@ document.addEventListener('DOMContentLoaded', (e) => {
             }
         });
     }); 
+
+    // Grab and parse the info from LocalStorage
     
-    // NOW we need to retrieve the pin number from the Local Storage DB
-    // // Retrieve the pin number from local storage
-    // const storedPin = JSON.parse(localStorage.getItem('pin'));
+    // validate inputs (For Login)
+    // if (!username || username.trim() === '') {
+    //     return { success: false, message: 'Name is required'};
+    // }
 
-    // // Iterate through the stored pin
-    // storedPin.forEach(pin => {
-    //     // Test print
-    //     console.log(pin);
-    // });
-
-    // // Use the retrieved pin
-    // console.log(parsedPin);
-
-    
-
-    // JS to match the name to the pin entered in DB
-    // login_pins.forEach((input, index) => {
-
-    // });
+    // if (!pin || pin.length < 4 || isNaN(pin)) {
+    //     return { success: false, message: 'PIN must be at least 4 digits' };
+    //   }
+      
+    // if (!accountType || !['admin', 'user', 'guest'].includes(accountType)) {
+    // return { success: false, message: 'Valid account type required' };
+    // }
 
     // JS to clear the pin fields
 
