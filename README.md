@@ -26,13 +26,13 @@
 
 \*~Pin Code Match JavaScript~
 
-\*Implement authorization to the Submit Button at Confirmation
+\*~Implement authorization to the Submit Button at Confirmation~
 
 ### Database
 
 \*~Add Account Registration~
 
-\*Store Account Information for testing (with LocalStorage)
+\*~Store Account Information for testing (with LocalStorage)~
 
 \*Store Account Information (with SQLite database)
 
