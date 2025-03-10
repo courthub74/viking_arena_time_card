@@ -361,6 +361,7 @@ label {
     transition: all .3s ease-in;
     width: 100%;
     position: relative;
+    padding-bottom: 1em;
 }
 
 /* Match (first-child)*/
@@ -378,6 +379,8 @@ label {
     align-items: center;
     color: var(--pins-match);
     color: green;
+    color: var(--text-color);
+    font-weight: bold;
     /* background-color: var(--match-background); */
     font-size: medium;
     width: 100%;
@@ -397,8 +400,11 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: .5em;
     color: var(--pins-no-match);
     color: red;
+    color: var(--text-color);
+    font-weight: bold;
     /* margin-top: -1em; */
     background-color: var(--match-background);
     border-radius: 5px;
@@ -483,7 +489,8 @@ label {
     }
 
     .pin_match_confirm {
-        padding: 11px;
+        padding: 25px;
+        margin-top: 1em;
     }
 
     label {

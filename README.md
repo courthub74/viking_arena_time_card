@@ -32,11 +32,9 @@
 
 \*~Add Account Registration~
 
+\*Store Account Information for testing (with LocalStorage)
+
 \*Store Account Information (with SQLite database)
-
-\*~Add Authorization for Employees (see current day to enter hours. Also access to personal calendar)~
-
-\*~Add Authorization for Employers (see Employees in a list. Click on each employee and see hours as a chart)~
 
 \*~Add Names registered to Name dropdown at login~
 
@@ -59,5 +57,13 @@
 \*Add messaging for tech support
 
 \*Add messaging for pin retrieval
+
+## Authorization
+
+\*~Add Authorization for Employees (see current day to enter hours. Also access to personal calendar)~
+
+\*~Add Authorization for Employers (see Employees in a list. Click on each employee and see hours as a chart)~
+
+\*Grant the Managers a managerial key for registration
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/courthub74/hazel_park_time_card?style=flat&logo=GitHub)
