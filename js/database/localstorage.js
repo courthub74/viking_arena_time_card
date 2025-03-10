@@ -7,39 +7,65 @@ function registerUser(username, accountType, pin) {
     // Get the users from the local storage or initialize an empty array
     var users = JSON.parse(localStorage.getItem('users')) || [];
 
-    // // Get the Account type from local storage or initialize an empty array
-    // var accountType = JSON.parse(localStorage.getItem('accountType')) || [];
-
-    // // Get the Pin Number from local storage or initialize an empty array
-    // var pin = JSON.parse(localStorage.getItem('pin')) || [];
-
     // Create new user object
     const newUser = {
-        id: Date.now(), // Simple unique id
+        // id: Date.now(), // Simple unique id
+        id: generateUserId(),
         username: username,
         accountType: accountType,
-        pin: pin
+        pin: pin,
+        createdAt: new Date().toISOString()
     };
 
     // Add the new user to the users array
     users.push(newUser);
 
-    // Save the users array back to the local storage
-
-    // Users
+    // Save back to localStorage
     localStorage.setItem('users', JSON.stringify(users));
 
-    // Account Type
-    localStorage.setItem('accountType', JSON.stringify(accountType));
+    // Return newUser object
+    return { success: true, message: 'User registered Successfully', userId: newUser.id};
 
-    // Pin
-    localStorage.setItem('pin', JSON.stringify(pin));
+    // Helper function to generate a simple unique ID
+    function generateUserId() {
+        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    }
 
-    // Test print newUser
-    console.log(newUser);
+    // Login function
+    function loginUser(username, pin) {
+        // Get item from local storage
+        var users = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Return the new user object
-    return newUser;
+        // Find user by name
+        const user = users.find( u => u.username === username);
+
+        if(!user) {
+            return { success: false, message: 'User not found'};
+        }
+
+        // Verify PIN
+        if (user.pin !== pin) {
+            return { success: false, message: 'Invalid PIN'};
+        }
+
+        // Store current user info in session
+        sessionStorage.setItem('currentUser', JSON.stringify({
+            id: user.id,
+            username: user.username,
+            accountType: user.accountType,
+            loginTime: new Date().toISOString()
+        }));
+
+        return {
+            success: true,
+            message: 'Login successful',
+            user: {
+                username: user.username,
+                accountType: user.accountType
+            }
+        };
+    }
+
 }
 
 
