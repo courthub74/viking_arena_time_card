@@ -10,7 +10,9 @@
 
 ### Main Login Page
 
-\*~Pin Code JavaScript~
+\*~Pin Code JavaScript for registration page~
+
+\*Pin Code JavaScript for login page
 
 \*~Change Color of Submit Button when all 4 pins entered~
 

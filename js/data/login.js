@@ -1,7 +1,7 @@
 // JS to read the names from the DB
 // (for now its in LocalStorage)
 document.addEventListener('DOMContentLoaded', (e) => {
-    // Get the dropdown element
+    // Get the dropdown element to populate it with names
     const usersDropdown = document.getElementById('users_dropdown');
     // Get the users array from the local storage
     const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -37,13 +37,63 @@ document.addEventListener('DOMContentLoaded', (e) => {
     // Query the pin inputs by whole div
 
     // Query the login pin field
-    const login_pins = document.getElementById("login_pin_field");
+    const login_pins = document.querySelectorAll('pin_put');
 
-    // JS to map through pin focus
+    // NUMERIC INPUT BEHAVIOR (for mobile devices)
+    // For every input in login_pins 
+    login_pins.forEach((input, index) => {
+        // Add input type="number" or pattern attribute to HTML elements
+        input.setAttribute('inputmode', 'numeric'); // Shows number keyboard on mobile
 
-    // JS to clear the pin fields
+        // Prevent non-numeric input
+        input.addEventListener('keypress', function(event) {
+            // Allow only digits (0-9)
+            if (!/[0-9]/.test(event.key)) {
+                event.preventDefault();
+            }
+        });
+
+         // Clean any non-numeric characters that might get pasted
+         input.addEventListener('input', function() {
+            // set the value of the input to only allow numerals with reg ex
+            this.value = this.value.replace(/[^0-9]/g, '');
+
+            // JS to map through pin focus
+            // Move to next input when a digit is entered
+            if (this.value.length === 1 && index < login_pins.length - 1) {
+                login_pins[index - 1].focus();
+            }
+         });
+
+        // BACKSPACE HANDLING
+        input.addEventListener('keydown', function(event) {
+            if (event.key === 'Backspace' && this.value.length === 0 && index > 0) {
+                login_pins[index - 1].focus();
+            }
+        });
+    }); 
+    
+    // NOW we need to retrieve the pin number from the Local Storage DB
+    // // Retrieve the pin number from local storage
+    // const storedPin = JSON.parse(localStorage.getItem('pin'));
+
+    // // Iterate through the stored pin
+    // storedPin.forEach(pin => {
+    //     // Test print
+    //     console.log(pin);
+    // });
+
+    // // Use the retrieved pin
+    // console.log(parsedPin);
+
+    
 
     // JS to match the name to the pin entered in DB
+    // login_pins.forEach((input, index) => {
+
+    // });
+
+    // JS to clear the pin fields
 
     // Query the login button
     const submit_login = document.getElementById("submit_login");

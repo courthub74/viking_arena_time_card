@@ -3,22 +3,40 @@
 // We also retrieve the user data from the local storage
 // We connect to the registration page and save the user data
 
-function registerUser(username, pin) { 
+function registerUser(username, accountType, pin) { 
     // Get the users from the local storage or initialize an empty array
     var users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // // Get the Account type from local storage or initialize an empty array
+    // var accountType = JSON.parse(localStorage.getItem('accountType')) || [];
+
+    // // Get the Pin Number from local storage or initialize an empty array
+    // var pin = JSON.parse(localStorage.getItem('pin')) || [];
 
     // Create new user object
     const newUser = {
         id: Date.now(), // Simple unique id
         username: username,
+        accountType: accountType,
         pin: pin
     };
 
     // Add the new user to the users array
     users.push(newUser);
 
-    // Save the users array to the local storage
+    // Save the users array back to the local storage
+
+    // Users
     localStorage.setItem('users', JSON.stringify(users));
+
+    // Account Type
+    localStorage.setItem('accountType', JSON.stringify(accountType));
+
+    // Pin
+    localStorage.setItem('pin', JSON.stringify(pin));
+
+    // Test print newUser
+    console.log(newUser);
 
     // Return the new user object
     return newUser;
@@ -59,6 +77,9 @@ const submitButton = document.getElementById('confirmation_advance');
 submitButton.addEventListener('click', (e) => {
     // Prevent the default action of the submit button
     e.preventDefault();
+
+    // Register the User
+    registerUser();
 
     // Call the submitRegistration function
     submitRegistration();
