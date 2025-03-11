@@ -295,7 +295,7 @@ header {
 .profile_info {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
 }
 
 label {
@@ -331,6 +331,7 @@ label {
     padding: 1em;
     font-size: medium;
     cursor: pointer;
+    margin-top: 1em;
 }
 
 /* Submit Button */
@@ -338,15 +339,15 @@ label {
     /* background-color: var(--button-background); */
     border: none;
     background: none;
-    border: none;
 }
 
 .submit a {
     color: var(--text-color);
     text-decoration: none;
-    font-weight: bold;
+    /* font-weight: bold; */
     background: none;
     border: none;
+    font-size: medium;
 }
 
 /* No outline on focus */
