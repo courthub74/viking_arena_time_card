@@ -291,253 +291,76 @@ header {
     height: 4em;
 }
 
-/* Users select Drop */
-/* ***************** */
-/* ***************** */
-
-.users_drop_container,
-.pin_number {
+/* Main Section */
+.profile_info {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 700px;
-}
-
-.users_drop_container label,
-.pin_number label {
-    margin-bottom: 8px;
-}
-
-.users_drop_container select,
-.pin_field {
-    display: flex;
-    width: 100%;
-    gap: 8px;
-    color: var(--text-color);
-    font-family: 'Poppins';
-}
-
-.users_drop_container select,
-.pin_field input {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    padding: 10px;
-    padding: 1em;
-    /* border: 1px solid #ccc; */
-    border: none;
-    background-color: var(--input-background);
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-#users_dropdown, #users_dropdown option {
-    font-family: 'Poppins', sans-serif;
-  }
-
-/* Custom dropdown arrow */
-.users_drop_container {
-    position: relative;
-}
-
-.users_drop_container::after {
-    content: '▼';
-    position: absolute;
-    top: 43%;
-    right: 20px;
-    transform: translateY(20%);
-    pointer-events: none;
-    color: #666;
-    /* color: var(--button-background); */
-    font-size: .5em;
-}
-
-.pin_field {
-    display: flex;
-    gap: 8px;
-}
-
-.pin_field input {
-    flex: 1;
-    text-align: center;
-    max-width: 100px;
-    border: none;
-}
-
-/* FIRST AI HELP VERSION */
-/* .users_drop_container,
-.pin_number {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px;
-}
-
-.users_drop_container {
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-}
-
-.users_drop_container select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 100%;
-
-    padding: 1em;
-    border: 1px solid #ccc;
-    border: none;
-    border-radius: 4px;
-    background-color: white;
-    background-color: var(--input-background);
-    color: var(--text-color);
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.users_drop_container::after {
-    content: '▼';
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: #666;
-    color: var(--text-color);
-    font-size: 0.8em;
-} */
-
-/* THE ORIGINAL VERSION WHICH FITS */
-/* .users_drop_container {
-    /* border: 1px solid blue; *
-    content: '▼';
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-    margin-top: 1em;
-}
-
-#users_dropdown {
-    background-color: var(--input-background);
-    color: var(--menu-text-color);
-    border: none;
-    width: 100%;
-    padding: 1em;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-} */
-
-.dropdown_select {
-    color: var(--text-color);
-}
-
-/* Pin Number Login */
-/* ***************** */
-/* ***************** */
-
-.pin_number {
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-    /* width: 100%; */
+    gap: 1em;
 }
 
 label {
-    opacity: 100%;
-    font-size: small;
     font-size: medium;
+    /* opacity: 60%; */
 }
 
-.pin_field {
-    display: flex;
-    /* gap: 1.7em; */
-    gap: 1.1em;
-    gap: .6em;
-    width: 100%;
+.label_info {
+    font-size: small;
+    font-weight: lighter;
+    opacity: 60%;
 }
 
-.pin_put {
-    flex: 1;
+.profile_info {
+    font-weight: bold;
+}
+
+.profile_field {
     background-color: var(--input-background);
-    border: none;
     color: var(--text-color);
-    text-align: center;
-    width: 4em;
-    height: 4em;
-    width: 4em;
-    height: 4em;
-    outline: none;
-    font-size: 16px;
-    max-height: 100%;
-    -webkit-appearance: none;
-}
-
-/* Pin Buttons Div */
-.pin_buttons {
+    padding: 1em;
     display: flex;
-    gap: 1em;
-    justify-content: space-between;
-}
-
-/* Reset Pins Button */
-.reset_button {
-    background: none;
-    color: var(--menu-text-color);
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: small;
-    /* font-weight: bold; */
-}
-
-/* Create Account Links */
-
-.create_acct_div {
-    margin-top: .5em;
-}
-
-.or {
-    font-size: medium;
+    flex-direction: column;
 }
 
 /* Create Account Link */
-.create_acct {
+.delete_acct_button {
     text-decoration: none;
-    color: var(--text-color);
-    color: var(--button-background);
-    /* font-weight: bold; */
+    background-color: red;
+    border: none;
+    color: white;
     width: 100%;
-    text-align: center;
+    padding: 1em;
     font-size: medium;
+    cursor: pointer;
 }
 
 /* Submit Button */
 .submit {
-    background-color: var(--button-background);
-    color: white;
+    /* background-color: var(--button-background); */
     border: none;
-    padding: 15px;
-    /* font-weight: bold; */
-    cursor: pointer;
-    font-size: medium;
-    transition: all 0.3s ease;
+    background: none;
+    border: none;
+}
+
+.submit a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    background: none;
+    border: none;
 }
 
 /* No outline on focus */
-.submit:focus {
+/* .submit:focus {
     outline: none;
-}
+} */
 
  /* Submit Disabled */
- .submit:disabled {
+ /* .submit:disabled {
     background-color: var(--button-background);
     color: var(--text-color);
     opacity: .6;
     cursor: not-allowed;
-}
+} */
 
 /* For wider screens narrow the form */
 
