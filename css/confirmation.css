@@ -370,6 +370,10 @@ label {
     cursor: not-allowed;
 }
 
+.profile_link a {
+    color: var(--text-color);
+}
+
 /* For wider screens narrow the form */
 
 /* Landscape */

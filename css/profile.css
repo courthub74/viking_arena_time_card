@@ -305,12 +305,11 @@ label {
 
 .label_info {
     font-size: small;
-    font-weight: lighter;
     opacity: 60%;
 }
 
 .profile_info {
-    font-weight: bold;
+    font-size: medium;
 }
 
 .profile_field {
@@ -350,18 +349,6 @@ label {
     font-size: medium;
 }
 
-/* No outline on focus */
-/* .submit:focus {
-    outline: none;
-} */
-
- /* Submit Disabled */
- /* .submit:disabled {
-    background-color: var(--button-background);
-    color: var(--text-color);
-    opacity: .6;
-    cursor: not-allowed;
-} */
 
 /* For wider screens narrow the form */
 
