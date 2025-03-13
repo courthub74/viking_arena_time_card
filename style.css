@@ -607,6 +607,12 @@ label {
     height: 1.5em;
   }
 
+
+  footer {
+    font-size: small;
+    opacity: 50%;
+  }
+
 /* For wider screens narrow the form */
 
 /* Landscape */

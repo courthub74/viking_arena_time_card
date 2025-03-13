@@ -39,6 +39,9 @@ function registerUser(username, accountType, pin) {
         // Find user by name
         const user = users.find( u => u.username === username);
 
+        // Test print finding the user name
+        console.log(`The user found is: ${user}`);
+
         if(!user) {
             return { success: false, message: 'User not found'};
         }
@@ -65,7 +68,6 @@ function registerUser(username, accountType, pin) {
             }
         };
     }
-
 }
 
 
@@ -85,10 +87,12 @@ function submitRegistration() {
     // Conditionals for the account type
     if (accountType === 'Manager') {
         // Redirect to the manager page
-        window.location.href = '../../html/manager/manager.html';
+        // window.location.href = '../../html/manager/manager.html';
+        window.location.href = '../../html/dashboards/manager.html';
     } else {
         // Redirect to the customer page
-        window.location.href = '../../html/calendar/calendar.html';
+        // window.location.href = '../../html/calendar/calendar.html';
+        window.location.href = '../../html/dashboards/employee.html';
     }
     
     return registerUser(username, accountType, pin);
@@ -96,19 +100,25 @@ function submitRegistration() {
 
 
 // Call the submitRegistration function upon submit button click
-// Query the submit button from the confirmation page
-const submitButton = document.getElementById('confirmation_advance');
 
-// Add an event listener to the submit button
-submitButton.addEventListener('click', (e) => {
-    // Prevent the default action of the submit button
-    e.preventDefault();
+// Wait for the page to load
+document.addEventListener('DOMContentLoaded', function() {
 
-    // Register the User
-    // registerUser();
+    // Query the same submit button from the confirmation page
+    const submitButton = document.getElementById('confirmation_advance');
 
-    // Call the submitRegistration function
-    submitRegistration();
+    console.log(`The Submit Button test: ${submitButton}`);
+    // Add an event listener to the submit button
+    submitButton.addEventListener('click', (e) => {
+        // Test Print
+        console.log("Registration Submitted");
+        // Prevent the default action of the submit button
+        e.preventDefault();
+
+        // Register the User
+        // by calling the submitRegistration function
+        submitRegistration();
+    });
 });
 
 

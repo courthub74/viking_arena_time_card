@@ -88,6 +88,41 @@ document.addEventListener('DOMContentLoaded', (e) => {
     // return { success: false, message: 'Valid account type required' };
     // }
 
+    // Login function
+    // function loginUser(username, pin) {
+    //     // Get item from local storage
+    //     var users = JSON.parse(localStorage.getItem('users')) || [];
+
+    //     // Find user by name
+    //     const user = users.find( u => u.username === username);
+
+    //     if(!user) {
+    //         return { success: false, message: 'User not found'};
+    //     }
+
+    //     // Verify PIN
+    //     if (user.pin !== pin) {
+    //         return { success: false, message: 'Invalid PIN'};
+    //     }
+
+    //     // Store current user info in session
+    //     sessionStorage.setItem('currentUser', JSON.stringify({
+    //         id: user.id,
+    //         username: user.username,
+    //         accountType: user.accountType,
+    //         loginTime: new Date().toISOString()
+    //     }));
+
+    //     return {
+    //         success: true,
+    //         message: 'Login successful',
+    //         user: {
+    //             username: user.username,
+    //             accountType: user.accountType
+    //         }
+    //     };
+    // }
+
     // JS to clear the pin fields
 
     // Query the login button
