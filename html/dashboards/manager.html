@@ -6,7 +6,8 @@
     <title>Viking Time Card</title>
 
       <!-- CSS -->
-      <link rel="stylesheet" href="../../css/profile.css">
+      <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
+      <link rel="stylesheet" href="../../css/confirmation.css">
 </head>
 <body>
 
@@ -18,7 +19,9 @@
             <!-- Burger -->
             <div class="menu_button">
                 <button id="menu_burgers">
+                    <!-- <img src="/viking_arena_time_card/img/hamburgers/hamburger-black.png" class="burger" id="burger_one" alt="menu"> -->
                     <img src="../../img/hamburgers/hamburger-black.png" class="burger" id="burger_one" alt="menu">
+                    <!-- <img src="/viking_arena_time_card/img/hamburgers/hamburger-white.png" class="burger" id="burger_two" alt="menu"> -->
                     <img src="../../img/hamburgers/hamburger-white.png" class="burger" id="burger_two" alt="menu">
                 </button>
             </div>
@@ -27,7 +30,9 @@
             <div class="theme_switch">
                 <!-- Day/Nite -->
                 <button id="theme_switch">
+                    <!-- <img src="/viking_arena_time_card/img/day-nite/litemode_circle.png" alt="light mode" id="day_puck" class="day-nite"> -->
                     <img src="../../img/day-nite/litemode_circle.png" alt="light mode" id="day_puck" class="day-nite">
+                    <!-- <img src="/viking_arena_time_card/img/day-nite/darkmode_circle.png" alt="dark mode" id="nite_puck" class="day-nite"> -->
                     <img src="../../img/day-nite/darkmode_circle.png" alt="dark mode" id="nite_puck" class="day-nite">
                 </button>
             </div>
@@ -54,56 +59,48 @@
             <header>
                 <div class="logo_name">
                     <p>Time Card</p>
+                    <!-- <img class="hazel_park_logo" src="/viking_arena_time_card/img/hazel-park-logo/Logo.png"> -->
                     <img class="hazel_park_logo" src="../../img/hazel-park-logo/Logo.png">
                 </div>
 
                 <!-- App State -->
                 <!-- <div class="app_state">
-                    <p>Login:</p>
+                    <p>You are registered as:</p>
                 </div> -->
             </header>
 
-           <!-- Profile Info -->
 
-           <label>Your Profile:</label>
-
-            <main class="profile_info">
-
-                <!-- NAME -->
-                <div class="profile_field" id="name_field">
-                    <label class="label_info">Name:</label>
-                    <p class="profile_info">Mike Milwaukee</p>
-                </div>
-
-                <!-- ACCOUNT TYPE -->
-                
-                <div class="profile_field" id="acct-type_field">
-                    <label class="label_info">Account Type:</label>
-                    <p class="profile_info">Manager</p>
-                </div>
-
-                <!-- PIN NUMBER -->
-                <!-- <div class="profile_pin_num" id="profile_pin_num"></div> -->
-            </main>
+           <!-- Calendar Page -->
+            <h1>This is the Manager page</h1>
 
 
-             <!-- DELETE ACCT -->
-             <button class="delete_acct_button" id="delete_acct">Delete Account</button>
+            <!-- Submit Button -->
 
-             <!-- Back to Dashboard Button -->
-              <!-- Here may need to implement a conditional that compares
-                    the acccount type and links this button to the proper dashboard (JS) -->
-            <button class="submit">
-                <a href="../../html/dashboards/employee.html">Back to Dashboard</a>
-                <!-- <a href="../../html/calendar/calendar.html">Back to Dashboard</a> -->
-            </button>
+            <!-- This is where Authorization comes into play -->
+            <!-- If Manager Account / Button should say (Go to Employee hours) -->
+            <!-- If Employee Account / Button should say (Go to your Calendar) -->
+            <button class="submit" id="confirmation_advance">Next</button>
+
+            <a href="../../html/profile/profile.html" class="profile_link">Go to Profile</a>
+
         </form>
     </div>
 
     <!-- DARKMODE -->
+    <!-- <script src="/viking_arena_time_card/js/darkmode.js"></script> -->
     <script src="../../js/darkmode.js"></script>
 
     <!-- SLIDE IN -->
+    <!-- <script src="/viking_arena_time_card/js/slide-in.js"></script> -->
     <script src="../../js/slide-in.js"></script>
+
+    <!-- CONFIRMATION -->
+    <!-- <script src="/viking_arena_time_card/js/data/confirmation.js"></script> -->
+    <script src="../../js/data/confirmation.js"></script>
+
+    <!-- LOCAL STORAGE DB (for Demo purpose) -->
+    <!-- <script src="/viking_arena_time_card/js/database/local_storage.js"></script> -->
+    <script src="../../js/database/localstorage.js"></script>
+    
 </body>
 </html>
