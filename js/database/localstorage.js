@@ -70,11 +70,6 @@ function registerUser(username, accountType, pin) {
     }
 }
 
-// Query the same submit button from the confirmation page
-const submitButton = document.getElementById('confirmation_advance');
-
-console.log(`The Submit Button test: ${submitButton}`);
-
 
 // Submit the Name to Registration
 // Get the info from the confirmation page
@@ -106,16 +101,24 @@ function submitRegistration() {
 
 // Call the submitRegistration function upon submit button click
 
-// Add an event listener to the submit button
-submitButton.addEventListener('click', (e) => {
-    // Test Print
-    console.log("Registration Submitted");
-    // Prevent the default action of the submit button
-    e.preventDefault();
+// Wait for the page to load
+document.addEventListener('DOMContentLoaded', function() {
 
-    // Register the User
-    // by calling the submitRegistration function
-    submitRegistration();
+    // Query the same submit button from the confirmation page
+    const submitButton = document.getElementById('confirmation_advance');
+
+    console.log(`The Submit Button test: ${submitButton}`);
+    // Add an event listener to the submit button
+    submitButton.addEventListener('click', (e) => {
+        // Test Print
+        console.log("Registration Submitted");
+        // Prevent the default action of the submit button
+        e.preventDefault();
+
+        // Register the User
+        // by calling the submitRegistration function
+        submitRegistration();
+    });
 });
 
 

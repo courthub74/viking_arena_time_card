@@ -25,7 +25,8 @@ const confirmed_name = document.getElementById('confirmed_name');
 const confirmed_acct_type = document.getElementById('confirmed_acct_type');
 const confirmed_pin = document.getElementById('confirmed_pin');
 
-
+// Test Print Names
+console.log(`${encodedFirstName} ${encodedLastName}`);
 // inner HTML Elements changed
 
 // Setting the Name div innerHTML with proper encoded parameters
