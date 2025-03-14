@@ -29,6 +29,18 @@
      /* Button Colors */
      --button-background: #009DF8;
      --button-text: white;
+
+     /* Dashboard Button Colors */
+     --dashboard-button-background: #5186b148;
+     --dashboard-button-trim: none;
+
+     /* Account Type Colors */
+     --dashboard-selected: #2065a58a;
+     /* Trim */
+     --dashboard-trim: #000000;
+     /* Hover */
+     --dashboard-hover: #e8e8e8;
+
 }
 
 /* DARK MODE */
@@ -58,6 +70,17 @@ body.dark-mode {
      /* Button Colors */
      --button-background: #009DF8;
      --button-text: white;
+
+      /* Dashboard Button Colors */
+      --dashboard-button-background: black;
+      --dashboard-button-trim: #009df88c;
+
+     /* Account Type Colors */
+      --dashboard-selected: #17426b7c;
+     /* Trim */
+     --dashboard-trim: #009DF8;
+     /* Hover */
+     --dashboard-hover: #17426b;
 }
 
 /* WHOLE BODY */
@@ -329,8 +352,8 @@ label {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: var(--background-color);
-    border: 2px solid var(--button-background);
+    background-color: var(--dashboard-button-background);
+    border: 1px solid var(--dashboard-button-trim);
     padding: 4em;
     /* padding: 10px; */
     color: var(--text-color);
@@ -344,11 +367,11 @@ label {
     background-color: none;
   }
 
-  .acct_radio:checked + label {
+  .dashboard_button:checked + label {
     /* border: 1px solid var(--button-background); */
     box-sizing: border-box;
-    background-color: var(--acct-type-selected);
-    border: 2px solid var(--acct-type-trim);
+    background-color: var(--dashboard-selected);
+    border: 1px solid var(--dashboard-trim);
     color: var(--text-color);
     /* transition: all 0.3s ease; */
   }
