@@ -60,6 +60,12 @@
 
 \*Add messaging for pin retrieval
 
+## Authentication
+
+\*Create Login functionality
+
+\*Create Logout functionality
+
 ## Authorization
 
 \*~Add Authorization for Employees (see current day to enter hours. Also access to personal calendar)~

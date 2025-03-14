@@ -70,24 +70,36 @@
             </header>
 
 
-            <form>
+           
 
                 <!-- Page Header -->
                 <label>
                     <span class="acct_type_label">Employee</span>
                     <span class="page_header">Dashboard for: <p id="employee_name"></p></span>
                 </label>
-            </form>
 
-            <!-- Submit Button -->
+                <!-- The Radio Buttons -->
+                 <div class="employee_selects">
 
-            <!-- This is where Authorization comes into play -->
-            <!-- If Manager Account / Button should say (Go to Employee hours) -->
-            <!-- If Employee Account / Button should say (Go to your Calendar) -->
-          
-            <a href="../../html/profile/profile.html" class="profile_link">Go to Profile</a>
+                    <!-- Button One -->
+                    <div class="radio-container">
+                        <input type="radio" name="role" value="employee_hours" id="employee_hours" class="dashboard_button">
+                        <label for="employee_hours">Enter your Hours</label>
+                    </div>
+
+                    <!-- Button Two -->
+                    <div class="radio-container">
+                        <input type="radio" name="role" value="schedule_requests" id="schedule_requests" class="dashboard_button">
+                        <label for="schedule_requests">Schedule Requests</label>
+                    </div>
+
+                 </div>
+
+                 <a href="../../index.html" class="submit">Log Out</a>
+
+            </form>           
            
-        </form>
+      
     </div>
 
     <!-- DARKMODE -->
