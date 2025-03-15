@@ -252,7 +252,7 @@ form {
     gap: 3em;
     width: 100%;
     padding: 0 2em 0 2em;
-    margin-top: 1em;
+    /* margin-top: 1em; */
     
 }
 
@@ -276,6 +276,7 @@ header {
 
 .logo_name p {
     font-size: 2.5rem;
+    /* font-size: 2rem; */
     font-weight: bold;
 }
 
@@ -287,8 +288,10 @@ header {
 
 
 .hazel_park_logo {
-    width: 4em;
-    height: 4em;
+    /* width: 4em; */
+    width: 3em;
+    /* height: 4em; */
+    height: 3em;
 }
 
 /* Users select Drop */
