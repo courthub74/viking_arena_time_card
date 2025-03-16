@@ -451,7 +451,7 @@ header {
 label {
     opacity: 100%;
     font-size: small;
-    font-size: medium;
+    /* font-size: medium; */
 }
 
 .pin_field {
@@ -504,6 +504,7 @@ label {
 
 .or {
     font-size: medium;
+    font-size: small;
 }
 
 /* Create Account Link */
@@ -515,6 +516,7 @@ label {
     width: 100%;
     text-align: center;
     font-size: medium;
+    font-size: small;
 }
 
 /* Submit Button */

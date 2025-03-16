@@ -307,6 +307,7 @@ header {
 label {
     opacity: 100%;
     font-size: medium;
+    font-size: small;
 }
 
 /* The Account Type Buttons Div */
@@ -334,10 +335,12 @@ label {
     width: 100%;
     background-color: var(--input-background);
     border: none;
-    padding: 1.5em;
+    /* padding: 1.5em; */
     padding: 10px;
+    padding: 20px;
     color: var(--text-color);
     font-size: medium;
+    font-size: small;
     cursor: pointer;
     font-family: 'Poppins';
   }

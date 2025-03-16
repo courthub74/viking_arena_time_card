@@ -313,6 +313,7 @@ header {
 label {
     opacity: 100%;
     font-size: medium;
+    font-size: small;
     /* display: flex; */
     gap: .5em;
 }
@@ -333,8 +334,8 @@ label {
     /* background-color: blue; */
     display: flex;
     flex-direction: column;
-    gap: 3em;
-    margin-top: 2em;
+    gap: 1em;
+    /* margin-top: 1em; */
 }
 
 

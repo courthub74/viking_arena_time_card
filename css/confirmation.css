@@ -299,6 +299,7 @@ header {
 label {
     opacity: 100%;
     font-size: medium;
+    font-size: small;
 }
 
 .confirmed_label {
@@ -325,6 +326,8 @@ label {
 .confirmed_info {
     /* font-weight: bold; */
     font-size: medium;
+    font-size: small;
+    font-weight: bold;
     opacity: 100%;
 }
 

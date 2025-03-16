@@ -315,7 +315,7 @@ header {
 label {
     opacity: 100%;
     font-size: small;
-    font-size: medium;
+    /* font-size: medium; */
     margin-top: 1em;
 }
 
@@ -332,6 +332,7 @@ input {
 ::placeholder {
     color: var(--text-color);
     opacity: 45%;
+    font-size: small;
 }
 
 /* Submit Button */
@@ -357,6 +358,12 @@ input {
     color: var(--text-color);
     opacity: .6;
     cursor: not-allowed;
+}
+
+/* Back Button */
+.go_back {
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 /* For wider screens narrow the form */
