@@ -381,7 +381,7 @@ input {
 /* Desktop */
 @media screen and (min-width: 1200px) {
     form {
-        width: 25%;
+        width: 35%;
         display: flex;
         flex-direction: column;
         gap: 2em;
@@ -411,5 +411,14 @@ input {
     .hazel_park_logo {
         width: 6em;
         height: 6em;
+    }
+
+    /* Form Elements */
+    label {
+        font-size: medium;
+    }
+
+    ::placeholder {
+        font-size: medium;
     }
 }

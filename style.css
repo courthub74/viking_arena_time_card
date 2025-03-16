@@ -260,7 +260,6 @@ form {
 header {
     display: flex;
     flex-direction: column;
-    justify-content: left;
     gap: 2em;
     width: 100%;
 }
@@ -268,10 +267,12 @@ header {
 .logo_name {
     display: flex;
     /* flex-direction: column; */
+    justify-content: center;
     justify-content: left;
     align-items: center;
     width: 100%;
     gap: .5em;
+    gap: 2.5em;
 }
 
 .logo_name p {
@@ -290,6 +291,8 @@ header {
 .hazel_park_logo {
     width: 3.5em;
     height: 3.5em;
+    width: 6em;
+    height: 6em;
 }
 
 /* Users select Drop */
