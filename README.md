@@ -74,4 +74,10 @@
 
 \*Grant the Managers a managerial key for registration
 
+## Obstacles
+
+\*Had to consider the user psychology and behavior patterns of users that range from 21 - 81
+
+\*Emplemented design thinking methodology:
+
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/courthub74/hazel_park_time_card?style=flat&logo=GitHub)
