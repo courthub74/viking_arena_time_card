@@ -41,6 +41,8 @@
      /* Hover */
      --dashboard-hover: #e8e8e8;
 
+     /* Dashboard Logo */
+     --dashboard-logo: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
 }
 
 /* DARK MODE */
@@ -81,6 +83,9 @@ body.dark-mode {
      --dashboard-trim: #009DF8;
      /* Hover */
      --dashboard-hover: #17426b;
+
+     /* Dashboard Logo */
+     --dashboard-logo: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
 /* WHOLE BODY */
@@ -352,6 +357,8 @@ label {
 .radio-container label {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 1em;
     width: 100%;
     background-color: var(--dashboard-button-background);
     border: 1px solid var(--dashboard-button-trim);
@@ -359,6 +366,7 @@ label {
     /* padding: 10px; */
     color: var(--text-color);
     font-size: medium;
+    font-size: small;
     /* font-weight: bold; */
     cursor: pointer;
     font-family: 'Poppins';
@@ -376,6 +384,24 @@ label {
     color: var(--text-color);
     /* transition: all 0.3s ease; */
   }
+
+  /* Dashboard Images */
+
+  /* Clock */
+  .dash_hours {
+    width: 20px;
+    height: 20px;
+    filter: var(--dashboard-logo);
+  }
+
+  /* Calendar */
+  .dash_calendar {
+    width: 20px;
+    height: 20px;
+    filter: var(--dashboard-logo);
+  }
+
+
 
 /* Submit Button */
 .submit {
@@ -419,8 +445,10 @@ label {
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
+
+    /* Desktop Form */
     form {
-        width: 25%;
+        width: 35%;
         display: flex;
         flex-direction: column;
         gap: 2em;
@@ -443,12 +471,37 @@ label {
 
    /* Logo a bit bigger */
    .logo_name p {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: bold;
-}
+   }
 
     .hazel_park_logo {
         width: 6em;
         height: 6em;
     }
+
+    /* Form Elements */
+    label {
+        font-size: medium;
+    }
+
+    .radio-container label {
+        padding: 4em;
+        width: 100%;
+        font-size: medium;
+    }
+
+    /* Clock */
+  .dash_hours {
+    width: 30px;
+    height: 30px;
+    filter: var(--dashboard-logo);
+  }
+
+  /* Calendar */
+  .dash_calendar {
+    width: 30px;
+    height: 30px;
+    filter: var(--dashboard-logo);
+  }
 }

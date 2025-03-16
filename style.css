@@ -365,72 +365,6 @@ header {
     border: none;
 }
 
-/* FIRST AI HELP VERSION */
-/* .users_drop_container,
-.pin_number {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px;
-}
-
-.users_drop_container {
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-}
-
-.users_drop_container select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 100%;
-
-    padding: 1em;
-    border: 1px solid #ccc;
-    border: none;
-    border-radius: 4px;
-    background-color: white;
-    background-color: var(--input-background);
-    color: var(--text-color);
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.users_drop_container::after {
-    content: '▼';
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: #666;
-    color: var(--text-color);
-    font-size: 0.8em;
-} */
-
-/* THE ORIGINAL VERSION WHICH FITS */
-/* .users_drop_container {
-    /* border: 1px solid blue; *
-    content: '▼';
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-    margin-top: 1em;
-}
-
-#users_dropdown {
-    background-color: var(--input-background);
-    color: var(--menu-text-color);
-    border: none;
-    width: 100%;
-    padding: 1em;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-} */
-
 .dropdown_select {
     color: var(--text-color);
 }
@@ -633,7 +567,7 @@ label {
     }
 
     form {
-        width: 25%;
+        width: 30%;
         display: flex;
         flex-direction: column;
         gap: 2em;
@@ -663,5 +597,18 @@ label {
     .hazel_park_logo {
         width: 6em;
         height: 6em;
+    }
+
+    /* Form Elements */
+    label {
+        font-size: medium;
+    }
+
+    footer {
+        font-size: medium;
+    }
+
+    .or, .create_acct {
+        font-size: medium;
     }
 }
