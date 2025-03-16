@@ -591,9 +591,21 @@ label {
         font-size: x-large;
     }
 
+    /* Header with more gap */
+    .logo_name {
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        justify-content: left;
+        align-items: center;
+        width: 100%;
+        gap: .5em;
+        gap: 2.5em;  
+    }
+
     /* Logo a bit bigger */
     .logo_name p {
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: bold;
     }
 
