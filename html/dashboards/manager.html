@@ -7,7 +7,7 @@
 
       <!-- CSS -->
       <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
-      <link rel="stylesheet" href="../../css/confirmation.css">
+      <link rel="stylesheet" href="../../css/manager_dash.css">
 </head>
 <body>
 
@@ -40,9 +40,9 @@
 
         <!-- SLIDE IN MENU -->
         <div class="side-menu">
-            <a href="../../html/profile/profile.html" class="menu-item"><span>Profile</span></a>
-            <a href="#" class="menu-item"><span>Settings</span></a>
+            <a href="#" class="menu-item"><span>Profile</span></a>
             <a href="#" class="menu-item"><span>Tech Support</span></a>
+            <a href="../../index.html" class="menu-item"><span>Log Out</span></a>
             <!-- <a href="#" class="menu-item">👤 <span>Profile</span></a>
             <a href="#" class="menu-item">⚙️ <span>Settings</span></a>
             <a href="#" class="menu-item">📱 <span>Tech Support</span></a> -->
@@ -70,8 +70,28 @@
             </header>
 
 
-           <!-- Calendar Page -->
-            <h1>This is the Manager page</h1>
+             <!-- Page Header -->
+             <label>
+                <span class="acct_type_label">Manager</span>
+                <span class="page_header">Dashboard for: <p id="employee_name"></p></span>
+            </label>
+
+            <!-- The Radio Buttons -->
+             <div class="employee_selects">
+
+                <!-- Button One -->
+                <div class="radio-container">
+                    <input type="radio" name="role" value="employee_hours" id="employee_hours" class="dashboard_button">
+                    <label for="employee_hours">Get Employee Hours</label>
+                </div>
+
+                <!-- Button Two -->
+                <div class="radio-container">
+                    <input type="radio" name="role" value="schedule_requests" id="schedule_requests" class="dashboard_button">
+                    <label for="schedule_requests">Make the Schedule</label>
+                </div>
+
+             </div>
 
 
             <!-- Submit Button -->
@@ -79,9 +99,7 @@
             <!-- This is where Authorization comes into play -->
             <!-- If Manager Account / Button should say (Go to Employee hours) -->
             <!-- If Employee Account / Button should say (Go to your Calendar) -->
-            <button class="submit" id="confirmation_advance">Next</button>
-
-            <a href="../../html/profile/profile.html" class="profile_link">Go to Profile</a>
+            <button class="submit" id="dashboard_advance">Next</button>
 
         </form>
     </div>
