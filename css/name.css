@@ -251,7 +251,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 form {
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 3em;
     width: 100%;
     padding: 0 2em 0 2em;
     /* margin-top: 1em; */
@@ -261,21 +261,23 @@ form {
 header {
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    /* gap: 2em; */
+    gap: 2em;
     width: 100%;
 }
 
 .logo_name {
     display: flex;
     /* flex-direction: column; */
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+    width: 100%;
     gap: .5em;
+    /* gap: 1em; */
 }
 
 .logo_name p {
     font-size: 2.5rem;
+    /* font-size: 2rem; */
     font-weight: bold;
 }
 
@@ -364,6 +366,7 @@ input {
 .go_back {
     text-decoration: none;
     color: var(--text-color);
+    font-size: small;
 }
 
 /* For wider screens narrow the form */
@@ -381,10 +384,10 @@ input {
 /* Desktop */
 @media screen and (min-width: 1200px) {
     form {
-        width: 35%;
+        width: 30%;
         display: flex;
         flex-direction: column;
-        gap: 2em;
+        gap: 3em;
         margin-top: 1em;
     }
 
@@ -404,13 +407,13 @@ input {
 
     /* Logo a bit bigger */
     .logo_name p {
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: bold;
     }
 
     .hazel_park_logo {
-        width: 6em;
-        height: 6em;
+        width: 5em;
+        height: 5em;
     }
 
     /* Form Elements */
@@ -419,6 +422,10 @@ input {
     }
 
     ::placeholder {
+        font-size: medium;
+    }
+
+    .go_back {
         font-size: medium;
     }
 }

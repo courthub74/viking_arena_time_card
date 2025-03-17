@@ -268,7 +268,6 @@ header {
     display: flex;
     /* flex-direction: column; */
     justify-content: center;
-    justify-content: center;
     align-items: center;
     width: 100%;
     gap: .5em;
@@ -281,20 +280,16 @@ header {
     font-weight: bold;
 }
 
-.app_state p {
+/* .app_state p {
     text-decoration: underline;
     text-decoration-color: var(--button-background);
     text-decoration-thickness: 2px;
-}
+} */
 
 
 .hazel_park_logo {
     width: 3.5em;
     height: 3.5em;
-    /* width: 4em; */
-    /* height: 4em; */
-    /* width: 6em; */
-    /* height: 6em; */
 }
 
 /* Users select Drop */
@@ -466,6 +461,7 @@ label {
     cursor: pointer;
     font-size: medium;
     transition: all 0.3s ease;
+    margin-top: -1em;
 }
 
 /* No outline on focus */
@@ -568,7 +564,7 @@ label {
 /* Desktop */
 @media screen and (min-width: 1200px) {
     header {
-        width: 50em;
+        width: 100%;
     }
 
     form {
@@ -598,11 +594,11 @@ label {
         display: flex;
         /* flex-direction: column; */
         justify-content: center;
-        justify-content: left;
+        justify-content: center;
         align-items: center;
         width: 100%;
         gap: .5em;
-        gap: 2.5em;  
+        /* gap: 2.5em;   */
     }
 
     /* Logo a bit bigger */
@@ -612,8 +608,8 @@ label {
     }
 
     .hazel_park_logo {
-        width: 6em;
-        height: 6em;
+        width: 5em;
+        height: 5em;
     }
 
     /* Form Elements */
