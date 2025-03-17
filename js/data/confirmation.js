@@ -1,12 +1,12 @@
 // Get URL Parameters (it's a search)
 const urlParams = new URLSearchParams(window.location.search);
 
-    
+console.log(urlParams);    
 // First Name | Last Name | Account Type | Pin Number are all retrieved by ID
 
 // Get the First Name from the URL Parameters and decode it
 const encodedFirstName = urlParams.get('first_name') ? decodeURIComponent(urlParams.get('first_name')) : 'No First Name';
-// console.log(encodedFirstName);
+console.log(`The encoded First name: ${encodedFirstName}`);
 
 // Get the Last Name from the URL Parameters and decode it
 const encodedLastName = urlParams.get('last_name') ? decodeURIComponent(urlParams.get('last_name')) : 'No Last Name';
@@ -63,37 +63,43 @@ if (acct_type === 'Manager') {
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// Add Event Listener to Submit Button
-submit_acct_type.addEventListener('click', (e) => {
-    // so submit doesn't refresh the page
-    e.preventDefault();
+// Query the form
+const form = document.querySelector('form');
 
-    // Test print button function
+// Add Event Listener to Submit Button
+form.addEventListener('submit', (e) => {
+    // Prevent default form submission
+    e.preventDefault();
+    
     console.log("Submit Button Pressed");
 
-    // Redirect to the Manager or Calendar page based on account type
-    if (acct_type === 'Manager') {
-        // Test Print
-        console.log("Redirecting to Manager Page");
-        // Send encoded data to the database
-        // Redirect to Manager Page
-        window.location.href = `../../html/dashboards/manager.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
-    } else {
-        // Test Print
-        console.log("Redirecting to Employee Page");
-        // Send encoded data to the database
-        window.location.href = `../../html/dashboards/employee.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
-    }
-    // window.location.href = `acct_type.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
+    // Retrieve the URL Parameters
+    const urlParams = new URLSearchParams(window.location.search);
 
-    // This is where you send info to database    
-    // const url = 'https://jsonplaceholder.typicode.com/posts';
-    // const data = {
-    //     name: 'John Doe',
-    //     account: 'Manager'
-    //     pin: '1234'
-    // };
-    // fetch(url, {});
+    // Get the Encoded First Name from the URL Parameters and decode it
+    const encodedFirstName = urlParams.get('first_name') ? decodeURIComponent(urlParams.get('first_name')) : 'No First Name';
+    console.log(encodedFirstName);
+
+    // Get the Encoded Last Name from the URL Parameters and decode it
+    const encodedLastName = urlParams.get('last_name') ? decodeURIComponent(urlParams.get('last_name')) : 'No Last Name';
+    console.log(encodedLastName);
+    
+    // Get the original values (replace these with how you actually get the values)
+    // const firstName = document.getElementById('first_name').value; // or however you get this
+    // const lastName = document.getElementById('last_name').value;   // or however you get this
+    
+    // Encode only once
+    // const encodedFirst = encodeURIComponent(firstName);
+    // const encodedLast = encodeURIComponent(lastName);
+    
+    // Redirect based on account type
+    if (acct_type === 'Manager') {
+        console.log("Redirecting to Manager Page");
+        window.location.href = `../../html/dashboards/manager.html?first_name=${encodedFirst}&last_name=${encodedLast}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
+    } else {
+        console.log("Redirecting to Employee Page");
+        window.location.href = `../../html/dashboards/employee.html?first_name=${encodedFirst}&last_name=${encodedLast}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
+    }
 });
 
 // Query username
