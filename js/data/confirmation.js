@@ -83,22 +83,15 @@ form.addEventListener('submit', (e) => {
     // Get the Encoded Last Name from the URL Parameters and decode it
     const encodedLastName = urlParams.get('last_name') ? decodeURIComponent(urlParams.get('last_name')) : 'No Last Name';
     console.log(encodedLastName);
-    
-    // Get the original values (replace these with how you actually get the values)
-    // const firstName = document.getElementById('first_name').value; // or however you get this
-    // const lastName = document.getElementById('last_name').value;   // or however you get this
-    
-    // Encode only once
-    // const encodedFirst = encodeURIComponent(firstName);
-    // const encodedLast = encodeURIComponent(lastName);
+
     
     // Redirect based on account type
     if (acct_type === 'Manager') {
         console.log("Redirecting to Manager Page");
-        window.location.href = `../../html/dashboards/manager.html?first_name=${encodedFirst}&last_name=${encodedLast}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
+        window.location.href = `../../html/dashboards/manager.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
     } else {
         console.log("Redirecting to Employee Page");
-        window.location.href = `../../html/dashboards/employee.html?first_name=${encodedFirst}&last_name=${encodedLast}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
+        window.location.href = `../../html/dashboards/employee.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
     }
 });
 

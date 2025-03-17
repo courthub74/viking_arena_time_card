@@ -27,3 +27,9 @@ console.log("encodedPinConfirm param:", urlParams.get('encodedPinConfirm'));
  console.log(whole_name);
  
  // Then change the inner HTML to the value
+
+//  Query the ID
+const employee_id = document.getElementById('employee_name');
+
+// Change HTML
+employee_id.innerHTML = whole_name;
