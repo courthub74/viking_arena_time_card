@@ -264,7 +264,7 @@ header {
 .logo_name {
     display: flex;
     /* flex-direction: column; */
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     gap: .5em;
 }
@@ -392,7 +392,7 @@ label {
 /* Desktop */
 @media screen and (min-width: 1200px) {
     form {
-        width: 25%;
+        width: 30%;
         display: flex;
         flex-direction: column;
         gap: 2em;
@@ -413,14 +413,23 @@ label {
         font-size: x-large;
     }
 
-   /* Logo a bit bigger */
-   .logo_name p {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
+    /* Logo a bit bigger */
+    .logo_name p {
+        font-size: 3rem;
+        font-weight: bold;
+    }
 
     .hazel_park_logo {
-        width: 6em;
-        height: 6em;
+        width: 5em;
+        height: 5em;
+    }
+
+    /* Form Elements */
+    label {
+        font-size: medium;
+    }
+
+    .confirmed_info {
+        font-size: medium;
     }
 }

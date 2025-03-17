@@ -292,7 +292,7 @@ header {
 .logo_name {
     display: flex;
     /* flex-direction: column; */
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     gap: .5em;
 }
@@ -319,7 +319,7 @@ label {
     opacity: 100%;
     font-size: medium;
     font-size: small;
-    /* display: flex; */
+    display: flex;
     gap: .5em;
 }
 
@@ -330,6 +330,7 @@ label {
 }
 
 .page_header {
+    display: flex;
     font-weight: normal;
     opacity: 100%;
 }
@@ -363,7 +364,7 @@ label {
     background-color: var(--dashboard-button-background);
     border: 1px solid var(--dashboard-button-trim);
     padding: 3em;
-    /* padding: 10px; */
+    /* padding: 1em; */
     color: var(--text-color);
     font-size: medium;
     font-size: small;
@@ -471,13 +472,13 @@ label {
 
    /* Logo a bit bigger */
    .logo_name p {
-    font-size: 3rem;
-    font-weight: bold;
+        font-size: 3rem;
+        font-weight: bold;
    }
 
     .hazel_park_logo {
-        width: 6em;
-        height: 6em;
+        width: 5em;
+        height: 5em;
     }
 
     /* Form Elements */
@@ -487,21 +488,31 @@ label {
 
     .radio-container label {
         padding: 4em;
+        padding: 2em;
         width: 100%;
         font-size: medium;
     }
 
-    /* Clock */
-  .dash_hours {
-    width: 30px;
-    height: 30px;
-    filter: var(--dashboard-logo);
-  }
+    /* Employee Selects Buttons */
+    .employee_selects {
+        margin-top: 2em;
+    }
 
-  /* Calendar */
-  .dash_calendar {
-    width: 30px;
-    height: 30px;
-    filter: var(--dashboard-logo);
-  }
+    /* Clock */
+    .dash_hours {
+        width: 20px;
+        height: 20px;
+        filter: var(--dashboard-logo);
+    }
+
+    /* Calendar */
+    .dash_calendar {
+        width: 20px;
+        height: 20px;
+        filter: var(--dashboard-logo);
+    }
+
+    .submit {
+        margin-top: 1em;
+    }
 }
