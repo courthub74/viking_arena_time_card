@@ -73,54 +73,45 @@ form.addEventListener('submit', (e) => {
     
     console.log("Submit Button Pressed");
 
-    // Retrieve the URL Parameters
-    const urlParams = new URLSearchParams(window.location.search);
-
-    // Get the Encoded First Name from the URL Parameters and decode it
-    const encodedFirstName = urlParams.get('first_name') ? decodeURIComponent(urlParams.get('first_name')) : 'No First Name';
-    console.log(encodedFirstName);
-
-    // Get the Encoded Last Name from the URL Parameters and decode it
-    const encodedLastName = urlParams.get('last_name') ? decodeURIComponent(urlParams.get('last_name')) : 'No Last Name';
-    console.log(encodedLastName);
-
+    // Encode each parameter to send to employee page
+    // const encodedFirst = encodeURIComponent(encodedFirstName);
     
-    // Redirect based on account type
+    // Redirect URL params based on account type
     if (acct_type === 'Manager') {
         console.log("Redirecting to Manager Page");
-        window.location.href = `../../html/dashboards/manager.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
+        window.location.href = `manager.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
     } else {
         console.log("Redirecting to Employee Page");
-        window.location.href = `../../html/dashboards/employee.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
+        window.location.href = `employee.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
     }
 });
 
-// Query username
-const username = document.getElementById("confirmed_name").innerHTML;
+// // Query username
+// const username = document.getElementById("confirmed_name").innerHTML;
 
-// Next check if that user exists in the local storage
-function isUsernameAvailable(username) {
-    // parse the json (which is what is stored in local storage)
-    var users = JSON.parse(localStorage.getItem('users')) || [];
-    // check if a username is already taken in your users array
-    return !users.some(user => user.username === username);
-}
+// // Next check if that user exists in the local storage
+// function isUsernameAvailable(username) {
+//     // parse the json (which is what is stored in local storage)
+//     var users = JSON.parse(localStorage.getItem('users')) || [];
+//     // check if a username is already taken in your users array
+//     return !users.some(user => user.username === username);
+// }
 
-// // Check if the username is available
-function checkUsername() {
-    // Get the username from the input field
-    var username = document.getElementById('username').value;
+// // // Check if the username is available
+// function checkUsername() {
+//     // Get the username from the input field
+//     var username = document.getElementById('username').value;
 
-    // Check if the username is available
-    if (isUsernameAvailable(username)) {
-        // If the username is available, show a success message
-        // document.getElementById('username_message').innerHTML = 'Username is available';
-        // document.getElementById('username_message').style.color = 'green';
-        console.log("Username is available");
-    } else {
-        // If the username is not available, show an error message
-        // document.getElementById('username_message').innerHTML = 'Username is not available';
-        // document.getElementById('username_message').style.color = 'red';
-        console.log("Username is Not available");
-    }
-}
+//     // Check if the username is available
+//     if (isUsernameAvailable(username)) {
+//         // If the username is available, show a success message
+//         // document.getElementById('username_message').innerHTML = 'Username is available';
+//         // document.getElementById('username_message').style.color = 'green';
+//         console.log("Username is available");
+//     } else {
+//         // If the username is not available, show an error message
+//         // document.getElementById('username_message').innerHTML = 'Username is not available';
+//         // document.getElementById('username_message').style.color = 'red';
+//         console.log("Username is Not available");
+//     }
+// }

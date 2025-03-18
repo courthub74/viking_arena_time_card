@@ -1,37 +1,60 @@
-document.addEventListener('DOMContentLoaded', (e) => {
-     // First Query the name from the URL
- 
-    const urlParams = new URLSearchParams(window.location.search);
+// Get URL Parameters (it's a search)
+const urlParams = new URLSearchParams(window.location.search);
 
-    console.log("Full URL:", window.location.href);
-    console.log("Search part:", window.location.search);
-    console.log("URL Parameters:", urlParams);
-    console.log("first_name param:", urlParams.get('first_name'));
-    console.log("last_name param:", urlParams.get('last_name'));
-    console.log("acct_type param:", urlParams.get('acct_type'));
-    console.log("encodedPinConfirm param:", urlParams.get('encodedPinConfirm'));
+console.log(urlParams);    
+// First Name | Last Name | Account Type | Pin Number are all retrieved by ID
 
-    console.log(urlParams);
+// Get the First Name from the URL Parameters and decode it
+const encodedFirstName = urlParams.get('first_name') ? decodeURIComponent(urlParams.get('first_name')) : 'No First Name';
+console.log(`The encoded First name: ${encodedFirstName}`);
 
-    // Get the First Name from the URL Parameters and decode it
-    const encodedFirstName = urlParams.get('first_name') ? decodeURIComponent(urlParams.get('first_name')) : 'No First Name';
-    console.log(encodedFirstName);
+// Get the Last Name from the URL Parameters and decode it
+const encodedLastName = urlParams.get('last_name') ? decodeURIComponent(urlParams.get('last_name')) : 'No Last Name';
+// console.log(encodedLastName);
 
-    // Get the Last Name from the URL Parameters and decode it
-    const encodedLastName = urlParams.get('last_name') ? decodeURIComponent(urlParams.get('last_name')) : 'No Last Name';
-    console.log(encodedLastName);
+// Get the Account Type from the URL Parameters
+const acct_type = urlParams.get('acct_type') ? decodeURIComponent(urlParams.get('acct_type')) : 'No Account Type';
+// console.log(acct_type);
 
-    // Concatenate the two names
-    const whole_name = `${encodedFirstName} ${encodedLastName}`;
+// Get the Pin Number from the URL Parameters
+const pin_number = urlParams.get('encodedPinConfirm') ? decodeURIComponent(urlParams.get('encodedPinConfirm')) : 'No Pin Number';
+// console.log(pin_number);
 
-    // Test Print
-    console.log(whole_name);
+// document.addEventListener('DOMContentLoaded', (e) => {
+//     // Test Print
+//     console.log("Employee JS");
+//     // Get the URL parameters
+//     const urlParamsEmployee = new URLSearchParams(window.location.search);
+
+//     console.log("Full URL:", window.location.href);
+//     console.log("Search part:", window.location.search);
     
-    // Then change the inner HTML to the value
+//     // Retrieve individual parameters
+//     const firstName = urlParamsEmployee.get('first_name');
+//     const lastName = urlParamsEmployee.get('last_name');
+//     const acctType = urlParamsEmployee.get('acct_type');
+//     const pinNumber = urlParamsEmployee.get('encodedPinConfirm');
+    
+//     // Decode the parameters if they were encoded
+//     const decodedFirstName = firstName ? decodeURIComponent(firstName) : 'Didnt Get Firstname';
+//     const decodedLastName = lastName ? decodeURIComponent(lastName) : 'Didnt Get Lastname';
+    
+//     // Log the retrieved values (for debugging)
+//     console.log('First Name:', decodedFirstName);
+//     console.log('Last Name:', decodedLastName);
+//     console.log('Account Type:', acctType);
+//     console.log('PIN:', pinNumber);
+    
+//     // Then change the inner HTML to the value
 
-    //  Query the ID
-    const employee_id = document.getElementById('employee_name');
+//     //  Query the ID
+//     const employee_id = document.getElementById('employee_name');
 
-    // Change HTML
-    employee_id.innerHTML = whole_name;
-});
+//     // Create whole name (concatenate)
+//     let whole_name = `${firstName} ${lastName}`;
+
+//     console.log(whole_name);
+
+//     // Change HTML
+//     employee_id.innerHTML = whole_name;
+// });
