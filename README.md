@@ -60,6 +60,10 @@
 
 \*Add messaging for pin retrieval
 
+\*Add phone number to registration process
+
+\*Scheduling updates will text your phone
+
 ## Authentication
 
 \*Create Login functionality
