@@ -29,6 +29,11 @@
      /* Button Colors */
      --button-background: #009DF8;
      --button-text: white;
+
+     /* Menu Item Colors */
+     --slide-menu-item-background: #5186b148;
+     --slide-menu-item-trim: none;
+     
 }
 
 /* DARK MODE */
@@ -59,6 +64,10 @@ body.dark-mode {
      /* Button Colors */
      --button-background: #009DF8;
      --button-text: white;
+
+     /* Menu Item Colors */
+     --slide-menu-item-background: #black;
+     --slide-menu-item-trim: #2065a5;
 }
 
 /* WHOLE BODY */
@@ -208,6 +217,9 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 
 /* Slide-out Menu Styles */
 .side-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     position: fixed;
     top: 0;
     left: -300px;
@@ -216,6 +228,8 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     background-color: var(--menu-background);
     transition: transform 0.3s ease-in-out;
     padding-top: 170px;
+    padding-left: 40px;
+    padding-right: 20px;
     z-index: 999;
     border-right: 1px solid var(--nav-shadow);
 }
@@ -242,16 +256,25 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     visibility: visible;
 }
 
+/* Each Slide Menu Item */
 .menu-item {
     padding: 1rem 3rem;
-    display: block;
+    /* display: block; */
     display: flex;
-    /* justify-content: center; */
+    gap: 1em;
+    justify-content: space-between;
     align-items: center;
     color: var(--text-color);
     text-decoration: none;
-    font-size: medium;
+    font-size: small;
     transition: background-color 0.2s ease;
+    border: 1px solid var(--slide-menu-item-trim);
+    background-color: var(--slide-menu-item-background);
+}
+
+.menu-item img {
+    width: 1.5em;
+    height: 1.5em;
 }
 
 .menu-item:hover {
