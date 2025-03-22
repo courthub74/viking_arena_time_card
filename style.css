@@ -102,6 +102,27 @@ body {
     position: relative;
     z-index: 1000;
     padding: 0 2em 0 2em;
+    margin-top: 4em;
+}
+
+/* Main Logo */
+.viking_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+}
+
+/* Logo Img */
+.viking_img {
+    width: 3em;
+    height: 3em;
+}
+
+/* Logo Text */
+.logo_text {
+    font-size: large;
+    font-weight: bold;
 }
 
 /* Menu Burger */
@@ -120,8 +141,8 @@ body {
 
 /* The Burgers */
 .burger {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     transition: transform 0.3s ease;
     position: absolute;
     top: 0;
@@ -131,14 +152,14 @@ body {
 /* Order for the Menu button logos */
 
 /* Make the dark mode menu go away */
-.menu_button #menu_burgers .burger:last-child {
+/* .menu_button #menu_burgers .burger:last-child {
     display: none;
-}
+} */
 
 /* Make the lite mode menu come on in dark mode */
-.dark-mode .menu_button #menu_burgers .burger:last-child {
+/* .dark-mode .menu_button #menu_burgers .burger:last-child {
     display: block;
-}
+}  */
 
 /* When Burger button (or burger class) is active */
 .burger.active {
@@ -177,13 +198,13 @@ body {
 }
 
 /* Order for the Dark Lite Mode Logos */
-body.dark-mode .day-nite:nth-child(2) {
+/* body.dark-mode .day-nite:nth-child(2) {
     opacity: 0;
 }
 
 body:not(.dark-mode) .day-nite:nth-child(1) {
     opacity: 0;
-}
+} */
 
 /* Slide-out Menu Styles */
 .side-menu {
@@ -280,17 +301,7 @@ header {
     font-weight: bold;
 }
 
-/* .app_state p {
-    text-decoration: underline;
-    text-decoration-color: var(--button-background);
-    text-decoration-thickness: 2px;
-} */
 
-
-.hazel_park_logo {
-    width: 3.5em;
-    height: 3.5em;
-}
 
 /* Users select Drop */
 /* ***************** */
@@ -365,9 +376,7 @@ header {
     border: none;
 }
 
-.dropdown_select {
-    color: var(--text-color);
-}
+
 
 /* Pin Number Login */
 /* ***************** */
@@ -432,12 +441,11 @@ label {
 
 .create_acct_div {
     margin-top: .5em;
+    font-size: small;
+    display: flex;
+    justify-content: center;
 }
 
-.or {
-    font-size: medium;
-    font-size: small;
-}
 
 /* Create Account Link */
 .create_acct {
@@ -447,8 +455,7 @@ label {
     /* font-weight: bold; */
     width: 100%;
     text-align: center;
-    font-size: medium;
-    font-size: small;
+
 }
 
 /* Submit Button */
@@ -546,9 +553,6 @@ label {
   }
 
 
-  footer {
-    font-size: small;
-    opacity: 50%;
   }
 
 /* For wider screens narrow the form */
