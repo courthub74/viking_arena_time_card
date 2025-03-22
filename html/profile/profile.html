@@ -18,8 +18,8 @@
             <!-- Burger -->
             <div class="menu_button">
                 <button id="menu_burgers">
-                    <img src="./img/hamburgers/hamburger-black.png" class="burger" id="burger_one" alt="menu">
-                    <img src="./img/hamburgers/hamburger-white.png" class="burger" id="burger_two" alt="menu">
+                    <img src="../../img/hamburgers/hamburger-black.png" class="burger" id="burger_one" alt="menu">
+                    <img src="../../img/hamburgers/hamburger-white.png" class="burger" id="burger_two" alt="menu">
                 </button>
             </div>
             
@@ -27,17 +27,17 @@
             <div class="theme_switch">
                 <!-- Day/Nite -->
                 <button id="theme_switch">
-                    <img src="./img/day-nite/litemode_circle.png" alt="light mode" id="day_puck" class="day-nite">
-                    <img src="./img/day-nite/darkmode_circle.png" alt="dark mode" id="nite_puck" class="day-nite">
+                    <img src="../../img/day-nite/litemode_circle.png" alt="light mode" id="day_puck" class="day-nite">
+                    <img src="../../img/day-nite/darkmode_circle.png" alt="dark mode" id="nite_puck" class="day-nite">
                 </button>
             </div>
         </nav>
 
         <!-- SLIDE IN MENU -->
         <div class="side-menu">
-            <a href="#" class="menu-item"><span>Profile</span></a>
-            <a href="#" class="menu-item"><span>Settings</span></a>
+            <!-- <a href="#" class="menu-item"><span>Profile</span></a> -->
             <a href="#" class="menu-item"><span>Tech Support</span></a>
+            <a href="#" class="menu-item"><span>Log Out</span></a>
             <!-- <a href="#" class="menu-item">👤 <span>Profile</span></a>
             <a href="#" class="menu-item">⚙️ <span>Settings</span></a>
             <a href="#" class="menu-item">📱 <span>Tech Support</span></a> -->
@@ -54,7 +54,7 @@
             <header>
                 <div class="logo_name">
                     <p>Time Card</p>
-                    <img class="hazel_park_logo" src="./img/hazel-park-logo/Logo.png">
+                    <img class="hazel_park_logo" src="../../img/hazel-park-logo/Logo.png">
                 </div>
 
                 <!-- App State -->
@@ -67,38 +67,43 @@
 
            <label>Your Profile:</label>
 
-            <div class="profile_info">
+            <main class="profile_info">
 
-                <!-- NAME CIRCLE -->
-                <div class="name_circle" id="name_circle"></div>
+                <!-- NAME -->
+                <div class="profile_field" id="name_field">
+                    <label class="label_info">Name:</label>
+                    <p class="profile_info">Mike Milwaukee</p>
+                </div>
 
-                <!-- ACCT TYPE -->
-                <div class="profile_acct_type" id="profile_acct_type"></div>
+                <!-- ACCOUNT TYPE -->
+                
+                <div class="profile_field" id="acct-type_field">
+                    <label class="label_info">Account Type:</label>
+                    <p class="profile_info">Manager</p>
+                </div>
 
                 <!-- PIN NUMBER -->
-                <div class="profile_pin_num" id="profile_pin_num"></div>
+                <!-- <div class="profile_pin_num" id="profile_pin_num"></div> -->
+            </main>
 
-                <!-- DELETE ACCT -->
-                <button class="delete_acct_button" id="delete_acct"></button>
-            </div>
 
-            
+             <!-- DELETE ACCT -->
+             <button class="delete_acct_button" id="delete_acct">Delete Account</button>
 
-            <!-- Submit Button -->
-            <button class="submit" id="submit_login" disabled>
-                <a href="../../index.html">Back to Home Page</a>
+             <!-- Back to Dashboard Button -->
+              <!-- Here may need to implement a conditional that compares
+                    the acccount type and links this button to the proper dashboard (JS) -->
+            <button class="submit">
+                <a href="../../html/dashboards/employee.html">Back to Dashboard</a>
+                <!-- <a href="../../html/calendar/calendar.html">Back to Dashboard</a> -->
             </button>
         </form>
     </div>
 
     <!-- DARKMODE -->
-    <script src="./js/darkmode.js"></script>
+    <script src="../../js/darkmode.js"></script>
 
     <!-- SLIDE IN -->
-    <script src="./js/slide-in.js"></script>
-
-    <!-- LOGIN -->
-    <script src="../../js/database/profile.js"></script>
-    
+    <script src="../../js/slide-in.js"></script>
 </body>
 </html>

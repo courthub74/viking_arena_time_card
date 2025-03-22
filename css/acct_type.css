@@ -267,7 +267,7 @@ form {
     gap: 3em;
     width: 100%;
     padding: 0 2em 0 2em;
-    margin-top: 1em;
+    /* margin-top: 1em; */
 }
 
 /* THE HEADER */
@@ -282,7 +282,7 @@ header {
 .logo_name {
     display: flex;
     /* flex-direction: column; */
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     gap: .5em;
 }
@@ -300,13 +300,14 @@ header {
 
 
 .hazel_park_logo {
-    width: 4em;
-    height: 4em;
+    width: 3.5em;
+    height: 3.5em;
 }
 
 label {
     opacity: 100%;
     font-size: medium;
+    font-size: small;
 }
 
 /* The Account Type Buttons Div */
@@ -334,10 +335,12 @@ label {
     width: 100%;
     background-color: var(--input-background);
     border: none;
-    padding: 1.5em;
+    /* padding: 1.5em; */
     padding: 10px;
+    padding: 20px;
     color: var(--text-color);
     font-size: medium;
+    font-size: small;
     cursor: pointer;
     font-family: 'Poppins';
   }
@@ -398,7 +401,7 @@ label {
 /* Desktop */
 @media screen and (min-width: 1200px) {
     form {
-        width: 25%;
+        width: 30%;
         display: flex;
         flex-direction: column;
         gap: 4em;
@@ -422,12 +425,21 @@ label {
 
     /* Logo a bit bigger */
     .logo_name p {
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: bold;
     }
 
     .hazel_park_logo {
-        width: 6em;
-        height: 6em;
+        width: 5em;
+        height: 5em;
+    }
+
+    /* Form Elements */
+    label {
+        font-size: medium;
+    }
+
+    .radio-container label {
+        font-size: medium;
     }
 }

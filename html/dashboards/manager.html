@@ -7,7 +7,31 @@
 
       <!-- CSS -->
       <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
-      <link rel="stylesheet" href="../../css/confirmation.css">
+      <link rel="stylesheet" href="../../css/manager_dash.css">
+
+      <!-- JS for retrieving the name -->
+      <script>
+        // First Query the name from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+
+        console.log(urlParams);
+        
+        // Get the First Name from the URL Parameters and decode it
+        const encodedFirstName = urlParams.get('first_name') ? decodeURIComponent(urlParams.get('first_name')) : 'No First Name';
+        console.log(encodedFirstName);
+
+        // Get the Last Name from the URL Parameters and decode it
+        const encodedLastName = urlParams.get('last_name') ? decodeURIComponent(urlParams.get('last_name')) : 'No Last Name';
+        console.log(encodedLastName);
+
+        // Concatenate the two names
+        const whole_name = `${encodedFirstName} ${encodedLastName}`;
+
+        // Test Print
+        console.log(whole_name);
+        
+        // Then change the inner HTML to the value
+     </script>
 </head>
 <body>
 
@@ -41,8 +65,8 @@
         <!-- SLIDE IN MENU -->
         <div class="side-menu">
             <a href="#" class="menu-item"><span>Profile</span></a>
-            <a href="#" class="menu-item"><span>Settings</span></a>
             <a href="#" class="menu-item"><span>Tech Support</span></a>
+            <a href="../../index.html" class="menu-item"><span>Log Out</span></a>
             <!-- <a href="#" class="menu-item">👤 <span>Profile</span></a>
             <a href="#" class="menu-item">⚙️ <span>Settings</span></a>
             <a href="#" class="menu-item">📱 <span>Tech Support</span></a> -->
@@ -70,15 +94,37 @@
             </header>
 
 
-           <!-- Calendar Page -->
-            <h1>This is the Calendar page</h1>
+             <!-- Page Header -->
+             <label>
+                <span class="acct_type_label">Manager</span>
+                <span class="page_header">Dashboard for: <p id="employee_name"></p></span>
+            </label>
+
+            <!-- The Radio Buttons -->
+             <div class="employee_selects">
+
+                <!-- Button One -->
+                <div class="radio-container">
+                    <input type="radio" name="role" value="employee_hours" id="employee_hours" class="dashboard_button">
+                    <label for="employee_hours">Get Employee Hours</label>
+                </div>
+
+                <!-- Button Two -->
+                <div class="radio-container">
+                    <input type="radio" name="role" value="schedule_requests" id="schedule_requests" class="dashboard_button">
+                    <label for="schedule_requests">Make the Schedule</label>
+                </div>
+
+             </div>
+
 
             <!-- Submit Button -->
 
             <!-- This is where Authorization comes into play -->
             <!-- If Manager Account / Button should say (Go to Employee hours) -->
             <!-- If Employee Account / Button should say (Go to your Calendar) -->
-            <button class="submit" id="confirmation_advance">Next</button>
+            <button class="submit" id="dashboard_advance">Next</button>
+
         </form>
     </div>
 
@@ -89,14 +135,5 @@
     <!-- SLIDE IN -->
     <!-- <script src="/viking_arena_time_card/js/slide-in.js"></script> -->
     <script src="../../js/slide-in.js"></script>
-
-    <!-- CONFIRMATION -->
-    <!-- <script src="/viking_arena_time_card/js/data/confirmation.js"></script> -->
-    <script src="../../js/data/confirmation.js"></script>
-
-    <!-- LOCAL STORAGE DB (for Demo purpose) -->
-    <!-- <script src="/viking_arena_time_card/js/database/local_storage.js"></script> -->
-    <script src="../../js/database/localstorage.js"></script>
-    
 </body>
 </html>

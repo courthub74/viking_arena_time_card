@@ -60,6 +60,16 @@
 
 \*Add messaging for pin retrieval
 
+\*Add phone number to registration process
+
+\*Scheduling updates will text your phone
+
+## Authentication
+
+\*Create Login functionality
+
+\*Create Logout functionality
+
 ## Authorization
 
 \*~Add Authorization for Employees (see current day to enter hours. Also access to personal calendar)~
@@ -67,5 +77,11 @@
 \*~Add Authorization for Employers (see Employees in a list. Click on each employee and see hours as a chart)~
 
 \*Grant the Managers a managerial key for registration
+
+## Obstacles
+
+\*Had to consider the user psychology and behavior patterns of users that range from 21 - 81
+
+\*Emplemented design thinking methodology:
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/courthub74/hazel_park_time_card?style=flat&logo=GitHub)

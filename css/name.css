@@ -251,31 +251,33 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 form {
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 3em;
     width: 100%;
     padding: 0 2em 0 2em;
-    margin-top: 1em;
+    /* margin-top: 1em; */
 }
 
 /* THE HEADER */
 header {
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    /* gap: 2em; */
+    gap: 2em;
     width: 100%;
 }
 
 .logo_name {
     display: flex;
     /* flex-direction: column; */
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+    width: 100%;
     gap: .5em;
+    /* gap: 1em; */
 }
 
 .logo_name p {
     font-size: 2.5rem;
+    /* font-size: 2rem; */
     font-weight: bold;
 }
 
@@ -289,8 +291,8 @@ header {
 
 
 .hazel_park_logo {
-    width: 4em;
-    height: 4em;
+    width: 3.5em;
+    height: 3.5em;
 }
 
 /* ************** */
@@ -315,7 +317,7 @@ header {
 label {
     opacity: 100%;
     font-size: small;
-    font-size: medium;
+    /* font-size: medium; */
     margin-top: 1em;
 }
 
@@ -332,6 +334,7 @@ input {
 ::placeholder {
     color: var(--text-color);
     opacity: 45%;
+    font-size: small;
 }
 
 /* Submit Button */
@@ -359,6 +362,13 @@ input {
     cursor: not-allowed;
 }
 
+/* Back Button */
+.go_back {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: small;
+}
+
 /* For wider screens narrow the form */
 
 /* Landscape */
@@ -374,10 +384,10 @@ input {
 /* Desktop */
 @media screen and (min-width: 1200px) {
     form {
-        width: 25%;
+        width: 30%;
         display: flex;
         flex-direction: column;
-        gap: 2em;
+        gap: 3em;
         margin-top: 1em;
     }
 
@@ -397,12 +407,25 @@ input {
 
     /* Logo a bit bigger */
     .logo_name p {
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: bold;
     }
 
     .hazel_park_logo {
-        width: 6em;
-        height: 6em;
+        width: 5em;
+        height: 5em;
+    }
+
+    /* Form Elements */
+    label {
+        font-size: medium;
+    }
+
+    ::placeholder {
+        font-size: medium;
+    }
+
+    .go_back {
+        font-size: medium;
     }
 }
