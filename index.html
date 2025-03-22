@@ -16,28 +16,27 @@
         <!-- THE NAVBAR AND SIDE MENU-->
         <nav class="main_nav">
             <!-- Burger -->
-            <div class="menu_button">
-                <button id="menu_burgers">
-                    <img src="./img/hamburgers/hamburger-black.png" class="burger" id="burger_one" alt="menu">
-                    <img src="./img/hamburgers/hamburger-white.png" class="burger" id="burger_two" alt="menu">
-                </button>
+            <div class="viking_logo">
+                <img src="./img/hazel-park-logo/Logo.png" class="viking_img" alt="viking_ice_arena">
+                <p class="logo_text">Time Clock App</p>
             </div>
             
             <!-- Light/Dark -->
-            <div class="theme_switch">
+            <div class="menu_button">
                 <!-- Day/Nite -->
-                <button id="theme_switch">
-                    <img src="./img/day-nite/litemode_circle.png" alt="light mode" id="day_puck" class="day-nite">
-                    <img src="./img/day-nite/darkmode_circle.png" alt="dark mode" id="nite_puck" class="day-nite">
+                <button id="menu_burgers">
+                    <img src="./img/hamburgers/hamburger_blue.png" class="burger" id="burger_one" alt="menu">
+                    <!-- <img src="./img/hamburgers/hamburger-blue.png" class="burger" id="burger_two" alt="menu"> -->
                 </button>
             </div>
         </nav>
 
         <!-- SLIDE IN MENU -->
         <div class="side-menu">
-            <a href="#" class="menu-item"><span>Profile</span></a>
-            <a href="#" class="menu-item"><span>Settings</span></a>
             <a href="#" class="menu-item"><span>Tech Support</span></a>
+            <a href="#" class="menu-item"><span>Messaging</span></a>
+            <a href="#" class="menu-item"><span>Schedule Requests</span></a>
+            <a href="#" class="menu-item"><span>Day/Nite Mode</span><img src="./img/day-nite/litedark blue slide in.png" alt="theme_switch"></a>
             <!-- <a href="#" class="menu-item">👤 <span>Profile</span></a>
             <a href="#" class="menu-item">⚙️ <span>Settings</span></a>
             <a href="#" class="menu-item">📱 <span>Tech Support</span></a> -->
@@ -50,18 +49,6 @@
 
         <!-- THE FORM -->
         <form>
-            <!-- HEADER -->
-            <header>
-                <div class="logo_name">
-                    <p>Time Card</p>
-                    <img class="hazel_park_logo" src="./img/hazel-park-logo/Logo.png">
-                </div>
-
-                <!-- App State -->
-                <!-- <div class="app_state">
-                    <p>Login:</p>
-                </div> -->
-            </header>
 
             <!-- Select Dropdown -->
             <div class="users_drop_container">
@@ -71,10 +58,6 @@
                     <!-- ------------- -->
                      <!-- NAMES ADDED FROM LOCAL STORAGE -->
                 </select>
-                <!-- Create account button -->
-                <div class="create_acct_div">
-                    <p class="or">or <a href="./html/registration/name.html" class="create_acct">Create an Account</a></p>
-                </div>
             </div>
 
             <!-- Pin # -->
@@ -86,8 +69,9 @@
                         <input type="password" class="pin_put" maxlength="1" inputmode="numeric" pattern="[0-9]*">
                         <input type="password" class="pin_put" maxlength="1" inputmode="numeric" pattern="[0-9]*">
                     </div>
+
                     <!-- Pin Handling Buttons -->
-                    <div class="pin_buttons">
+                    <div class="pin_buttons" id="pin_buttons">
                         <!-- Reset Pins Button -->
                         <button class="reset_button" id="reset_button">Clear Pin fields</button>
                         <!-- Forgot Pin Button -->
@@ -105,6 +89,19 @@
 
             <!-- Submit Button -->
             <button class="submit" id="submit_login" disabled>Login</button>
+
+            <!-- Create account button -->
+            <div class="create_acct_div">
+                <p class="or">Don't have an account? <a href="./html/registration/name.html" class="create_acct">Create an Account</a></p>
+            </div>
+
+            <!-- Footer -->
+            <footer>
+                <p>&copy; <span id="currentYear"></span> Courdevelops. All Rights Reserved</p>
+                <script>
+                    document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+                </script>
+            </footer>
         </form>
     </div>
 
