@@ -110,7 +110,7 @@ body {
     /* box-shadow: 0 2px 5px var(--menu-shadow); */
     position: relative;
     z-index: 1000;
-    padding: 0 4em 0 4em;
+    padding: 0 3em 0 3em;
     margin-top: 4em;
 }
 
@@ -131,6 +131,7 @@ body {
 /* Logo Text */
 .logo_text {
     font-size: larger;
+    font-size: 1.3rem;
     font-weight: bold;
 }
 
@@ -298,7 +299,7 @@ form {
     flex-direction: column;
     gap: 3em;
     width: 100%;
-    padding: 0 4em 0 4em;
+    padding: 0 3em 0 3em;
     margin-top: 2em;
     
 }
@@ -496,7 +497,7 @@ label {
     cursor: pointer;
     font-size: medium;
     transition: all 0.3s ease;
-    margin-top: -1em;
+    margin-top: -3em;
 }
 
 /* No outline on focus */
