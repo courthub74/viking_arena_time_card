@@ -67,7 +67,7 @@ body.dark-mode {
 
      /* Menu Item Colors */
      --slide-menu-item-background: #black;
-     --slide-menu-item-trim: #2065a5;
+     --slide-menu-item-trim: #2065a578;
 }
 
 /* WHOLE BODY */
@@ -271,6 +271,47 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     transition: background-color 0.2s ease;
     border: 1px solid var(--slide-menu-item-trim);
     background-color: var(--slide-menu-item-background);
+}
+
+/* Profile on the slide menu */
+.profile {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+/* Whole Profile Div */
+.profile_header {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 1em;
+}
+
+/* Profile IMG */
+
+/* Profile header text */
+.profile_text {
+    font-size: small;
+}
+
+/* Pin Number Profile Div */
+.pin_and_peak {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#pin_code_peak {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#pin_code_peak img {
+    width: 2em;
+    height: 2em;
 }
 
 .menu-item img {
