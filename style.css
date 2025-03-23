@@ -331,6 +331,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 /* Profile header text */
 .profile_text {
     font-size: small;
+    font-weight: bold;
 }
 
 /* Profile Info Boxes */
@@ -391,14 +392,21 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1em;
 }
 
 .logout_account_button {
     display: flex;
+    align-items: center;
     background: none;
     color: #009DF8;
     border: none;
     gap: .5em;
+}
+
+.logout_logo {
+    width: 1em;
+    height: 1em;
 }
 
 
