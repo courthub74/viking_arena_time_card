@@ -385,6 +385,22 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     padding: 1em;
 }
 
+/* Log Out */
+.logout_account_div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout_account_button {
+    display: flex;
+    background: none;
+    color: #009DF8;
+    border: none;
+    gap: .5em;
+}
+
 
 /* *************** */
 /* *************** */
