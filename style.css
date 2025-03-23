@@ -32,7 +32,9 @@
 
      /* Menu Item Colors */
      --slide-menu-item-background: #5186b148;
-     --slide-menu-item-trim: none;
+     --slide-menu-item-background: white;
+     --slide-menu-item-trim: #5186b148;
+     /* --slide-menu-item-trim: white; */
      
 }
 
@@ -124,13 +126,13 @@ body {
 
 /* Logo Img */
 .viking_img {
-    width: 3em;
-    height: 3em;
+    width: 4em;
+    height: 4em;
 }
 
 /* Logo Text */
 .logo_text {
-    font-size: larger;
+    /* font-size: 5rem; */
     font-size: 1.3rem;
     font-weight: bold;
 }
@@ -228,10 +230,13 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     height: 100vh;
     background-color: var(--menu-background);
     transition: transform 0.3s ease-in-out;
-    padding-top: 170px;
+    /* padding-top: 170px; */
+    padding-top: 60px;
     padding-left: 40px;
     padding-right: 20px;
     z-index: 999;
+    /* Make slide menu cover it all */
+    z-index: 1000;
     border-right: 1px solid var(--nav-shadow);
 }
 
@@ -257,6 +262,31 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     visibility: visible;
 }
 
+/* Logo Header */
+.slide_header_logo {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.slide_header_logo img {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.slide_in_logo_text {
+    font-size: medium;
+    font-weight: bold;
+}
+
+/* Menu Items Div */
+.menu_items {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1em;
+}
+
 /* Each Slide Menu Item */
 .menu-item {
     padding: 1rem 1rem 1rem 0rem;
@@ -267,15 +297,17 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     color: var(--text-color);
     text-decoration: none;
     font-size: small;
-    transition: background-color 0.2s ease;
+    /* transition: background-color 0.2s ease; */
     border: 1px solid var(--slide-menu-item-trim);
     background-color: var(--slide-menu-item-background);
 }
 
 #theme_switch {
-    border: 2px solid var(--slide-menu-item-trim);
+    background-color: var(--slide-menu-item-background);
+    border: 1px solid var(--slide-menu-item-trim);
     width: 100%;
     padding: 1.5rem 1rem 1.5rem 0rem;
+    /* padding: 1rem 1rem 1rem 0rem; */
 }
 
 /* Profile on the slide menu */
@@ -342,6 +374,15 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 /* For demonstrating menu items */
 .menu-item span {
     margin-left: 10px;
+}
+
+/* Delete Account */
+.delete_account_button {
+    border: none;
+    background-color: red;
+    color: white;
+    width: 100%;
+    padding: 1em;
 }
 
 
