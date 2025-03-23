@@ -259,8 +259,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 
 /* Each Slide Menu Item */
 .menu-item {
-    padding: 1rem 3rem;
-    /* display: block; */
+    /* padding: .5rem 1rem; */
     display: flex;
     gap: 1em;
     justify-content: space-between;
@@ -269,8 +268,13 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     text-decoration: none;
     font-size: small;
     transition: background-color 0.2s ease;
-    border: 1px solid var(--slide-menu-item-trim);
-    background-color: var(--slide-menu-item-background);
+    /* border: 1px solid var(--slide-menu-item-trim); */
+    /* background-color: var(--slide-menu-item-background); */
+}
+
+#theme_switch {
+    /* border: 2px solid var(--slide-menu-item-trim); */
+    width: 100%;
 }
 
 /* Profile on the slide menu */
@@ -296,6 +300,17 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     font-size: small;
 }
 
+/* Profile Info Boxes */
+.profile_info {
+    background-color: var(--input-background);
+    padding: .5em 1em;
+}
+
+.profile_info label {
+    opacity: 50%;
+    font-size: small;
+}
+
 /* Pin Number Profile Div */
 .pin_and_peak {
     display: flex;
@@ -310,8 +325,8 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 }
 
 #pin_code_peak img {
-    width: 2em;
-    height: 2em;
+    width: 1.5em;
+    height: 1.5em;
 }
 
 .menu-item img {
