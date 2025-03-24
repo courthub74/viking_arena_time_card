@@ -596,6 +596,7 @@ label {
     font-size: small;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 
@@ -707,6 +708,7 @@ label {
 footer {
     font-size: x-small;
     opacity: 50%;
+    /* width: 100%; */
 }
   
 
