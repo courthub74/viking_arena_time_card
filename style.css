@@ -232,13 +232,10 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     height: 100vh;
     background-color: var(--menu-background);
     transition: transform 0.3s ease-in-out;
-    /* padding-top: 170px; */
-    /* padding-top: 60px; */
-    /* padding-top: 40px; */
     padding-top: 65px;
     padding-left: 40px;
     padding-right: 20px;
-    z-index: 999;
+    /* z-index: 999; */
     /* Make slide menu cover it all */
     z-index: 1000;
     border-right: 1px solid var(--nav-shadow);
@@ -316,10 +313,10 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 
 /* Profile on the slide menu */
 .profile {
-    margin-top: 2em;
+    /* margin-top: 2em; */
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    /* gap: 1em; */
 }
 
 /* Whole Profile Div */
