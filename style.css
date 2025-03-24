@@ -129,6 +129,8 @@ body {
 .viking_img {
     width: 4em;
     height: 4em;
+    width: 3em;
+    height: 3em;
 }
 
 /* Logo Text */
@@ -313,18 +315,22 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 
 /* Profile on the slide menu */
 .profile {
-    /* margin-top: 2em; */
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
+    background-color: var(--slide-menu-item-background);
+    border: 1px solid var(--slide-menu-item-trim);
     /* gap: 1em; */
 }
 
 /* Whole Profile Div */
 .profile_header {
     display: flex;
-    /* justify-content: center; */
+    justify-content: space-between;
     align-items: center;
     gap: 1em;
+    padding: .5em 1em;
+
 }
 
 /* Profile IMG */
@@ -332,12 +338,12 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 /* Profile header text */
 .profile_text {
     font-size: small;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 /* Profile Info Boxes */
 .profile_info {
-    background-color: var(--input-background);
+    /* background-color: var(--input-background); */
     padding: .5em 1em;
 }
 
