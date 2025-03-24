@@ -135,6 +135,7 @@ body {
 .logo_text {
     /* font-size: 5rem; */
     font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: bold;
 }
 
@@ -232,8 +233,9 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     background-color: var(--menu-background);
     transition: transform 0.3s ease-in-out;
     /* padding-top: 170px; */
-    padding-top: 60px;
-    padding-top: 40px;
+    /* padding-top: 60px; */
+    /* padding-top: 40px; */
+    padding-top: 20px;
     padding-left: 40px;
     padding-right: 20px;
     z-index: 999;
