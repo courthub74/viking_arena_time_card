@@ -114,6 +114,7 @@ body {
     z-index: 1000;
     padding: 0 3em 0 3em;
     margin-top: 2em;
+    margin-top: 20px;
 }
 
 /* Main Logo */
@@ -232,6 +233,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     transition: transform 0.3s ease-in-out;
     /* padding-top: 170px; */
     padding-top: 60px;
+    padding-top: 40px;
     padding-left: 40px;
     padding-right: 20px;
     z-index: 999;
@@ -422,8 +424,7 @@ form {
     gap: 3em;
     width: 100%;
     padding: 0 3em 0 3em;
-    margin-top: 1em;
-    
+    /* margin-top: 1em; */
 }
 
 /* THE HEADER */
@@ -432,6 +433,7 @@ header {
     flex-direction: column;
     gap: 2em;
     width: 100%;
+    /* background-color: blue; */
 }
 
 .logo_name {
