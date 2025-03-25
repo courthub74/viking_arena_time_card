@@ -70,6 +70,7 @@ body.dark-mode {
      /* Menu Item Colors */
      --slide-menu-item-background: #black;
      --slide-menu-item-trim: #2065a578;
+     --slide-menu-item-trim: #2169add8;
 }
 
 /* WHOLE BODY */
@@ -300,7 +301,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     color: var(--text-color);
     text-decoration: none;
     font-size: small;
-    /* transition: background-color 0.2s ease; */
+    /* font-weight: bold; */
     border: 1px solid var(--slide-menu-item-trim);
     background-color: var(--slide-menu-item-background);
 }
@@ -338,12 +339,18 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 /* Profile header text */
 .profile_text {
     font-size: small;
-    /* font-weight: bold; */
+    font-weight: bold;
+}
+
+/* Profile header img */
+.profile_circle {
+    filter: brightness(90%);
 }
 
 /* Profile Info Boxes */
 .profile_info {
     /* background-color: var(--input-background); */
+    font-size: small;
     padding: .5em 1em;
 }
 
@@ -371,10 +378,11 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 }
 
 /* Each menu item icon */
-.menu-item img .dark-mode {
+.menu-item img {
     width: 1.5em;
     height: 1.5em;
-    filter: brightness(150%) contrast(180%);
+    filter: brightness(90%);
+    /* filter: brightness(150%) contrast(180%); */
 }
 
 .menu-item:hover {
@@ -391,11 +399,12 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 /* Whole Button */
 .delete_account_button {
     border: none;
-    background-color: red;
+    background-color: rgb(184, 47, 47);
     color: white;
     width: 100%;
     padding: 1em;
     cursor: pointer;
+    font-weight: bold;
 }
 
 /* Just Text */
@@ -803,6 +812,16 @@ footer {
     }
 
     /* slider selections */
+    .menu-item {
+        font-size: medium;
+    }
+
+    /* Delete Button */
+    .delete_account_div {
+        margin-top: 2em;
+    }
+
+    /*  */
     form {
         width: 25%;
         display: flex;
