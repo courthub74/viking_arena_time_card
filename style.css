@@ -393,6 +393,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     color: white;
     width: 100%;
     padding: 1em;
+    cursor: pointer;
 }
 
 /* Just Text */
@@ -424,6 +425,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     gap: .5em;
     font-size: small;
     font-weight: bold;
+    cursor: pointer;
 }
 
 /* Whole Button */
@@ -758,16 +760,51 @@ footer {
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
-    header {
-        width: 100%;
+    /* Main Nav */
+    .main_nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 6em 0 6em;
+        position: relative;
+    }
+
+    /* Logo IMG */
+    .viking_img {
+        width: 4em;
+        height: 4em;
+    }
+
+    /* Logo Text */
+    .logo_text {
+        font-size: 1.5rem;
+    }
+
+    /* Menu Burger */
+    #burger_one {
+        width: 3em;
+        height: 3em;
+        margin-bottom: 1em;
+    }
+
+    /* Slide Menu */
+
+    /* header logo */
+    .slide_header_logo img {
+        width: 3em;
+        height: 3em;
+    }
+
+    .slide_in_logo_text {
+        font-size: x-large;
     }
 
     form {
-        width: 30%;
+        width: 25%;
         display: flex;
         flex-direction: column;
         gap: 2em;
-        margin-top: 1em;
+        margin-top: 5em;
     }
 
     .burger {
@@ -799,6 +836,7 @@ footer {
     /* Logo a bit bigger */
     .logo_name p {
         font-size: 3rem;
+        font-size: medium;
         font-weight: bold;
     }
 
@@ -812,8 +850,10 @@ footer {
         font-size: medium;
     }
 
+    /* Submit Button */
+    
     footer {
-        font-size: medium;
+        font-size: small;
     }
 
     .or, .create_acct {
