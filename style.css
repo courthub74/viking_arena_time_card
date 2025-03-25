@@ -370,9 +370,11 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     height: 1.5em;
 }
 
-.menu-item img {
+/* Each menu item icon */
+.menu-item img .dark-mode {
     width: 1.5em;
     height: 1.5em;
+    filter: brightness(150%) contrast(180%);
 }
 
 .menu-item:hover {
@@ -801,7 +803,6 @@ footer {
     }
 
     /* slider selections */
-
     form {
         width: 25%;
         display: flex;
@@ -821,15 +822,14 @@ footer {
     }
 
     .menu-item {
-        font-size: x-large;
+        font-size: small;
     }
 
     /* Header with more gap */
     .logo_name {
         display: flex;
-        /* flex-direction: column; */
         justify-content: center;
-        justify-content: center;
+        /* justify-content: center; */
         align-items: center;
         width: 100%;
         gap: .5em;
