@@ -397,25 +397,35 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 /* Delete Account */
 
 /* Whole Button */
-.delete_account_button {
+/* .delete_account_button {
     border: none;
-    background-color: rgb(184, 47, 47);
+    background-color: rgb(192, 52, 52);;
     color: white;
     width: 100%;
     padding: 1em;
     cursor: pointer;
     font-weight: bold;
-}
+} */
 
 /* Just Text */
-/* .delete_account_button {
+.delete_account_button {
+    display: flex;
     text-decoration: none;
-    font-weight: bold;
-    color: red;
+    align-items: center;
+    /* font-weight: bold; */
+    color: rgb(192, 52, 52);
+    /* color: #BC0000; */
     background: none;
     border: none;
-    width: 100%;
-} */
+    cursor: pointer;
+    gap: .4em;
+    margin-top: 1em;
+}
+
+.delete_can {
+    width: 15px;
+    height: 15px;
+}
 
 /* Log Out */
 .logout_account_div {
@@ -426,8 +436,10 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     margin-top: 1em;
 }
 
+
+
 /* Just Text */
-.logout_account_button {
+/* .logout_account_button {
     display: flex;
     align-items: center;
     background: none;
@@ -437,24 +449,27 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     font-size: small;
     font-weight: bold;
     cursor: pointer;
-}
+} */
 
 /* Whole Button */
-/* .logout_account_button {
+.logout_account_button {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: .5em;
     background-color: #009DF8;
     color: white;
     border: none;
     width: 100%;
-    padding: 1em;
-} */
+    padding: .8em 1em;
+    cursor: pointer;
+    margin-top: 1em;
+}
 
 
 .logout_logo {
-    width: 1em;
-    height: 1em;
+    width: 1.1em;
+    height: 1.1em;
 }
 
 
@@ -823,7 +838,7 @@ footer {
 
     /*  */
     form {
-        width: 25%;
+        width: 20%;
         display: flex;
         flex-direction: column;
         gap: 3em;
