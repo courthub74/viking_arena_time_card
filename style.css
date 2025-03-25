@@ -802,11 +802,14 @@ footer {
     .viking_img {
         width: 4em;
         height: 4em;
+        /* width: 6em;
+        height: 6em; */
     }
 
     /* Logo Text */
     .logo_text {
         font-size: 1.5rem;
+        /* font-size: 2rem; */
     }
 
     /* Menu Burger */
