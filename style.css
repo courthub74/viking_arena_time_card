@@ -330,7 +330,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     align-items: center;
     gap: 1em;
     padding: .5em 1em;
-
+    border-bottom: 1px solid var(--slide-menu-item-trim);
 }
 
 /* Profile IMG */
