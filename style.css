@@ -385,6 +385,8 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 }
 
 /* Delete Account */
+
+/* Whole Button */
 .delete_account_button {
     border: none;
     background-color: red;
@@ -392,6 +394,16 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     width: 100%;
     padding: 1em;
 }
+
+/* Just Text */
+/* .delete_account_button {
+    text-decoration: none;
+    font-weight: bold;
+    color: red;
+    background: none;
+    border: none;
+    width: 100%;
+} */
 
 /* Log Out */
 .logout_account_div {
@@ -402,6 +414,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     margin-top: 1em;
 }
 
+/* Just Text */
 .logout_account_button {
     display: flex;
     align-items: center;
@@ -409,7 +422,22 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     color: #009DF8;
     border: none;
     gap: .5em;
+    font-size: small;
+    font-weight: bold;
 }
+
+/* Whole Button */
+/* .logout_account_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #009DF8;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 1em;
+} */
+
 
 .logout_logo {
     width: 1em;
