@@ -118,6 +118,7 @@ body {
     /* box-shadow: 0 2px 5px var(--menu-shadow); */
     position: relative;
     z-index: 1000;
+    /* z-index: 997; */
     padding: 0 3em 0 3em;
     margin-top: 2em;
     margin-top: 40px;
@@ -249,9 +250,9 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     padding-top: 65px;
     padding-left: 40px;
     padding-right: 20px;
-    /* z-index: 999; */
+    z-index: 999;
     /* Make slide menu cover it all */
-    z-index: 1000;
+    /* z-index: 1000; */
     /* border-right: 1px solid var(--nav-shadow); */
 }
 
@@ -282,6 +283,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     display: flex;
     align-items: center;
     gap: .5em;
+    opacity: 0;
 }
 
 .slide_header_logo img {
@@ -681,5 +683,11 @@ input {
 
     .go_back {
         font-size: medium;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    form {
+        width: 20%;
     }
 }
