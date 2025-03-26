@@ -223,6 +223,11 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     opacity: 0;
 } */
 
+/* *****COPY FOR EACH PAGE */
+/* ********************** */
+/* ********************** */
+/* ********************** */
+
 /* Slide-out Menu Styles */
 .side-menu {
     display: flex;
@@ -412,15 +417,15 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     display: flex;
     text-decoration: none;
     align-items: center;
-    /* font-weight: bold; */
+    font-weight: bold;
     color: rgb(192, 52, 52);
     color: red;
-    font-size: medium;
+    font-size: small;
     background: none;
     border: none;
     cursor: pointer;
     gap: .4em;
-    margin-top: 1em;
+    /* margin-top: 1em; */
     margin-bottom: .5em;
 }
 
@@ -467,6 +472,8 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     cursor: pointer;
     margin-top: 1em;
     font-size: medium;
+    font-size: small;
+    font-weight: bold;
 }
 
 
@@ -475,11 +482,13 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     height: 1.1em;
 }
 
+/* COPY ABOVE FOR MENU */
+/* *************** */
+/* *************** */
+/* *************** */
+/* *************** */
 
-/* *************** */
-/* *************** */
-/* *************** */
-/* *************** */
+
 /* THE FORM */
 
 form {
