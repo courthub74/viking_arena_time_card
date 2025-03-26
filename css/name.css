@@ -106,7 +106,7 @@ body {
     gap: 3em;
 }
 
-
+/* NAVBAR */
 
 .main_nav {
     display: flex;
@@ -174,14 +174,14 @@ body {
 /* Order for the Menu button logos */
 
 /* Make the dark mode menu go away */
-.menu_button #menu_burgers .burger:last-child {
+/* .menu_button #menu_burgers .burger:last-child {
     display: none;
-}
+} */
 
 /* Make the lite mode menu come on in dark mode */
-.dark-mode .menu_button #menu_burgers .burger:last-child {
+/* .dark-mode .menu_button #menu_burgers .burger:last-child {
     display: block;
-}
+} */
 
 /* When Burger button (or burger class) is active */
 .burger.active {
@@ -532,19 +532,11 @@ header {
     font-weight: bold;
 }
 
-.app_state p {
-    font-size: medium;
-    opacity: 100%;
-    /* text-decoration: underline;
-    text-decoration-color: var(--button-background);
-    text-decoration-thickness: 2px; */
-}
 
-
-.hazel_park_logo {
+/* .hazel_park_logo {
     width: 3.5em;
     height: 3.5em;
-}
+} */
 
 /* ************** */
 /* ************** */
@@ -569,7 +561,7 @@ label {
     opacity: 100%;
     font-size: small;
     /* font-size: medium; */
-    margin-top: 1em;
+    /* margin-top: 1em; */
 }
 
 input {
@@ -634,12 +626,13 @@ input {
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
+    /* form */
     form {
-        width: 30%;
+        width: 25%;
         display: flex;
         flex-direction: column;
-        gap: 3em;
-        margin-top: 1em;
+        gap: 2em;
+        margin-top: 5em;
     }
 
     .burger {
@@ -652,8 +645,18 @@ input {
         height: 40px;
     }
 
+    /* Menu Items */
     .menu-item {
-        font-size: x-large;
+        font-size: medium;
+    }
+
+    /* Profile */
+    .profile_text {
+        font-size: medium;
+    }
+
+    .profile_info {
+        font-size: medium;
     }
 
     /* Logo a bit bigger */
@@ -673,7 +676,7 @@ input {
     }
 
     ::placeholder {
-        font-size: medium;
+        font-size: small;
     }
 
     .go_back {
