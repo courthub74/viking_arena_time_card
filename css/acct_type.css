@@ -159,18 +159,17 @@ body {
     font-weight: bold;
 }
 
-.main_nav {
+/* .main_nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--background-color);
     background: none;
     width: 100%;
-    /* box-shadow: 0 2px 5px var(--menu-shadow); */
     position: relative;
     z-index: 1000;
     padding: 0 2em 0 2em;
-}
+} */
 
 /* Menu Burger */
 
@@ -491,12 +490,12 @@ form {
     flex-direction: column;
     gap: 3em;
     width: 100%;
-    padding: 0 2em 0 2em;
+    padding: 0 3em 0 3em;
     /* margin-top: 1em; */
 }
 
 /* THE HEADER */
-header {
+/* header {
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -506,7 +505,6 @@ header {
 
 .logo_name {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     gap: .5em;
@@ -517,17 +515,11 @@ header {
     font-weight: bold;
 }
 
-.app_state p {
-    text-decoration: underline;
-    text-decoration-color: var(--button-background);
-    text-decoration-thickness: 2px;
-}
-
 
 .hazel_park_logo {
     width: 3.5em;
     height: 3.5em;
-}
+} */
 
 label {
     opacity: 100%;
@@ -561,8 +553,9 @@ label {
     background-color: var(--input-background);
     border: none;
     /* padding: 1.5em; */
-    padding: 10px;
+    /* padding: 10px; */
     padding: 20px;
+    padding: 15px;
     color: var(--text-color);
     font-size: medium;
     font-size: small;
@@ -631,7 +624,7 @@ label {
         flex-direction: column;
         gap: 4em;
         gap: 3em;
-        margin-top: 1em;
+        margin-top: 3em;
     }
 
     .burger {
@@ -645,7 +638,11 @@ label {
     }
 
     .menu-item {
-        font-size: x-large;
+        font-size: medium;
+    }
+
+    .profile_header .profile_text {
+        font-size: medium;
     }
 
     /* Logo a bit bigger */
