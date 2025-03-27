@@ -20,6 +20,9 @@ const acct_type = urlParams.get('acct_type') ? decodeURIComponent(urlParams.get(
 const pin_number = urlParams.get('encodedPinConfirm') ? decodeURIComponent(urlParams.get('encodedPinConfirm')) : 'No Pin Number';
 // console.log(pin_number);
 
+// Query the sidebar elements
+const sidebar_first_name = document.getElementById('profile_name');
+const sidebar_account_type = document.getElementById('profile_account');
 
 // NOW, we need to set the sidebar elements
 sidebar_first_name.innerHTML = `${encodedFirstName} ${encodedLastName}`;
