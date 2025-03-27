@@ -40,7 +40,7 @@
 
 \*~Add Names registered to Name dropdown at login~
 
-\*Profile on slide menu reads profile from the database
+\*Profile on slide menu reads profile from the database after login
 
 \*Add delete profile feature
 

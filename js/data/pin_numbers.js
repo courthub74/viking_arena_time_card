@@ -193,7 +193,7 @@ pin_confirm.forEach((input_2, key_2) => {
         const pin_confirm_compare = [...pin_confirm].map((compare_pin_confirm) => compare_pin_confirm.value).join("");
         // Print digits to console
         console.log(`The Confirm Pin #: ${pin_confirm_compare}`);
-        // Compare the values
+        // Compare the values (for the match)
         // first get the values from the pin set row
         pin_set.forEach((input_1) => {
           if (input_1.value) {
@@ -203,24 +203,108 @@ pin_confirm.forEach((input_2, key_2) => {
             console.log(`The First Pin #: ${pin_set_compare}`);
             // Compare the values
             if (pin_set_compare === pin_confirm_compare) {
-              // If the values match
+              /////////////////////////////////////////////
+              /////////////////////////////////////////////
+              // FOR MATCHING PIN FIELDS
+              /////////////////////////////////////////////
               console.log("Match");
+
+              // Change the color of the pin inputs to green
+              pin_set.forEach((input_1) => {
+                // input_1.style.backgroundColor = "green";
+                input_1.style.color = "#00FF00";
+                input_1.style.transition = "color 0.5s ease-in-out";
+              });
+              pin_confirm.forEach((input_2) => {
+                // input_2.style.backgroundColor = "green";
+                input_2.style.color = "#00FF00";
+                input_1.style.transition = "color 0.5s ease-in-out";
+              });
+
+              // Replace the clear pins button with new HTML
+              const reset_button = document.getElementById('reset_button');
+              reset_button.innerHTML = `Pins Match`;
+              reset_button.style.color = "#00FF00";
+             
+              ///////////////////////////////////////////
+              ///////////////////////////////////////////
+              ////////////MATCH NOTIFICATION/////////////
+              ///////////////////////////////////////////
               // Display the Match Notification
-              // match_notify.style.display = "block";
-              match_notify.classList.add('entered');
-              // no_match_notify.style.display = "none";
+              
+              // match_notify.classList.add('entered');
+             
               // remove pins don't match
-              no_match_notify.classList.remove('entered');
+              // no_match_notify.classList.remove('entered');
+
+
               // Enable the Submit Button
               submit_pins.disabled = false;
             } else {
               // If the values don't match
               console.log("No Match");
+              // Change the color of the pin inputs to red
+              pin_set.forEach((input_1) => {
+                // input_1.style.backgroundColor = "red";
+                input_1.style.color = "#FF0000";
+                input_1.style.transition = "color 0.5s ease-in-out";
+              });
+              pin_confirm.forEach((input_2) => {
+                // input_2.style.backgroundColor = "red";
+                input_2.style.color = "#FF0000";
+                input_1.style.transition = "color 0.5s ease-in-out";
+              });
+
+              // Replace the clear pins button with new HTML
+              const reset_button = document.getElementById('reset_button');
+              reset_button.innerHTML = `Pins Dont Match`;
+              reset_button.style.color = "#FF0000";
+
+              // Time it to clear pins and reset the button
+              setTimeout(() => {
+                reset_button.innerHTML = `Clear Pin fields`;
+                reset_button.style.color = "#ffffff";
+                reset_button.style.transition = "color 0.5s ease-in-out";
+                reset_button.style.opacity = "50%";
+
+                 // NOW REMOVE THE PIN FIELDS
+                pin_set.forEach((input_1) => {
+                  input_1.value = "";
+                });
+                pin_confirm.forEach((input_2) => {
+                    input_2.value = "";
+                  });
+
+                // change the color of the pin inputs to white
+                pin_set.forEach((input_1) => {
+                  // input_1.style.backgroundColor = "white";
+                  input_1.style.color = "#ffffff";
+                  input_1.style.transition = "color 0.5s ease-in-out";
+                });
+                pin_confirm.forEach((input_2) => {
+                  // input_2.style.backgroundColor = "white";
+                  input_2.style.color = "#ffffff";
+                  input_1.style.transition = "color 0.5s ease-in-out";
+                });
+
+                // Focus on the first input
+                pin_set[0].focus();
+              }, 2000);
+
+             
+
+              ///////////////////////////////////////////
+              ///////////////////////////////////////////
+              ////////////MATCH NOTIFICATION/////////////
+              ///////////////////////////////////////////
+              // Remove the Match Notification
+             
+              // match_notify.classList.remove('entered');
+
               // Display the No Match Notification
-              // no_match_notify.style.display = "block";
-              match_notify.classList.remove('entered');
-              // match_notify.style.display = "none";
-              no_match_notify.classList.add('entered');
+             
+              // no_match_notify.classList.add('entered');
+
               // Disable the Submit Button
               submit_pins.disabled = true;
             }
@@ -290,6 +374,15 @@ pin_confirm.forEach((input, index) => {
 const reset = () => {
   // Reset the form
   form.reset();
+  // Reset the pin input colors
+  pin_set.forEach((input_1) => {
+    input_1.style.color = "#ffffff"; // Reset to white color
+    input_1.style.transition = "color 0.5s ease-in-out";
+  });
+  pin_confirm.forEach((input_2) => {
+    input_2.style.color = "#ffffff"; // Reset to white color
+    input_2.style.transition = "color 0.5s ease-in-out";
+  });
   // Delete the Match Notify
   // match_notify.classList.remove('entered');
   no_match_notify.style.display = "none";
