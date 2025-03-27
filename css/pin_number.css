@@ -586,6 +586,10 @@ label {
 
 }
 
+.pin_put_confirm.match {
+    color: green;
+}
+
 /* Reset Pins Button */
 #reset_button {
     background: none;
@@ -716,7 +720,7 @@ label {
 /* Desktop */
 @media screen and (min-width: 1200px) {
     form {
-        width: 30%;
+        width: 25%;
         display: flex;
         flex-direction: column;
         gap: 1em;
@@ -734,7 +738,11 @@ label {
     }
 
     .menu-item {
-        font-size: x-large;
+        font-size: medium;
+    }
+
+    .profile_header .profile_text {
+        font-size: medium;
     }
 
     .pin_match_confirm {
