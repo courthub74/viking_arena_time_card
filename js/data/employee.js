@@ -20,6 +20,11 @@ const acct_type = urlParams.get('acct_type') ? decodeURIComponent(urlParams.get(
 const pin_number = urlParams.get('encodedPinConfirm') ? decodeURIComponent(urlParams.get('encodedPinConfirm')) : 'No Pin Number';
 // console.log(pin_number);
 
+
+// NOW, we need to set the sidebar elements
+sidebar_first_name.innerHTML = `${encodedFirstName} ${encodedLastName}`;
+sidebar_account_type.innerHTML = acct_type;
+
 // document.addEventListener('DOMContentLoaded', (e) => {
 //     // Test Print
 //     console.log("Employee JS");

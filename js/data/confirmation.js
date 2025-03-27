@@ -25,6 +25,10 @@ const confirmed_name = document.getElementById('confirmed_name');
 const confirmed_acct_type = document.getElementById('confirmed_acct_type');
 const confirmed_pin = document.getElementById('confirmed_pin');
 
+// Query the sidebar elements
+const sidebar_first_name = document.getElementById('profile_name');
+const sidebar_account_type = document.getElementById('profile_account');
+
 // Test Print Names
 console.log(`${encodedFirstName} ${encodedLastName}`);
 // inner HTML Elements changed
@@ -39,6 +43,10 @@ console.log(`The Account Type is: ${acct_type}`);
 
 // The Pin Number div
 confirmed_pin.innerHTML = pin_number;
+
+// NOW, we need to set the sidebar elements
+sidebar_first_name.innerHTML = `${encodedFirstName} ${encodedLastName}`;
+sidebar_account_type.innerHTML = acct_type;
 
 // Query the Submit Button
 const submit_acct_type = document.getElementById('confirmation_advance');
