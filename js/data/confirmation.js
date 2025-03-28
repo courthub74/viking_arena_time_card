@@ -10,11 +10,11 @@ console.log(`The encoded First name: ${encodedFirstName}`);
 
 // Get the Last Name from the URL Parameters and decode it
 const encodedLastName = urlParams.get('last_name') ? decodeURIComponent(urlParams.get('last_name')) : 'No Last Name';
-// console.log(encodedLastName);
+console.log(`The encoded Last name: ${encodedLastName}`);
 
 // Get the Account Type from the URL Parameters
 const acct_type = urlParams.get('acct_type') ? decodeURIComponent(urlParams.get('acct_type')) : 'No Account Type';
-// console.log(acct_type);
+console.log(`The encoded Account type: ${acct_type}`);
 
 // Get the Pin Number from the URL Parameters
 const pin_number = urlParams.get('encodedPinConfirm') ? decodeURIComponent(urlParams.get('encodedPinConfirm')) : 'No Pin Number';
@@ -48,6 +48,16 @@ confirmed_pin.innerHTML = pin_number;
 sidebar_first_name.innerHTML = `${encodedFirstName} ${encodedLastName}`;
 sidebar_account_type.innerHTML = acct_type;
 
+/////////////////////////////////////////////////////////////////
+
+// Variables to encode to send to the next page
+const logged_name = sidebar_first_name.innerHTML.split(' ')[0];
+// const logged_name = sidebar_first_name.innerHTML;
+const logged_acct_type = sidebar_account_type.innerHTML;
+console.log(`The logged name is: ${logged_name}`);
+console.log(`The logged account type is: ${logged_acct_type}`);
+/////////////////////////////////////////////////////////////////
+
 // Query the Submit Button
 const submit_acct_type = document.getElementById('confirmation_advance');
 
@@ -61,10 +71,10 @@ if (acct_type === 'Manager') {
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-// INCLUDE LOCAL STORAGE/DATABASE SCRIPTING WHICH UTILIZES THE SAME SUBMIT BUTTON
+// ENCODE THE VARIABLES TO SEND TO THE NEXT PAGE
 
-
-
+const encoded_logged_name = encodeURIComponent(logged_name);
+const encoded_logged_acct_type = encodeURIComponent(logged_acct_type);
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -87,12 +97,17 @@ form.addEventListener('submit', (e) => {
     // Redirect URL params based on account type
     if (acct_type === 'Manager') {
         console.log("Redirecting to Manager Page");
-        window.location.href = `manager.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
+        window.location.href = `manager.html?first_name=${encoded_logged_name}&acct_type=${encoded_logged_acct_type}`;
+        // window.location.href = `manager.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
     } else {
         console.log("Redirecting to Employee Page");
-        window.location.href = `employee.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
+        window.location.href = `employee.html?first_name=${encoded_logged_name}&acct_type=${encoded_logged_acct_type}`;
+        // window.location.href = `/html/dashboards/employee.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
     }
 });
+
+
+// CHECKING IF THE USERNAME IS AVAILABLE
 
 // Query username
 const username = document.getElementById("confirmed_name").innerHTML;
