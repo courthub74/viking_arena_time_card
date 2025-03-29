@@ -30,6 +30,8 @@
 
 \*~Implement authorization to the Submit Button at Confirmation~
 
+\*Login the user upon registration
+
 ### Database
 
 \*~Add Account Registration~
