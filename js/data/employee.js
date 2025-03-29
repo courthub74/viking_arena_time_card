@@ -34,14 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const slide_in_profile_name = document.getElementById('profile_name');
     // Query the slide in account type
     const slide_in_account_type = document.getElementById('profile_account');
-    // Get users from local storage
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    console.log(users);
-    // Here is where you can add the code to check if the user is logged in or not
-    // Check if the user is logged in by checking session storage
-
+    // Get logged in user from session storage
+    // Check if the user is logged in or not
     // Get the current user from session storage
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+  
     // Check if the user is logged in
     if (currentUser) {
         // If the user is logged in, show their profile name and account type

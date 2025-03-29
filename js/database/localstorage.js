@@ -118,6 +118,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Register the User
         // by calling the submitRegistration function
         submitRegistration();
+
+        // Login the user
+        // by calling the loginUser function
+        const loginResult = loginUser(username, pin);
+        console.log(loginResult.message);
     });
 });
 
