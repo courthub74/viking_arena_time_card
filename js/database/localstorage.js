@@ -20,7 +20,7 @@ function registerUser(username, accountType, pin) {
     // Add the new user to the users array
     users.push(newUser);
 
-    // Save back to localStorage
+    // Save back to localStorage as 'users' key
     localStorage.setItem('users', JSON.stringify(users));
 
     // Return newUser object

@@ -51,11 +51,11 @@ sidebar_account_type.innerHTML = acct_type;
 /////////////////////////////////////////////////////////////////
 
 // Variables to encode to send to the next page
-const logged_name = sidebar_first_name.innerHTML.split(' ')[0];
+// const logged_name = sidebar_first_name.innerHTML.split(' ')[0];
 // const logged_name = sidebar_first_name.innerHTML;
-const logged_acct_type = sidebar_account_type.innerHTML;
-console.log(`The logged name is: ${logged_name}`);
-console.log(`The logged account type is: ${logged_acct_type}`);
+// const logged_acct_type = sidebar_account_type.innerHTML;
+// console.log(`The logged name is: ${logged_name}`);
+// console.log(`The logged account type is: ${logged_acct_type}`);
 /////////////////////////////////////////////////////////////////
 
 // Query the Submit Button
@@ -73,38 +73,11 @@ if (acct_type === 'Manager') {
 ////////////////////////////////////////////////////////////////////////////////
 // ENCODE THE VARIABLES TO SEND TO THE NEXT PAGE
 
-const encoded_logged_name = encodeURIComponent(logged_name);
-const encoded_logged_acct_type = encodeURIComponent(logged_acct_type);
+// const encoded_logged_name = encodeURIComponent(logged_name);
+// const encoded_logged_acct_type = encodeURIComponent(logged_acct_type);
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
 
-// Query the form
-const form = document.querySelector('form');
 
-// Add Event Listener to Submit Button
-form.addEventListener('submit', (e) => {
-    // Prevent default form submission
-    e.preventDefault();
-    
-    console.log("Submit Button Pressed");
-
-    // Encode each parameter to send to employee page
-    // const encodedFirst = encodeURIComponent(encodedFirstName);
-    
-    // Redirect URL params based on account type
-    if (acct_type === 'Manager') {
-        console.log("Redirecting to Manager Page");
-        window.location.href = `manager.html?first_name=${encoded_logged_name}&acct_type=${encoded_logged_acct_type}`;
-        // window.location.href = `manager.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
-    } else {
-        console.log("Redirecting to Employee Page");
-        window.location.href = `employee.html?first_name=${encoded_logged_name}&acct_type=${encoded_logged_acct_type}`;
-        // window.location.href = `/html/dashboards/employee.html?first_name=${encodedFirstName}&last_name=${encodedLastName}&acct_type=${acct_type}&encodedPinConfirm=${pin_number}`;
-    }
-});
 
 
 // CHECKING IF THE USERNAME IS AVAILABLE
