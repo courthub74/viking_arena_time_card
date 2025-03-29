@@ -35,6 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Query the slide in account type
     const slide_in_account_type = document.getElementById('profile_account');
     // Get logged in user from session storage
+    // Get the name from the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const logged_name = urlParams.get('username') ? decodeURIComponent(urlParams.get('username')) : 'Not Logged In';
+    const logged_acct_type = urlParams.get('acct_type') ? decodeURIComponent(urlParams.get('acct_type')) : 'N/A';
+    // Set the sidebar elements to the logged in user
+    slide_in_profile_name.innerHTML = logged_name;
+    slide_in_account_type.innerHTML = logged_acct_type;
     // Check if the user is logged in or not
     // Get the current user from session storage
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));

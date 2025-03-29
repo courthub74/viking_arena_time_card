@@ -24,6 +24,10 @@
 
 \*Compare the pin number to the pin number in the database
 
+## Encryption
+
+\*Encrypt the pin numbers
+
 ### Registration
 
 \*~Pin Code Match JavaScript~

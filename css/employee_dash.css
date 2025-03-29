@@ -474,6 +474,14 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     margin-top: 1em;
 }
 
+.logout_text a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+}
+
 
 
 /* Just Text */

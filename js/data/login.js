@@ -73,20 +73,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
         });
     }); 
 
-    // Grab and parse the info from LocalStorage
-    
-    // validate inputs (For Login)
-    if (!username || username.trim() === '') {
-        return { success: false, message: 'Name is required'};
-    }
-
-    if (!pin || pin.length < 4 || isNaN(pin)) {
-        return { success: false, message: 'PIN must be at least 4 digits' };
-      }
-      
-    if (!accountType || !['admin', 'user', 'guest'].includes(accountType)) {
-    return { success: false, message: 'Valid account type required' };
-    }
+   
 
     // Login function
     function loginUser(username, pin) {
@@ -94,7 +81,22 @@ document.addEventListener('DOMContentLoaded', (e) => {
         var users = JSON.parse(localStorage.getItem('users')) || [];
 
         // Find user by name
-        const user = users.find( u => u.username === username);
+       const user = users.find( u => u.username === username);
+
+        // Grab and parse the info from LocalStorage
+    
+        // validate inputs (For Login)
+        if (!username || username.trim() === '') {
+            return { success: false, message: 'Name is required'};
+        }
+
+        if (!pin || pin.length < 4 || isNaN(pin)) {
+            return { success: false, message: 'PIN must be at least 4 digits' };
+        }
+        
+        if (!accountType || !['admin', 'user', 'guest'].includes(accountType)) {
+        return { success: false, message: 'Valid account type required' };
+        }
 
         if(!user) {
             return { success: false, message: 'User not found'};
@@ -135,7 +137,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
         const accountType = document.getElementById('account_type').value;
 
         // Call the login function
-        const result = loginUser(username, pin);
+        loginUser(username, pin);
 
         if (result.success) {
             // Depending on account type Redirect to the employee page or show success message
