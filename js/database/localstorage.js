@@ -30,44 +30,45 @@ function registerUser(username, accountType, pin) {
     function generateUserId() {
         return Date.now().toString(36) + Math.random().toString(36).substr(2);
     }
+};
 
-    // Login function
-    function loginUser(username, pin) {
-        // Get item from local storage
-        var users = JSON.parse(localStorage.getItem('users')) || [];
+ // Login function
+ function loginUser(username, pin) {
+    // Get item from local storage
+    var users = JSON.parse(localStorage.getItem('users')) || [];
 
-        // Find user by name
-        const user = users.find( u => u.username === username);
+    // Find user by name
+    const user = users.find( u => u.username === username);
 
-        // Test print finding the user name
-        console.log(`The user found is: ${user}`);
+    // Test print finding the user name
+    console.log(`The user found is: ${user}`);
 
-        if(!user) {
-            return { success: false, message: 'User not found'};
-        }
+    if(!user) {
+        return { success: false, message: 'User not found'};
+    }
 
-        // Verify PIN
-        if (user.pin !== pin) {
-            return { success: false, message: 'Invalid PIN'};
-        }
+    // Verify PIN
+    if (user.pin !== pin) {
+        return { success: false, message: 'Invalid PIN'};
+    }
 
-        // Store current user info in session
-        sessionStorage.setItem('currentUser', JSON.stringify({
-            id: user.id,
+    // Store current user info in session
+    sessionStorage.setItem('currentUser', JSON.stringify({
+        id: user.id,
+        username: user.username,
+        accountType: user.accountType,
+        loginTime: new Date().toISOString()
+    }));
+
+    return {
+        success: true,
+        message: 'Login successful',
+        user: {
             username: user.username,
             accountType: user.accountType,
-            loginTime: new Date().toISOString()
-        }));
-
-        return {
-            success: true,
-            message: 'Login successful',
-            user: {
-                username: user.username,
-                accountType: user.accountType
-            }
-        };
-    }
+        }
+        
+    };
 }
 
 
@@ -124,6 +125,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // Register the User
         // by calling the submitRegistration function
         submitRegistration();
+
+        // Login the User
+        // by calling the loginUser function
+        loginUser(username, pin);
+
+        // Test Print the current user
+        // First get the current user from the session storage
+        var currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
+        // Then print the current user
+        console.log(`The current user is: ${currentUser.username}`);
     });
 });
 

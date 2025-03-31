@@ -1,6 +1,10 @@
 // JS to read the names from the DB
 // (for now its in LocalStorage)
 document.addEventListener('DOMContentLoaded', (e) => {
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+    // NAMES IN THE DROPDOWN MENU
+
     // Get the dropdown element to populate it with names
     const usersDropdown = document.getElementById('users_dropdown');
     // Get the users array from the local storage
@@ -29,12 +33,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
     });
 
     // If no users found, display a message
-    if (users.length === 0) {
-        const noUsersOption = document.createElement('option');
-        noUsersOption.disabled = true;
-        noUsersOption.textContent = 'No users found';
-        usersDropdown.appendChild(noUsersOption);
-    }
+    // if (users.length === 0) {
+    //     const noUsersOption = document.createElement('option');
+    //     noUsersOption.disabled = true;
+    //     noUsersOption.textContent = 'No users found';
+    //     usersDropdown.appendChild(noUsersOption);
+    // }
 
     // Query the pin inputs by whole div
 
@@ -74,6 +78,26 @@ document.addEventListener('DOMContentLoaded', (e) => {
             }
         });
     }); 
+
+    // JS for login pins key behavior
+    // Move to the next input when a digit is entered
+    login_pins.forEach((input, key) => {
+        input.addEventListener('keyup', (e) => {
+            // Move to the next input when a digit is entered
+            if (input.value) {
+                if (key === 3) {
+                    // Let's read the Pins for matching to the database (LocalStorage)
+                    const pin_login_value = [...pin_login].map((each_pin_login) => each_pin_login.value).join("");
+                    // Print the value of the pin
+                    console.log(`The PIN login value is: ${pin_login_value}`);
+                    // Focus on the submit button
+                    submit_login.focus();
+                } else {
+                    pin_login[key + 1].focus(); // Move to the next input
+                }
+            }
+        });
+    });
 
    
 
