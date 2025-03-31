@@ -52,11 +52,11 @@
 
 ## Calendar
 
-\* implement a calendar API
+\*implement a calendar API
 
-\* Add a calendar for scheduling
+\*Add a calendar for scheduling
 
-\* Add a calendar for hour entry
+\*Add a calendar for hour entry
 
 ## Messaging
 

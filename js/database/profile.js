@@ -15,7 +15,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
     // Get the users array from the local storage
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Map Through the users and match the one registered
-    // OR take the JS from the confirmation Page
-
+    // Get the current user from the local storage
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+    // If there is no current user, redirect to the login page
+    if (!currentUser) {
+        window.location.href = "index.html";
+    }
+    // Get the current user from the users array
+    const user = users.find(user => user.username === currentUser.username);
 });
