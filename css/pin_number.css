@@ -171,14 +171,14 @@ body {
 /* Order for the Menu button logos */
 
 /* Make the dark mode menu go away */
-.menu_button #menu_burgers .burger:last-child {
+/* .menu_button #menu_burgers .burger:last-child {
     display: none;
-}
+} */
 
 /* Make the lite mode menu come on in dark mode */
-.dark-mode .menu_button #menu_burgers .burger:last-child {
+/* .dark-mode .menu_button #menu_burgers .burger:last-child {
     display: block;
-}
+} */
 
 /* When Burger button (or burger class) is active */
 .burger.active {
