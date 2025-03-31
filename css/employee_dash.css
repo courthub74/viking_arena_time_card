@@ -594,8 +594,8 @@ label {
 
 .page_header {
     display: flex;
-    font-weight: normal;
-    opacity: 100%;
+    font-weight: bold;
+    opacity: 50%;
 }
 
 /* Radio Button Squares */
@@ -620,7 +620,8 @@ label {
 
 .radio-container label {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    justify-content: space-between;
     align-items: center;
     gap: 1em;
     width: 100%;
@@ -655,14 +656,14 @@ label {
   .dash_hours {
     width: 20px;
     height: 20px;
-    filter: var(--dashboard-logo);
+    /* filter: var(--dashboard-logo); */
   }
 
   /* Calendar */
   .dash_calendar {
-    width: 20px;
-    height: 20px;
-    filter: var(--dashboard-logo);
+    width: 19px;
+    height: 19px;
+    /* filter: var(--dashboard-logo); */
   }
 
 

@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
         const option = document.createElement('option');
         option.value = user.id; // Use user ID as the value
         option.textContent = user.username; // Display the username
+        // Remove the %20 from the username (by decoding it)
+        option.textContent = decodeURIComponent(user.username);
         // Append to the users dropdown
         usersDropdown.appendChild(option);
     });

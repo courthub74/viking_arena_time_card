@@ -225,6 +225,37 @@ pin_confirm.forEach((input_2, key_2) => {
               const reset_button = document.getElementById('reset_button');
               reset_button.innerHTML = `Pins Match`;
               reset_button.style.color = "#00FF00";
+
+              // Time it to clear pins and reset the button
+              setTimeout(() => {
+                reset_button.innerHTML = `Clear Pin fields`;
+                // reset_button.style.color = "#ffffff";
+                reset_button.style.transition = "color 0.5s ease-in-out";
+                reset_button.style.opacity = "50%";
+
+                 // WE DONT NEED TO REMOVE THE PIN FIELDS FOR MATCHING
+                // pin_set.forEach((input_1) => {
+                //   input_1.value = "";
+                // });
+                // pin_confirm.forEach((input_2) => {
+                //     input_2.value = "";
+                // });
+
+                // change the color of the pin inputs to white or green
+                // pin_set.forEach((input_1) => {
+                //   // input_1.style.backgroundColor = "white";
+                //   input_1.style.color = "#ffffff";
+                //   input_1.style.transition = "color 0.5s ease-in-out";
+                // });
+                // pin_confirm.forEach((input_2) => {
+                //   // input_2.style.backgroundColor = "white";
+                //   input_2.style.color = "#ffffff";
+                //   input_1.style.transition = "color 0.5s ease-in-out";
+                // });
+
+                // Focus on the first input
+                pin_set[0].focus();
+              }, 3000);
              
               ///////////////////////////////////////////
               ///////////////////////////////////////////
@@ -273,7 +304,7 @@ pin_confirm.forEach((input_2, key_2) => {
                 });
                 pin_confirm.forEach((input_2) => {
                     input_2.value = "";
-                  });
+                });
 
                 // change the color of the pin inputs to white
                 pin_set.forEach((input_1) => {
