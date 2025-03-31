@@ -36,6 +36,12 @@
     --acct-type-trim: #000000;
     /* Hover */
     --acct-type-hover: #e8e8e8;
+
+    /* Menu Item Colors */
+    --slide-menu-item-background: #5186b148;
+    --slide-menu-item-background: white;
+    --slide-menu-item-trim: #5186b148;
+    /* --slide-menu-item-trim: white; */
 }
 
 /* DARK MODE */
@@ -75,7 +81,10 @@ body.dark-mode {
     /* Hover */
     --acct-type-hover: #17426b;
     
-
+    /* Menu Item Colors */
+    --slide-menu-item-background: #black;
+    --slide-menu-item-trim: #2065a578;
+    --slide-menu-item-trim: #2169add8;
 }
 
 /* WHOLE BODY */
@@ -108,6 +117,8 @@ body {
     gap: 3em;
 }
 
+/* NAVBAR */
+
 .main_nav {
     display: flex;
     justify-content: space-between;
@@ -118,8 +129,47 @@ body {
     /* box-shadow: 0 2px 5px var(--menu-shadow); */
     position: relative;
     z-index: 1000;
-    padding: 0 2em 0 2em;
+    /* z-index: 997; */
+    padding: 0 3em 0 3em;
+    margin-top: 2em;
+    margin-top: 40px;
 }
+
+/* Main Logo */
+.viking_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+}
+
+/* Logo Img */
+.viking_img {
+    width: 4em;
+    height: 4em;
+    width: 3em;
+    height: 3em;
+}
+
+/* Logo Text */
+.logo_text {
+    /* font-size: 5rem; */
+    font-size: 1.3rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* .main_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    background: none;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+    padding: 0 2em 0 2em;
+} */
 
 /* Menu Burger */
 
@@ -148,62 +198,30 @@ body {
 /* Order for the Menu button logos */
 
 /* Make the dark mode menu go away */
-.menu_button #menu_burgers .burger:last-child {
+/* .menu_button #menu_burgers .burger:last-child {
     display: none;
-}
+} */
 
 /* Make the lite mode menu come on in dark mode */
-.dark-mode .menu_button #menu_burgers .burger:last-child {
+/* .dark-mode .menu_button #menu_burgers .burger:last-child {
     display: block;
-}
+} */
 
 /* When Burger button (or burger class) is active */
 .burger.active {
     transform: rotate(90deg);
 }
 
-/* Day/Nite */
-
-/* Div */
-.theme_switch {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-
-/* Button */
-#theme_switch {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    position: relative;
-    width: 30px;
-    height: 30px;
-}
-
-/* Stacked Logos */
-.day-nite {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.3s ease;
-}
-
-/* Order for the Dark Lite Mode Logos */
-body.dark-mode .day-nite:nth-child(2) {
-    opacity: 0;
-}
-
-body:not(.dark-mode) .day-nite:nth-child(1) {
-    opacity: 0;
-}
+/* *****COPY FOR EACH PAGE */
+/* ********************** */
+/* ********************** */
+/* ********************** */
 
 /* Slide-out Menu Styles */
 .side-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     position: fixed;
     top: 0;
     left: -300px;
@@ -211,8 +229,13 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     height: 100vh;
     background-color: var(--menu-background);
     transition: transform 0.3s ease-in-out;
-    padding-top: 120px;
+    padding-top: 65px;
+    padding-left: 40px;
+    padding-right: 20px;
     z-index: 999;
+    /* Make slide menu cover it all */
+    /* z-index: 1000; */
+    /* border-right: 1px solid var(--nav-shadow); */
 }
 
 .side-menu.active {
@@ -237,12 +260,124 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     visibility: visible;
 }
 
+/* Logo Header */
+.slide_header_logo {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    opacity: 0;
+}
+
+.slide_header_logo img {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.slide_in_logo_text {
+    font-size: medium;
+    font-weight: bold;
+}
+
+/* Menu Items Div */
+.menu_items {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+/* Each Slide Menu Item */
 .menu-item {
-    padding: 1rem 2rem;
-    display: block;
+    padding: 1rem 1rem 1rem 0rem;
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
     color: var(--text-color);
     text-decoration: none;
-    transition: background-color 0.2s ease;
+    font-size: small;
+    /* font-weight: bold; */
+    border: 1px solid var(--slide-menu-item-trim);
+    background-color: var(--slide-menu-item-background);
+}
+
+#theme_switch {
+    background-color: var(--slide-menu-item-background);
+    border: 1px solid var(--slide-menu-item-trim);
+    width: 100%;
+    /* padding: 1.5rem 1rem 1.5rem 0rem; */
+    /* padding: 1rem 1rem 1rem 0rem; */
+}
+
+/* Profile on the slide menu */
+.profile {
+    /* margin-top: 1em; */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--slide-menu-item-background);
+    border: 1px solid var(--slide-menu-item-trim);
+    /* gap: 1em; */
+}
+
+/* Whole Profile Div */
+.profile_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: .5em 1em;
+    border-bottom: 1px solid var(--slide-menu-item-trim);
+}
+
+/* Profile IMG */
+
+/* Profile header text */
+.profile_text {
+    font-size: small;
+    font-weight: bold;
+}
+
+/* Profile header img */
+.profile_circle {
+    filter: brightness(90%);
+}
+
+/* Profile Info Boxes */
+.profile_info {
+    /* background-color: var(--input-background); */
+    font-size: small;
+    padding: .5em 1em;
+}
+
+.profile_info label {
+    opacity: 50%;
+    font-size: small;
+}
+
+/* Pin Number Profile Div */
+.pin_and_peak {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#pin_code_peak {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#pin_code_peak img {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+/* Each menu item icon */
+.menu-item img {
+    width: 1.5em;
+    height: 1.5em;
+    filter: brightness(90%);
+    /* filter: brightness(150%) contrast(180%); */
 }
 
 .menu-item:hover {
@@ -253,6 +388,95 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 .menu-item span {
     margin-left: 10px;
 }
+
+/* Delete Account */
+
+/* Whole Button */
+/* .delete_account_button {
+    border: none;
+    background-color: rgb(192, 52, 52);;
+    color: white;
+    width: 100%;
+    padding: 1em;
+    cursor: pointer;
+    font-weight: bold;
+} */
+
+/* Just Text */
+.delete_account_button {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    font-weight: bold;
+    color: rgb(192, 52, 52);
+    color: red;
+    font-size: small;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: .4em;
+    /* margin-top: 1em; */
+    margin-bottom: .5em;
+}
+
+.delete_can {
+    width: 15px;
+    height: 15px;
+}
+
+/* Log Out */
+.logout_account_div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+
+
+/* Just Text */
+/* .logout_account_button {
+    display: flex;
+    align-items: center;
+    background: none;
+    color: #009DF8;
+    border: none;
+    gap: .5em;
+    font-size: small;
+    font-weight: bold;
+    cursor: pointer;
+} */
+
+/* Whole Button */
+.logout_account_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    background-color: #009DF8;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: .8em 1em;
+    cursor: pointer;
+    margin-top: 1em;
+    font-size: medium;
+    font-size: small;
+    font-weight: bold;
+}
+
+
+.logout_logo {
+    width: 1.1em;
+    height: 1.1em;
+}
+
+/* COPY ABOVE FOR MENU */
+/* *************** */
+/* *************** */
+/* *************** */
+/* *************** */
 
 
 /* *************** */
@@ -266,12 +490,12 @@ form {
     flex-direction: column;
     gap: 3em;
     width: 100%;
-    padding: 0 2em 0 2em;
+    padding: 0 3em 0 3em;
     /* margin-top: 1em; */
 }
 
 /* THE HEADER */
-header {
+/* header {
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -281,7 +505,6 @@ header {
 
 .logo_name {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     gap: .5em;
@@ -292,17 +515,11 @@ header {
     font-weight: bold;
 }
 
-.app_state p {
-    text-decoration: underline;
-    text-decoration-color: var(--button-background);
-    text-decoration-thickness: 2px;
-}
-
 
 .hazel_park_logo {
     width: 3.5em;
     height: 3.5em;
-}
+} */
 
 label {
     opacity: 100%;
@@ -336,8 +553,9 @@ label {
     background-color: var(--input-background);
     border: none;
     /* padding: 1.5em; */
-    padding: 10px;
+    /* padding: 10px; */
     padding: 20px;
+    padding: 15px;
     color: var(--text-color);
     font-size: medium;
     font-size: small;
@@ -406,7 +624,7 @@ label {
         flex-direction: column;
         gap: 4em;
         gap: 3em;
-        margin-top: 1em;
+        margin-top: 3em;
     }
 
     .burger {
@@ -420,7 +638,11 @@ label {
     }
 
     .menu-item {
-        font-size: x-large;
+        font-size: medium;
+    }
+
+    .profile_header .profile_text {
+        font-size: medium;
     }
 
     /* Logo a bit bigger */

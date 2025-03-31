@@ -24,11 +24,17 @@
 
 \*Compare the pin number to the pin number in the database
 
+## Encryption
+
+\*Encrypt the pin numbers
+
 ### Registration
 
 \*~Pin Code Match JavaScript~
 
 \*~Implement authorization to the Submit Button at Confirmation~
+
+\*Login the user upon registration
 
 ### Database
 
@@ -40,7 +46,7 @@
 
 \*~Add Names registered to Name dropdown at login~
 
-\*Profile page reads profile from the database
+\*Profile on slide menu reads profile from the database after login
 
 \*Add delete profile feature
 

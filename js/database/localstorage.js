@@ -20,7 +20,7 @@ function registerUser(username, accountType, pin) {
     // Add the new user to the users array
     users.push(newUser);
 
-    // Save back to localStorage
+    // Save back to localStorage as 'users' key
     localStorage.setItem('users', JSON.stringify(users));
 
     // Return newUser object
@@ -84,15 +84,21 @@ function submitRegistration() {
 
     console.log(`User ${username} is in the database as a ${accountType}.  Their pin# is: ${pin}`);
 
+    // Encode the username and pin and account type
+    username = encodeURIComponent(username);
+    accountType = encodeURIComponent(accountType);
+    pin = encodeURIComponent(pin);
+
     // Conditionals for the account type
     if (accountType === 'Manager') {
         // Redirect to the manager page
         // window.location.href = '../../html/manager/manager.html';
-        window.location.href = '../../html/dashboards/manager.html';
+        // window.location.href = `manager.html?first_name=${encoded_logged_name}&acct_type=${encoded_logged_acct_type
+        window.location.href = `../../html/dashboards/manager.html?username=${username}&acct_type=${accountType}&encodedPinConfirm=${pin}`;
     } else {
         // Redirect to the customer page
         // window.location.href = '../../html/calendar/calendar.html';
-        window.location.href = '../../html/dashboards/employee.html';
+        window.location.href = `../../html/dashboards/employee.html?username=${username}&acct_type=${accountType}&encodedPinConfirm=${pin}`;
     }
     
     return registerUser(username, accountType, pin);

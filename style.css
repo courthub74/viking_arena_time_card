@@ -103,6 +103,8 @@ body {
     gap: 3em;
 }
 
+/* NAVBAR */
+
 .main_nav {
     display: flex;
     justify-content: space-between;
@@ -223,6 +225,11 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     opacity: 0;
 } */
 
+/* *****COPY FOR EACH PAGE */
+/* ********************** */
+/* ********************** */
+/* ********************** */
+
 /* Slide-out Menu Styles */
 .side-menu {
     display: flex;
@@ -238,9 +245,9 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     padding-top: 65px;
     padding-left: 40px;
     padding-right: 20px;
-    /* z-index: 999; */
+    z-index: 999;
     /* Make slide menu cover it all */
-    z-index: 1000;
+    /* z-index: 1000; */
     border-right: 1px solid var(--nav-shadow);
 }
 
@@ -271,6 +278,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     display: flex;
     align-items: center;
     gap: .5em;
+    opacity: 0;
 }
 
 .slide_header_logo img {
@@ -316,7 +324,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 
 /* Profile on the slide menu */
 .profile {
-    margin-top: 1em;
+    /* margin-top: 1em; */
     display: flex;
     flex-direction: column;
     background-color: var(--slide-menu-item-background);
@@ -397,25 +405,37 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 /* Delete Account */
 
 /* Whole Button */
-.delete_account_button {
+/* .delete_account_button {
     border: none;
-    background-color: rgb(184, 47, 47);
+    background-color: rgb(192, 52, 52);;
     color: white;
     width: 100%;
     padding: 1em;
     cursor: pointer;
     font-weight: bold;
-}
+} */
 
 /* Just Text */
-/* .delete_account_button {
+.delete_account_button {
+    display: flex;
     text-decoration: none;
+    align-items: center;
     font-weight: bold;
+    color: rgb(192, 52, 52);
     color: red;
+    font-size: small;
     background: none;
     border: none;
-    width: 100%;
-} */
+    cursor: pointer;
+    gap: .4em;
+    /* margin-top: 1em; */
+    margin-bottom: .5em;
+}
+
+.delete_can {
+    width: 15px;
+    height: 15px;
+}
 
 /* Log Out */
 .logout_account_div {
@@ -426,8 +446,10 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     margin-top: 1em;
 }
 
+
+
 /* Just Text */
-.logout_account_button {
+/* .logout_account_button {
     display: flex;
     align-items: center;
     background: none;
@@ -437,31 +459,39 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     font-size: small;
     font-weight: bold;
     cursor: pointer;
-}
+} */
 
 /* Whole Button */
-/* .logout_account_button {
+.logout_account_button {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: .5em;
     background-color: #009DF8;
     color: white;
     border: none;
     width: 100%;
-    padding: 1em;
-} */
-
-
-.logout_logo {
-    width: 1em;
-    height: 1em;
+    padding: .8em 1em;
+    cursor: pointer;
+    margin-top: 1em;
+    font-size: medium;
+    font-size: small;
+    font-weight: bold;
 }
 
 
+.logout_logo {
+    width: 1.1em;
+    height: 1.1em;
+}
+
+/* COPY ABOVE FOR MENU */
 /* *************** */
 /* *************** */
 /* *************** */
 /* *************** */
+
+
 /* THE FORM */
 
 form {
@@ -771,31 +801,37 @@ footer {
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
-    /* Main Nav */
-    .main_nav {
+    /* form {
+        width: 30%;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 6em 0 6em;
-        position: relative;
+        flex-direction: column;
+        gap: 3em;
+        margin-top: 1em;
+    } */
+
+    .burger {
+        width: 40px;
+        height: 40px;
     }
 
-    /* Logo IMG */
-    .viking_img {
-        width: 4em;
-        height: 4em;
+    .day-nite {
+        width: 40px;
+        height: 40px;
     }
 
-    /* Logo Text */
-    .logo_text {
-        font-size: 1.5rem;
+    .menu-item {
+        font-size: x-large;
     }
 
-    /* Menu Burger */
-    #burger_one {
-        width: 3em;
-        height: 3em;
-        margin-bottom: 1em;
+    /* Logo a bit bigger */
+    .logo_name p {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .hazel_park_logo {
+        width: 5em;
+        height: 5em;
     }
 
     /* Slide Menu */
@@ -821,7 +857,7 @@ footer {
         margin-top: 2em;
     }
 
-    /*  */
+    /* form */
     form {
         width: 25%;
         display: flex;
@@ -880,5 +916,12 @@ footer {
 
     .or, .create_acct {
         font-size: medium;
+    }
+} 
+
+
+@media screen and (min-width: 1600px) {
+    form {
+        width: 20%;
     }
 }

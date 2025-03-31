@@ -6,17 +6,15 @@
     <title>Viking Time Card</title>
 
       <!-- CSS -->
-      <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/name.css"> -->
-      <link rel="stylesheet" href="../../css/name.css">
-      
+      <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
+      <link rel="stylesheet" href="../../css/employee_dash.css">
 </head>
 <body>
 
     <!-- Container -->
     <div class="container">
 
-
-        <!-- --------------COPY HERE TO THE OTHER LINE FIELD--------------- -->
+         <!-- --------------COPY HERE TO THE OTHER LINE FIELD--------------- -->
         <!-- -------------------------------------------------------------- -->
         <!-- -------------------------------------------------------------- -->
         <!-- -------------------------------------------------------------- -->
@@ -67,22 +65,22 @@
                 <!-- Profile Name -->
                 <div class="profile_info">
                     <label>Name:</label>
-                    <p class="profile_text_data" id="profile_name">Not logged in</p>
+                    <p class="profile_text_data" id="profile_name"></p>
                  </div>
 
                  <!-- Profile Account Type -->
                  <div class="profile_info">
                     <label>Account type:</label>
-                    <p class="profile_text_data" id="profile_account">N/A</p>
+                    <p class="profile_text_data" id="profile_account"></p>
                  </div>
 
                  <!-- Profile Pin Number -->
                   <!-- This you will turn into a password output -->
                  <div class="profile_info">
                     <div class="pin_and_peak">
-                        <!-- <button class="delete_account_button" id="delete_account">
+                        <button class="delete_account_button" id="delete_account">
                             <p class="delete_text">Delete Account</p>
-                        </button> -->
+                        </button>
                         <!-- Pin Number -->
                         <!-- <div class="pin_profile_div">
                             <label>Pin #:</label>
@@ -99,12 +97,14 @@
                  </div>
             </div>
              <!-- Delete Button -->
-             <!-- <div class="delete_account_div">
+             <div class="delete_account_div">
                 <button class="logout_account_button" id="logout_account">
                     <img src="../../img/logout/white_logout.png" class="logout_logo">
-                    <p class="logout_text">Log Out</p>
+                    <p class="logout_text">
+                        <a href="../../index.html">Log Out</a>
+                    </p>
                 </button>
-             </div>  -->
+             </div> 
         </div>
 
         <!-- Overlay -->
@@ -130,37 +130,36 @@
         <!-- THE PAGE -->
 
         <!-- THE FORM -->
-        <form id="names_form">
+        <form>
+                <!-- Page Header -->
+                <label>
+                    <span class="acct_type_label">Employee</span>
+                    <span class="page_header">Dashboard for&nbsp;<p id="employee_name"></p></span>
+                </label>
 
-            <!-- NAME FIELDS -->
-            <div class="name_fields">
+                <!-- The Radio Buttons -->
+                 <div class="employee_selects">
 
-                <label>Create your account:</label>
-                
-                <div class="registration_names">
-                    <!-- <label>First Name:</label> -->
-                    <input type="text" id="firstname" placeholder="Enter First Name:">
-                </div>
+                    <!-- Button One -->
+                    <div class="radio-container">
+                        <input type="radio" name="role" value="employee_hours" id="employee_hours" class="dashboard_button">
+                        <label for="employee_hours">Enter your Hours <img src="/img/dashboard_logos/black_hours.png" class="dash_hours" alt="hours"></label>
+                    </div>
 
-                <div class="registration_names">
-                    <!-- <label>Last Name:</label> -->
-                    <input type="text" id="lastname" placeholder="Enter Last Name:">
-                </div>
+                    <!-- Button Two -->
+                    <div class="radio-container">
+                        <input type="radio" name="role" value="schedule_requests" id="schedule_requests" class="dashboard_button">
+                        <label for="schedule_requests">Schedule Requests <img src="/img/dashboard_logos/black_calendar.png" class="dash_calendar" alt="calendar"></label>
+                    </div>
 
-            </div>
+                 </div>
 
-            <!-- Name notify -->
-            <div class="name_notify">
-                <p id="name_notify"></p>
-            </div>
+                 <button class="submit" id="dashboard_advance" disabled>Next</button>
 
 
-            <!-- Submit Button -->
-            <button class="submit" id="submit_login" disabled>Next</button>
-        </form>
-
-        <!-- Back Button -->
-        <a href="../../index.html" class="go_back">Back to Login</a>
+            </form>           
+           
+      
     </div>
 
     <!-- DARKMODE -->
@@ -170,9 +169,14 @@
     <!-- SLIDE IN -->
     <!-- <script src="/viking_arena_time_card/js/slide-in.js"></script> -->
     <script src="../../js/slide-in.js"></script>
+
+    <!-- EMPLOYEE -->
+     <script src="../../js/data/employee.js"></script>
+
+     <!-- CONFIRM -->
+    <!-- <script src="/viking_arena_time_card/js/confirmation.js"></script> -->
+    <!-- <script src="../../js/data/confirmation.js"></script> -->
+
     
-    <!-- NAMES DATA -->
-     <!-- <script src="/viking_arena_time_card/js/data/names.js"></script> -->
-     <script src="../../js/data/names.js"></script>
 </body>
 </html>

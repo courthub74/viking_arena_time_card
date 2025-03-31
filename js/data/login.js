@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
         const option = document.createElement('option');
         option.value = user.id; // Use user ID as the value
         option.textContent = user.username; // Display the username
+        // Remove the %20 from the username (by decoding it)
+        option.textContent = decodeURIComponent(user.username);
         // Append to the users dropdown
         usersDropdown.appendChild(option);
     });
@@ -73,60 +75,85 @@ document.addEventListener('DOMContentLoaded', (e) => {
         });
     }); 
 
-    // Grab and parse the info from LocalStorage
-    
-    // validate inputs (For Login)
-    // if (!username || username.trim() === '') {
-    //     return { success: false, message: 'Name is required'};
-    // }
-
-    // if (!pin || pin.length < 4 || isNaN(pin)) {
-    //     return { success: false, message: 'PIN must be at least 4 digits' };
-    //   }
-      
-    // if (!accountType || !['admin', 'user', 'guest'].includes(accountType)) {
-    // return { success: false, message: 'Valid account type required' };
-    // }
+   
 
     // Login function
-    // function loginUser(username, pin) {
-    //     // Get item from local storage
-    //     var users = JSON.parse(localStorage.getItem('users')) || [];
+    function loginUser(username, pin) {
+        // Get item from local storage
+        var users = JSON.parse(localStorage.getItem('users')) || [];
 
-    //     // Find user by name
-    //     const user = users.find( u => u.username === username);
+        // Find user by name
+       const user = users.find( u => u.username === username);
 
-    //     if(!user) {
-    //         return { success: false, message: 'User not found'};
-    //     }
+        // Grab and parse the info from LocalStorage
+    
+        // validate inputs (For Login)
+        if (!username || username.trim() === '') {
+            return { success: false, message: 'Name is required'};
+        }
 
-    //     // Verify PIN
-    //     if (user.pin !== pin) {
-    //         return { success: false, message: 'Invalid PIN'};
-    //     }
+        if (!pin || pin.length < 4 || isNaN(pin)) {
+            return { success: false, message: 'PIN must be at least 4 digits' };
+        }
+        
+        if (!accountType || !['admin', 'user', 'guest'].includes(accountType)) {
+        return { success: false, message: 'Valid account type required' };
+        }
 
-    //     // Store current user info in session
-    //     sessionStorage.setItem('currentUser', JSON.stringify({
-    //         id: user.id,
-    //         username: user.username,
-    //         accountType: user.accountType,
-    //         loginTime: new Date().toISOString()
-    //     }));
+        if(!user) {
+            return { success: false, message: 'User not found'};
+        }
 
-    //     return {
-    //         success: true,
-    //         message: 'Login successful',
-    //         user: {
-    //             username: user.username,
-    //             accountType: user.accountType
-    //         }
-    //     };
-    // }
+        // Verify PIN
+        if (user.pin !== pin) {
+            return { success: false, message: 'Invalid PIN'};
+        }
+
+        // Store current user info in session
+        sessionStorage.setItem('currentUser', JSON.stringify({
+            id: user.id,
+            username: user.username,
+            accountType: user.accountType,
+            loginTime: new Date().toISOString()
+        }));
+
+        return {
+            success: true,
+            message: 'Login successful',
+            user: {
+                username: user.username,
+                accountType: user.accountType
+            }
+        };
+    }
 
     // JS to clear the pin fields
 
     // Query the login button
     const submit_login = document.getElementById("submit_login");
     // JS to enable the Login button
+    submit_login.addEventListener('click', function() {
+        // Get the values from the input fields
+        const username = document.getElementById('username').value;
+        const pin = Array.from(login_pins).map(input => input.value).join('');
+        const accountType = document.getElementById('account_type').value;
+
+        // Call the login function
+        loginUser(username, pin);
+
+        if (result.success) {
+            // Depending on account type Redirect to the employee page or show success message
+            if (result.user.accountType === 'Manager') {
+                // Redirect to the employee page
+                window.location.href = '../../html/dashboards/manager.html';
+            } else if (result.user.accountType === 'Employee') {
+                // Redirect to the employee page
+                window.location.href = '../../html/dashboards/employee.html';
+            } 
+        } else {
+            // Show error message
+            alert(result.message);
+        }
+    });
 });
 
