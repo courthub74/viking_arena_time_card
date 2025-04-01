@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     // Query the pin inputs by whole div
 
     // Query the login pin field
-    const login_pins = document.querySelectorAll('pin_put');
+    const login_pins = document.querySelectorAll('.pin_put');
 
     // NUMERIC INPUT BEHAVIOR (for mobile devices)
     // For every input in login_pins 
@@ -63,12 +63,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
          input.addEventListener('input', function() {
             // set the value of the input to only allow numerals with reg ex
             this.value = this.value.replace(/[^0-9]/g, '');
-
-            // JS to map through pin focus
-            // Move to next input when a digit is entered
-            if (this.value.length === 1 && index < login_pins.length - 1) {
-                login_pins[index - 1].focus();
-            }
          });
 
         // BACKSPACE HANDLING
@@ -85,15 +79,18 @@ document.addEventListener('DOMContentLoaded', (e) => {
         input.addEventListener('keyup', (e) => {
             // Move to the next input when a digit is entered
             if (input.value) {
+                console.log("Press Login");
                 if (key === 3) {
                     // Let's read the Pins for matching to the database (LocalStorage)
-                    const pin_login_value = [...pin_login].map((each_pin_login) => each_pin_login.value).join("");
+                    const pin_login_value = [...login_pins].map((each_login_pin) => each_login_pin.value).join("");
                     // Print the value of the pin
                     console.log(`The PIN login value is: ${pin_login_value}`);
+                    // HERE put the comparison to the DB or LocalStorage
+                    
                     // Focus on the submit button
                     submit_login.focus();
                 } else {
-                    pin_login[key + 1].focus(); // Move to the next input
+                    login_pins[key + 1].focus(); // Move to the next input
                 }
             }
         });
