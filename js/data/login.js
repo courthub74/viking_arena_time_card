@@ -110,7 +110,16 @@ document.addEventListener('DOMContentLoaded', function() {
             input.addEventListener('keyup', (e) => {
                 // Move focus to the next input field if a digit is entered
                 if (input.value) {
-                    console.log("Press Login");
+                    // Move to next input if there is a next input
+                    if (key < pinField.length - 1) {
+                        pinField[key + 1].focus();
+                    }
+                    // If the last input is filled, move focus to the submit button
+                    if (key === pinField.length - 1) {
+                        loginButton.focus();
+                    }
+                    // Test Print pin fields filled
+                    console.log("Pin field filled");
                     // If there is all 4 digits entered
                     if (key === 3) {
                         // Let's read the pins for matching to the LocalStorage
