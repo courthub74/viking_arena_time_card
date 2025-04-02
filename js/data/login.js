@@ -75,6 +75,39 @@ document.addEventListener('DOMContentLoaded', function() {
             usersDropdown.appendChild(option);
         });
 
+        // NOW make the focus on the pin field
+
+        // add event listener to the dropdown
+        usersDropdown.addEventListener('change', (e) => {
+            // Get the selected username
+            const selectedUsername = e.target.value;
+            // Test Print
+            console.log(`Selected username: ${selectedUsername}`);
+             // Get the first pin input field
+            const firstPinField = document.querySelector('.pin_put');
+            // Set focus to the first pin field
+            if (firstPinField) {
+                firstPinField.focus();
+            }
+            // // Check if a user is selected
+            // if (selectedUsername) {
+            //     // Enable the pin fields
+            //     pinField.forEach(pin => {
+            //         pin.disabled = false;
+            //         pin.focus(); // Focus on the first pin field
+            //     });
+            //     // Disable the login button until the pin is entered
+            //     loginButton.disabled = true;
+            // } else {
+            //     // If no user is selected, disable the pin fields and login button
+            //     pinField.forEach(pin => {
+            //         pin.disabled = true;
+            //         pin.value = ''; // Clear the input value
+            //     });
+            //     loginButton.disabled = true;
+            // }
+        });
+
         // NOW the numeric input behavior for the pin number
         // For every input in login_pins 
         pinField.forEach((input, index) => {
@@ -138,9 +171,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             loginButton.disabled = false;
                             // Change the pin field color to green
                             pinField.forEach(pin => {
-                                // pin.style.backgroundColor = 'lightgreen';
-                                // Or change the pin inputs to green
-                                pin.style.color = 'green';
+                                const isDarkMode = document.body.classList.contains('dark-mode');
+                                // Set the color based on the mode
+                                pin.style.color = isDarkMode ? "#00FF00" : "#16BC00";
+                                pin.style.transition = "color 0.5s ease-in-out";
                             });
                             // Add event listener to the login button
                             loginButton.addEventListener('click', (e) => {
