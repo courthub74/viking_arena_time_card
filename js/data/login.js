@@ -1,180 +1,171 @@
 // JS to read the names from the DB
-// (for now its in LocalStorage)
-document.addEventListener('DOMContentLoaded', (e) => {
-    ///////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////
-    // NAMES IN THE DROPDOWN MENU
 
-    // Get the dropdown element to populate it with names
+// BASIC LOGIN ALGORITHM
+// 1. Get the username and pin from the input fields
+// 2. Validate the inputs (username and pin)
+// 3. Check if the username exists in the database (LocalStorage)
+// 4. If the username exists, check if the pin matches the one in the database
+// 5. If the pin matches, log the user in and redirect to the appropriate page
+// 6. If the pin doesn't match, keep the login button disabled and turn the clear pins field into notification colors
+
+// NOTES:
+// - The login function should be called when the user clicks the login button
+// An event listener to the dropdown to read the name selected and match it to the DB or LocalStorage
+// Then match that selection to the pin number associated with that name
+// then compare the entered pin number to the one in the DB or LocalStorage
+// Then if the pin number is correct, add the appropriate colors to the pin number inputs
+// enable the submit button, (if incorrect keep the submit button disabled)
+
+// When page loads 
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Get the ELEMENTS from the login page
+
+    // Login button
+    const loginButton = document.getElementById('submit_login');
+
+    // Pin inputs
+    const pinField = document.querySelectorAll('.pin_put');
+
+    // Name Dropdown
     const usersDropdown = document.getElementById('users_dropdown');
-    // Get the users array from the local storage
-    const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Clear all existing options in the dropdown
-    usersDropdown.innerHTML = '';
+    // Clear button
+    const clearPinsButton = document.getElementById('reset_button');
 
-    // Add the default empty option
-    const defaultOption = document.createElement('option');
-    defaultOption.value = ''; // Set the value as empty
-    // Set the default option as selected
-    defaultOption.selected = true;
-    defaultOption.textContent = ''
-    usersDropdown.appendChild(defaultOption);
+    // Forgot Pin button
+    const forgotPinButton = document.getElementById('forgot_button');
 
-    // Populate the dropdown with the users from localStorage
-    users.forEach(user => {
-        const option = document.createElement('option');
-        option.value = user.id; // Use user ID as the value
-        option.textContent = user.username; // Display the username
-        // Remove the %20 from the username (by decoding it)
-        option.textContent = decodeURIComponent(user.username);
-        // Append to the users dropdown
-        usersDropdown.appendChild(option);
-    });
+    // Test Print ELEMENTS
+    console.log(loginButton);
+    console.log(pinField);
+    console.log(usersDropdown);
+    console.log(clearPinsButton);
+    console.log(forgotPinButton);
 
-    // If no users found, display a message
-    // if (users.length === 0) {
-    //     const noUsersOption = document.createElement('option');
-    //     noUsersOption.disabled = true;
-    //     noUsersOption.textContent = 'No users found';
-    //     usersDropdown.appendChild(noUsersOption);
-    // }
+    // Call the load users function 
+    loadUsers();
 
-    // Query the pin inputs by whole div
+    // Function to load users from local storage
+    function loadUsers() {
+        // Get the users from local storage (expecting a JSON string)
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        // Test Print
+        console.log(users);
+        // Populate the dropdown with usernames
 
-    // Query the login pin field
-    const login_pins = document.querySelectorAll('.pin_put');
+        // Clear the dropdown first
+        usersDropdown.innerHTML = '';
 
-    // NUMERIC INPUT BEHAVIOR (for mobile devices)
-    // For every input in login_pins 
-    login_pins.forEach((input, index) => {
-        // Add input type="number" or pattern attribute to HTML elements
-        input.setAttribute('inputmode', 'numeric'); // Shows number keyboard on mobile
+        // Add a default option to the dropdown
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        // defaultOption.textContent = 'Select a user';
+        defaultOption.selected = true;
+        defaultOption.disabled = true;
+        usersDropdown.appendChild(defaultOption);
 
-        // Prevent non-numeric input
-        input.addEventListener('keypress', function(event) {
-            // Allow only digits (0-9)
-            if (!/[0-9]/.test(event.key)) {
-                event.preventDefault();
-            }
+        // Loop through the users and add them to the dropdown
+        users.forEach(user => {
+            const option = document.createElement('option');
+            option.value = user.username; // Set the value to the username
+            option.textContent = user.username; // Display the username in the dropdown
+            // Remove the %20 from the username (by decoding it)
+            option.textContent = decodeURIComponent(user.username);
+            usersDropdown.appendChild(option);
         });
 
-         // Clean any non-numeric characters that might get pasted
-         input.addEventListener('input', function() {
-            // set the value of the input to only allow numerals with reg ex
-            this.value = this.value.replace(/[^0-9]/g, '');
-         });
-
-        // BACKSPACE HANDLING
-        input.addEventListener('keydown', function(event) {
-            if (event.key === 'Backspace' && this.value.length === 0 && index > 0) {
-                login_pins[index - 1].focus();
-            }
-        });
-    }); 
-
-    // JS for login pins key behavior
-    // Move to the next input when a digit is entered
-    login_pins.forEach((input, key) => {
-        input.addEventListener('keyup', (e) => {
-            // Move to the next input when a digit is entered
-            if (input.value) {
-                console.log("Press Login");
-                if (key === 3) {
-                    // Let's read the Pins for matching to the database (LocalStorage)
-                    const pin_login_value = [...login_pins].map((each_login_pin) => each_login_pin.value).join("");
-                    // Print the value of the pin
-                    console.log(`The PIN login value is: ${pin_login_value}`);
-                    // HERE put the comparison to the DB or LocalStorage
-                    
-                    // Focus on the submit button
-                    submit_login.focus();
-                } else {
-                    login_pins[key + 1].focus(); // Move to the next input
+        // NOW the numeric input behavior for the pin number
+        // For every input in login_pins 
+        pinField.forEach((input, index) => {
+            // Add input type="number" or pattern attribute to HTML elements
+            input.setAttribute('inputmode', 'numeric'); // Set input mode to numeric
+            // Prevent non-numeric input with preventDefault
+            input.addEventListener('keypress', (e) => {
+                // Allow only digits (0-9)
+                if (!/\d/.test(e.key)) {
+                    e.preventDefault(); // Prevent non-numeric input
                 }
-            }
+            });
+            // Clean any non-numeric characters from the input value
+            input.addEventListener('input', () => {
+                // Remove any non-numeric characters from the input value
+                input.value = input.value.replace(/\D/g, '');
+            });
+
+            // BACKSPACE KEY HANDLER
+            // Add event listener for backspace key
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
+                    // Move focus to the previous input field if the current one is empty and backspace is pressed
+                    pinField[index - 1].focus();
+                    // Clear the input value
+                    input.value = '';
+                }
+            });
         });
-    });
 
-   
-
-    // Login function
-    function loginUser(username, pin) {
-        // Get item from local storage
-        var users = JSON.parse(localStorage.getItem('users')) || [];
-
-        // Find user by name
-       const user = users.find( u => u.username === username);
-
-        // Grab and parse the info from LocalStorage
-    
-        // validate inputs (For Login)
-        if (!username || username.trim() === '') {
-            return { success: false, message: 'Name is required'};
-        }
-
-        if (!pin || pin.length < 4 || isNaN(pin)) {
-            return { success: false, message: 'PIN must be at least 4 digits' };
-        }
-        
-        if (!accountType || !['admin', 'user', 'guest'].includes(accountType)) {
-        return { success: false, message: 'Valid account type required' };
-        }
-
-        if(!user) {
-            return { success: false, message: 'User not found'};
-        }
-
-        // Verify PIN
-        if (user.pin !== pin) {
-            return { success: false, message: 'Invalid PIN'};
-        }
-
-        // Store current user info in session
-        sessionStorage.setItem('currentUser', JSON.stringify({
-            id: user.id,
-            username: user.username,
-            accountType: user.accountType,
-            loginTime: new Date().toISOString()
-        }));
-
-        return {
-            success: true,
-            message: 'Login successful',
-            user: {
-                username: user.username,
-                accountType: user.accountType
-            }
-        };
-    }
-
-    // JS to clear the pin fields
-
-    // Query the login button
-    const submit_login = document.getElementById("submit_login");
-    // JS to enable the Login button
-    submit_login.addEventListener('click', function() {
-        // Get the values from the input fields
-        const username = document.getElementById('username').value;
-        const pin = Array.from(login_pins).map(input => input.value).join('');
-        const accountType = document.getElementById('account_type').value;
-
-        // Call the login function
-        loginUser(username, pin);
-
-        if (result.success) {
-            // Depending on account type Redirect to the employee page or show success message
-            if (result.user.accountType === 'Manager') {
-                // Redirect to the employee page
-                window.location.href = '../../html/dashboards/manager.html';
-            } else if (result.user.accountType === 'Employee') {
-                // Redirect to the employee page
-                window.location.href = '../../html/dashboards/employee.html';
-            } 
-        } else {
-            // Show error message
-            alert(result.message);
-        }
-    });
+        // Move focus to the next input field when a digit is entered
+        pinField.forEach((input, key) => {
+            input.addEventListener('keyup', (e) => {
+                // Move focus to the next input field if a digit is entered
+                if (input.value) {
+                    console.log("Press Login");
+                    // If there is all 4 digits entered
+                    if (key === 3) {
+                        // Let's read the pins for matching to the LocalStorage
+                        const pin_login_value = [...pinField].map(each_pinField => each_pinField.value).join('');
+                        // Print the value of the pin field
+                        console.log(`Pin value: ${pin_login_value}`);
+                        // Check if the pin is correct
+                        const users = JSON.parse(localStorage.getItem('users')) || [];
+                        // find the user name selected in the user dropdown
+                        const selectedUser = users.find(user => user.username === usersDropdown.value);
+                        console.log(`Selected user: ${selectedUser}`);
+                        // Check if the selected user exists
+                        console.log(`Selected user pin: ${selectedUser.pin}`);
+                        if (selectedUser && selectedUser.pin === pin_login_value) {
+                            // Pin is correct, enable the login button
+                            loginButton.disabled = false;
+                            // Change the pin field color to green
+                            pinField.forEach(pin => {
+                                // pin.style.backgroundColor = 'lightgreen';
+                                // Or change the pin inputs to green
+                                pin.style.color = 'green';
+                            });
+                            // Add event listener to the login button
+                            loginButton.addEventListener('click', (e) => {
+                                // Prevent the default action of the submit button
+                                e.preventDefault();
+                                // Test Print
+                                console.log("Login Submitted");
+                                // Get the username and pin from the input fields
+                                const username = usersDropdown.value;
+                                const pin = pin_login_value;
+                                // Encode the username and pin
+                                const encodedUsername = encodeURIComponent(username);
+                                const encodedPin = encodeURIComponent(pin);
+                                // Redirect to the appropriate page based on account type
+                                if (selectedUser.accountType === 'Manager') {
+                                    window.location.href = `../../html/dashboards/manager.html?username=${encodedUsername}&acct_type=${selectedUser.accountType}&encodedPinConfirm=${encodedPin}`;
+                                } else {
+                                    window.location.href = `../../html/dashboards/employee.html?username=${encodedUsername}&acct_type=${selectedUser.accountType}&encodedPinConfirm=${encodedPin}`;
+                                }
+                            });
+                        } else {
+                            // Pin is incorrect, disable the login button
+                            loginButton.disabled = true;
+                            // // Change the pin field color to red
+                            pinField.forEach(pin => {
+                                pin.style.color = 'red';
+                            });
+                            // Jump to the next input field
+                            pinField[key + 1].focus();
+                        }
+                    }
+                }
+            });
+        });
+    };
 });
 
