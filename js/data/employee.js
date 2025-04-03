@@ -53,14 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // OPTION 1:
 
     // Get the current user from session storage (set in the local storage database)
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    // const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
   
-    // Check if the user is logged in
-    if (currentUser) {
-        // If the user is logged in, show their profile name and account type
-        slide_in_profile_name.innerHTML = currentUser.username;
-        slide_in_account_type.textContent = currentUser.accountType;
-    } 
+    // // Check if the user is logged in
+    // if (currentUser) {
+    //     // If the user is logged in, show their profile name and account type
+    //     slide_in_profile_name.innerHTML = currentUser.username;
+    //     slide_in_account_type.textContent = currentUser.accountType;
+    // } 
 
     // Test print the current user
     // console.log(`The current user is: ${currentUser}`);
