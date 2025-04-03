@@ -41,6 +41,12 @@
      /* Hover */
      --dashboard-hover: #e8e8e8;
 
+     /* Menu Item Colors */
+    --slide-menu-item-background: #5186b148;
+    --slide-menu-item-background: white;
+    --slide-menu-item-trim: #5186b148;
+    /* --slide-menu-item-trim: white; */
+
 }
 
 /* DARK MODE */
@@ -81,6 +87,11 @@ body.dark-mode {
      --dashboard-trim: #009DF8;
      /* Hover */
      --dashboard-hover: #17426b;
+
+     /* Menu Item Colors */
+    --slide-menu-item-background: #black;
+    --slide-menu-item-trim: #2065a578;
+    --slide-menu-item-trim: #2169add8;
 }
 
 /* WHOLE BODY */
@@ -656,6 +667,7 @@ label {
     text-align: center;
     cursor: pointer;
     font-size: medium;
+    font-size: small;
     transition: all 0.3s ease;
     text-decoration: none;
     /* margin-top: 1em; */

@@ -159,6 +159,21 @@ document.addEventListener('DOMContentLoaded', function() {
                                 pin.style.color = isDarkMode ? "#00FF00" : "#16BC00";
                                 pin.style.transition = "color 0.5s ease-in-out";
                             });
+
+
+                            // assign a session id to the user
+                            // Create a session object with the username and pin
+                            const session = {
+                                username: selectedUser.username,
+                                pin: pin_login_value,
+                                accountType: selectedUser.accountType // Add account type to the session object
+                            };
+                            // Store the session object in session storage
+                            sessionStorage.setItem('session', JSON.stringify(session));
+                            // Test Print session object
+                            console.log(`Session object: ${JSON.stringify(session)}`);
+
+                            
                             // Add event listener to the login button
                             loginButton.addEventListener('click', (e) => {
                                 // Prevent the default action of the submit button

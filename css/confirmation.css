@@ -609,6 +609,7 @@ label {
     border: none;
     padding: 15px;
     font-size: medium;
+    font-size: small;
     /* font-weight: bold; */
     cursor: pointer;
     width: 100%;

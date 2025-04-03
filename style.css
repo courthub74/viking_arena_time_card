@@ -697,6 +697,7 @@ label {
     /* font-weight: bold; */
     cursor: pointer;
     font-size: medium;
+    font-size: small;
     transition: all 0.3s ease;
     margin-top: -3em;
 }
