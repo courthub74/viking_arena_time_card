@@ -89,23 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (firstPinField) {
                 firstPinField.focus();
             }
-            // // Check if a user is selected
-            // if (selectedUsername) {
-            //     // Enable the pin fields
-            //     pinField.forEach(pin => {
-            //         pin.disabled = false;
-            //         pin.focus(); // Focus on the first pin field
-            //     });
-            //     // Disable the login button until the pin is entered
-            //     loginButton.disabled = true;
-            // } else {
-            //     // If no user is selected, disable the pin fields and login button
-            //     pinField.forEach(pin => {
-            //         pin.disabled = true;
-            //         pin.value = ''; // Clear the input value
-            //     });
-            //     loginButton.disabled = true;
-            // }
         });
 
         // NOW the numeric input behavior for the pin number
