@@ -34,7 +34,9 @@
 
 \*~Implement authorization to the Submit Button at Confirmation~
 
-\*Login the user upon registration
+\*~Login the user upon registration~
+
+\*~Enable name registration submit even if input was entered by speech~
 
 ### Database
 
