@@ -81,7 +81,9 @@ body.dark-mode {
 
       /* Dashboard Button Colors */
       --dashboard-button-background: black;
+      --dashboard-button-background: #15191d;
       --dashboard-button-trim: #009df88c;
+      --dashboard-button-trim: none;
 
      /* Account Type Colors */
       --dashboard-selected: #17426b7c;
