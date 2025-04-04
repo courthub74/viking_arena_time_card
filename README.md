@@ -22,7 +22,9 @@
 
 \*~Add Names registered to Name dropdown at login (read from database)~
 
-\*Compare the pin number to the pin number in the database
+\*~Compare the pin number to the pin number in the Local Storage database~
+
+\*Compare the pin number to the pin number in the Real database
 
 ## Encryption
 
