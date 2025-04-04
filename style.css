@@ -69,8 +69,11 @@ body.dark-mode {
 
      /* Menu Item Colors */
      --slide-menu-item-background: #black;
+     --slide-menu-item-background: #20252c;
+     --slide-menu-item-background: #15191d;
      --slide-menu-item-trim: #2065a578;
      --slide-menu-item-trim: #2169add8;
+     --slide-menu-item-trim: none;
 }
 
 /* WHOLE BODY */
@@ -381,8 +384,8 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 }
 
 #pin_code_peak img {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.2em;
+    height: 1.2em;
 }
 
 /* Each menu item icon */
