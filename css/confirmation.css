@@ -30,11 +30,23 @@
      --button-background: #009DF8;
      --button-text: white;
 
+     /* *********************************** */
+     /* *********************************** */
+     /* **********DAY MODE SLIDE IN********** */
+
      /* Menu Item Colors */
-    --slide-menu-item-background: #5186b148;
-    --slide-menu-item-background: white;
-    --slide-menu-item-trim: #5186b148;
-    /* --slide-menu-item-trim: white; */
+     --slide-menu-item-background: #5186b148;
+     /* --slide-menu-item-background: white; */
+     --slide-menu-item-trim: #5186b148;
+     /* --slide-menu-item-trim: white; */
+
+
+     /* Slide Menu Icons */
+     --slide-menu-item-icon-filter: brightness(90%) contrast(100%);
+     
+     /* *********************************** */
+     /* *********************************** */
+     /* *********************************** */
 }
 
 /* DARK MODE */
@@ -65,10 +77,20 @@ body.dark-mode {
      --button-background: #009DF8;
      --button-text: white;
 
+      /* ********************************** */
+     /* ********************************** */
+     /* ************NITE MODE SLIDE******* */
+
      /* Menu Item Colors */
-    --slide-menu-item-background: #black;
-    --slide-menu-item-trim: #2065a578;
-    --slide-menu-item-trim: #2169add8;
+     --slide-menu-item-background: #black;
+     --slide-menu-item-background: #20252c;
+     --slide-menu-item-background: #15191d;
+     --slide-menu-item-trim: #2065a578;
+     --slide-menu-item-trim: #3d4a5653;
+     
+     /* *********************************** */
+     /* *********************************** */
+     /* *********************************** */
 }
 
 /* WHOLE BODY */
@@ -298,6 +320,13 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     margin-top: 1em;
 }
 
+/* *************************** */
+/* *************************** */
+/* *************************** */
+/* *************************** */
+/* Slide Menu Items to Copy */
+
+
 /* Each Slide Menu Item */
 .menu-item {
     padding: 1rem 1rem 1rem 0rem;
@@ -308,16 +337,16 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     color: var(--text-color);
     text-decoration: none;
     font-size: small;
+    border-radius: 5px;
     /* font-weight: bold; */
-    border: 1px solid var(--slide-menu-item-trim);
+    /* border: 1px solid var(--slide-menu-item-trim); */
     background-color: var(--slide-menu-item-background);
 }
 
 #theme_switch {
     background-color: var(--slide-menu-item-background);
-    border: 1px solid var(--slide-menu-item-trim);
+    /* border: 1px solid var(--slide-menu-item-trim); */
     width: 100%;
-    cursor: pointer;
     padding: 1.5rem 1rem 1.5rem 0rem;
     /* padding: 1rem 1rem 1rem 0rem; */
 }
@@ -328,17 +357,14 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     display: flex;
     flex-direction: column;
     background-color: var(--slide-menu-item-background);
-    border: 1px solid var(--slide-menu-item-trim);
-    /* gap: 1em; */
+    /* When logged in make color slightly brighter */
 }
 
 /* Whole Profile Div */
 .profile_header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 1em;
-    padding: .5em 1em;
+    padding: 1rem 1rem 1rem .7rem;
     border-bottom: 1px solid var(--slide-menu-item-trim);
 }
 
@@ -352,8 +378,20 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 
 /* Profile header img */
 .profile_circle {
-    filter: brightness(90%);
+    filter: var(--slide-menu-item-icon-filter);
+    width: 1.2em;
+    height: 1.2em;
 }
+
+/* The Profile Text Info */
+.profile_text_data {
+    opacity: 100%;
+}
+
+/* **************************************** */
+/* **************************************** */
+/* **************************************** */
+/* **************************************** */
 
 /* Profile Info Boxes */
 .profile_info {

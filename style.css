@@ -387,6 +387,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     height: 1.2em;
 }
 
+/* The Profile Text Info */
 .profile_text_data {
     opacity: 25%;
 }
