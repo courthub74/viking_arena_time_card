@@ -65,7 +65,7 @@ body.dark-mode {
      /* --input-background: #101316;
      --input-background: #1b2025; */
      --input-background: #15191d;
-     --input-background: #20252c;
+     /* --input-background: #20252c; */
      
      /* Button Colors */
      --button-background: #009DF8;
@@ -317,6 +317,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     color: var(--text-color);
     text-decoration: none;
     font-size: small;
+    border-radius: 18px;
     /* font-weight: bold; */
     /* border: 1px solid var(--slide-menu-item-trim); */
     background-color: var(--slide-menu-item-background);
