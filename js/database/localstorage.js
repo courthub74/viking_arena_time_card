@@ -93,13 +93,15 @@ function submitRegistration() {
     // Conditionals for the account type
     if (accountType === 'Manager') {
         // Redirect to the manager page
-        // window.location.href = '../../html/manager/manager.html';
-        // window.location.href = `manager.html?first_name=${encoded_logged_name}&acct_type=${encoded_logged_acct_type
-        window.location.href = `../../html/dashboards/manager.html?username=${username}&acct_type=${accountType}&encodedPinConfirm=${pin}`;
+        // Try this:
+        const repoName = "/viking_arena_time_card"
+        window.location.href = `${repoName}/html/dashboards/manager.html?username=${username}&acct_type=${accountType}&encodedPinConfirm=${pin}`;
+        // window.location.href = `../../html/dashboards/manager.html?username=${username}&acct_type=${accountType}&encodedPinConfirm=${pin}`;
     } else {
         // Redirect to the customer page
-        // window.location.href = '../../html/calendar/calendar.html';
-        window.location.href = `../../html/dashboards/employee.html?username=${username}&acct_type=${accountType}&encodedPinConfirm=${pin}`;
+        const repoName = "/viking_arena_time_card"
+        window.location.href = `${repoName}/html/dashboards/employee.html?username=${username}&acct_type=${accountType}&encodedPinConfirm=${pin}`;
+        // window.location.href = `../../html/dashboards/employee.html?username=${username}&acct_type=${accountType}&encodedPinConfirm=${pin}`;
     }
     
     return registerUser(username, accountType, pin);

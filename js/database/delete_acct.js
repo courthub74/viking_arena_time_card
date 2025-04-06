@@ -4,7 +4,7 @@ function deleteUser(userId) {
     var users = JSON.parse(localStorage.getItem('users')) || [];
 
     // Define the userId to be deleted
-    userId = sessionStorage.getItem('currentUser').id; // Get the userId from the session storage
+    var userId = sessionStorage.getItem(user.id); // Get the userId from the session storage
     
     // Test print the userId to be deleted
     console.log(`The userId to be deleted is: ${userId}`);
