@@ -98,6 +98,9 @@
             </div>
              <!-- Delete Button -->
              <div class="delete_account_div">
+                <!-- This button needs to delete the session storage -->
+                 <!-- and redirect to the index page -->
+                  <!-- Give the button an onclick to do this -->
                 <button class="logout_account_button" id="logout_account">
                     <img src="../../img/logout/white_logout.png" class="logout_logo">
                     <p class="logout_text">
@@ -142,19 +145,26 @@
 
                     <!-- Button One -->
                     <div class="radio-container">
-                        <input type="radio" name="role" value="employee_hours" id="employee_hours" class="dashboard_button">
+                        <input type="radio" name="hours" value="employee_hours" id="employee_hours" class="dashboard_button">
                         <label for="employee_hours">Enter your Hours <img src="../../img/dashboard_logos/blue_hours.png" class="dash_hours" alt="hours"></label>
                     </div>
 
                     <!-- Button Two -->
                     <div class="radio-container">
-                        <input type="radio" name="role" value="schedule_requests" id="schedule_requests" class="dashboard_button">
+                        <input type="radio" name="calendar" value="schedule_requests" id="schedule_requests" class="dashboard_button">
                         <label for="schedule_requests">Schedule Requests <img src="../../img/dashboard_logos/blue_calendar.png" class="dash_calendar" alt="calendar"></label>
+                    </div>
+
+                    <!-- Button Three -->
+                    <div class="radio-container">
+                        <input type="radio" name="messaging" value="staff_messaging" id="staff_messaging" class="dashboard_button">
+                        <label for="staff_messaging">Staff Messaging <img src="../../img/dashboard_logos/blue_messaging.png" class="dash_calendar" alt="messaging"></label>
                     </div>
 
                  </div>
 
-                 <button class="submit" id="dashboard_advance" disabled>Next</button>
+                 <!-- Next button -->
+                 <!-- <button class="submit" id="dashboard_advance" disabled>Next</button> -->
 
 
             </form>           
@@ -173,7 +183,8 @@
     <!-- EMPLOYEE -->
      <script src="../../js/data/employee.js"></script>
 
-     <!--  -->
+     <!-- DELETE ACCOUNT -->
+    <script src="../../js/database/delete_acct.js"></script>
 
     
 </body>

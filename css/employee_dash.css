@@ -643,7 +643,7 @@ label {
     /* background-color: blue; */
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
     /* margin-top: 1em; */
 }
 
@@ -668,9 +668,9 @@ label {
     background-color: var(--dashboard-button-background);
     border: 1px solid var(--dashboard-button-trim);
     padding: 3em;
-    /* padding: 1em; */
+    height: 8em;
     color: var(--text-color);
-    font-size: medium;
+    /* font-size: medium; */
     font-size: small;
     /* font-weight: bold; */
     cursor: pointer;

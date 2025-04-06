@@ -18,20 +18,20 @@
     --menu-shadow: rgba(0, 0, 0, 0.1);
 
      /* Input Colors */
-     /* --input-background: #B0CCE2; */
-     /* --input-background: #587790; */
-     /* --input-background: #587790a4; */
      --input-background: #658cab92;
      --input-background: #658cab48;
      --input-background: #5186b148;
 
 
-     /* Button Colors */
+     /* Submit Button Colors */
      --button-background: #009DF8;
      --button-text: white;
 
      /* Dashboard Button Colors */
      --dashboard-button-background: #5186b148;
+
+     /* Bluer Vers */
+     /* --dashboard-button-background: #007DD4; */
      --dashboard-button-trim: none;
 
      /* Account Type Colors */
@@ -91,12 +91,17 @@ body.dark-mode {
 
       /* Dashboard Button Colors */
       --dashboard-button-background: black;
+
+        /* Grey Vers */
       --dashboard-button-background: #15191d;
-      --dashboard-button-trim: #009df88c;
-      --dashboard-button-trim: none;
+
+      /* Bluer Vers */
+     /* --dashboard-button-background: #007cd43d; */
+     --dashboard-button-trim: none;
 
      /* Account Type Colors */
       --dashboard-selected: #17426b7c;
+      --dashboard-selected: #2366a67c;
      /* Trim */
      --dashboard-trim: #009DF8;
      /* Hover */
@@ -658,8 +663,10 @@ label {
     justify-content: space-between;
     width: 100%;
     background-color: var(--dashboard-button-background);
+    /* background-color: red; */
     border: 1px solid var(--dashboard-button-trim);
     padding: 3em;
+    height: 8em;
     /* padding: 10px; */
     color: var(--text-color);
     font-size: medium;
