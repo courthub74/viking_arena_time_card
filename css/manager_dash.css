@@ -646,18 +646,35 @@ label {
     /* margin-top: 1em; */
 }
 
+/* FOR THE RADIO DIAL VERSION */
+/* ************************** */
 
 /* The Button */
-.dashboard_button {
+/* .dashboard_button {
     margin-right: 8px;
     position: absolute;
-    /* opacity: 0; */
     width: 0;
     height: 0;
-  }
+  } */
 
 
-.radio-container label {
+/* .radio-container label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--dashboard-button-background);
+    border: 1px solid var(--dashboard-button-trim);
+    padding: 3em;
+    height: 8em;
+    color: var(--text-color);
+    font-size: small;
+    cursor: pointer;
+    font-family: 'Poppins';
+  } */
+  
+  /* FOR REGULAR BUTTON  */
+  /* ************************** */
+  .radio-container{
     display: flex;
     /* justify-content: center; */
     justify-content: space-between;
@@ -696,14 +713,21 @@ label {
     background-color: none;
   }
 
-  .dashboard_button:checked + label {
-    /* border: 1px solid var(--button-background); */
+    /* BUTTON VERSION */
+    .dashboard_button.clicked {
+        box-sizing: border-box;
+        background-color: var(--dashboard-selected);
+        border: 1px solid var(--dashboard-trim);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+    }
+
+  /* .dashboard_button:checked + label {
     box-sizing: border-box;
     background-color: var(--dashboard-selected);
     border: 1px solid var(--dashboard-trim);
     color: var(--text-color);
-    /* transition: all 0.3s ease; */
-  }
+  } */
 
 /* Submit Button */
 .submit {

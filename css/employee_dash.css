@@ -622,8 +622,10 @@ label {
     opacity: 100%;
     font-size: medium;
     font-size: small;
+    font-size: .8rem;
     display: flex;
     gap: .5em;
+    width: 100%;
 }
 
 .acct_type_label {
@@ -634,8 +636,9 @@ label {
 
 .page_header {
     display: flex;
-    font-weight: bold;
-    opacity: 50%;
+    /* font-weight: bold; */
+    width: 100%;
+    opacity: 60%;
 }
 
 /* Radio Button Squares */
@@ -649,18 +652,16 @@ label {
 
 
 /* The Button */
-.dashboard_button {
+/* .dashboard_button {
     margin-right: 8px;
     position: absolute;
-    /* opacity: 0; */
     width: 0;
     height: 0;
-  }
+} */
 
 
-.radio-container label {
+/* .radio-container label {
     display: flex;
-    /* justify-content: center; */
     justify-content: space-between;
     align-items: center;
     gap: 1em;
@@ -670,7 +671,26 @@ label {
     padding: 3em;
     height: 8em;
     color: var(--text-color);
-    /* font-size: medium; */
+    font-size: small;
+    cursor: pointer;
+    font-family: 'Poppins';
+  } */
+
+  /* FOR REGULAR BUTTON  */
+  /* ************************** */
+  .radio-container{
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--dashboard-button-background);
+    /* background-color: red; */
+    border: 1px solid var(--dashboard-button-trim);
+    padding: 3em;
+    height: 8em;
+    /* padding: 10px; */
+    color: var(--text-color);
+    font-size: medium;
     font-size: small;
     /* font-weight: bold; */
     cursor: pointer;
@@ -681,14 +701,22 @@ label {
     background-color: none;
   }
 
-  .dashboard_button:checked + label {
-    /* border: 1px solid var(--button-background); */
+  /* BUTTON VERSION */
+  .radio-container.clicked {
     box-sizing: border-box;
     background-color: var(--dashboard-selected);
     border: 1px solid var(--dashboard-trim);
     color: var(--text-color);
-    /* transition: all 0.3s ease; */
+    transition: all 0.3s ease;
   }
+
+  /* .dashboard_button:checked + label {
+    box-sizing: border-box;
+    background-color: var(--dashboard-selected);
+    border: 1px solid var(--dashboard-trim);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  } */
 
   /* Dashboard Images */
 

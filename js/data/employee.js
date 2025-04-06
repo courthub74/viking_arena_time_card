@@ -42,27 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set the sidebar elements to the logged in user
     slide_in_profile_name.innerHTML = logged_name;
     slide_in_account_type.innerHTML = logged_acct_type;
-    // Check if the user is logged in or not
+   
+    // Query the name header
+    const name_header = document.querySelector("#employee_name");
 
-
-    ////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////
-    //BELOW  IS NOT WORKING
-    ////////////////////////////////////////////////////////////////////////////////
-
-    // OPTION 1:
-
-    // Get the current user from session storage (set in the local storage database)
-    // const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-  
-    // // Check if the user is logged in
-    // if (currentUser) {
-    //     // If the user is logged in, show their profile name and account type
-    //     slide_in_profile_name.innerHTML = currentUser.username;
-    //     slide_in_account_type.textContent = currentUser.accountType;
-    // } 
-
-    // Test print the current user
-    // console.log(`The current user is: ${currentUser}`);
-    // console.log(`The current user name is: ${currentUser.username}`);
+    // Set the name header to the logged in user
+    name_header.innerHTML = logged_name;
 });

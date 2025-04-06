@@ -142,6 +142,34 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Log out function
+function logoutUser() {
+    // Clear session storage
+    sessionStorage.removeItem('currentUser');
+
+    // Redirect to login page
+    window.location.href = '../../html/login.html';
+}
+
+// Add event listener to the logout button
+document.addEventListener('DOMContentLoaded', function() {
+    // Query the logout button from the dashboard page
+    const logoutButton = document.getElementById('logout_account');
+
+    // Add an event listener to the logout button
+    logoutButton.addEventListener('click', (e) => {
+        // Test Print
+        console.log("Logout Button Clicked");
+
+        // Prevent the default action of the logout button
+        e.preventDefault();
+
+        // Logout the user by calling the logoutUser function
+        logoutUser();
+    });
+});
+
+
 
 
 

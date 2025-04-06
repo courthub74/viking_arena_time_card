@@ -144,22 +144,22 @@
                  <div class="employee_selects">
 
                     <!-- Button One -->
-                    <div class="radio-container">
-                        <input type="radio" name="hours" value="employee_hours" id="employee_hours" class="dashboard_button">
-                        <label for="employee_hours">Enter your Hours <img src="../../img/dashboard_logos/blue_hours.png" class="dash_hours" alt="hours"></label>
-                    </div>
+                    <button class="radio-container" id="employee_hours">
+                        <p class="dashboard_button">Enter your Hours</p>
+                        <img src="../../img/dashboard_logos/blue_hours.png" class="dash_hours" alt="hours">
+                    </button>
 
                     <!-- Button Two -->
-                    <div class="radio-container">
-                        <input type="radio" name="calendar" value="schedule_requests" id="schedule_requests" class="dashboard_button">
-                        <label for="schedule_requests">Schedule Requests <img src="../../img/dashboard_logos/blue_calendar.png" class="dash_calendar" alt="calendar"></label>
-                    </div>
+                    <button class="radio-container" id="schedule_requests">
+                        <p class="dashboard_button">Schedule Requests</p>
+                        <img src="../../img/dashboard_logos/blue_calendar.png" class="dash_hours" alt="schedule">
+                    </button>
 
                     <!-- Button Three -->
-                    <div class="radio-container">
-                        <input type="radio" name="messaging" value="staff_messaging" id="staff_messaging" class="dashboard_button">
-                        <label for="staff_messaging">Staff Messaging <img src="../../img/dashboard_logos/blue_messaging.png" class="dash_calendar" alt="messaging"></label>
-                    </div>
+                    <button class="radio-container" id="employee_messaging">
+                        <p class="dashboard_button">Staff Messaging</p>
+                        <img src="../../img/dashboard_logos/blue_messaging.png" class="dash_hours" alt="message">
+                    </button>
 
                  </div>
 
@@ -185,6 +185,9 @@
 
      <!-- DELETE ACCOUNT -->
     <script src="../../js/database/delete_acct.js"></script>
+
+    <!-- DASHBOARD -->
+    <script src="../../js/dashboard/employee.js"></script>
 
     
 </body>
