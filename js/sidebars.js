@@ -7,7 +7,7 @@ var currentUser = sessionStorage.getItem('session');
 var currentUser = JSON.parse(currentUser);
 
 // Test print the current user
-console.log(`The current user is: ${currentUser.username} and their role is: ${currentUser.accountType} session: ${currentUser.sessionId}`);
+console.log(`(sidebarJS)The current user is: ${currentUser.username} and their role is: ${currentUser.accountType} session: ${currentUser.sessionId}`);
 
 // const logged_name = currentUser.username;
 // const logged_acct_type = currentUser.accountType;
