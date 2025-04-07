@@ -16,7 +16,7 @@
 // THE ALGORITHM FOR GETTING FROM THE URL PARAMETERS
 //////////////////////////////////////////////////////////////////////
 
-// Just for the Header on the dashboard page
+// For the Header and slide ins on the dashboard page
 
 // At the top of your JS file or in a DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', function() {
