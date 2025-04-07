@@ -10,7 +10,7 @@ var currentUser = sessionStorage.getItem('session');
 // Parse the current user from JSON string to object
 var currentUser = JSON.parse(currentUser);
 // Test print the current user
-console.log(`The current user is: ${currentUser.username} and their role is: ${currentUser.accounType} session: ${currentUser.sessionId}`);
+console.log(`The current user is: ${currentUser.username} and their role is: ${currentUser.accountType} session: ${currentUser.sessionId}`);
 // Check if the current user is null or undefined
 if (currentUser === null || currentUser === undefined) {
     // If the user is not logged in, redirect to the login page
