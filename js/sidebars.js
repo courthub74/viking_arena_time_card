@@ -1,11 +1,13 @@
 // Test print the page
 console.log("Sidebars JS file loaded successfully");
 
-// Get logged in user from session storage
-// Get Session Storage
-const logged_name = sessionStorage.getItem('username'); // Get the name from the URL parameters
-const logged_acct_type = sessionStorage.getItem('acct_type'); // Get the account type from the URL parameters
-// If the session storage is empty, set the default values
+// Retrieve the current user from session storage
+var currentUser = sessionStorage.getItem('session');
+// Parse the current user from JSON string to object
+var currentUser = JSON.parse(currentUser);
+
+// Test print the current user
+console.log(`The current user is: ${currentUser.username} and their role is: ${currentUser.accountType} session: ${currentUser.sessionId}`);
 
 // const logged_name = sessionStorage.getItem('username') ? decodeURIComponent(sessionStorage.getItem('username')) : 'Employee Name Here';
 // const logged_acct_type = sessionStorage.getItem('acct_type') ? decodeURIComponent(sessionStorage.getItem('acct_type')) : 'N/A';
