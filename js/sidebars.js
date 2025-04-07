@@ -9,8 +9,8 @@ var currentUser = JSON.parse(currentUser);
 // Test print the current user
 console.log(`The current user is: ${currentUser.username} and their role is: ${currentUser.accountType} session: ${currentUser.sessionId}`);
 
-// const logged_name = sessionStorage.getItem('username') ? decodeURIComponent(sessionStorage.getItem('username')) : 'Employee Name Here';
-// const logged_acct_type = sessionStorage.getItem('acct_type') ? decodeURIComponent(sessionStorage.getItem('acct_type')) : 'N/A';
+const logged_name = currentUser.username;
+const logged_acct_type = currentUser.accountType;
 
 // Query the name header
 const name_header = document.querySelector("#employee_name");
