@@ -11,22 +11,12 @@
 // Page Two
 // retrieve the URL parameters
 
-// ALGORITHM FOR GETTING DATA FROM LOCAL STORAGE DATABASE
-
-// Need to determine if the user is logged in or not
-// If logged in, show the profile name and account type
-// If not logged in, show "Not Logged In" and "N/A"
-
-// Receiving page
-
-// localStorage.getItem('the_item') || 'You Don't have the item'
 
 //////////////////////////////////////////////////////////////////////
+// THE ALGORITHM FOR GETTING FROM THE URL PARAMETERS
 //////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
-//I REALIZE THAT I NEED TO CREATE THE LOGIN PAGE FIRST AND THEN 
-// THE EMPLOYEE PAGE
-//////////////////////////////////////////////////////////////////////
+
+// Just for the Header on the dashboard page
 
 // At the top of your JS file or in a DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', function() {

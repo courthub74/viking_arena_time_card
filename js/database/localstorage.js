@@ -3,6 +3,16 @@
 // We also retrieve the user data from the local storage
 // We connect to the registration page and save the user data
 
+// ALGORITHM FOR GETTING DATA FROM LOCAL STORAGE DATABASE
+
+// Need to determine if the user is logged in or not
+// If logged in, show the profile name and account type
+// If not logged in, show "Not Logged In" and "N/A"
+
+// Receiving page
+
+// localStorage.getItem('the_item') || 'You Don't have the item'
+
 function registerUser(username, accountType, pin) { 
     // Get the users from the local storage or initialize an empty array
     var users = JSON.parse(localStorage.getItem('users')) || [];
