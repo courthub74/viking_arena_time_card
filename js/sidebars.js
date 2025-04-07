@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Query the slide in profile name on employee calendar page
     const slide_in_profile_name = document.getElementById('profile_name_calendar');
     // Query the slide in account type
-    const slide_in_account_type = document.getElementById('profile_account');
+    const slide_in_account_type = document.getElementById('profile_account_calendar');
     // Get logged in user from session storage
     // Get the name from the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
