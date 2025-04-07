@@ -100,10 +100,11 @@
                 <!-- This button needs to delete the session storage -->
                  <!-- and redirect to the index page -->
                   <!-- Give the button an onclick to do this -->
-                <button class="logout_account_button" id="logout_account">
+                <button class="logout_account_button" id="logout_employee" onclick="logoutUser()">
                     <img src="../../img/logout/white_logout.png" class="logout_logo">
                     <p class="logout_text">
-                        <a href="../../index.html">Log Out</a>
+                        <!-- <a href="../../index.html">Log Out</a> -->
+                        Log Out
                     </p>
                 </button>
              </div> 
@@ -186,7 +187,10 @@
     <script src="../../js/database/delete_acct.js"></script>
 
     <!-- DASHBOARD -->
-    <script src="../../js/dashboard/employee.js"></script>
+    <script src="../../js/dashboard/employee_buttons.js"></script>
+
+     <!-- LOGOUT -->
+   <script src="../../js/database/logout.js"></script>
 
     
 </body>

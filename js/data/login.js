@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Call the load users function 
     loadUsers();
 
-    // Function to load users from local storage
+    // Function to load users from local storage into the dropdown
     function loadUsers() {
         // Get the users from local storage (expecting a JSON string)
         const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -189,21 +189,11 @@ document.addEventListener('DOMContentLoaded', function() {
                                 forgotPinButton.style.opacity = "100%";
 
                                 // Focus on the first input
-                                pin_set[0].focus();
+                                // pin_set[0].focus();
                             }
                             , 2000); // 2 seconds delay
 
-                            // assign a session id to the user
-                            // Create a session object with the username and pin
-                            const session = {
-                                username: selectedUser.username,
-                                pin: pin_login_value,
-                                accountType: selectedUser.accountType // Add account type to the session object
-                            };
-                            // Store the session object in session storage
-                            sessionStorage.setItem('session', JSON.stringify(session));
-                            // Test Print session object
-                            console.log(`Session object: ${JSON.stringify(session)}`);
+                            
 
                             
                             // Add event listener to the login button
@@ -218,6 +208,22 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // Encode the username and pin
                                 const encodedUsername = encodeURIComponent(username);
                                 const encodedPin = encodeURIComponent(pin);
+
+                                // assign a session id to the user
+                                // Create a session object with the username and pin
+                                const session = {
+                                    // Generate a unique session ID (could be a random number or a timestamp)
+                                    sessionId: Math.floor(Math.random() * 1000000), // Random session ID
+                                    sessionDate: Date.now(), // Use current timestamp as session ID
+                                    username: selectedUser.username,
+                                    pin: pin_login_value,
+                                    accountType: selectedUser.accountType // Add account type to the session object
+                                };
+                                // Store the session object in session storage
+                                sessionStorage.setItem('session', JSON.stringify(session));
+                                // Test Print session object
+                                console.log(`Session object: ${JSON.stringify(session)}`);
+                                
                                 // Redirect to the appropriate page based on account type
                                 if (selectedUser.accountType === 'Manager') {
                                     window.location.href = `../../html/dashboards/manager.html?username=${encodedUsername}&acct_type=${selectedUser.accountType}&encodedPinConfirm=${encodedPin}`;
@@ -264,4 +270,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     };
 });
+
+
 

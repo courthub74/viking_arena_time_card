@@ -97,10 +97,11 @@
             </div>
              <!-- Delete Button -->
              <div class="delete_account_div">
-                <button class="logout_account_button" id="logout_account">
+                <button class="logout_account_button" id="logout_manager" onclick="logoutUser()">
                     <img src="../../img/logout/white_logout.png" class="logout_logo">
                     <p class="logout_text">
-                        <a href="../../index.html">Log Out</a>
+                        <!-- <a href="../../index.html">Log Out</a> -->
+                        Log Out
                     </p>
                 </button>
              </div> 
@@ -184,5 +185,11 @@
 
     <!-- DELETE ACCOUNT -->
     <script src="../../js/database/delete_acct.js"></script>
+
+    <!-- DASHBOARD -->
+    <script src="../../js/dashboard/manager_buttons.js"></script>
+
+   <!-- LOGOUT -->
+   <script src="../../js/database/logout.js"></script>
 </body>
 </html>
