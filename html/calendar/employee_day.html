@@ -7,7 +7,7 @@
 
       <!-- CSS -->
       <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
-      <link rel="stylesheet" href="../../css/manager_dash.css">
+      <link rel="stylesheet" href="../../css/employee_dash.css">
 </head>
 <body>
 
@@ -64,13 +64,13 @@
                 <!-- Profile Name -->
                 <div class="profile_info">
                     <label>Name:</label>
-                    <p class="profile_text_data" id="profile_name_calendar"></p>
+                    <p class="profile_text_data" id="profile_name"></p>
                  </div>
 
                  <!-- Profile Account Type -->
                  <div class="profile_info">
                     <label>Account type:</label>
-                    <p class="profile_text_data" id="profile_account_calendar"></p>
+                    <p class="profile_text_data" id="profile_account"></p>
                  </div>
 
                  <!-- Profile Pin Number -->
@@ -97,7 +97,10 @@
             </div>
              <!-- Delete Button -->
              <div class="delete_account_div">
-                <button class="logout_account_button" id="logout_manager" onclick="logoutUser()">
+                <!-- This button needs to delete the session storage -->
+                 <!-- and redirect to the index page -->
+                  <!-- Give the button an onclick to do this -->
+                <button class="logout_account_button" id="logout_employee" onclick="logoutUser()">
                     <img src="../../img/logout/white_logout.png" class="logout_logo">
                     <p class="logout_text">
                         <!-- <a href="../../index.html">Log Out</a> -->
@@ -131,41 +134,35 @@
 
         <!-- THE FORM -->
         <form>
+                <!-- Page Header -->
+                <label class="page_header_label" for="employee_name">
+                    <span class="page_header">Dashboard for&nbsp;</span>
+                    <span class="acct_type_label" id="employee_name"></span>
+                </label>
+
+                <!-- The Radio Buttons -->
+                <div class="current_day_div">
+                    <div class="day_entry">
+                        <label for="current_day">Current Day:</label>
+                        <p class="current_day" id="current_day"></p>
+                    </div>
+                    <div class="day_entry">
+                        <label for="current_day">Time In:</label>
+                        <p class="current_day" id="current_day"></p>
+                    </div>
+                    <div class="day_entry">
+                        <label for="current_day">Time Out:</label>
+                        <p class="current_day" id="current_day"></p>
+                    </div>
+                 </div>
+
+                 <!-- Next button -->
+                 <button class="submit" id="dashboard_advance" disabled>Submit Hours</button>
+
+
+            </form>           
            
-             <!-- Page Header -->
-             <label class="page_header_label" for="manager_name">
-                <span class="page_header">Calendar for&nbsp;</span>
-                <span class="acct_type_label" id="employee_name"></span>
-            </label>
-
-            <!-- The Radio Buttons -->
-             <div class="current_day_div">
-                <div class="day_entry">
-                    <label for="current_day">Current Day:</label>
-                    <p class="current_day" id="current_day"></p>
-                </div>
-                <div class="day_entry">
-                    <label for="current_day">Time In:</label>
-                    <p class="current_day" id="current_day"></p>
-                </div>
-                <div class="day_entry">
-                    <label for="current_day">Time Out:</label>
-                    <p class="current_day" id="current_day"></p>
-                </div>
-                <div class="submit_button">
-                    <button class="submit" id="submit_login" disabled>Submit Hours</button>
-                </div>
-             </div>
-
-
-            <!-- Submit Button -->
-
-            <!-- This is where Authorization comes into play -->
-            <!-- If Manager Account / Button should say (Go to Employee hours) -->
-            <!-- If Employee Account / Button should say (Go to your Calendar) -->
-            <!-- <button class="submit" id="dashboard_advance" disabled>Next</button> -->
-
-        </form>
+      
     </div>
 
     <!-- DARKMODE -->
@@ -176,13 +173,18 @@
     <!-- <script src="/viking_arena_time_card/js/slide-in.js"></script> -->
     <script src="../../js/slide-in.js"></script>
 
-    <!-- DELETE ACCOUNT -->
+    <!-- EMPLOYEE -->
+     <script src="../../js/data/employee.js"></script>
+
+     <!-- DELETE ACCOUNT -->
     <script src="../../js/database/delete_acct.js"></script>
 
-   <!-- LOGOUT -->
+    <!-- DASHBOARD -->
+    <script src="../../js/dashboard/employee_buttons.js"></script>
+
+     <!-- LOGOUT -->
    <script src="../../js/database/logout.js"></script>
 
-   <!-- SIDEBARS -->
-   <script src="../../js/sidebars.js"></script>
+    
 </body>
 </html>
