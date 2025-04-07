@@ -23,7 +23,8 @@ employee_hours.addEventListener("click", function(e) {
         employee_hours.classList.remove("clicked");
     }, 2000);
     setTimeout(() => {
-        window.location.href = "./employee_hours.html";
+        window.location.href = "../../employee_day.html";
+        window.location.href = "../../html/calendar/employee_day.html";
     }, 2000);
 });
 

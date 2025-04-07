@@ -29,6 +29,8 @@ function logoutUser() {
 
     // Redirect to login page
     window.location.href = '../../index.html';
+    window.location.href = '/viking_arena_time_card/index.html';
+
 }
 
 

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viking Time Card</title>
+
+      <!-- CSS -->
+      <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
+      <link rel="stylesheet" href="../../css/manager_dash.css">
+</head>
+<body>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- --------------COPY HERE TO THE OTHER LINE FIELD--------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+
+
+        <!-- THE NAVBAR AND SIDE MENU-->
+        <nav class="main_nav">
+            <!-- Burger -->
+            <div class="viking_logo">
+                <img src="../../img/hazel-park-logo/Logo.png" class="viking_img" alt="viking_ice_arena">
+                <p class="logo_text">Time Card</p>
+            </div>
+            
+            <!-- Light/Dark -->
+            <div class="menu_button">
+                <!-- Day/Nite -->
+                <button id="menu_burgers">
+                    <img src="../../img/hamburgers/hamburger_blue.png" class="burger" id="burger_one" alt="menu">
+                    <!-- <img src="./img/hamburgers/hamburger-blue.png" class="burger" id="burger_two" alt="menu"> -->
+                </button>
+            </div>
+        </nav>
+
+        <!-- SLIDE IN MENU -->
+        <div class="side-menu">
+            <!-- Header Logo -->
+             <div class="slide_header_logo">
+                <img src="../../img/hazel-park-logo/Logo.png"  alt="logo">
+                <p class="slide_in_logo_text">Time Card</p>
+             </div>
+            
+             <!-- Menu Items -->
+             <div class="menu_items">
+                <a href="#" class="menu-item"><span>Tech Support</span><img src="../../img/slide-in-menu/tech_support.png" alt="tech_support"></a>
+                <!-- <a href="#" class="menu-item"><span>Messaging</span><img src="../../img/slide-in-menu/messaging.png" alt="messaging"></a> -->
+                <button id="theme_switch" class="menu-item"><span>Day/Nite Mode</span><img src="../../img/slide-in-menu/day_nite.png" alt="theme_switch"></button>
+             </div>
+            <!-- Logged in Profile -->
+            <div class="profile">
+                <div class="profile_header">
+                    <p class="profile_text">Profile</p>
+                    <img src="../../img/slide-in-menu/profile.png" class="profile_circle">
+                </div>
+
+                <!-- Profile Name -->
+                <div class="profile_info">
+                    <label>Name:</label>
+                    <p class="profile_text_data" id="profile_name"></p>
+                 </div>
+
+                 <!-- Profile Account Type -->
+                 <div class="profile_info">
+                    <label>Account type:</label>
+                    <p class="profile_text_data" id="profile_account"></p>
+                 </div>
+
+                 <!-- Profile Pin Number -->
+                  <!-- This you will turn into a password output -->
+                 <div class="profile_info">
+                    <div class="pin_and_peak">
+                        <button class="delete_account_button" id="delete_account">
+                            <p class="delete_text">Delete Account</p>
+                        </button>
+                        <!-- Pin Number -->
+                        <!-- <div class="pin_profile_div">
+                            <label>Pin #:</label>
+                            <p class="profile_pin" id="profile_pin">****</p>
+                        </div> -->
+
+                         <!-- Pin Code peak -->
+                        <!-- <div class="pin_code_peak">
+                            <button id="pin_code_peak">
+                                <img src="./img/slide-in-menu/pin_peek.png">
+                            </button>
+                        </div> -->
+                    </div>
+                 </div>
+            </div>
+             <!-- Delete Button -->
+             <div class="delete_account_div">
+                <button class="logout_account_button" id="logout_manager" onclick="logoutUser()">
+                    <img src="../../img/logout/white_logout.png" class="logout_logo">
+                    <p class="logout_text">
+                        <!-- <a href="../../index.html">Log Out</a> -->
+                        Log Out
+                    </p>
+                </button>
+             </div> 
+        </div>
+
+        <!-- Overlay -->
+        <div class="menu-overlay"></div>
+
+        <!-- ----------COPY ABOVE FOR ALL OTHER PAGES REDO---------- -->
+
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+
+        <!-- THE PAGE -->
+
+        <!-- THE FORM -->
+        <form>
+           
+             <!-- Page Header -->
+             <label class="page_header_label" for="manager_name">
+                <span class="page_header">Calendar for&nbsp;</span>
+                <span class="acct_type_label" id="manager_name"></span>
+            </label>
+
+            <!-- The Radio Buttons -->
+             <div class="current_day_div">
+                <div class="day_entry">
+                    <label for="current_day">Current Day:</label>
+                    <p class="current_day" id="current_day"></p>
+                </div>
+                <div class="day_entry">
+                    <label for="current_day">Time In:</label>
+                    <p class="current_day" id="current_day"></p>
+                </div>
+                <div class="day_entry">
+                    <label for="current_day">Time Out:</label>
+                    <p class="current_day" id="current_day"></p>
+                </div>
+                <div class="submit_button">
+                    <button class="submit" id="submit_login" disabled>Submit Hours</button>
+                </div>
+             </div>
+
+
+            <!-- Submit Button -->
+
+            <!-- This is where Authorization comes into play -->
+            <!-- If Manager Account / Button should say (Go to Employee hours) -->
+            <!-- If Employee Account / Button should say (Go to your Calendar) -->
+            <!-- <button class="submit" id="dashboard_advance" disabled>Next</button> -->
+
+        </form>
+    </div>
+
+    <!-- DARKMODE -->
+    <!-- <script src="/viking_arena_time_card/js/darkmode.js"></script> -->
+    <script src="../../js/darkmode.js"></script>
+
+    <!-- SLIDE IN -->
+    <!-- <script src="/viking_arena_time_card/js/slide-in.js"></script> -->
+    <script src="../../js/slide-in.js"></script>
+
+    <!-- DELETE ACCOUNT -->
+    <script src="../../js/database/delete_acct.js"></script>
+
+   <!-- LOGOUT -->
+   <script src="../../js/database/logout.js"></script>
+</body>
+</html>
