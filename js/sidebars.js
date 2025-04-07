@@ -23,4 +23,7 @@ const slide_in_account_type = document.getElementById('profile_calendar_account'
 console.log(logged_name);
 console.log(logged_acct_type);
 
+// Set the name header to the logged in user
+name_header.innerHTML = logged_name;
+
 
