@@ -1,5 +1,5 @@
 // Test print the page
-console.log("Sidebars JS file loaded successfully.");
+console.log("Sidebars JS file loaded successfully");
 
 // Get logged in user from session storage
 // Get Session Storage
@@ -13,6 +13,8 @@ const slide_in_profile_name = document.getElementById('profile_calendar_name');
 // Query the slide in account type
 const slide_in_account_type = document.getElementById('profile_calendar_account');
 
-
+// Test print Session Storage
+console.log(logged_name);
+console.log(logged_acct_type);
 
 
