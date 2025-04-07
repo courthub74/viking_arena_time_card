@@ -60,6 +60,23 @@ function registerUser(username, accountType, pin) {
         loginTime: new Date().toISOString()
     }));
 
+    // Test print the current user
+    var currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    console.log(`The current user is: ${currentUser.username}`);
+
+    // Redirect to the dashboard page based on account type
+    if (user.accountType === 'Manager') {
+        // Redirect to the manager page
+        const repoName = "/viking_arena_time_card"
+        window.location.href = `${repoName}/html/dashboards/manager.html?username=${username}&acct_type=${user.accountType}`;
+    } else {
+        // Redirect to the customer page
+        const repoName = "/viking_arena_time_card"
+        window.location.href = `${repoName}/html/dashboards/employee.html?username=${username}&acct_type=${user.accountType}`;
+    }
+    // If ABOVE doesn't work, try this:
+    // window.location.href = `../../html/dashboards/employee.html?username=${username}&acct_type=${user.accountType}`;
+
     return {
         success: true,
         message: 'Login successful',

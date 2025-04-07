@@ -285,7 +285,10 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 .side-menu {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    /* gap: 1em; */
+    /* New slide Gap */
+    gap: 2em;
+    /* ************* */
     position: fixed;
     top: 0;
     left: -300px;
@@ -347,6 +350,9 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    /* New Gap */
+    /* gap: 2em; */
+    /* ******* */
     margin-top: 1em;
 }
 
@@ -618,7 +624,7 @@ header {
 }
 
 /* Page Header */
-label {
+/* label {
     opacity: 100%;
     font-size: medium;
     font-size: small;
@@ -626,19 +632,30 @@ label {
     display: flex;
     gap: .5em;
     width: 100%;
+} */
+
+.page_header_label {
+    font-size: medium;
+    font-size: small;
+    font-size: .8rem;
+    display: flex;
+    /* gap: .5em; */
+    width: 100%;
 }
 
+/* The Blue and the Name */
 .acct_type_label {
     color: var(--button-background);
     font-weight: bold;
     opacity: 100%;
 }
 
+/* Dashboard for */
 .page_header {
     display: flex;
-    /* font-weight: bold; */
-    width: 100%;
-    opacity: 60%;
+    font-weight: bold;
+    /* width: 100%; */
+    opacity: 50%;
 }
 
 /* Radio Button Squares */
