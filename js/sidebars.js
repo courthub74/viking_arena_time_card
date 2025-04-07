@@ -1,6 +1,7 @@
 // For the Header and the slide ins on the employee calendar page
 // // At the top of your JS file or in a DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("Sidebar JS loaded");
     // Query the slide in profile name
     const slide_in_profile_name = document.getElementById('profile_name');
     // Query the slide in account type
@@ -20,3 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set the name header to the logged in user
     name_header.innerHTML = logged_name;
 });
+
+
+
+
