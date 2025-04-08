@@ -18,9 +18,6 @@
     --menu-shadow: rgba(0, 0, 0, 0.1);
 
      /* Input Colors */
-     /* --input-background: #B0CCE2; */
-     /* --input-background: #587790; */
-     /* --input-background: #587790a4; */
      --input-background: #658cab92;
      --input-background: #658cab48;
      --input-background: #5186b148;
@@ -40,6 +37,10 @@
      --dashboard-trim: #000000;
      /* Hover */
      --dashboard-hover: #e8e8e8;
+
+     /* Calendar Arrow Buttons */
+     --calendar-arrow: #009DF8;
+     --calendar-arrow: #2065a58a;
 
      /* Dashboard Logos */
      --dashboard-logo: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
@@ -786,6 +787,25 @@ header {
     cursor: not-allowed;
 }
 
+/* Back to Dashboard */
+.back_to_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.back_to_div a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: small;
+    /* opacity: 50%; */
+}
+
 /* ********************************* */
 /* ********************************* */
 /* ********************************* */
@@ -809,11 +829,11 @@ header {
     font-weight: bold;
 }
 
-.month_buttons {
-    background-color: var(--button-background);
+#monthDisplay {
+    font-size: medium;
+    font-size: small;
     color: var(--text-color);
-    border: none;
-    cursor: pointer;
+    font-weight: bold;
 }
 
 #weekdays {

@@ -41,6 +41,10 @@
      /* Hover */
      --dashboard-hover: #e8e8e8;
 
+         /* Calendar Arrow Buttons */
+         --calendar-arrow: #009DF8;
+         --calendar-arrow: #297ece8a;
+
      /* Dashboard Logos */
      --dashboard-logo: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
 
@@ -103,6 +107,11 @@ body.dark-mode {
      --dashboard-trim: #009DF8;
      /* Hover */
      --dashboard-hover: #17426b;
+
+         /* Calendar Arrow Buttons */
+         --calendar-arrow: #009DF8;
+         --calendar-arrow: #009df8c2;
+         /* --calendar-arrow: #297ece8a; */
 
      /* Dashboard Logo */
      --dashboard-logo: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
@@ -782,6 +791,26 @@ header {
     cursor: not-allowed;
 }
 
+
+/* Back to Dashboard */
+.back_to_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.back_to_div a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: small;
+    /* opacity: 50%; */
+}
+
 /* ********************************* */
 /* ********************************* */
 /* ********************************* */
@@ -805,8 +834,15 @@ header {
     font-weight: bold;
 }
 
+#monthDisplay {
+    font-size: medium;
+    font-size: small;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
 .month_buttons {
-    background-color: var(--button-background);
+    background-color: var(--calendar-arrow);
     color: var(--text-color);
     border: none;
     cursor: pointer;
