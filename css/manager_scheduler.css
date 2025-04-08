@@ -782,6 +782,66 @@ header {
     cursor: not-allowed;
 }
 
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* THE CALENDAR */
+
+.calendarContainer {
+    border: 1px solid var(--button-background);
+}
+
+/* Calendar Header */
+.calendarheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--button-background);
+    color: white;
+    font-weight: bold;
+}
+
+.month_buttons {
+    background-color: var(--button-background);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+}
+
+#weekdays {
+    display: flex;
+    width: 100%; /* Stretches across the full width of the parent container */
+  }
+  
+  #weekdays div {
+    flex: 1; /* Makes each day div grow equally to fill the available space */
+    text-align: center; /* Centers the text within each div */
+    padding: 10px 0; /* Optional: adds some vertical padding */
+  }
+
+  /* Pops in when you select a Day */
+  #newEventModal {
+    display: none;
+  }
+
+  #newEventModal.clicked {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+
 
 /* For wider screens narrow the form */
 

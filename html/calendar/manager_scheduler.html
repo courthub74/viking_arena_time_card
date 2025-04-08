@@ -8,6 +8,11 @@
       <!-- CSS -->
       <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
       <link rel="stylesheet" href="../../css/manager_scheduler.css">
+
+      <!-- Calendar for NOW -->
+      <!-- <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.css' rel='stylesheet' /> -->
+      
+    
 </head>
 <body>
 
@@ -136,13 +141,72 @@
         <form>
                 <!-- Page Header -->
                 <label class="page_header_label" for="employee_name">
-                    <span class="page_header">Dashboard for&nbsp;</span>
+                    <span class="page_header">Scheduler for&nbsp;</span>
                     <span class="acct_type_label" id="employee_name"></span>
                 </label>
 
-                <!-- The Radio Buttons -->
+                <!-- The CALENDAR -->
                 <div class="manager_calendar_div">
-                   <p>Calendar goes Here:</p>
+                    <div id="calendar">
+
+
+                        <!-- Calendar will be inserted here -->
+                        <div class="calendarContainer">
+                            <div class="calendarheader">
+                              <div id="monthDisplay">Month</div>
+                              <div>
+                                <button class="month_buttons" id="backButton">Back</button>
+                                <button class="month_buttons" id="nextButton">Next</button>
+                              </div>
+                            </div>
+                      
+                            <div id="weekdays">
+                              <div>S</div>
+                              <div>M</div>
+                              <div>Tu</div>
+                              <div>W</div>
+                              <div>Th</div>
+                              <div>F</div>
+                              <div>S</div>
+                            </div>
+                      
+                            <div id="calendar"></div>
+                          </div>
+                      
+                          <div id="newEventModal">
+                            <h2>Select Employee</h2>
+                            <select name="employee" id="schedule_name">
+                                <option value="employee1">Employee 1</option>
+                                <option value="employee2">Employee 2</option>
+                                <option value="employee3">Employee 3</option>
+                            </select>
+
+                            <label>Time In:</label>
+                            <input id="eventTitleInput" placeholder="Event Title" />
+
+                            <label>Time Out:</label>
+                            <input id="eventTitleInput" placeholder="Event Title" />
+                      
+                            <button id="saveButton">Save</button>
+                            <button id="cancelButton">Cancel</button>
+                            <!-- Delete Option -->
+                            <div id="deleteEventModal">
+                                <h2>Event</h2>
+                          
+                                <p id="eventText"></p>
+                          
+                                <button id="deleteButton">Delete</button>
+                                <button id="closeButton">Close</button>
+                              </div>
+                          </div>
+                      
+                      
+                          <!-- <div id="modalBackDrop"></div> -->
+                      
+                          <script src="./script.js"></script>
+                    </div>
+
+                    
                  </div>
 
                  <!-- Next button -->
@@ -171,6 +235,10 @@
 
      <!-- LOGOUT -->
    <script src="../../js/database/logout.js"></script>
+
+   <!-- CALENDAR -->
+   <script src="../../js/calendar/calendar.js"></script> 
+   
 
     
 </body>

@@ -142,18 +142,29 @@
 
                 <!-- The Radio Buttons -->
                 <div class="current_day_div">
-                    <div class="day_entry">
-                        <label for="current_day">Current Day:</label>
-                        <p class="current_day" id="current_day"></p>
-                    </div>
-                    <div class="day_entry">
-                        <label for="current_day">Time In:</label>
-                        <p class="current_day" id="current_day"></p>
-                    </div>
-                    <div class="day_entry">
-                        <label for="current_day">Time Out:</label>
-                        <p class="current_day" id="current_day"></p>
-                    </div>
+                
+                      
+
+                        <div class="input_divs">
+                            <!-- Current Date -->
+                            <label class="form_label">Current Date:</label>
+                            <!-- Will contain the current date JS -->
+                            <input type="text" id="current_day" placeholder="MM/DD/YYYY" readonly/>
+                            <img src="../../img/dashboard_logos/white_calendar.png" class="current_day_logo" alt="current_day">
+                        </div>
+
+                        <div class="input_divs">
+                            <label class="form_label">Time In:</label>
+                            <!-- This will be a time picker -->
+                            <input id="eventTitleInput"/>
+                        </div>
+
+                        <div class="input_divs">
+                            <label class="form_label">Time Out:</label>
+                            <!-- This will be a time picker -->
+                            <input id="eventTitleInput"/>
+                        </div>
+                  
                  </div>
 
                  <!-- Next button -->
