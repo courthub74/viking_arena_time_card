@@ -24,7 +24,7 @@ manager_hours.addEventListener("click", function() {
     }, 1000);
     setTimeout(() => {
         window.location.href = "../../manager_hours.html";
-        window.location.href = "../../html/calendar/manager_hours.html";
+        window.location.href = "../../html/calendar/manager_scheduler.html";
     }, 1000);
 });
 
