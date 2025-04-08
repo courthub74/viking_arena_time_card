@@ -21,12 +21,16 @@ console.log(`(sidebarJS)The logged in user account type is: ${logged_acct_type}`
 // console.log(`(sidebarJS)The logged in user account type is: ${currentUser.accountType}`);
 // const logged_acct_type = currentUser.accountType;
 
+// EMPLOYEE PAGE
 // Query the name header
 const name_header = document.querySelector("#employee_name");
 // Query the slide in profile name
 const slide_in_profile_name = document.getElementById('profile_calendar_name');
 // Query the slide in account type
 const slide_in_account_type = document.getElementById('profile_calendar_account');
+
+// MANAGER PAGE
+
 
 
 // Set the name header to the logged in user

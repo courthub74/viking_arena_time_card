@@ -10,7 +10,7 @@ var currentUser = sessionStorage.getItem('session');
 // Parse the current user from JSON string to object
 var currentUser = JSON.parse(currentUser);
 // Test print the current user
-console.log(`The current user is: ${currentUser.username} and their role is: ${currentUser.accountType} session: ${currentUser.sessionId}`);
+console.log(`The current user is: ${currentUser.username} and their role is: ${currentUser.accountType} session: ${currentUser.sessionId} from (logout.js)`);
 // Check if the current user is null or undefined
 if (currentUser === null || currentUser === undefined) {
     // If the user is not logged in, redirect to the login page
@@ -24,8 +24,8 @@ const logoutManager = document.getElementById('logout_manager');
 
 // Log out function
 function logoutUser() {
-    // Clear session storage
-    sessionStorage.removeItem('currentUser');
+    // Delete the session storage item
+    sessionStorage.removeItem('session');
 
     // Redirect to login page
     window.location.href = '../../index.html';
