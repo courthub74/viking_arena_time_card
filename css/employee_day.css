@@ -44,6 +44,8 @@
      /* Dashboard Logos */
      --dashboard-logo: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
 
+     /* Calendar Datepicker Logo */
+     --calendar-logo: invert(100%) sepia(0%) saturate(20%) hue-rotate(0deg) brightness(0%) contrast(100%);
     /* *********************************** */
      /* *********************************** */
      /* **********DAY MODE SLIDE IN********** */
@@ -106,6 +108,8 @@ body.dark-mode {
 
      /* Dashboard Logo */
      --dashboard-logo: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+
+     --calendar-logo: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 
      /* ********************************** */
      /* ********************************** */
@@ -897,6 +901,16 @@ header {
   }
 
   .current_day_logo {
+    filter: var(--calendar-logo);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 50%;
+    margin: 6px 1em 0 0;
+  }
+
+  .current_day_logo.dark-mode {
+    filter: var(--calendar-logo);
     width: 24px;
     height: 24px;
     cursor: pointer;
