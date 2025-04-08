@@ -17,7 +17,8 @@ const manager_messaging = document.querySelector("#manager_messaging");
 
 // Now we will add the event listeners to the buttons
 // MANAGER //
-manager_hours.addEventListener("click", function() {
+manager_hours.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent the default action of the button
     manager_hours.classList.add("clicked");
     setTimeout(() => {
         manager_hours.classList.remove("clicked");
@@ -28,7 +29,8 @@ manager_hours.addEventListener("click", function() {
     }, 1000);
 });
 
-manager_schedule.addEventListener("click", function() {
+manager_schedule.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent the default action of the button
     manager_schedule.classList.add("clicked");
     setTimeout(() => {
         manager_schedule.classList.remove("clicked");
@@ -38,7 +40,8 @@ manager_schedule.addEventListener("click", function() {
     }, 1000);
 });
 
-manager_messaging.addEventListener("click", function() {
+manager_messaging.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent the default action of the button
     manager_messaging.classList.add("clicked");
     setTimeout(() => {
         manager_messaging.classList.remove("clicked");
