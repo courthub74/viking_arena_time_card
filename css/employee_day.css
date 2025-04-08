@@ -850,18 +850,6 @@ header {
     /* background-color: blue; */
   }
 
-  .current_day_logo {
-    position: absolute;
-    left: 23em;
-    top: 265px;
-    /* top: 38%; */
-    transform: translateY(-50%);
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    opacity: 50%;
-}
-
 
   .form_label {
     font-size: small;
@@ -889,6 +877,32 @@ header {
     border: 1px solid var(--button-background);
     box-shadow: 0 0 5px var(--button-background);
   }
+
+  .current_day_datepicker {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--button-background);
+    padding: .5em;
+    display: flex;
+    width: 100%;
+    /* font-size: medium; */
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  #current_day {
+    border: none;
+    font-size: small;
+  }
+
+  .current_day_logo {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 50%;
+    margin: 6px 1em 0 0;
+}
 
 /* ********************************* */
 /* ********************************* */
