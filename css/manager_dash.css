@@ -726,14 +726,14 @@ header {
     background-color: none;
   }
 
-    /* BUTTON VERSION */
-    .dashboard_button.clicked {
-        box-sizing: border-box;
-        background-color: var(--dashboard-selected);
-        border: 1px solid var(--dashboard-trim);
-        color: var(--text-color);
-        transition: all 0.3s ease;
-    }
+  /* BUTTON VERSION */
+  .radio-container.clicked {
+    box-sizing: border-box;
+    background-color: var(--dashboard-selected);
+    border: 1px solid var(--dashboard-trim);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
 
   /* .dashboard_button:checked + label {
     box-sizing: border-box;
