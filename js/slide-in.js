@@ -1,10 +1,3 @@
-// Retrieve the current user from session storage
-var currentUser = sessionStorage.getItem('session');
-// Parse the current user from JSON string to object
-var currentUser = JSON.parse(currentUser);
-// Test print the current user
-console.log(`The current user is: ${currentUser.username} and their role is: ${currentUser.accountType} session: ${currentUser.sessionId} from (logout.js)`);
-// Check if the current user is null or undefined
 
 // Menu functionality
 const menuButton = document.getElementById('menu_burgers');
