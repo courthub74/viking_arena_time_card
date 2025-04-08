@@ -23,7 +23,7 @@ manager_hours.addEventListener("click", function() {
         manager_hours.classList.remove("clicked");
     }, 1000);
     setTimeout(() => {
-        window.location.href = "../../manager_hours.html";
+        window.location.href = "../../manager_scheduler.html";
         window.location.href = "../../html/calendar/manager_scheduler.html";
     }, 1000);
 });
