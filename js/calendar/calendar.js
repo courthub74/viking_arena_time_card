@@ -20,3 +20,9 @@ const sidebarNameHeader = document.getElementById('profile_calendar_name');
 // Change the inner HTML of the sidebar name header to the current user's name
 sidebarNameHeader.innerHTML = loggedName;
 // Decode the account type from the session storage
+const loggedAccountType = currentUser.accountType ? decodeURIComponent(currentUser.accountType) : 'Not Logged In';
+console.log(`(calendarJS)The logged in account type is: ${loggedAccountType}`);
+// Set the account type header to the logged in user
+const sidebarAccountTypeHeader = document.getElementById('profile_calendar_account');
+// Change the inner HTML of the sidebar account type header to the current user's account type
+sidebarAccountTypeHeader.innerHTML = loggedAccountType;

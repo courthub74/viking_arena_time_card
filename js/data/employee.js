@@ -20,6 +20,14 @@
 
 // At the top of your JS file or in a DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', function() {
+
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    // REGISTRATION PART (I assume you don't have the session storage yet)
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+
     // Query the slide in profile name
     const slide_in_profile_name = document.getElementById('profile_name');
     // Query the slide in account type
@@ -38,4 +46,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Set the name header to the logged in user
     name_header.innerHTML = logged_name;
+
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+    // LOGGED IN USER PART (Retrieve the session storage)
+    // Retrieve the current user from session storage
+    var currentUser = sessionStorage.getItem('session');
+    // Parse the current user from JSON string to object
+    var currentUser = JSON.parse(currentUser);
+    // Test print the current user
+    console.log(`(employee.js)The current user is: ${currentUser.username} and their role is: ${currentUser.accountType} session: ${currentUser.sessionId}`);
+    // Display the current user's name in the header
+    const employeeNameHeader = document.getElementById('employee_name');
+    // Decode the username from the session storage
+    const loggedName = currentUser.username ? decodeURIComponent(currentUser.username) : 'Not Logged In';
+    console.log(`(employee.js)The logged in name is: ${loggedName}`);
+    // Set the name header to the logged in user
+    employeeNameHeader.innerHTML = loggedName;
+    // Query the sidebar for the current user
+    const sidebarNameHeader = document.getElementById('profile_name');
+    // Change the inner HTML of the sidebar name header to the current user's name
+    sidebarNameHeader.innerHTML = loggedName;
+    // Decode the account type from the session storage
+    const loggedAccountType = currentUser.accountType ? decodeURIComponent(currentUser.accountType) : 'Not Logged In';
+    console.log(`(employee.js)The logged in account type is: ${loggedAccountType}`);
+    // Set the account type header to the logged in user
+    const sidebarAccountTypeHeader = document.getElementById('profile_account');
+    // Change the inner HTML of the sidebar account type header to the current user's account type
+    sidebarAccountTypeHeader.innerHTML = loggedAccountType;
+
+    /////////////////////////////////////////////////////////////////////////////
 });
