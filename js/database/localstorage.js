@@ -130,6 +130,13 @@ function submitRegistration() {
         window.location.href = `${repoName}/html/dashboards/employee.html?username=${username}&acct_type=${accountType}&encodedPinConfirm=${pin}`;
         // window.location.href = `../../html/dashboards/employee.html?username=${username}&acct_type=${accountType}&encodedPinConfirm=${pin}`;
     }
+
+    // Set user in session storage
+    sessionStorage.setItem('currentUser', JSON.stringify({
+        username: username,
+        accountType: accountType,
+        pin: pin
+    }));
     
     return registerUser(username, accountType, pin);
 }
