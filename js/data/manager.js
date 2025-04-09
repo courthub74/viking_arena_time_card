@@ -2,9 +2,17 @@
 // THE ALGORITHM FOR GETTING FROM THE URL PARAMETERS
 //////////////////////////////////////////////////////////////////////
 
-// Just for the Header on the manager page
+console.log("(manager.js)The manager.js file is loaded.");
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    // REGISTRATION PART (I assume you don't have the session storage yet)
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+
     // Query the slide in profile name
     const slide_in_profile_name = document.getElementById('profile_name');
     // Query the slide in account type
@@ -22,4 +30,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const name_header = document.querySelector("#manager_name");
     // Set the name header to the logged in user
     name_header.innerHTML = logged_name;
+
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+    // LOGGED IN USER PART (Retrieve the session storage)
+    // Retrieve the current user from session storage
+    var currentUser = sessionStorage.getItem('currentUser');
+    // Check if the current user is null or undefined
+    if (currentUser === null || currentUser === undefined) {
+        console.log("(employee.js)No current user found in session storage. Please log in.");
+        return; // Exit the function if no user is found
+    }
+    // Parse the current user from JSON string to object
+    currentUser = JSON.parse(currentUser);
+    // Test print the current user
+    console.log(`(manager.js)The current user is: ${currentUser.username} and their role is: ${currentUser.accountType} session: ${currentUser.sessionId}`);
+   
+    
 });

@@ -6,7 +6,7 @@
 // console.log(`The current user is: ${currentUser.username}`);
 
 // Retrieve the current user from session storage
-var currentUser = sessionStorage.getItem('session');
+var currentUser = sessionStorage.getItem('currentUser');
 // Parse the current user from JSON string to object
 var currentUser = JSON.parse(currentUser);
 // Test print the current user
@@ -28,7 +28,7 @@ const logoutManager = document.getElementById('logout_manager');
 // Log out function
 function logoutUser() {
     // Delete the session storage item
-    sessionStorage.removeItem('session');
+    sessionStorage.removeItem('currentUser');
 
     // Redirect to login page
     window.location.href = '../../index.html';

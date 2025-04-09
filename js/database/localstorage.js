@@ -131,7 +131,7 @@ function submitRegistration() {
         // window.location.href = `../../html/dashboards/employee.html?username=${username}&acct_type=${accountType}&encodedPinConfirm=${pin}`;
     }
 
-    // Set user in session storage
+    // Set user in session storage as currentUser
     sessionStorage.setItem('currentUser', JSON.stringify({
         username: username,
         accountType: accountType,

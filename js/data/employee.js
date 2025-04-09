@@ -53,7 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
     /////////////////////////////////////////////////////////////////////////////
     // LOGGED IN USER PART (Retrieve the session storage)
     // Retrieve the current user from session storage
-    var currentUser = sessionStorage.getItem('session');
+    var currentUser = sessionStorage.getItem('currentUser');
+    // Check if the current user is null or undefined
+    if (currentUser === null || currentUser === undefined) {
+        console.log("(employee.js)No current user found in session storage. Please log in.");
+        return; // Exit the function if no user is found
+    }
     // Parse the current user from JSON string to object
     var currentUser = JSON.parse(currentUser);
     // Test print the current user
