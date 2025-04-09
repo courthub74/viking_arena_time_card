@@ -18,6 +18,9 @@ if (currentUser === null || currentUser === undefined) {
     window.location.href = '/viking_arena_time_card/index.html';
 }
 
+// Display the current user's name in the header
+const userNameHeader = document.getElementById('user_name_header');
+
 
 // Query the logout button from the dashboard page
 const logoutManager = document.getElementById('logout_manager');
