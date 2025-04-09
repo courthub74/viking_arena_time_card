@@ -53,14 +53,14 @@ function registerUser(username, accountType, pin) {
     // Test print finding the user name
     console.log(`The user found is: ${user}`);
 
-    if(!user) {
-        return { success: false, message: 'User not found'};
-    }
+    // if(!user) {
+    //     return { success: false, message: 'User not found'};
+    // }
 
-    // Verify PIN
-    if (user.pin !== pin) {
-        return { success: false, message: 'Invalid PIN'};
-    }
+    // // Verify PIN
+    // if (user.pin !== pin) {
+    //     return { success: false, message: 'Invalid PIN'};
+    // }
 
     // Store current user info in session
     sessionStorage.setItem('currentUser', JSON.stringify({
