@@ -792,7 +792,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1em;
+    /* margin-top: 1em; */
 }
 
 .back_to_div a {
@@ -800,7 +800,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: var(--text-color);
     font-size: small;
     /* opacity: 50%; */
