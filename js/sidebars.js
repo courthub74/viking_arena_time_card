@@ -2,7 +2,7 @@
 console.log("Sidebars JS file loaded successfully");
 
 // Retrieve the current user from session storage
-var currentUser = sessionStorage.getItem('session');
+var currentUser = sessionStorage.getItem('currentUser');
 // Parse the current user from JSON string to object
 var currentUser = JSON.parse(currentUser);
 

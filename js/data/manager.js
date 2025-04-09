@@ -47,6 +47,22 @@ document.addEventListener('DOMContentLoaded', function() {
     currentUser = JSON.parse(currentUser);
     // Test print the current user
     console.log(`(manager.js)The current user is: ${currentUser.username} and their role is: ${currentUser.accountType} session: ${currentUser.sessionId}`);
-   
-    
+    // Display the current user's name in the header
+    const employeeNameHeader = document.getElementById('manager_name');
+    // Decode the username from the session storage
+    const loggedName = currentUser.username ? decodeURIComponent(currentUser.username) : 'Not Logged In';
+    console.log(`(manager.js)The logged in name is: ${loggedName}`);
+    // Set the name header to the logged in user
+    employeeNameHeader.innerHTML = loggedName;
+    // Query the sidebar name header
+    const sidebar_name_header = document.querySelector("#profile_name");
+    // Set the sidebar name header to the logged in user
+    sidebar_name_header.innerHTML = loggedName;
+    // Query the sidebar account type header
+    const sidebar_account_type_header = document.querySelector("#profile_account");
+    // Decode the account type from the session storage
+    const loggedAccountType = currentUser.accountType ? decodeURIComponent(currentUser.accountType) : 'Not Logged In';
+    console.log(`(manager.js)The logged in account type is: ${loggedAccountType}`);
+    // Set the account type header to the logged in user
+    sidebar_account_type_header.innerHTML = loggedAccountType;
 });
