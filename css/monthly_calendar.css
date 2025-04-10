@@ -620,6 +620,12 @@ header {
     font-weight: bold;
 }
 
+.app_state p {
+    text-decoration: underline;
+    text-decoration-color: var(--button-background);
+    text-decoration-thickness: 2px;
+}
+
 
 .hazel_park_logo {
     width: 3.5em;
@@ -662,64 +668,104 @@ header {
     opacity: 50%;
 }
 
-
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* THE BUTTONS */
-
-.employee_hours_buttons {
+/* Radio Button Squares */
+.employee_selects {
+    /* background-color: blue; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    margin-top: 1em;
+    gap: 2em;
+    /* margin-top: 1em; */
 }
 
-/* Each Button */
-.employee_hours_btn {
-    background-color: var(--dashboard-button-background);
-    color: var(--button-text);
-    border: 1px solid var(--dashboard-button-trim);
-    cursor: pointer;
-    width: 100%;
-    padding: 2em;
-    font-size: small;
-    transition: all 0.3s ease;
-    text-decoration: none;
+
+/* The Button */
+/* .dashboard_button {
+    margin-right: 8px;
+    position: absolute;
+    width: 0;
+    height: 0;
+} */
+
+
+/* .radio-container label {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1em;
-}
+    width: 100%;
+    background-color: var(--dashboard-button-background);
+    border: 1px solid var(--dashboard-button-trim);
+    padding: 3em;
+    height: 8em;
+    color: var(--text-color);
+    font-size: small;
+    cursor: pointer;
+    font-family: 'Poppins';
+  } */
 
-/* Logo on Button */
-.emp_clock {
-    width: 1.5em;
-    height: 1.5em;
+  /* FOR REGULAR BUTTON  */
+  /* ************************** */
+  .radio-container{
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--dashboard-button-background);
+    /* background-color: red; */
+    border: 1px solid var(--dashboard-button-trim);
+    padding: 3em;
+    height: 8em;
+    /* padding: 10px; */
+    color: var(--text-color);
+    font-size: medium;
+    font-size: small;
+    /* font-weight: bold; */
+    cursor: pointer;
+    font-family: 'Poppins';
+  }
+  
+  .radio-container:hover {
+    background-color: none;
+  }
+
+  /* BUTTON VERSION */
+  .radio-container.clicked {
+    box-sizing: border-box;
+    background-color: var(--dashboard-selected);
+    border: 1px solid var(--dashboard-trim);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+
+  /* .dashboard_button:checked + label {
+    box-sizing: border-box;
+    background-color: var(--dashboard-selected);
+    border: 1px solid var(--dashboard-trim);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  } */
+
+  /* Dashboard Images */
+
+  /* Clock */
+  .dash_hours {
+    width: 20px;
+    height: 20px;
     /* filter: var(--dashboard-logo); */
-}
+  }
 
-
-
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-
+  /* Calendar */
+  .dash_calendar {
+    width: 19px;
+    height: 19px;
+    /* filter: var(--dashboard-logo); */
+  }
 
 
 
 /* Submit Button */
 .submit {
     background-color: var(--button-background);
-    background-color: #07253C;
     color: white;
     border: none;
     padding: 15px;
@@ -737,31 +783,21 @@ header {
     outline: none;
 }
 
-/* Link back to dashboard */
-.link_back {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: small;
-    font-size: .8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
  /* Submit Disabled */
- /* .submit:disabled {
+ .submit:disabled {
     background-color: var(--button-background);
     color: var(--text-color);
     opacity: .6;
     cursor: not-allowed;
-} */
+}
 
 
 /* Back to Dashboard */
-/* .back_to_div {
+.back_to_div {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* margin-top: 1em; */
 }
 
 .back_to_div a {
@@ -769,9 +805,78 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* font-weight: bold; */
     color: var(--text-color);
     font-size: small;
-} */
+    /* opacity: 50%; */
+}
+
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* THE CALENDAR */
+
+.calendarContainer {
+    border: 1px solid var(--button-background);
+}
+
+/* Calendar Header */
+.calendarheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--button-background);
+    color: white;
+    font-weight: bold;
+}
+
+#monthDisplay {
+    font-size: medium;
+    font-size: small;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.month_buttons {
+    background-color: var(--calendar-arrow);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+}
+
+#weekdays {
+    display: flex;
+    width: 100%; /* Stretches across the full width of the parent container */
+  }
+  
+  #weekdays div {
+    flex: 1; /* Makes each day div grow equally to fill the available space */
+    text-align: center; /* Centers the text within each div */
+    padding: 10px 0; /* Optional: adds some vertical padding */
+  }
+
+  /* Pops in when you select a Day */
+  #newEventModal {
+    display: none;
+  }
+
+  #newEventModal.clicked {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
+/* ********************************* */
 
 
 /* For wider screens narrow the form */

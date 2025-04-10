@@ -7,7 +7,7 @@
 
       <!-- CSS -->
       <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
-      <link rel="stylesheet" href="../../css/manager_scheduler.css">
+      <link rel="stylesheet" href="../../css/monthly_calendar.css">
 
       <!-- Calendar for NOW -->
       <!-- <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.css' rel='stylesheet' /> -->
@@ -141,36 +141,79 @@
         <form>
                 <!-- Page Header -->
                 <label class="page_header_label" for="employee_name">
-                    <span class="page_header">Get employee hours&nbsp;</span>
+                    <span class="page_header">Calendar Access for&nbsp;</span>
                     <span class="acct_type_label" id="employee_name"></span>
                 </label>
 
-                <!-- The Employee List -->
-                <div class="employee_hours_buttons">
-                    <!-- These will be on a 4 loop upon registration -->
-                    <button class="employee_hours_btn">
-                        <p class="employee_name">Employee Name</p>
-                        <img src="../../img/dashboard_logos/blue_hours.png" class="emp_clock" alt="emp_clock">
-                    </button>
-                    <button class="employee_hours_btn">
-                        <p class="employee_name">Employee Name</p>
-                        <img src="../../img/dashboard_logos/blue_hours.png" class="emp_clock" alt="emp_clock">
-                    </button>
-                    <button class="employee_hours_btn">
-                        <p class="employee_name">Employee Name</p>
-                        <img src="../../img/dashboard_logos/blue_hours.png" class="emp_clock" alt="emp_clock">
-                    </button>
-                    <button class="employee_hours_btn">
-                        <p class="employee_name">Employee Name</p>
-                        <img src="../../img/dashboard_logos/blue_hours.png" class="emp_clock" alt="emp_clock">
-                    </button>
+                <!-- The CALENDAR -->
+                <div class="manager_calendar_div">
+                    <div id="calendar">
+
+
+                        <!-- Calendar will be inserted here -->
+                        <div class="calendarContainer">
+                            <div class="calendarheader">
+                              <div id="monthDisplay">Month</div>
+                              <div>
+                                <button class="month_buttons" id="backButton">Back</button>
+                                <button class="month_buttons" id="nextButton">Next</button>
+                              </div>
+                            </div>
+                      
+                            <div id="weekdays">
+                              <div>S</div>
+                              <div>M</div>
+                              <div>Tu</div>
+                              <div>W</div>
+                              <div>Th</div>
+                              <div>F</div>
+                              <div>S</div>
+                            </div>
+                      
+                            <div id="calendar"></div>
+                          </div>
+                      
+                          <div id="newEventModal">
+                            <h2>Select Employee</h2>
+                            <select name="employee" id="schedule_name">
+                                <option value="employee1">Employee 1</option>
+                                <option value="employee2">Employee 2</option>
+                                <option value="employee3">Employee 3</option>
+                            </select>
+
+                            <label>Time In:</label>
+                            <input id="eventTitleInput" placeholder="Event Title" />
+
+                            <label>Time Out:</label>
+                            <input id="eventTitleInput" placeholder="Event Title" />
+                      
+                            <button id="saveButton">Save</button>
+                            <button id="cancelButton">Cancel</button>
+                            <!-- Delete Option -->
+                            <div id="deleteEventModal">
+                                <h2>Event</h2>
+                          
+                                <p id="eventText"></p>
+                          
+                                <button id="deleteButton">Delete</button>
+                                <button id="closeButton">Close</button>
+                              </div>
+                          </div>
+                      
+                      
+                          <!-- <div id="modalBackDrop"></div> -->
+                      
+                          <script src="./script.js"></script>
+                    </div>
+
+                    
                  </div>
 
                  <!-- Next button -->
-                 <!-- <button class="submit" id="dashboard_advance" disabled>Submit Hours</button> -->
+                 <button class="submit" id="dashboard_advance" disabled>Submit Hours</button>
 
                 <!-- Link Back To Dashboard -->
-                <div class="submit">
+                <div class="back_to_div">
                     <a href="../../html/dashboards/manager.html" class="link_back">Back to Dashboard</a>
                 </div>
             </form>           
