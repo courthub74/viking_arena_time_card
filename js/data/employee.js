@@ -52,9 +52,10 @@ document.addEventListener('DOMContentLoaded', function() {
     /////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////
     // LOGGED IN USER PART (Retrieve the session storage)
-    // Retrieve the current user from session storage
+    // Flexible variable to get the current user from session storage
+    // If session storage is currentUser:
     var currentUser = sessionStorage.getItem('currentUser');
-    // Retrieve the current user from session storage
+    // If session storage is session, use that instead
     var currentUser = sessionStorage.getItem('session');
     // Check if the current user is null or undefined
     if (currentUser === null || currentUser === undefined) {
