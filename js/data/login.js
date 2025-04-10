@@ -160,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 pin.style.transition = "color 0.5s ease-in-out";
                             });
 
+                            //////////////// IF THE PINS ARE CORRECT///////////////////////
                             // Replace the clear pins button with new HTML
                             // and make the forgot pin button invisible
                             const forgotPinButton = document.getElementById('forgot_button');
@@ -192,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // pin_set[0].focus();
                             }
                             , 2000); // 2 seconds delay
-
+                        
                             
 
                             
@@ -234,6 +235,42 @@ document.addEventListener('DOMContentLoaded', function() {
                                 }
                             });
                         } else {
+                            //////////////// IF THE PINS ARE INCORRECT///////////////////////
+                            // set opacity to 0% to make it invisible
+                            forgotPinButton.style.opacity = "0%";
+                            const reset_button = document.getElementById('reset_button');
+                            reset_button.innerHTML = `Pins Don't Match`;
+                            // Set the color based on theme
+                            const isDarkMode = document.body.classList.contains('dark-mode');
+                            reset_button.style.color = isDarkMode ? "#BC0000" : "BC0000"; // Darker Green for light mode
+                            // reset_button.style.color = "#00FF00";
+                            // Time it to clear pins and reset the button
+                            // Bring the original page back
+                            setTimeout(() => {
+                                reset_button.innerHTML = `Clear Pin fields`;
+                                // Check if dark mode is active
+                                // const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                                // Or alternatively check for a dark mode class on your document if you implement your own toggle
+                                const isDarkMode = document.body.classList.contains('dark-mode');
+                                
+                                // Set color based on theme
+                                reset_button.style.color = isDarkMode ? "#ffffff" : "#000000";
+                                reset_button.style.transition = "color 0.5s ease-in-out";
+                                reset_button.style.opacity = "50%";
+
+                                // Make the forgot pin button reappear
+                                forgotPinButton.style.opacity = "100%";
+
+                                // Reset the pin fields
+                                pinField.forEach(pin => {
+                                    pin.value = '';
+                                    pin.style.color = ''; // Reset the color to default
+                                });
+
+                                // Focus on the first input
+                                pinField[0].focus();
+                            }
+                            , 2000); // 2 seconds delay
                             // Pin is incorrect, disable the login button
                             loginButton.disabled = true;
                             // // Change the pin field color to red
