@@ -30,6 +30,9 @@ function logoutUser() {
     // Delete the session storage item
     sessionStorage.removeItem('currentUser');
 
+    // Also if the user is logged in as a session 
+    sessionStorage.removeItem('session');
+
     // Redirect to login page
     window.location.href = '../../index.html';
     window.location.href = '/viking_arena_time_card/index.html';

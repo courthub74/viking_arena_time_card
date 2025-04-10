@@ -793,6 +793,18 @@ header {
     justify-content: center;
     align-items: center;
     /* margin-top: 1em; */
+    background-color: var(--button-background);
+    background-color: #07253C;
+    color: white;
+    border: none;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    /* font-size: medium;
+    font-size: small;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-top: 1em; */
 }
 
 .back_to_div a {
@@ -800,10 +812,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* font-weight: bold; */
     color: var(--text-color);
     font-size: small;
-    /* opacity: 50%; */
 }
 
 /* ********************************* */
