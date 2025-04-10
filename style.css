@@ -623,14 +623,19 @@ header {
 
 .users_drop_container::after {
     content: '▼';
+    content: '⌄'; 
+    content: '⏷';
     position: absolute;
     top: 43%;
+    top: 35%;
+    opacity: 50%;
     right: 20px;
     transform: translateY(20%);
     pointer-events: none;
     color: #666;
     /* color: var(--button-background); */
-    font-size: .5em;
+    /* font-size: .5em; */
+    font-size: 1.3em;
 }
 
 .pin_field {
