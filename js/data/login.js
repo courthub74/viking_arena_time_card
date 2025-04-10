@@ -247,30 +247,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-
-        // Clear button functionality
-        clearPinsButton.addEventListener('click', () => {
-            // Clear the pin fields
-            pinField.forEach(pin => {
-                pin.value = '';
-                pin.style.color = ''; // Reset the color to default
-            });
-            // Disable the login button
-            loginButton.disabled = true;
-            // Focus on the first pin field
-            pinField[0].focus();
-        });
-        // Forgot pin button functionality
-        forgotPinButton.addEventListener('click', () => {
-            // Redirect to the forgot pin page
-            // Here it will request the user to enter their phone number to send a pin to reset the pin
-            window.location.href = '../../html/forgot_pin.html';
-        });
-
-        // If the user has correctly entered the pin number, change the text and text color of the clear button
-        clearPinsButton.addEventListener('click', () => {});
-
     };
+
+    // Clear button functionality
+    clearPinsButton.addEventListener('click', () => {
+        // Clear the pin fields
+        pinField.forEach(pin => {
+            pin.value = '';
+            pin.style.color = ''; // Reset the color to default
+        });
+        // Disable the login button
+        loginButton.disabled = true;
+        // Focus on the first pin field
+        pinField[0].focus();
+    });
+    // Forgot pin button functionality
+    forgotPinButton.addEventListener('click', () => {
+        // Redirect to the forgot pin page
+        // Here it will request the user to enter their phone number to send a pin to reset the pin
+        window.location.href = '../../html/forgot_pin.html';
+    });
+
+    // If the user has correctly entered the pin number, change the text and text color of the clear button
+    clearPinsButton.addEventListener('click', () => {});
 });
 
 
