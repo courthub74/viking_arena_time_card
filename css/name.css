@@ -139,13 +139,16 @@ body {
 
 /* Logo Img */
 .viking_img {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
+    width: 2em;
+    height: 2em;
 }
 
 /* Logo Text */
 .logo_text {
     font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 

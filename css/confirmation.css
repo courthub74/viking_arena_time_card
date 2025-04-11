@@ -141,23 +141,26 @@ body {
     margin-top: 40px;
 }
 
+/* Main Logo */
+.viking_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+}
+
 /* Logo Img */
 .viking_img {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
+    width: 2em;
+    height: 2em;
 }
 
 /* Logo Text */
 .logo_text {
     font-size: 1.3rem;
-    font-weight: bold;
-}
-
-/* Logo Text */
-.logo_text {
-    /* font-size: 5rem; */
-    font-size: 1.3rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
@@ -620,6 +623,13 @@ label {
     opacity: 100%;
 }
 
+/* Small pin notification */
+small {
+    font-size: .7rem;
+    /* font-size: medium; */
+    opacity: 50%;
+}
+
 /* Edit Button */
 .confirmation_edit {
     font-size: small;
@@ -634,6 +644,7 @@ label {
     /* font-weight: bold; */
     font-size: .9rem;
     font-size: medium;
+    font-size: small;
 }
 
 /* Submit Button */
