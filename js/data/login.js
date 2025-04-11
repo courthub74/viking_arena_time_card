@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // Set color based on theme
                                 reset_button.style.color = isDarkMode ? "#ffffff" : "#000000";
                                 reset_button.style.transition = "color 0.5s ease-in-out";
-                                reset_button.style.opacity = "75%";
+                                reset_button.style.opacity = "50%";
 
                                 // Make the forgot pin button reappear
                                 forgotPinButton.style.opacity = "100%";
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // Change color back based on theme
                                 reset_button.style.color = isDarkMode ? "#ffffff" : "#000000";
                                 reset_button.style.transition = "color 0.5s ease-in-out";
-                                reset_button.style.opacity = "75%";
+                                reset_button.style.opacity = "50%";
 
                                 // Make the forgot pin button reappear
                                 forgotPinButton.style.opacity = "100%";
