@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
         pinField.forEach((input, key) => {
             input.addEventListener('keyup', (e) => {
                 // Move focus to the next input field if a digit is entered
+                // If input contains a value,
                 if (input.value) {
                     // Move to next input if there is a next input
                     if (key < pinField.length - 1) {
@@ -167,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             // set opacity to 0% to make it invisible
                             forgotPinButton.style.opacity = "0%";
                             const reset_button = document.getElementById('reset_button');
-                            reset_button.innerHTML = `Pins Match`;
+                            reset_button.innerHTML = `Pin is Correct`;
                             // Set the color based on theme
                             const isDarkMode = document.body.classList.contains('dark-mode');
                             reset_button.style.color = isDarkMode ? "#00FF00" : "#16BC00"; // Darker Green for light mode
@@ -184,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // Set color based on theme
                                 reset_button.style.color = isDarkMode ? "#ffffff" : "#000000";
                                 reset_button.style.transition = "color 0.5s ease-in-out";
-                                reset_button.style.opacity = "50%";
+                                reset_button.style.opacity = "75%";
 
                                 // Make the forgot pin button reappear
                                 forgotPinButton.style.opacity = "100%";
@@ -239,10 +240,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             // set opacity to 0% to make it invisible
                             forgotPinButton.style.opacity = "0%";
                             const reset_button = document.getElementById('reset_button');
-                            reset_button.innerHTML = `Pins Don't Match`;
+                            reset_button.innerHTML = `Pin is Incorrect`;
                             // Set the color based on theme
                             const isDarkMode = document.body.classList.contains('dark-mode');
-                            reset_button.style.color = isDarkMode ? "#BC0000" : "BC0000"; // Darker Green for light mode
+                            reset_button.style.color = isDarkMode ? "#BC0000" : "#BC0000"; // Darker Red for light mode
                             // reset_button.style.color = "#00FF00";
                             // Time it to clear pins and reset the button
                             // Bring the original page back
@@ -253,10 +254,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // Or alternatively check for a dark mode class on your document if you implement your own toggle
                                 const isDarkMode = document.body.classList.contains('dark-mode');
                                 
-                                // Set color based on theme
+                                // Change color back based on theme
                                 reset_button.style.color = isDarkMode ? "#ffffff" : "#000000";
                                 reset_button.style.transition = "color 0.5s ease-in-out";
-                                reset_button.style.opacity = "50%";
+                                reset_button.style.opacity = "75%";
 
                                 // Make the forgot pin button reappear
                                 forgotPinButton.style.opacity = "100%";

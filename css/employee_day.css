@@ -616,13 +616,6 @@ header {
     font-weight: bold;
 }
 
-.app_state p {
-    text-decoration: underline;
-    text-decoration-color: var(--button-background);
-    text-decoration-thickness: 2px;
-}
-
-
 .hazel_park_logo {
     width: 3.5em;
     height: 3.5em;
@@ -793,9 +786,9 @@ header {
     justify-content: center;
     align-items: center;
     /* margin-top: 1em; */
-    background-color: var(--button-background);
+    /* background-color: var(--button-background);
     background-color: #07253C;
-    color: white;
+    color: white; */
     border: none;
     padding: 15px;
     text-align: center;
