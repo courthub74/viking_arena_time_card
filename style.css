@@ -154,17 +154,13 @@ body {
 
 /* Logo Img */
 .viking_img {
-    width: 4em;
-    height: 4em;
     width: 3em;
     height: 3em;
 }
 
 /* Logo Text */
 .logo_text {
-    /* font-size: 5rem; */
     font-size: 1.3rem;
-    font-size: 1.1rem;
     font-weight: bold;
 }
 
