@@ -158,14 +158,41 @@
 
                         <div class="input_divs">
                             <label class="form_label">Time In:</label>
+
                             <!-- This will be a time picker -->
-                            <input id="eventTitleInput"/>
+                            <div class="time-picker">
+                                <select id="in_hour">
+                                    <!-- Hours will be populated by JavaScript -->
+                                </select>
+                                <span>:</span>
+                                <select id="in_minute">
+                                    <!-- Minutes will be populated by JavaScript -->
+                                </select>
+                                <select id="in_ampm">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                            </div>
+
                         </div>
 
                         <div class="input_divs">
                             <label class="form_label">Time Out:</label>
                             <!-- This will be a time picker -->
-                            <input id="eventTitleInput"/>
+                            <!-- This will be a time picker -->
+                            <div class="time-picker">
+                                <select id="out_hour">
+                                    <!-- Hours will be populated by JavaScript -->
+                                </select>
+                                <span>:</span>
+                                <select id="out_minute">
+                                    <!-- Minutes will be populated by JavaScript -->
+                                </select>
+                                <select id="out_ampm">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                            </div>
                         </div>
                   
                  </div>
@@ -194,14 +221,21 @@
      <!-- <script src="../../js/sidebars.js"></script> -->
 
      <!-- DELETE ACCOUNT -->
+      <!-- to execute the delete account function -->
     <script src="../../js/database/delete_acct.js"></script>
 
 
      <!-- LOGOUT -->
+      <!-- to execute the logout function -->
     <script src="../../js/database/logout.js"></script>
 
     <!-- CALENDAR -->
+     <!-- for the population of login (session storage information) -->
     <script src="../../js/calendar/calendar.js"></script>
+
+    <!-- PUNCH CLOCK -->
+     <!-- for the population of the time clock -->
+    <script src="../../js/calendar/punch_clock.js"></script>
     
 
 

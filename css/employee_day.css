@@ -176,6 +176,14 @@ body {
     margin-top: 40px;
 }
 
+/* Main Logo */
+.viking_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+}
+
 /* Logo Img */
 .viking_img {
     width: 2.5em;
@@ -781,7 +789,7 @@ header {
     background-color: #07253C;
     color: white; */
     border: none;
-    padding: 15px;
+    /* padding: 15px; */
     text-align: center;
     cursor: pointer;
     /* font-size: medium;
@@ -871,16 +879,18 @@ header {
 
   .form_label {
     font-size: small;
-    /* font-size: medium; */
-    /* font-weight: bold; */
+    font-size: .7rem;
     color: var(--text-color);
     opacity: 50%;
   }
 
+
   input {
     background-color: var(--background-color);
+    background-color: var(--input-background);
     color: var(--text-color);
     border: 1px solid var(--button-background);
+    border: none;
     padding: .8em;
     width: 100%;
     font-size: small;
@@ -896,10 +906,14 @@ header {
     box-shadow: 0 0 5px var(--button-background);
   }
 
+  /* For the Date Picker */
+
   .current_day_datepicker {
     background-color: var(--background-color);
+    background-color: var(--input-background);
     color: var(--text-color);
     border: 1px solid var(--button-background);
+    border: none;
     padding: .5em;
     display: flex;
     width: 100%;
@@ -914,6 +928,7 @@ header {
     border: none;
     font-size: small;
     cursor: pointer;
+    opacity: 60%;
   }
 
   .current_day_logo {
@@ -932,6 +947,45 @@ header {
     cursor: pointer;
     opacity: 50%;
     margin: 6px 1em 0 0;
+}
+
+#current_day {
+    background: none;
+}
+
+/* Time Clock */
+
+.time-picker {
+    display: inline-block;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    border: 1px solid var(--button-background);
+    border: none;
+    padding: 1em;
+    display: flex;
+    width: 100%;
+    /* font-size: medium; */
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Time picker select */
+.time-picker select {
+    /* display: inline-block; */
+    /* padding: 1em; */
+    background-color: var(--input-background);
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-family: 'Poppins';
+    opacity: 70%;
+    /* padding: 0 .5em 0 .5em; */
+}
+
+.time-picker span {
+    opacity: 50%;
 }
 
 /* ********************************* */
