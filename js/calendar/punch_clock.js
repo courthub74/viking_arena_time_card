@@ -24,8 +24,6 @@ for (let i = 1; i <= 12; i++) {
     // console.log(in_option.value);
 }
 
-// set the select output html to the value of the option element
-
 
 // minutes
 const inMinuteSelect = document.getElementById('in_minute');
@@ -35,6 +33,34 @@ for (let i = 0; i < 60; i++) {
     in_option.textContent = i < 10 ? '0' + i : i;
     inMinuteSelect.appendChild(in_option);
 }
+
+// OUT
+
+// hours
+// Query for the hour select element
+const outHourSelect = document.getElementById('out_hour');
+// Populate the hour select element with options from 1 to 12
+for (let i = 1; i <= 12; i++) {
+    // Create an option element for each hour
+    const out_option = document.createElement('option');
+    // Set the value and text content of the option element
+    // value is set to each iteration
+    out_option.value = i;
+    // textContent is set to i, but if i is less than 10, it adds a leading zero
+    out_option.textContent = i < 10 ? '0' + i : i;
+    // Append the option element to the hour select element
+    outHourSelect.appendChild(out_option);
+}
+
+// minutes
+const outMinuteSelect = document.getElementById('out_minute');
+for (let i = 0; i < 60; i++) {
+    const out_option = document.createElement('option');
+    out_option.value = i;
+    out_option.textContent = i < 10 ? '0' + i : i;
+    outMinuteSelect.appendChild(out_option);
+}
+
 
 // Set current time as default
 const now = new Date(); // This goes in the top date picker
@@ -57,7 +83,7 @@ datePicker.placeholder = now.toLocaleDateString('en-US', {
 
 
 // Populate In Hours
-let in_hours = now.getHours();
+let in_hours = now.getHours() - 7; // Get the current hour and subtract 12 to convert to 12-hour format
 const ampm = in_hours >= 12 ? 'PM' : 'AM';
 in_hours = in_hours % 12;
 in_hours = in_hours ? in_hours : 12; // Convert 0 to 12
@@ -67,21 +93,41 @@ inHourSelect.value = in_hours;
 inMinuteSelect.value = now.getMinutes();
 document.getElementById('in_ampm').value = ampm;
 
-// // Populate minutes
-// const minuteSelect = document.getElementById('minute');
-// for (let i = 0; i < 60; i++) {
-//     const option = document.createElement('option');
-//     option.value = i;
-//     option.textContent = i < 10 ? '0' + i : i;
-//     minuteSelect.appendChild(option);
-// }
+// Populate Out Hours
+let out_hours = now.getHours();
+const out_ampm = out_hours >= 12 ? 'PM' : 'AM';
+out_hours = out_hours % 12;
+out_hours = out_hours ? out_hours : 12; // Convert 0 to 12
+outHourSelect.value = out_hours;
+// Populate Out Minutes
+outMinuteSelect.value = now.getMinutes();
+document.getElementById('out_ampm').value = out_ampm;
 
-// // Set current time as default
-// const now = new Date();
-// let hours = now.getHours();
-// const ampm = hours >= 12 ? 'PM' : 'AM';
-// hours = hours % 12;
-// hours = hours ? hours : 12; // Convert 0 to 12
-// hourSelect.value = hours;
-// minuteSelect.value = now.getMinutes();
-// document.getElementById('ampm').value = ampm;
+// Add event listener to the populate in hour select element
+inHourSelect.addEventListener('change', function() {
+    // Enable the submit button when the out hour is changed
+    submitButton.disabled = false;
+    }
+);
+
+// FOR SUBMIT HOURS BUTTON
+// Query the submit button element
+const submitButton = document.getElementById('submit_employee_hours');
+// Add a click event listener to the button
+submitButton.addEventListener('click', function() {
+    // Get the selected values from the hour and minute select elements
+    const inHour = inHourSelect.value;
+    const inMinute = inMinuteSelect.value;
+    const outHour = outHourSelect.value;
+    const outMinute = outMinuteSelect.value;
+    // Get the selected value from the AM/PM select element
+    const inAmPm = document.getElementById('in_ampm').value;
+    const outAmPm = document.getElementById('out_ampm').value;
+    // Get the selected date from the DatePicker element
+    const date = datePicker.value;
+    // Log the selected values to the console
+    console.log(`In Time: ${inHour}:${inMinute} ${inAmPm}`);
+    console.log(`Out Time: ${outHour}:${outMinute} ${outAmPm}`);
+    console.log(`Date: ${date}`);
+
+});
