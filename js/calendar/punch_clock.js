@@ -31,7 +31,12 @@ for (let i = 0; i < 60; i++) {
     const in_option = document.createElement('option');
     in_option.value = i;
     in_option.textContent = i < 10 ? '0' + i : i;
-    inMinuteSelect.appendChild(in_option);
+    if (i % 15 === 0) {
+        in_option.value = i;
+        in_option.textContent = i < 10 ? '0' + i : i;
+        inMinuteSelect.appendChild(in_option);
+    } 
+    // inMinuteSelect.appendChild(in_option);
 }
 
 // OUT
@@ -46,7 +51,7 @@ for (let i = 1; i <= 12; i++) {
     // Set the value and text content of the option element
     // value is set to each iteration
     out_option.value = i;
-    // textContent is set to i, but if i is less than 10, it adds a leading zero
+    // textContent is set to i, and if less than 10, it adds a leading zero else just leave it as is
     out_option.textContent = i < 10 ? '0' + i : i;
     // Append the option element to the hour select element
     outHourSelect.appendChild(out_option);
@@ -58,7 +63,13 @@ for (let i = 0; i < 60; i++) {
     const out_option = document.createElement('option');
     out_option.value = i;
     out_option.textContent = i < 10 ? '0' + i : i;
-    outMinuteSelect.appendChild(out_option);
+    // just in increments of 15 minutes
+    if (i % 15 === 0) {
+        out_option.value = i;
+        out_option.textContent = i < 10 ? '0' + i : i;
+        outMinuteSelect.appendChild(out_option);
+    } 
+    // outMinuteSelect.appendChild(out_option);
 }
 
 
@@ -91,6 +102,8 @@ inHourSelect.value = in_hours;
 
 // Populate In Minutes
 inMinuteSelect.value = now.getMinutes();
+// set the minutes to 00
+inMinuteSelect.value = 0; // Set the minutes to 00
 document.getElementById('in_ampm').value = ampm;
 
 // Populate Out Hours
@@ -99,10 +112,13 @@ const out_ampm = out_hours >= 12 ? 'PM' : 'AM';
 out_hours = out_hours % 12;
 out_hours = out_hours ? out_hours : 12; // Convert 0 to 12
 outHourSelect.value = out_hours;
+
 // Populate Out Minutes
 outMinuteSelect.value = now.getMinutes();
+outMinuteSelect.value = 0; // Set the minutes to 15 minutes before the current time
 document.getElementById('out_ampm').value = out_ampm;
 
+// SUBMIT BUTTON DISABLED BY DEFAULT FUNCTION
 // Add event listener to the populate in hour select element
 inHourSelect.addEventListener('change', function() {
     // Enable the submit button when the out hour is changed
