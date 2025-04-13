@@ -83,12 +83,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const selectedUsername = e.target.value;
             // Test Print
             console.log(`Selected username: ${selectedUsername}`);
-             // Get the first pin input field
-            const firstPinField = document.querySelector('.pin_put');
-            // Set focus to the first pin field
-            if (firstPinField) {
-                firstPinField.focus();
+            if (pinField) {
+                // Focus on the first pin field
+                pinField[0].focus();
             }
+            //  // Get the first pin input field
+            // const firstPinField = document.querySelector('.pin_put');
+            // // Set focus to the first pin field
+            // if (firstPinField) {
+            //     firstPinField.focus();
+            // }
         });
 
         // NOW the numeric input behavior for the pin number
