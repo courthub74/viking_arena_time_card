@@ -83,15 +83,24 @@ document.addEventListener('DOMContentLoaded', function() {
             const selectedUsername = e.target.value;
             // Test Print
             console.log(`Selected username: ${selectedUsername}`);
-            if (pinField) {
-                // Focus on the first pin field
+            if (pinField && pinField.length > 0) {
+                // For iOS, simulate a user touch to ensure keyboard appears
+                pinField[0].click(); // Or you could use .dispatchEvent(new Event('touchstart'))
                 pinField[0].focus();
             }
-            //  // Get the first pin input field
-            // const firstPinField = document.querySelector('.pin_put');
-            // // Set focus to the first pin field
-            // if (firstPinField) {
-            //     firstPinField.focus();
+            // or try this
+            // if (pinField && pinField.length > 0) {
+            //     // Delay the focus slightly for mobile compatibility
+            //     setTimeout(() => {
+            //         pinField[0].focus();
+                    
+            //         // For iOS Safari, try this trick to ensure focus remains
+            //         // This makes the field visually respond to the focus action
+            //         pinField[0].setAttribute('readonly', 'readonly');
+            //         setTimeout(() => {
+            //             pinField[0].removeAttribute('readonly');
+            //         }, 10);
+            //     }, 100);
             // }
         });
 
