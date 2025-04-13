@@ -171,6 +171,14 @@ body {
     margin-top: 40px;
 }
 
+/* Main Logo */
+.viking_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+}
+
 /* Logo Img */
 .viking_img {
     width: 2.5em;

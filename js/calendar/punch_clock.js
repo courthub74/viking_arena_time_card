@@ -119,6 +119,10 @@ outMinuteSelect.value = 0; // Set the minutes to 15 minutes before the current t
 document.getElementById('out_ampm').value = out_ampm;
 
 // SUBMIT BUTTON DISABLED BY DEFAULT FUNCTION
+
+// Query the submit button element
+const submitButton = document.getElementById('submit_employee_hours');
+
 // Add event listener to the populate in hour select element
 inHourSelect.addEventListener('change', function() {
     // Enable the submit button when the out hour is changed
@@ -126,9 +130,27 @@ inHourSelect.addEventListener('change', function() {
     }
 );
 
+outHourSelect.addEventListener('change', function() {
+    // Enable the submit button when the out hour is changed
+    submitButton.disabled = false;
+    }
+);
+
+// Add event listener to the populate in minute select element
+inMinuteSelect.addEventListener('change', function() {
+    // Enable the submit button when the out hour is changed
+    submitButton.disabled = false;
+    }
+);
+outMinuteSelect.addEventListener('change', function() {
+    // Enable the submit button when the out hour is changed
+    submitButton.disabled = false;
+    }
+);
+     
+
 // FOR SUBMIT HOURS BUTTON
-// Query the submit button element
-const submitButton = document.getElementById('submit_employee_hours');
+
 // Add a click event listener to the button
 submitButton.addEventListener('click', function() {
     // Get the selected values from the hour and minute select elements
