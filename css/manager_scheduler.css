@@ -21,9 +21,6 @@
     --menu-shadow: rgba(0, 0, 0, 0.1);
 
      /* Input Colors */
-     /* --input-background: #B0CCE2; */
-     /* --input-background: #587790; */
-     /* --input-background: #587790a4; */
      --input-background: #658cab92;
      --input-background: #658cab48;
      --input-background: #5186b148;
@@ -65,6 +62,9 @@
      /* Slide Menu Icons */
      --slide-menu-item-icon-filter: brightness(90%) contrast(100%);
      
+     /* Employee Name Colors */
+     --employee-names: #04324c;
+
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -129,6 +129,10 @@ body.dark-mode {
      --slide-menu-item-background: #15191d;
      --slide-menu-item-trim: #2065a578;
      --slide-menu-item-trim: #3d4a5653;
+
+     /* Employee Name Colors */
+     --employee-names: #daf3ff;
+     /* --employee-names: #ffffff; */
      
      /* *********************************** */
      /* *********************************** */
@@ -678,6 +682,7 @@ header {
     justify-content: center;
     align-items: center;
     gap: 1em;
+    margin-top: -1em;
     /* margin-top: 1em; */
 }
 
@@ -699,8 +704,9 @@ header {
 
 /* Employee Name */
 .employee_name {
-    color: var(--text-color);
+    color: var(--employee-names);
     opacity: 60%;
+    opacity: 80%;
     font-size: small;
 }
 

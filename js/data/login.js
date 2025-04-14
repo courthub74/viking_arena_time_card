@@ -311,6 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Focus on the first pin field
         pinField[0].focus();
     });
+    
     // Forgot pin button functionality
     forgotPinButton.addEventListener('click', () => {
         // Redirect to the forgot pin page

@@ -1,0 +1,1 @@
+console.log("manager_scheduler.js loaded");
