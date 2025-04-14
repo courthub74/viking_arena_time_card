@@ -681,7 +681,7 @@ header {
 /* Each Button */
 .employee_hours_btn {
     background-color: var(--dashboard-button-background);
-    color: var(--button-text);
+    color: var(--text-color);
     border: 1px solid var(--dashboard-button-trim);
     cursor: pointer;
     width: 100%;

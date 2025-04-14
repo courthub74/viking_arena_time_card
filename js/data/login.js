@@ -83,12 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const selectedUsername = e.target.value;
             // Test Print
             console.log(`Selected username: ${selectedUsername}`);
-            // if (pinField && pinField.length > 0) {
-            //     // For iOS, simulate a user touch to ensure keyboard appears
-            //     pinField[0].click(); // Or you could use .dispatchEvent(new Event('touchstart'))
-            //     pinField[0].focus();
-            // }
-            // or try this
             if (pinField && pinField.length > 0) {
                 // Delay the focus slightly for mobile compatibility
                 setTimeout(() => {
@@ -198,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // Set color based on theme
                                 reset_button.style.color = isDarkMode ? "#ffffff" : "#000000";
                                 reset_button.style.transition = "color 0.5s ease-in-out";
-                                reset_button.style.opacity = "50%";
+                                reset_button.style.opacity = "70%";
 
                                 // Make the forgot pin button reappear
                                 forgotPinButton.style.opacity = "100%";
@@ -270,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // Change color back based on theme
                                 reset_button.style.color = isDarkMode ? "#ffffff" : "#000000";
                                 reset_button.style.transition = "color 0.5s ease-in-out";
-                                reset_button.style.opacity = "50%";
+                                reset_button.style.opacity = "70%";
 
                                 // Make the forgot pin button reappear
                                 forgotPinButton.style.opacity = "100%";
