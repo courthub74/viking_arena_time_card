@@ -252,7 +252,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             // Set the color based on theme
                             const isDarkMode = document.body.classList.contains('dark-mode');
                             reset_button.style.color = isDarkMode ? "#BC0000" : "#BC0000"; // Darker Red for light mode
-                            // reset_button.style.color = "#00FF00";
+                            // Keep opacity full since you've set a filter on css selector
+                            reset_button.style.opacity = "100%"
                             // Time it to clear pins and reset the button
                             // Bring the original page back
                             setTimeout(() => {
@@ -265,7 +266,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // Change color back based on theme
                                 reset_button.style.color = isDarkMode ? "#ffffff" : "#000000";
                                 reset_button.style.transition = "color 0.5s ease-in-out";
-                                reset_button.style.opacity = "65%";
+                                // Reset opacity based on theme
+                                reset_button.style.opacity = isDarkMode ? "55%" : "70%";
+                                // reset_button.style.opacity = "60%"
+                                
 
                                 // Make the forgot pin button reappear
                                 forgotPinButton.style.opacity = "100%";
