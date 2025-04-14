@@ -198,8 +198,8 @@ body {
 
 /* Logo Text */
 .logo_text {
-    font-size: 1.3rem;
-    font-size: 1.2rem;
+    font-family: 'Inria Sans';
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
