@@ -26,6 +26,9 @@
 
 \*Compare the pin number to the pin number in the Real database
 
+\*Store the Real login in LocalStorage
+for 'Remember Me' functionality
+
 ## Encryption
 
 \*Encrypt the pin numbers

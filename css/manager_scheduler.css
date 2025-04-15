@@ -705,8 +705,7 @@ header {
 /* Employee Name */
 .employee_name {
     color: var(--employee-names);
-    opacity: 60%;
-    opacity: 80%;
+    filter: brightness(60%);
     font-size: small;
 }
 
@@ -755,6 +754,8 @@ header {
 .link_back {
     text-decoration: none;
     color: var(--text-color);
+    filter: brightness(50%);
+    font-weight: bold;
     font-size: small;
     font-size: .8rem;
     display: flex;
