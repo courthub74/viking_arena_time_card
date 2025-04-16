@@ -595,6 +595,7 @@ input {
     padding: 15px;
     border: none;
     font-size: medium;
+    font-size: small;
     outline: none;
     color: var(--text-color);
 }

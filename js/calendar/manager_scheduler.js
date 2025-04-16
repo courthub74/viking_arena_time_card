@@ -62,15 +62,12 @@ const employee_hours_button_div = document.getElementById('employee_hours_button
 
 // FIRST iterate through the users (using forEach since you don't need to modify any array elements)
 users.forEach(user => {
-
     // Filter the managers out (only display employees) 
-
     // Conditional
     if (user.accountType === "Manager") {
         // make it not display
         return;
     } 
-
     // Create the button
     const button = document.createElement('button');
     // Make the button a child of the 'employee hours button div'
@@ -97,7 +94,14 @@ users.forEach(user => {
     employee_tag.className = 'employee_name';
 
     // Place the clock on the button
-    // give clock the css class assigned 
+    // create the image
+    const clock_img = document.createElement('img');
+    // Source the image
+    clock_img.src = '../../img/dashboard_logos/blue_hours.png';
+    // Append to the button
+    button.appendChild(clock_img);
+    // give clock the css class assigned
+    clock_img.className = 'emp_clock'; 
 });
 
 
