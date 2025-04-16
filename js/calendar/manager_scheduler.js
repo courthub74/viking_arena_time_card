@@ -62,12 +62,42 @@ const employee_hours_button_div = document.getElementById('employee_hours_button
 
 // FIRST iterate through the users (using forEach since you don't need to modify any array elements)
 users.forEach(user => {
+
+    // Filter the managers out (only display employees) 
+
+    // Conditional
+    if (user.accountType === "Manager") {
+        // make it not display
+        return;
+    } 
+
     // Create the button
     const button = document.createElement('button');
     // Make the button a child of the 'employee hours button div'
-    // Style the button (already styled just give it the css class)
+    employee_hours_button_div.appendChild(button);
+    // Style the button
+        // in this case (already styled just give it the css class)
+    button.className = 'employee_hours_btn';
+    // Query the employee_hours_btn
+    // const employee_hours_btn = document.querySelectorAll('employee_hours_btn');
+
+    // Create the p tag 
+    const employee_tag = document.createElement('p');
+
     // Create the id for the employee name element (employee name)
-    // Place the user name in the above
+    employee_tag.id = 'employee_name';
+
+    // Append the p tag to the button
+    button.appendChild(employee_tag);
+
+    // Decode the user.username
+    employee_tag.innerHTML = decodeURIComponent(user.username);
+
+    // Give the tag its css class
+    employee_tag.className = 'employee_name';
+
+    // Place the clock on the button
+    // give clock the css class assigned 
 });
 
 
