@@ -39,7 +39,38 @@ managerAccountSidebar.innerHTML = loggedAccountType;
 //////////////////////////////////////////////////////////////////////////
 // THIS IS WHERE YOU LOOP THROUGH THE EMPLOYEES FOR EMPLOYEE HOURS BUTTONS
 
-
 // FIRST RETRIEVE THE USERS FROM THE LOCAL STORAGE BASE
+const users = JSON.parse(localStorage.getItem('users')) || [];
+
+// Test print
+console.log(users);
+
+// NOW make the button below for each user
+
+/**
+ * <button class="employee_hours_btn">
+        <p class="employee_name">Employee Name</p>
+        <img src="../../img/dashboard_logos/blue_hours.png" class="emp_clock" alt="emp_clock">
+    </button>
+ */
+
+// FIRST Query the 'employee_hours_buttons' section for the 
+    // buttons to be generated there
+const employee_hours_button_div = document.getElementById('employee_hours_buttons');
+
+// For every user create a button with the user name
+
+// FIRST iterate through the users (using forEach since you don't need to modify any array elements)
+users.forEach(user => {
+    // Create the button
+    const button = document.createElement('button');
+    // Make the button a child of the 'employee hours button div'
+    // Style the button (already styled just give it the css class)
+    // Create the id for the employee name element (employee name)
+    // Place the user name in the above
+});
+
+
+
 
 // FIRST RETRIEVE THE USERS FROM THE MONGO DB 
