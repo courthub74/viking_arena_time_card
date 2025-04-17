@@ -97,4 +97,6 @@ for 'Remember Me' functionality
 
 \*Emplemented design thinking methodology
 
+\*Emplemented architecture thinking methodology
+
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/courthub74/hazel_park_time_card?style=flat&logo=GitHub)

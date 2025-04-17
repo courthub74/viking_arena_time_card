@@ -787,7 +787,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    filter: brightness(50%);
+    /* filter: brightness(50%); */
+    opacity: 60%;
     font-weight: bold;
     border: none;
     /* padding: 15px; */
