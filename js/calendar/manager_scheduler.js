@@ -18,7 +18,13 @@ const loggedName = currentUser.username ? decodeURIComponent(currentUser.usernam
 // Test Print the logged user
 console.log(`(manager_schedulerJS)The logged in name is: ${loggedName}`);
 
+// Query the header for name
+const nameHeader = document.getElementById('manager_name');
+
 // Set the name header to logged in user
+nameHeader.innerHTML = loggedName;
+
+// Set the sidebar name to logged in account
 managerNameSidebar.innerHTML = loggedName;
 
 // Query the sidebar for the current user
