@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viking Time Card</title>
+
+      <!-- CSS -->
+      <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
+      <link rel="stylesheet" href="../../css/employee_day.css">
+</head>
+<body>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- --------------COPY HERE TO THE OTHER LINE FIELD--------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+
+
+        <!-- THE NAVBAR AND SIDE MENU-->
+        <nav class="main_nav">
+            <!-- Burger -->
+            <div class="viking_logo">
+                <img src="../../img/hazel-park-logo/Logo.png" class="viking_img" alt="viking_ice_arena">
+                <p class="logo_text">Time Card</p>
+            </div>
+            
+            <!-- Light/Dark -->
+            <div class="menu_button">
+                <!-- Day/Nite -->
+                <button id="menu_burgers">
+                    <img src="../../img/hamburgers/hamburger_blue.png" class="burger" id="burger_one" alt="menu">
+                    <!-- <img src="./img/hamburgers/hamburger-blue.png" class="burger" id="burger_two" alt="menu"> -->
+                </button>
+            </div>
+        </nav>
+
+        <!-- SLIDE IN MENU -->
+        <div class="side-menu">
+            <!-- Header Logo -->
+             <div class="slide_header_logo">
+                <img src="../../img/hazel-park-logo/Logo.png"  alt="logo">
+                <p class="slide_in_logo_text">Time Card</p>
+             </div>
+            
+             <!-- Menu Items -->
+             <div class="menu_items">
+                <a href="#" class="menu-item"><span>Tech Support</span><img src="../../img/slide-in-menu/tech_support.png" alt="tech_support"></a>
+                <!-- <a href="#" class="menu-item"><span>Messaging</span><img src="../../img/slide-in-menu/messaging.png" alt="messaging"></a> -->
+                <button id="theme_switch" class="menu-item"><span>Day/Nite Mode</span><img src="../../img/slide-in-menu/day_nite.png" alt="theme_switch"></button>
+             </div>
+            <!-- Logged in Profile -->
+            <div class="profile">
+                <div class="profile_header">
+                    <p class="profile_text">Profile</p>
+                    <img src="../../img/slide-in-menu/profile.png" class="profile_circle">
+                </div>
+
+                <!-- Profile Name -->
+                <div class="profile_info">
+                    <label>Name:</label>
+                    <p class="profile_text_data" id="profile_calendar_name"></p>
+                 </div>
+
+                 <!-- Profile Account Type -->
+                 <div class="profile_info">
+                    <label>Account type:</label>
+                    <p class="profile_text_data" id="profile_calendar_account"></p>
+                 </div>
+
+                 <!-- Profile Pin Number -->
+                  <!-- This you will turn into a password output -->
+                 <div class="profile_info">
+                    <div class="pin_and_peak">
+                        <button class="delete_account_button" id="delete_account">
+                            <p class="delete_text">Delete Account</p>
+                        </button>
+                        <!-- Pin Number -->
+                        <!-- <div class="pin_profile_div">
+                            <label>Pin #:</label>
+                            <p class="profile_pin" id="profile_pin">****</p>
+                        </div> -->
+
+                         <!-- Pin Code peak -->
+                        <!-- <div class="pin_code_peak">
+                            <button id="pin_code_peak">
+                                <img src="./img/slide-in-menu/pin_peek.png">
+                            </button>
+                        </div> -->
+                    </div>
+                 </div>
+            </div>
+             <!-- Delete Button -->
+             <div class="delete_account_div">
+                <!-- This button needs to delete the session storage -->
+                 <!-- and redirect to the index page -->
+                  <!-- Give the button an onclick to do this -->
+                <button class="logout_account_button" id="logout_employee" onclick="logoutUser()">
+                    <img src="../../img/logout/white_logout.png" class="logout_logo">
+                    <p class="logout_text">
+                        <!-- <a href="../../index.html">Log Out</a> -->
+                        Log Out
+                    </p>
+                </button>
+             </div> 
+        </div>
+
+        <!-- Overlay -->
+        <div class="menu-overlay"></div>
+
+        <!-- ----------COPY ABOVE FOR ALL OTHER PAGES REDO---------- -->
+
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+
+        <!-- THE PAGE -->
+
+        <!-- THE FORM -->
+        <form>
+                <!-- Page Header -->
+                <label class="page_header_label" for="employee_name">
+                    <span class="acct_type_label" id="employee_name"></span>
+                    <span class="page_header">&nbsp;|&nbsp;</span>Hours Entered
+                </label>
+
+                <!-- The Radio Buttons -->
+                <div class="current_day_div">
+                
+                      
+
+                        <div class="input_divs">
+                            <!-- Current Date -->
+                            <!-- <label class="form_label">Current Date:</label> -->
+                            <!-- Will contain the current date JS -->
+                            <div class="current_day_datepicker">
+                                <img src="../../img/pins-match/hours_entered.png" class="hours_entered_check" alt="success">
+                                <p>Hours successfully entered</p>
+                            </div>
+                            
+                        </div>
+
+                        <div class="input_divs">
+
+                            <label class="form_label">Date:</label>
+
+                            <!-- This will be the date confirm -->
+                            <div class="date_confirm">
+                               <p>Date Here</p>
+                            </div>
+
+                        </div>
+
+                        <div class="input_divs">
+                            <label class="form_label">Time In:</label>
+                            <!-- This will be a time in confirm -->
+                             <div class="date_confirm">
+                                <p>Time In Here:</p>
+                             </div>
+                        </div>
+
+                        <div class="input_divs">
+                            <label class="form_label">Time Out:</label>
+                            <!-- This will be a time in confirm -->
+                             <div class="date_confirm">
+                                <p>Time Out Here:</p>
+                             </div>
+                        </div>
+                  
+                 </div>
+
+                 <!-- Next button -->
+                 <button class="submit" id="submit_employee_hours">Go to Week</button>
+
+                 <!-- Link Back To Dashboard -->
+                    <div class="back_to_div">
+                        <a href="../../html/dashboards/employee.html" class="link_back">Back to Dashboard</a>
+                    </div>
+            </form>           
+           
+      
+    </div>
+
+    <!-- DARKMODE -->
+    <!-- <script src="/viking_arena_time_card/js/darkmode.js"></script> -->
+    <script src="../../js/darkmode.js"></script>
+
+    <!-- SLIDE IN -->
+    <!-- <script src="/viking_arena_time_card/js/slide-in.js"></script> -->
+    <script src="../../js/slide-in.js"></script>
+
+    <!-- SIDEBARS -->
+     <!-- <script src="../../js/sidebars.js"></script> -->
+
+     <!-- DELETE ACCOUNT -->
+      <!-- to execute the delete account function -->
+    <script src="../../js/database/delete_acct.js"></script>
+
+
+     <!-- LOGOUT -->
+      <!-- to execute the logout function -->
+    <script src="../../js/database/logout.js"></script>
+
+    <!-- CALENDAR -->
+     <!-- for the population of login (session storage information) -->
+    <script src="../../js/calendar/calendar.js"></script>
+
+    <!-- PUNCH CLOCK -->
+     <!-- for the population of the time clock -->
+    <!-- <script src="../../js/calendar/punch_clock.js"></script> -->
+
+    <!-- EMPLOYEE DAY JS  -->
+     <!-- to get the Day and Times -->
+     <!-- <script src="../../js/calendar/employee_day.js"></script> -->
+
+    <!-- EMPLOYEE DAY DISPLAY -->
+    <script src="#"></script>
+    
+
+
+    
+</body>
+</html>

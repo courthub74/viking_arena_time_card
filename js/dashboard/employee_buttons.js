@@ -25,7 +25,7 @@ employee_hours.addEventListener("click", function(e) {
     setTimeout(() => {
         window.location.href = "../../employee_day.html";
         window.location.href = "../../html/calendar/employee_day.html";
-    }, 2000);
+    }, 500);
 });
 
 employee_schedule.addEventListener("click", function(e) {
@@ -36,7 +36,7 @@ employee_schedule.addEventListener("click", function(e) {
     }, 2000);
     setTimeout(() => {
         window.location.href = "./employee_schedule.html";
-    }, 2000);
+    }, 500);
 });
 
 employee_messaging.addEventListener("click", function(e) {
@@ -47,5 +47,5 @@ employee_messaging.addEventListener("click", function(e) {
     }, 2000);
     setTimeout(() => {
         window.location.href = "./employee_messaging.html";
-    }, 2000);
+    }, 500);
 });

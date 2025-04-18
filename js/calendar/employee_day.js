@@ -73,11 +73,90 @@ submit_button_employee_hours.addEventListener('click', (e) => {
     // Concatenate the values
     let time_out_whole = `${time_out_hour.value} ${time_out_minute.value} ${time_out_period.value}`
 
+    // Test Print the concatenation
     console.log(time_out_whole);
 
-    // Create an entry object with the hours information
-    
+    // Create an entry object with the time information
+    const timeEntry = {
+        date: the_day,
+        timeIn: time_in_whole,
+        timeOut: time_out_whole
+    };
 
+    // Get current logged-in user from session storage
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('session')) || null;
+
+    // Test Print
+    console.log(currentUser.username);
+
+    // If No User Logged in
+    if (!currentUser) {
+        alert('No user is currently logged in. Please log in first.');
+        return;
+    }
+
+    // Get all users from localStorage (by creating a new variable)
+        // This is for the comparison to find the currentUser amongst all users 
+            // To push the hours
+    const allUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Test print 
+    console.log(allUsers);
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+    // Iterate through all users
+
+    // compare current user to all users
+
+    // if one of all users matches the current
+
+    // push the time in and time out to the current users JSON in the localStorage
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    // Testers
+
+    console.log("Current user object:", currentUser);
+    // Problem is here
+        // SOLVED I didn't parse through the session get item
+    console.log("Current user's username:", currentUser.username);
+    console.log("All users:", allUsers);
+    console.log("All usernames:", allUsers.map(user => user.username));
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    // // Find the logged-in user in the users array
+    const userIndex = allUsers.findIndex(user => user.username === currentUser.username);
+
+    // // Test print
+    console.log(userIndex);
+
+    // // If user is not there, alert us
+    if (userIndex === -1) {
+        alert('User not found in database');
+        return;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
+
+    // If hours array doesn't exist yet for this user, create it
+    if (!allUsers[userIndex].hours) {
+        allUsers[userIndex].hours = [];
+    }
+
+    // Add the new hours entry to the user's time array
+    allUsers[userIndex].hours.push(timeEntry);
+
+    // Save it back to localStorage
+    localStorage.setItem('users', JSON.stringify(allUsers));
+    
+    // Test print 
+    console.log(`Time in for ${currentUser.username} is ${currentUser.time_in_hour} :${currentUser.time_in_minute}`);
+
+    // Redirect to Time Confirmation page
+    window.location.href = '../../html/calendar/employee_day_confirm.html'
 });
 
 
