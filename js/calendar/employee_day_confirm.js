@@ -65,13 +65,56 @@ console.log(confirmedUserHours);
 // Use the confirmedUserIndex you already found earlier
 const userHours = allUsers[confirmedUserIndex].hours;
 
-console.log(userHours[0]);
 
 // For Loop for userHours
 for (i = 0; i < userHours.length; i++) {
-    console.log(userHours[i]);
+    // I just want the last iteration
 }
 
 // NOW get the latest date entry
+const lastIndex = userHours.length - 1;
+
+// Set up the last entry as a variable
+const lastTimeEntry = userHours[lastIndex];
+
+// Test Prints
+console.log(`Date Entered: ${lastTimeEntry.date}`);
+console.log(`Time In Entered: ${lastTimeEntry.timeIn}`);
+console.log(`Time Out Entered: ${lastTimeEntry.timeOut}`);
+
+// Set up as variables
+
+// Date
+let date_ = lastTimeEntry.date;
+
+// Time In
+let in_ = lastTimeEntry.timeIn;
+
+// Time Out
+let out_ = lastTimeEntry.timeOut;
+
+
+
+// NOW populate the entry fields
+
+// FIRST query all 3
+
+// Date
+const date_entered = document.getElementById('whole_date');
+
+// Time In
+const time_in = document.getElementById('time_in');
+
+// Time Out
+const time_out = document.getElementById('time_out');
+
+
+// Change the innerHTMLs
+date_entered.innerHTML = date_;
+
+time_in.innerHTML = in_;
+
+time_out.innerHTML = out_;
+
 
 // Retrieve the Day entered Information from the DB
