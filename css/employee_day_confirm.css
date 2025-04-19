@@ -787,14 +787,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* filter: brightness(50%); */
     opacity: 60%;
     font-weight: bold;
     border: none;
-    /* padding: 15px; */
     text-align: center;
     cursor: pointer;
-    
+    /* background-color: blue; */
+    margin-top: -1.5em;
 }
 
 .back_to_div a {
