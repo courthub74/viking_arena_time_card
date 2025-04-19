@@ -884,7 +884,7 @@ header {
   /* Success Alert */
   .success_div {
     background-color: var(--background-color);
-    border: 1px solid var(--button-background);
+    /* border: 1px solid var(--button-background); */
   }
 
   /* The Times Confirmed */
@@ -912,11 +912,14 @@ header {
   .current_day_datepicker {
     display: flex;
     /* flex-direction: column; */
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     padding: 1em;
-    gap: 1em;
-    font-weight: bold;
+    gap: 3em;
+    /* font-weight: bold; */
+    background-color: #16bc004f;
+    font-size: small;
+    color: rgb(4, 176, 4);
   }
 
   .hours_entered_check {
