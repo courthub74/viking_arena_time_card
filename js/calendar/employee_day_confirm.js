@@ -30,6 +30,9 @@ const confirmedUserIndex = allUsers.findIndex(user => user.username === confirme
 // Test the index
 console.log(confirmedUserIndex);
 
+// Test the actual information
+console.log(allUsers[confirmedUserIndex].username);
+
 // confirmedUserIndex is the current user in the actual database
     // in this case, localStorage
 
@@ -45,9 +48,30 @@ const confirmedUserAccountTypeIndex = allUsers.findIndex(user => user.accountTyp
 // Test this Index
 console.log(confirmedUserAccountTypeIndex);
 
+// Test the actual information
+console.log(allUsers[confirmedUserAccountTypeIndex].accountType);
+
 // Check if any hours are entered
 if (confirmedUserAccountTypeIndex === -1) {
     alert("No Account type in the database");
 }
+
+// NOW lets try the HOURS
+const confirmedUserHours = allUsers.findIndex(user => user.hours === confirmedUser.hours);
+
+// Test this Index
+console.log(confirmedUserHours);
+
+// Use the confirmedUserIndex you already found earlier
+const userHours = allUsers[confirmedUserIndex].hours;
+
+console.log(userHours[0]);
+
+// For Loop for userHours
+for (i = 0; i < userHours.length; i++) {
+    console.log(userHours[i]);
+}
+
+// NOW get the latest date entry
 
 // Retrieve the Day entered Information from the DB
