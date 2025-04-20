@@ -12,6 +12,11 @@ function deleteAccount(userId) {
     console.log("All users:", allUsers.map(user => user.username));
     console.log("All users:", allUsers.map(user => user.id));
 
+    // Lets use ID's to delete acct by as names can be redundant
+
+    
+    // Match the current user with the account in localStorage
+
 }
 
 
