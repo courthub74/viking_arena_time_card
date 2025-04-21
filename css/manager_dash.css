@@ -84,9 +84,10 @@ body.dark-mode {
     --menu-shadow: rgb(22, 33, 38);
 
      /* Input Colors */
-     --input-background: #101316;
+     /* --input-background: #101316;
      --input-background: #1b2025;
-     --input-background: #15191d;
+     --input-background: #15191d; */
+     --input-background: #121418;
      
      /* Button Colors */
      --button-background: #009DF8;
@@ -648,7 +649,6 @@ header {
 .page_header {
     display: flex;
     font-weight: bold;
-    /* width: 100%; */
     opacity: 50%;
 }
 

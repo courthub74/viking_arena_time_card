@@ -67,10 +67,8 @@ body.dark-mode {
     --nav-shadow: #82c5ec;
 
      /* Input Colors */
-     /* --input-background: #101316;
-     --input-background: #1b2025;
-     --input-background: #15191d; */
      --input-background: #20252c;
+     --input-background: #121418;
 
      /* Button Colors */
      --button-background: #009DF8;
@@ -579,14 +577,14 @@ header {
     display: flex;
     flex-direction: column;
     gap: .5em;
+    background-color: var(--input-background);
 }
 
 /* Name Inputs */
 label {
-    opacity: 100%;
     font-size: small;
-    /* font-size: medium; */
-    /* margin-top: 1em; */
+    font-weight: bold;
+    opacity: 50%;
 }
 
 input {
@@ -637,6 +635,8 @@ input {
     text-decoration: none;
     color: var(--text-color);
     font-size: small;
+    font-weight: bold;
+    opacity: 50%;
 }
 
 /* For wider screens narrow the form */

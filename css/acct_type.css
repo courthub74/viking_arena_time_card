@@ -79,9 +79,10 @@ body.dark-mode {
     --menu-shadow: rgb(22, 33, 38);
 
      /* Input Colors */
-     --input-background: #101316;
+     /* --input-background: #101316;
      --input-background: #1b2025;
-     --input-background: #15191d;
+     --input-background: #15191d; */
+     --input-background: #121418;
      
      /* Button Colors */
      --button-background: #009DF8;
@@ -558,6 +559,12 @@ form {
     width: 3.5em;
     height: 3.5em;
 } */
+
+.acct_title {
+    font-size: small;
+    font-weight: bold;
+    opacity: 50%;
+}
 
 label {
     opacity: 100%;
