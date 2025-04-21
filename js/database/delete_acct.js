@@ -64,7 +64,12 @@ pinField.forEach((input, key) => {
                 console.log(`Current user id#: ${allUsers[loggedUserIndex].id}`);
                 // Current user Name
                 console.log(`Current user name ${allUsers[loggedUserIndex].username}`);
+                // NOW Check if the pins match
+                // Test print the pins 
                 // Enable the delete account button
+                // delete_acct_button.disabled = false;
+            } else {
+                // Make the delete button disabled again
             }
         }
     })
