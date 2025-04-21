@@ -65,4 +65,4 @@ delete_btn_slide_in.addEventListener('click', (e) => {
 
     // Redirect to the Delete Account Pin confirm page
     window.location.href = '../../html/delete/delete_acct_pin.html';
-})
+});

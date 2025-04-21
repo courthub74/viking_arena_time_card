@@ -391,7 +391,8 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 
 /* The Profile Text Info */
 .profile_text_data {
-    opacity: 25%;
+    color: rgb(173, 29, 29);
+    opacity: 100%;
 }
 
 /* **************************************** */
@@ -539,10 +540,14 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 
 
 /* The Blue and the Name */
-.acct_type_label {
+.page_header_label {
+    display: flex;
+}
+.del_acct_label {
     color: var(--button-background);
     font-weight: bold;
     opacity: 100%;
+    color: rgb(173, 29, 29);;
 }
 
 /* Dashboard for */
@@ -599,7 +604,7 @@ header {
     flex-direction: column;
     width: 100%;
     max-width: 700px;
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 .users_drop_container label,

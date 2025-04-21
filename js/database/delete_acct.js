@@ -1,6 +1,74 @@
 // Test Print Page
 console.log("Delete User Page");
 
+// Query the ELEMENTS
+
+// Query the pin inputs
+const pinField = document.querySelectorAll('.pin_put');
+
+// Clear button
+const clearPinsButton = document.getElementById('reset_button');
+
+// Forgot Pin button
+const forgotPinButton = document.getElementById('forgot_button');
+
+// Delete Account button
+const delete_acct_button = document.querySelector('#delete_acct');
+
+// Test Print ELEMENTS
+console.log(pinField);
+console.log(clearPinsButton);
+console.log(forgotPinButton);
+
+// Match pin number to the one in LocalStorage and enable the Delete Account Button
+pinField.forEach((input, key) => {
+    input.addEventListener('keyup', (e) => {
+        if (input.value) {
+            // Move to next input if there is a next input
+            if (key < pinField.length - 1) {
+                pinField[key + 1].focus();
+            }
+            // If the last input is filled, move focus to the delete account button
+            if (key === pinField.length - 1) {
+                delete_acct_button.focus();
+            }
+            // Test Print the pin fields filled
+            console.log("Pin field filled");
+            // If there is all 4 digits entered
+            if (key === 3) {
+                // Let's read the pins for matching to the LocalStorage or Database
+                const delete_acct_pins = [...pinField].map(each_pinField => each_pinField.value).join('');
+                // Print the value of the pin field
+                console.log(`Pin value: ${delete_acct_pins}`);
+                // NOW check if the pin is correct
+
+                // FIRST get LOGGED IN USER
+                const loggedUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('session'));
+                // Error Handling (in this case if user gets logged out)
+                if (!loggedUser) {
+                    alert("User got logged out");
+                    // return;
+                }
+                // THEN get all users info and parse it from localStorage or Database
+                const allUsers = JSON.parse(localStorage.getItem('users')) || [];
+                // Test print the sessionIDs
+                console.log("All users:", allUsers.map(user => user.id));
+                // Get Logged User Index (session ID because the session storage labels it that way)
+                const loggedUserIndex = allUsers.findIndex(user => user.sessionId === loggedUser.sessionId);
+                // Test Print Index
+                console.log(loggedUserIndex);
+                // Current user sessionID
+                console.log(`Current user id#: ${allUsers[loggedUserIndex].id}`);
+                // Match the logged in user
+
+                // find the user name that is logged in
+                // const selectUserToDelete = users.find(user => user.username === )
+            }
+        }
+    })
+})
+// Match pin number to the one in the Database and enable the Delete Account Button
+
 // Create Delete accoung function
 function deleteAccount() {
 
@@ -57,8 +125,6 @@ function deleteAccount() {
     window.location.href = '../../index.html';
 }
 
-// Query the Delete Account Button
-const delete_acct_button = document.querySelector('#delete_account');
 
 // Add Event Listener
 delete_acct_button.addEventListener('click', (e) => {
