@@ -64,11 +64,7 @@ pinField.forEach((input, key) => {
                 console.log(`Current user id#: ${allUsers[loggedUserIndex].id}`);
                 // Current user Name
                 console.log(`Current user name ${allUsers[loggedUserIndex].username}`);
-
-                // Match the logged in user
-
-                // find the user name that is logged in
-                // const selectUserToDelete = users.find(user => user.username === )
+                // Enable the delete account button
             }
         }
     })
