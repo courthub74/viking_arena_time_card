@@ -49,16 +49,22 @@ pinField.forEach((input, key) => {
                     alert("User got logged out");
                     // return;
                 }
+                // Test Print Logged User
+                console.log("Full loggedUser object:", loggedUser);
+                console.log(`${loggedUser.username} is now logged in`);
                 // THEN get all users info and parse it from localStorage or Database
                 const allUsers = JSON.parse(localStorage.getItem('users')) || [];
                 // Test print the sessionIDs
                 console.log("All users:", allUsers.map(user => user.id));
                 // Get Logged User Index (session ID because the session storage labels it that way)
-                const loggedUserIndex = allUsers.findIndex(user => user.sessionId === loggedUser.sessionId);
+                const loggedUserIndex = allUsers.findIndex(user => user.username === loggedUser.username);
                 // Test Print Index
                 console.log(loggedUserIndex);
                 // Current user sessionID
                 console.log(`Current user id#: ${allUsers[loggedUserIndex].id}`);
+                // Current user Name
+                console.log(`Current user name ${allUsers[loggedUserIndex].username}`);
+
                 // Match the logged in user
 
                 // find the user name that is logged in
