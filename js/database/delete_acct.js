@@ -64,13 +64,59 @@ pinField.forEach((input, key) => {
                 console.log(`Current user id#: ${allUsers[loggedUserIndex].id}`);
                 // Current user Name
                 console.log(`Current user name ${allUsers[loggedUserIndex].username}`);
+                // Current user pin 
+                console.log(`Current user pin#: ${allUsers[loggedUserIndex].pin}`);
+
+                //Store the current pin in a variable
+                const logOutPin = allUsers[loggedUserIndex].pin;
                 // NOW Check if the pins match
-                // Test print the pins 
-                // Enable the delete account button
-                // delete_acct_button.disabled = false;
-            } else {
-                // Make the delete button disabled again
-            }
+                if (delete_acct_pins === logOutPin) {
+                    // enable delete acct button
+                    delete_acct_button.disabled = false;
+                    // turn the inputs green
+                    pinField.forEach(pin => {
+                        // Test Print
+                        console.log("entering pins");
+                        // check if its darkmode
+                        const isDarkMode = document.body.classList.contains('dark-mode');
+                        // Set the color based on the mode
+                        pin.style.color = isDarkMode ? "#00FF00" : "#16BC00";
+                        pin.style.transition = "color 0.5s ease-in-out";
+                    });
+                    // If PINS CORRECT
+                    // change the clear pins to pin correct
+                    // query clear pins
+                    const clear_pins_del_page = document.getElementById('reset_button');
+                    clear_pins_del_page.innerHTML = "Pin is Correct";
+                    // also change the color to green based on mode as well
+                    const isDarkMode = document.body.classList.contains('dark-mode');
+                    clear_pins_del_page.style.color = isDarkMode ? "#00FF00" : "#16BC00"; // Darker Green for light mode
+                    // make the forgot pin dissapear
+                    // query the pins
+                    const forgotPinDelete = document.getElementById('forgot_button');
+                    forgotPinDelete.style.opacity =  "0%";
+                    // SetTimeOut below
+                    setTimeout(() => {
+                        clear_pins_del_page.innerHTML = "Clear Pin fields";
+                        const isDarkMode = document.body.classList.contains('dark-mode');
+                        // Set color back based on theme
+                        clear_pins_del_page.style.color = isDarkMode ? "#ffffff" : "#000000";
+                        clear_pins_del_page.transition = "color 0.5s ease-in-out";
+                        // Set opacity based on theme
+                        clear_pins_del_page.style.opacity = isDarkMode ? "50%" : "70%";
+                        // Make the forgot pin button reappear
+                        forgotPinDelete.style.opacity = "100%";
+
+                        // Focus on the first input
+                        // pinField[0].focus();
+                    }
+                    , 2000) // 2 seconds delay
+                } else {
+                    // After Pins cleared
+                    // Make the delete button disabled again
+                    delete_acct_button.disabled = true;
+                }
+            } 
         }
     })
 })

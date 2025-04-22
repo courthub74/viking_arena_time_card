@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 forgotPinButton.style.opacity = "100%";
 
                                 // Focus on the first input
-                                // pin_set[0].focus();
+                                pin_set[0].focus();
                             }
                             , 2000); // 2 seconds delay
                         
