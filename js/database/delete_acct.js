@@ -115,6 +115,40 @@ pinField.forEach((input, key) => {
                     // After Pins cleared
                     // Make the delete button disabled again
                     delete_acct_button.disabled = true;
+
+                    // 
+                    // AND IF PIN IS INCORRECT
+                    // Repeat ABOVE just turn the colors red
+                    // Change the Clear Pins to red
+                    // query the clear pins
+                    const clear_pins_del_page = document.getElementById('reset_button');
+                    clear_pins_del_page.innerHTML = "Pin is Incorrect";
+                    // also change the color to red
+                    const isDarkMode = document.body.classList.contains('dark-mode');
+                    clear_pins_del_page.style.color = isDarkMode ? "#BC0000" : "#BC0000"; // Darker Red for light mode
+                    // make the forgot pins button go away
+                    // first query it
+                    const forgotPinDelete = document.getElementById('forgot_button');
+                    forgotPinDelete.style.opacity = "0%";
+                    // Time Out for it to return to original state
+                    setTimeout(() => {
+                        clear_pins_del_page.innerHTML = "Clear Pin fields";
+                        const isDarkMode = document.body.classList.contains('dark-mode');
+                        clear_pins_del_page.style.color = isDarkMode ? "#ffffff" : "#000000";
+                        clear_pins_del_page.style.transition = "color 0.5s ease-in-out";
+                        clear_pins_del_page.style.opacity = isDarkMode ? "55%" : "70%"
+                        // Reset opacity based on theme
+                        forgotPinDelete.style.opacity = isDarkMode ? "55%" : "70%";
+                        // Reset the pin fields
+                        pinField.forEach(pin => {
+                            pin.value = '';
+                            pin.style.color = ''; // Reset the color to default
+                        });
+
+                        // Focus on the first input
+                        pinField[0].focus();
+
+                    }, 2000); // 2 seconds delay
                 }
             } 
         }
