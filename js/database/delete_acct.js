@@ -358,11 +358,11 @@ function deleteAccount() {
     }
 
     // Tells you at what index the user logged in is at in the users array
-    if (logOutUserIndex === -1) {
-        alert(`Unable to find your account in the database`);
-    } else {
-        alert(`${nameDecoded} is at the index of ${logOutUserIndex} in the localStorage DB`);
-    }
+    // if (logOutUserIndex === -1) {
+    //     alert(`Unable to find your account in the database`);
+    // } else {
+    //     alert(`${nameDecoded} is at the index of ${logOutUserIndex} in the localStorage DB`);
+    // }
 
     // Remove the user from the array
     allUsers.splice(logOutUserIndex, 1);
