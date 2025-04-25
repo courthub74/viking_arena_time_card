@@ -13,7 +13,7 @@
     --text-color: #000000;
 
     /* Menu Text */
-    --menu-text-color: #00000080; /* 50% opacity */
+    --menu-text-color: #000000bf; /* 50% opacity */
 
     /* Menu Colors */
     --menu-background: #ffffff;
@@ -21,6 +21,9 @@
     --menu-shadow: rgba(0, 0, 0, 0.1);
 
      /* Input Colors */
+     /* --input-background: #B0CCE2; */
+     /* --input-background: #587790; */
+     /* --input-background: #587790a4; */
      --input-background: #658cab92;
      --input-background: #658cab48;
      --input-background: #5186b148;
@@ -29,28 +32,8 @@
      /* Button Colors */
      --button-background: #009DF8;
      --button-text: white;
-
-     /* Dashboard Button Colors */
-     --dashboard-button-background: #5186b148;
-     --dashboard-button-trim: none;
-
-     /* Account Type Colors */
-     --dashboard-selected: #2065a58a;
-     /* Trim */
-     --dashboard-trim: #000000;
-     /* Hover */
-     --dashboard-hover: #e8e8e8;
-
-     /* Calendar Arrow Buttons */
-     --calendar-arrow: #009DF8;
-     --calendar-arrow: #2065a58a;
-
-     /* Dashboard Logos */
-     --dashboard-logo: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
-
-     /* Calendar Datepicker Logo */
-     --calendar-logo: invert(100%) sepia(0%) saturate(20%) hue-rotate(0deg) brightness(0%) contrast(100%);
-    /* *********************************** */
+     
+     /* *********************************** */
      /* *********************************** */
      /* **********DAY MODE SLIDE IN********** */
 
@@ -67,6 +50,8 @@
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
+
+     /* ________ */
 }
 
 /* DARK MODE */
@@ -86,35 +71,17 @@ body.dark-mode {
     --menu-background: #101010;
     --menu-background: #000000;
     --menu-hover: #0d0d0d;
-    --menu-shadow: rgb(22, 33, 38);
+    --menu-shadow: rgb(18, 27, 31);
 
      /* Input Colors */
      /* --input-background: #101316;
-     --input-background: #1b2025;
-     --input-background: #15191d; */
-     --input-background: #121418;
+     --input-background: #1b2025; */
+     --input-background: #15191d;
+     /* --input-background: #20252c; */
      
      /* Button Colors */
      --button-background: #009DF8;
      --button-text: white;
-
-      /* Dashboard Button Colors */
-      --dashboard-button-background: black;
-      --dashboard-button-background: #15191d;
-      --dashboard-button-trim: #009df88c;
-      --dashboard-button-trim: none;
-
-     /* Account Type Colors */
-      --dashboard-selected: #17426b7c;
-     /* Trim */
-     --dashboard-trim: #009DF8;
-     /* Hover */
-     --dashboard-hover: #17426b;
-
-     /* Dashboard Logo */
-     --dashboard-logo: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-
-     --calendar-logo: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 
      /* ********************************** */
      /* ********************************** */
@@ -130,6 +97,7 @@ body.dark-mode {
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
+    
 }
 
 /* WHOLE BODY */
@@ -174,7 +142,6 @@ body {
     /* box-shadow: 0 2px 5px var(--menu-shadow); */
     position: relative;
     z-index: 1000;
-    /* z-index: 997; */
     padding: 0 3em 0 3em;
     margin-top: 2em;
     margin-top: 40px;
@@ -208,8 +175,8 @@ body {
 /* Menu Button */
 #menu_burgers {
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     background: none;
     border: none;
     cursor: pointer;
@@ -237,7 +204,7 @@ body {
 /* Make the lite mode menu come on in dark mode */
 /* .dark-mode .menu_button #menu_burgers .burger:last-child {
     display: block;
-} */
+}  */
 
 /* When Burger button (or burger class) is active */
 .burger.active {
@@ -294,9 +261,6 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    /* New slide Gap */
-    /* gap: 2em; */
-    /* ************* */
     position: fixed;
     top: 0;
     left: -300px;
@@ -310,7 +274,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     z-index: 999;
     /* Make slide menu cover it all */
     /* z-index: 1000; */
-    /* border-right: 1px solid var(--nav-shadow); */
+    border-right: 1px solid var(--nav-shadow);
 }
 
 .side-menu.active {
@@ -358,11 +322,9 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    /* New Gap */
-    /* gap: 2em; */
-    /* ******* */
     margin-top: 1em;
 }
+
 
 /* *************************** */
 /* *************************** */
@@ -429,6 +391,7 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 
 /* The Profile Text Info */
 .profile_text_data {
+    color: rgb(173, 29, 29);
     opacity: 100%;
 }
 
@@ -463,16 +426,15 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 }
 
 #pin_code_peak img {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.2em;
+    height: 1.2em;
 }
 
 /* Each menu item icon */
 .menu-item img {
     width: 1.5em;
     height: 1.5em;
-    filter: brightness(90%);
-    /* filter: brightness(150%) contrast(180%); */
+    filter: var(--slide-menu-item-icon-filter);
 }
 
 .menu-item:hover {
@@ -528,14 +490,6 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
     margin-top: 1em;
 }
 
-.logout_text a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    color: white;
-}
-
 
 
 /* Just Text */
@@ -582,11 +536,27 @@ body:not(.dark-mode) .day-nite:nth-child(1) {
 /* *************** */
 
 
-/* *************** */
-/* *************** */
-/* *************** */
-/* *************** */
 /* THE FORM */
+
+
+/* The Blue and the Name */
+.page_header_label {
+    display: flex;
+}
+.del_acct_label {
+    color: var(--button-background);
+    font-weight: bold;
+    opacity: 100%;
+    color: rgb(173, 29, 29);;
+}
+
+/* Dashboard for */
+.page_header {
+    display: flex;
+    font-weight: bold;
+    /* width: 100%; */
+    opacity: 70%;
+}
 
 form {
     display: flex;
@@ -601,9 +571,9 @@ form {
 header {
     display: flex;
     flex-direction: column;
-    justify-content: left;
     gap: 2em;
     width: 100%;
+    /* background-color: blue; */
 }
 
 .logo_name {
@@ -611,399 +581,291 @@ header {
     /* flex-direction: column; */
     justify-content: center;
     align-items: center;
+    width: 100%;
     gap: .5em;
+    /* gap: 1em; */
 }
 
 .logo_name p {
     font-size: 2.5rem;
+    /* font-size: 2rem; */
     font-weight: bold;
 }
 
-.hazel_park_logo {
-    width: 3.5em;
-    height: 3.5em;
-}
 
-/* Page Header */
-/* label {
-    opacity: 100%;
-    font-size: medium;
-    font-size: small;
-    font-size: .8rem;
-    display: flex;
-    gap: .5em;
-    width: 100%;
-} */
 
-/* The Dashboard Header */
-.page_header_label {
-    font-size: medium;
-    font-size: small;
-    font-size: .8rem;
-    display: flex;
-    /* gap: .5em; */
-    width: 100%;
-}
+/* Users select Drop */
+/* ***************** */
+/* ***************** */
 
-/* The Blue and the Name */
-.acct_type_label {
-    color: var(--button-background);
-    font-weight: bold;
-    opacity: 100%;
-}
-
-/* Dashboard for */
-.page_header {
-    display: flex;
-    font-weight: bold;
-    /* width: 100%; */
-    opacity: 50%;
-}
-
-/* Radio Button Squares */
-.employee_selects {
-    /* background-color: blue; */
+.users_drop_container,
+.pin_number {
     display: flex;
     flex-direction: column;
-    gap: 2em;
-    /* margin-top: 1em; */
+    width: 100%;
+    max-width: 700px;
+    margin-top: 1em;
+}
+
+.users_drop_container label,
+.pin_number label {
+    margin-bottom: 8px;
+}
+
+.users_drop_container select,
+.pin_field {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    color: var(--text-color);
+    font-family: 'Poppins';
+}
+
+.users_drop_container select,
+.pin_field input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* padding: 10px; */
+    padding: 1em;
+    /* padding: .7em; */
+    /* border: 1px solid #ccc; */
+    border: none;
+    background-color: var(--input-background);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#users_dropdown, #users_dropdown option {
+    font-family: 'Poppins', sans-serif;
+    font-size: small;
+  }
+
+/* Custom dropdown arrow */
+.users_drop_container {
+    position: relative;
+}
+
+.users_drop_container::after {
+    content: '▼';
+    content: '⌄'; 
+    content: '⏷';
+    position: absolute;
+    top: 43%;
+    top: 35%;
+    opacity: 50%;
+    right: 20px;
+    transform: translateY(20%);
+    pointer-events: none;
+    color: #666;
+    /* color: var(--button-background); */
+    /* font-size: .5em; */
+    font-size: 1.3em;
+}
+
+.pin_field {
+    display: flex;
+    gap: 8px;
+}
+
+.pin_field input {
+    flex: 1;
+    text-align: center;
+    max-width: 100px;
+    border: none;
+    height: 50px;
 }
 
 
-/* The Button */
-/* .dashboard_button {
-    margin-right: 8px;
-    position: absolute;
-    width: 0;
-    height: 0;
-} */
 
+/* Pin Number Login */
+/* ***************** */
+/* ***************** */
 
-/* .radio-container label {
+.pin_number {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1em;
-    width: 100%;
-    background-color: var(--dashboard-button-background);
-    border: 1px solid var(--dashboard-button-trim);
-    padding: 3em;
-    height: 8em;
-    color: var(--text-color);
+    flex-direction: column;
+    /* gap: .5em; */
+    /* width: 100%; */
+}
+
+label {
+    opacity: 100%;
+    /* opacity: 50%; */
+    color: var(--menu-text-color);
+
     font-size: small;
-    cursor: pointer;
-    font-family: 'Poppins';
-  } */
+    /* font-size: medium; */
+}
 
-  /* FOR REGULAR BUTTON  */
-  /* ************************** */
-  .radio-container{
+.pin_field {
     display: flex;
-    /* justify-content: center; */
-    justify-content: space-between;
+    /* gap: 1.7em; */
+    gap: 1.1em;
+    gap: .6em;
     width: 100%;
-    background-color: var(--dashboard-button-background);
-    /* background-color: red; */
-    border: 1px solid var(--dashboard-button-trim);
-    padding: 3em;
-    height: 8em;
-    /* padding: 10px; */
+}
+
+.pin_put {
+    flex: 1;
+    background-color: var(--input-background);
+    border: none;
     color: var(--text-color);
-    font-size: medium;
+    text-align: center;
+    width: 4em;
+    height: 4em;
+    outline: none;
+    font-size: 16px;
+    max-height: 100%;
+    -webkit-appearance: none;
+}
+
+/* Pin Buttons Div */
+.pin_buttons {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+    margin-top: .5em;
+}
+
+/* Reset Pins Button */
+.reset_button {
+    background: none;
+    color: var(--menu-text-color);
+    border: none;
+    text-align: left;
+    cursor: pointer;
     font-size: small;
     /* font-weight: bold; */
-    cursor: pointer;
-    font-family: 'Poppins';
-  }
-  
-  .radio-container:hover {
-    background-color: none;
-  }
+}
 
-  /* BUTTON VERSION */
-  .radio-container.clicked {
-    box-sizing: border-box;
-    background-color: var(--dashboard-selected);
-    border: 1px solid var(--dashboard-trim);
+
+
+/* Create Account Links */
+
+.create_acct_div {
+    margin-top: .5em;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+/* Create Account Link */
+.create_acct {
+    text-decoration: none;
     color: var(--text-color);
-    transition: all 0.3s ease;
-  }
+    color: var(--button-background);
+    /* font-weight: bold; */
+    width: 100%;
+    text-align: center;
 
-  /* .dashboard_button:checked + label {
-    box-sizing: border-box;
-    background-color: var(--dashboard-selected);
-    border: 1px solid var(--dashboard-trim);
-    color: var(--text-color);
-    transition: all 0.3s ease;
-  } */
-
-  /* Dashboard Images */
-
-  /* Clock */
-  .dash_hours {
-    width: 20px;
-    height: 20px;
-    /* filter: var(--dashboard-logo); */
-  }
-
-  /* Calendar */
-  .dash_calendar {
-    width: 19px;
-    height: 19px;
-    /* filter: var(--dashboard-logo); */
-  }
-
-
+}
 
 /* Submit Button */
-.submit {
+.delete_acct {
     background-color: var(--button-background);
+    background-color: red;
     color: white;
     border: none;
-    padding: 15px;
-    text-align: center;
+    padding: 12px;
+    /* font-weight: bold; */
     cursor: pointer;
     font-size: medium;
     font-size: small;
     transition: all 0.3s ease;
-    text-decoration: none;
-    /* margin-top: 1em; */
+    margin-top: 2em;
 }
 
 /* No outline on focus */
-.submit:focus {
+.delete_acct:focus {
     outline: none;
 }
 
  /* Submit Disabled */
- .submit:disabled {
+ .delete_acct:disabled {
     background-color: var(--button-background);
+    background-color: red;
     color: var(--text-color);
     opacity: .6;
     cursor: not-allowed;
 }
 
-/* Back to Dashboard */
-.back_to_div {
+/* PINS NOTIFY DIV */
+.pin_match_confirm {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 60%;
-    font-weight: bold;
-    border: none;
-    text-align: center;
-    cursor: pointer;
-    /* background-color: blue; */
-    margin-top: -1.5em;
+    transition: all .3s ease-in;
+    width: 100%;
+    position: relative;
 }
 
-.back_to_div a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-color);
-    font-size: small;
-}
-
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* THE CALENDAR */
-
-.calendarContainer {
-    border: 1px solid var(--button-background);
-}
-
-/* Calendar Header */
-.calendarheader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-    background-color: var(--background-color);
-    border-bottom: 1px solid var(--button-background);
-    color: white;
-    font-weight: bold;
-}
-
-#monthDisplay {
-    font-size: medium;
-    font-size: small;
-    color: var(--text-color);
-    font-weight: bold;
-}
-
-#weekdays {
-    display: flex;
-    width: 100%; /* Stretches across the full width of the parent container */
-  }
-  
-  #weekdays div {
-    flex: 1; /* Makes each day div grow equally to fill the available space */
-    text-align: center; /* Centers the text within each div */
-    padding: 10px 0; /* Optional: adds some vertical padding */
-  }
-
-  /* Pops in when you select a Day */
-  /* #newEventModal {
+/* Match (first-child)*/
+.match_ {
     display: none;
-  } */
-
-  .current_day_div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-    background-color: none;
-    color: var(--text-color);
-    border-radius: 5px;
-    font-size: medium;
-    font-size: small;
-    gap: 2em;
-  }
-
-  .input_divs {
-    display: flex;
-    flex-direction: column;
-    /* gap: 1em; */
-    width: 100%;
-    /* margin-top: 1em; */
-    /* background-color: blue; */
-  }
-
-
-  .form_label {
-    font-size: small;
-    font-size: .7rem;
-    color: var(--text-color);
-    opacity: 60%;
-  }
-
-  /* Success Alert */
-  .success_div {
-    background-color: var(--background-color);
-    /* border: 1px solid var(--button-background); */
-  }
-
-  /* The Times Confirmed */
-  .input_divs {
-    background-color: var(--background-color);
-    background-color: var(--input-background);
-    color: var(--text-color);
-    border: 1px solid var(--button-background);
-    border: none;
-    padding: .8em;
-    width: 100%;
-    font-size: small;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-
-  input:focus{
-    outline: none;
-    border: 1px solid var(--button-background);
-    box-shadow: 0 0 5px var(--button-background);
-  }
-
-  /* For the Date Picker */
-
-  .current_day_datepicker {
-    display: flex;
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    align-items: center;
-    padding: 1em;
-    gap: 3em;
-    /* font-weight: bold; */
-    background-color: #16bc004f;
-    font-size: small;
-    color: rgb(4, 176, 4);
-    color: rgb(182, 206, 170);
-    font-weight: bold;
-  }
-
-  .hours_entered_check {
-    width: 2.5em;
-    height: 2.5em;
-  }
-
-  #current_day {
-    border: none;
-    font-size: small;
-    cursor: pointer;
-    opacity: 55%;
-  }
-
-  .current_day_logo {
-    filter: var(--calendar-logo);
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    opacity: 50%;
-    margin: 6px 1em 0 0;
-  }
-
-  .current_day_logo.dark-mode {
-    filter: var(--calendar-logo);
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    opacity: 50%;
-    margin: 6px 1em 0 0;
+    /* opacity: 0; */
 }
 
-#current_day {
-    background: none;
-}
-
-/* Time Clock */
-
-.time-picker {
-    display: inline-block;
-    background-color: var(--input-background);
-    color: var(--text-color);
-    border: 1px solid var(--button-background);
-    border: none;
-    padding: 1em;
+.match_.entered {
+    opacity: 1;
+    /* position: absolute; */
     display: flex;
-    gap: .5em;
-    width: 100%;
-    /* font-size: medium; */
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-/* Time picker select */
-.time-picker select {
     /* display: inline-block; */
-    /* padding: 1em; */
-    background-color: var(--input-background);
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-family: 'Poppins';
-    opacity: 60%;
-    font-weight: bold;
-    font-size: .9rem;
-    /* padding: 0 .5em 0 .5em; */
+    justify-content: center;
+    align-items: center;
+    color: var(--pins-match);
+    color: green;
+    /* background-color: var(--match-background); */
+    font-size: medium;
+    width: 100%;
+    transition: all 0.3s ease;
 }
 
-.time-picker span {
+/* No Match (last-child) */
+.no_match {
+    display: none;
+    /* opacity: 0; */
+}
+
+.no_match.entered {
+    opacity: 1;
+    /* position: relative; */
+    /* display: inline-block; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--pins-no-match);
+    color: red;
+    /* margin-top: -1em; */
+    background-color: var(--match-background);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-size: medium;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.match_, .no_match {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+
+  .pin_match {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+footer {
+    font-size: x-small;
     opacity: 50%;
+    /* width: 100%; */
 }
-
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-/* ********************************* */
-
+  
 
 /* For wider screens narrow the form */
 
@@ -1011,22 +873,75 @@ header {
 @media screen and (min-width: 700px) {
     form {
         width: 50%;
-        /* display: flex;
-        flex-direction: column;
-        gap: 1em; */
+        gap: 1em;
     }
 }
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
-
-    /* Desktop Form */
-    form {
+    /* form {
         width: 30%;
         display: flex;
         flex-direction: column;
-        gap: 2em;
+        gap: 3em;
         margin-top: 1em;
+    } */
+
+    .burger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .day-nite {
+        width: 40px;
+        height: 40px;
+    }
+
+    .menu-item {
+        font-size: x-large;
+    }
+
+    /* Logo a bit bigger */
+    .logo_name p {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .hazel_park_logo {
+        width: 5em;
+        height: 5em;
+    }
+
+    /* Slide Menu */
+
+    /* slider logo */
+    .slide_header_logo img {
+        width: 3em;
+        height: 3em;
+    }
+
+    /* slider logo text */
+    .slide_in_logo_text {
+        font-size: x-large;
+    }
+
+    /* slider selections */
+    .menu-item {
+        font-size: medium;
+    }
+
+    /* Delete Button */
+    .delete_account_div {
+        margin-top: 2em;
+    }
+
+    /* form */
+    form {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+        margin-top: 5em;
     }
 
     .burger {
@@ -1040,18 +955,26 @@ header {
     }
 
     .menu-item {
-        font-size: medium;
+        font-size: small;
     }
 
-    .profile_header .profile_text {
-        font-size: medium;
+    /* Header with more gap */
+    .logo_name {
+        display: flex;
+        justify-content: center;
+        /* justify-content: center; */
+        align-items: center;
+        width: 100%;
+        gap: .5em;
+        /* gap: 2.5em;   */
     }
 
-   /* Logo a bit bigger */
-   .logo_name p {
+    /* Logo a bit bigger */
+    .logo_name p {
         font-size: 3rem;
+        font-size: medium;
         font-weight: bold;
-   }
+    }
 
     .hazel_park_logo {
         width: 5em;
@@ -1063,33 +986,20 @@ header {
         font-size: medium;
     }
 
-    .radio-container label {
-        padding: 4em;
-        padding: 2em;
-        width: 100%;
+    /* Submit Button */
+    
+    footer {
+        font-size: small;
+    }
+
+    .or, .create_acct {
         font-size: medium;
     }
+} 
 
-    /* Employee Selects Buttons */
-    .employee_selects {
-        margin-top: 2em;
-    }
 
-    /* Clock */
-    .dash_hours {
-        width: 20px;
-        height: 20px;
-        filter: var(--dashboard-logo);
-    }
-
-    /* Calendar */
-    .dash_calendar {
-        width: 20px;
-        height: 20px;
-        filter: var(--dashboard-logo);
-    }
-
-    .submit {
-        margin-top: 1em;
+@media screen and (min-width: 1600px) {
+    form {
+        width: 20%;
     }
 }

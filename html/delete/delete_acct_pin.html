@@ -6,13 +6,13 @@
     <title>Viking Time Card</title>
 
       <!-- CSS -->
-      <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
-      <link rel="stylesheet" href="../../css/manager_dash.css">
+      <link rel="stylesheet" href="../../css/delete_acct_pin.css">
 </head>
 <body>
 
     <!-- Container -->
     <div class="container">
+
 
         <!-- --------------COPY HERE TO THE OTHER LINE FIELD--------------- -->
         <!-- -------------------------------------------------------------- -->
@@ -21,6 +21,7 @@
         <!-- -------------------------------------------------------------- -->
         <!-- -------------------------------------------------------------- -->
 
+        
 
         <!-- THE NAVBAR AND SIDE MENU-->
         <nav class="main_nav">
@@ -51,9 +52,11 @@
              <!-- Menu Items -->
              <div class="menu_items">
                 <a href="#" class="menu-item"><span>Tech Support</span><img src="../../img/slide-in-menu/tech_support.png" alt="tech_support"></a>
-                <!-- <a href="#" class="menu-item"><span>Messaging</span><img src="../../img/slide-in-menu/messaging.png" alt="messaging"></a> -->
+                <a href="#" class="menu-item"><span>Messaging</span><img src="../../img/slide-in-menu/messaging.png" alt="messaging"></a>
+                <!-- <a href="#" class="menu-item"><span>Schedule Requests</span></a> -->
                 <button id="theme_switch" class="menu-item"><span>Day/Nite Mode</span><img src="../../img/slide-in-menu/day_nite.png" alt="theme_switch"></button>
              </div>
+            <!-- Logged in Profile -->
             <!-- Logged in Profile -->
             <div class="profile">
                 <div class="profile_header">
@@ -77,9 +80,9 @@
                   <!-- This you will turn into a password output -->
                  <div class="profile_info">
                     <div class="pin_and_peak">
-                        <button class="delete_account_button" id="delete_acct_slide">
+                        <!-- <button class="delete_account_button" id="delete_account">
                             <p class="delete_text">Delete Account</p>
-                        </button>
+                        </button> -->
                         <!-- Pin Number -->
                         <!-- <div class="pin_profile_div">
                             <label>Pin #:</label>
@@ -97,7 +100,10 @@
             </div>
              <!-- Delete Button -->
              <div class="delete_account_div">
-                <button class="logout_account_button" id="logout_manager" onclick="logoutUser()">
+                <!-- This button needs to delete the session storage -->
+                 <!-- and redirect to the index page -->
+                  <!-- Give the button an onclick to do this -->
+                <button class="logout_account_button" id="logout_employee" onclick="logoutUser()">
                     <img src="../../img/logout/white_logout.png" class="logout_logo">
                     <p class="logout_text">
                         <!-- <a href="../../index.html">Log Out</a> -->
@@ -105,6 +111,7 @@
                     </p>
                 </button>
              </div> 
+           
         </div>
 
         <!-- Overlay -->
@@ -131,68 +138,57 @@
 
         <!-- THE FORM -->
         <form>
-           
-             <!-- Page Header -->
-             <label class="page_header_label" for="manager_name">
-                <span class="acct_type_label" id="manager_name"></span>
-                <span class="page_header">&nbsp;|&nbsp;Dashboard</span>
+
+            <!-- Page Header -->
+            <label class="page_header_label" for="employee_name">
+                <span class="del_acct_label" id="employee_name"></span>
+                <span class="page_header">&nbsp;|&nbsp;Delete Account</span>
             </label>
 
-            <!-- The Radio Buttons -->
-             <div class="employee_selects">
+            <!-- <label class="delete_account">First enter your pin#</label> -->
 
-                    <!-- Button One -->
-                    <button class="radio-container" id="get_hours">
-                        <p class="dashboard_button">Get Employee Hours</p>
-                        <img src="../../img/dashboard_logos/blue_hours.png" class="dash_hours" alt="hours">
-                    </button>
+            <!-- Pin # -->
+            <div class="pin_number">
+                <label for="pin_num">Enter pin# to delete account:</label>
+                    <div class="pin_field" id="login_pin_field">
+                        <input type="password" class="pin_put" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                        <input type="password" class="pin_put" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                        <input type="password" class="pin_put" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                        <input type="password" class="pin_put" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                    </div>
 
-                    <!-- Button Two -->
-                    <button class="radio-container" id="weeks_schedule">
-                        <p class="dashboard_button">Make Weeks Schedule</p>
-                        <img src="../../img/dashboard_logos/blue_calendar.png" class="dash_hours" alt="schedule">
-                    </button>
-
-                    <!-- Button Three -->
-                    <button class="radio-container" id="manager_messaging">
-                        <p class="dashboard_button">Staff Messaging</p>
-                        <img src="../../img/dashboard_logos/blue_messaging.png" class="dash_hours" alt="message">
-                    </button>
-                 
-             </div>
-
+                    <!-- Pin Handling Buttons -->
+                    <div class="pin_buttons" id="pin_buttons">
+                        <!-- Reset Pins Button -->
+                        <button class="reset_button" id="reset_button">Clear Pin fields</button>
+                        <!-- Forgot Pin Button -->
+                        <button class="reset_button" id="forgot_button">Forgot Pin?</button>
+                    </div>
+            </div>
 
             <!-- Submit Button -->
-
-            <!-- This is where Authorization comes into play -->
-            <!-- If Manager Account / Button should say (Go to Employee hours) -->
-            <!-- If Employee Account / Button should say (Go to your Calendar) -->
-            <!-- <button class="submit" id="dashboard_advance" disabled>Next</button> -->
-
+            <button class="delete_acct" id="delete_acct" disabled>Delete Account</button>
         </form>
+
     </div>
 
     <!-- DARKMODE -->
-    <!-- <script src="/viking_arena_time_card/js/darkmode.js"></script> -->
     <script src="../../js/darkmode.js"></script>
 
     <!-- SLIDE IN -->
-    <!-- <script src="/viking_arena_time_card/js/slide-in.js"></script> -->
     <script src="../../js/slide-in.js"></script>
 
-    <!-- MANAGER -->
-    <script src="../../js/data/manager.js"></script>
+    <!-- LOGIN -->
+    <!-- <script src="../../js/data/login.js"></script> -->
+
+    <!-- EMPLOYEE -->
+    <script src="../../js/data/employee.js"></script>
 
     <!-- DELETE ACCOUNT -->
     <script src="../../js/database/delete_acct.js"></script>
 
-    <!-- DASHBOARD -->
-    <script src="../../js/dashboard/manager_buttons.js"></script>
-
-   <!-- LOGOUT -->
+    <!-- LOGOUT -->
    <script src="../../js/database/logout.js"></script>
-
-   <!-- CALENDAR -->
-    <script src="../../js/calendar/manager_calendar.js"></script>
+    
 </body>
 </html>

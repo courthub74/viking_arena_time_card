@@ -49,13 +49,13 @@ for 'Remember Me' functionality
 
 \*~Store Account Information for testing (with LocalStorage)~
 
-\*Store Account Information (with SQLite database)
-
 \*~Add Names registered to Name dropdown at login~
 
-\*Profile on slide menu reads profile from the database after login
+\*~Profile on slide menu reads profile from the database after login~
 
-\*Add delete profile feature
+\*~Add delete profile feature~
+
+\*Migrate Account Information (to Mongo DB database)
 
 ## Calendar
 
@@ -79,9 +79,9 @@ for 'Remember Me' functionality
 
 ## Authentication
 
-\*Create Login functionality
+\*~Create Login functionality~
 
-\*Create Logout functionality
+\*~Create Logout functionality~
 
 ## Authorization
 
