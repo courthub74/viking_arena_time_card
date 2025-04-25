@@ -79,9 +79,9 @@ for 'Remember Me' functionality
 
 ## Authentication
 
-\*Create Login functionality
+\*~Create Login functionality~
 
-\*Create Logout functionality
+\*~Create Logout functionality~
 
 ## Authorization
 
