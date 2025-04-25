@@ -1,12 +1,12 @@
 # Time Card Application
 
-## Main Branch Coded in HTML/CSS only
+## Layout CSS
 
-\*~Use Local Storage to keep the screen mode consistant accross all pages~
+\*~Mobile Layout~
 
-\*~Landscape Layout~
+\*Desktop Layout
 
-\*Add interactive Calendar
+\*Landscape Layout
 
 ### Main Login Page
 
