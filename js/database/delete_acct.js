@@ -103,7 +103,7 @@ pinField.forEach((input, key) => {
                         clear_pins_del_page.style.color = isDarkMode ? "#ffffff" : "#000000";
                         clear_pins_del_page.transition = "color 0.5s ease-in-out";
                         // Set opacity based on theme
-                        clear_pins_del_page.style.opacity = isDarkMode ? "55%" : "70%";
+                        clear_pins_del_page.style.opacity = isDarkMode ? "45%" : "70%";
                         // Make the forgot pin button reappear
                         forgotPinDelete.style.opacity = "100%";
 
@@ -146,7 +146,7 @@ pinField.forEach((input, key) => {
                         const isDarkMode = document.body.classList.contains('dark-mode');
                         clear_pins_del_page.style.color = isDarkMode ? "#ffffff" : "#000000";
                         clear_pins_del_page.style.transition = "color 0.5s ease-in-out";
-                        clear_pins_del_page.style.opacity = isDarkMode ? "55%" : "70%"
+                        clear_pins_del_page.style.opacity = isDarkMode ? "50%" : "70%"
                         // Reset opacity based on theme
                         // forgotPinDelete.style.opacity = isDarkMode ? "55%" : "70%";
                         forgotPinDelete.style.opacity = "100%";
