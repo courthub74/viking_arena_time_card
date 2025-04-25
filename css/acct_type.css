@@ -664,6 +664,24 @@ label {
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
+
+      /* Main Nav */
+      .burger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .viking_img {
+        /* make bigger */
+        width: 3em;
+        height: 3em;
+    }
+
+    .logo_text {
+        font-size: 2rem;
+    }
+
+    /* Form */
     form {
         width: 30%;
         display: flex;

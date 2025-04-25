@@ -896,6 +896,22 @@ header {
 /* Desktop */
 @media screen and (min-width: 1200px) {
 
+     /* Main Nav */
+     .burger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .viking_img {
+        /* make bigger */
+        width: 3em;
+        height: 3em;
+    }
+
+    .logo_text {
+        font-size: 2rem;
+    }
+
     /* Desktop Form */
     form {
         width: 30%;
@@ -939,13 +955,16 @@ header {
         font-size: medium;
     }
 
-    .radio-container label {
+    /* .radio-container label {
         padding: 4em;
         padding: 2em;
         width: 100%;
         font-size: medium;
-    }
+    } */
 
+    .page_header_label {
+        font-size: medium;
+    }
     /* Employee Selects Buttons */
     .employee_selects {
         margin-top: 2em;

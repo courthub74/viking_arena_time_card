@@ -801,6 +801,22 @@ header {
 /* Desktop */
 @media screen and (min-width: 1200px) {
 
+    /* Main Nav */
+    .burger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .viking_img {
+        /* make bigger */
+        width: 3em;
+        height: 3em;
+    }
+
+    .logo_text {
+        font-size: 2rem;
+    }
+
     /* Desktop Form */
     form {
         width: 30%;
@@ -828,15 +844,8 @@ header {
         font-size: medium;
     }
 
-   /* Logo a bit bigger */
-   .logo_name p {
-        font-size: 3rem;
-        font-weight: bold;
-   }
-
-    .hazel_park_logo {
-        width: 5em;
-        height: 5em;
+    .page_header_label {
+        font-size: medium;
     }
 
     /* Form Elements */
@@ -844,10 +853,7 @@ header {
         font-size: medium;
     }
 
-    .radio-container label {
-        padding: 4em;
-        padding: 2em;
-        width: 100%;
+    .dashboard_button {
         font-size: medium;
     }
 
@@ -860,7 +866,7 @@ header {
     .dash_hours {
         width: 20px;
         height: 20px;
-        filter: var(--dashboard-logo);
+        /* filter: var(--dashboard-logo); */
     }
 
     /* Calendar */

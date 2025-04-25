@@ -787,8 +787,25 @@ header {
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
+
+     /* Main Nav */
+     .burger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .viking_img {
+        /* make bigger */
+        width: 3em;
+        height: 3em;
+    }
+
+    .logo_text {
+        font-size: 2rem;
+    }
+
     form {
-        width: 25%;
+        width: 30%;
         display: flex;
         flex-direction: column;
         gap: 2em;
@@ -809,14 +826,18 @@ header {
         font-size: x-large;
     }
 
-   /* Logo a bit bigger */
-   .logo_name p {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
+    .page_header_label {
+        font-size: medium;
+    }
 
-    .hazel_park_logo {
-        width: 6em;
-        height: 6em;
+    .dashboard_button {
+        font-size: medium;
+    }
+
+    .employee_selects {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        margin-top: 2em;
     }
 }

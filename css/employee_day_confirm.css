@@ -1020,6 +1020,22 @@ header {
 /* Desktop */
 @media screen and (min-width: 1200px) {
 
+    /* Main Nav */
+    .burger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .viking_img {
+        /* make bigger */
+        width: 3em;
+        height: 3em;
+    }
+
+    .logo_text {
+        font-size: 2rem;
+    }
+
     /* Desktop Form */
     form {
         width: 30%;
@@ -1044,6 +1060,10 @@ header {
     }
 
     .profile_header .profile_text {
+        font-size: medium;
+    }
+
+    .page_header_label {
         font-size: medium;
     }
 
@@ -1089,7 +1109,18 @@ header {
         filter: var(--dashboard-logo);
     }
 
+    .current_day_datepicker {
+        display: flex;
+        gap: 6.5em;
+        /* justify-content: center; */
+        align-items: center;
+    }
+
     .submit {
+        margin-top: 1em;
+    }
+
+    .back_to_div {
         margin-top: 1em;
     }
 }
