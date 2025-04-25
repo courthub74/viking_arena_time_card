@@ -103,7 +103,7 @@ pinField.forEach((input, key) => {
                         clear_pins_del_page.style.color = isDarkMode ? "#ffffff" : "#000000";
                         clear_pins_del_page.transition = "color 0.5s ease-in-out";
                         // Set opacity based on theme
-                        clear_pins_del_page.style.opacity = isDarkMode ? "50%" : "70%";
+                        clear_pins_del_page.style.opacity = isDarkMode ? "55%" : "70%";
                         // Make the forgot pin button reappear
                         forgotPinDelete.style.opacity = "100%";
 
@@ -130,6 +130,16 @@ pinField.forEach((input, key) => {
                     // first query it
                     const forgotPinDelete = document.getElementById('forgot_button');
                     forgotPinDelete.style.opacity = "0%";
+                    // change the pinfield to red
+                    pinField.forEach(pin => {
+                        // Test Print 
+                        console.log("Entering Pins");
+                        // check if its darkmode
+                        const isDarkMode = document.body.classList.contains('dark-mode');
+                        // Set the color based on the mode
+                        pin.style.color = isDarkMode ? "#BC0000" : "#BC0000";
+                        pin.style.transition = "color 0.5s ease-in-out";
+                    });
                     // Time Out for it to return to original state
                     setTimeout(() => {
                         clear_pins_del_page.innerHTML = "Clear Pin fields";
@@ -138,7 +148,8 @@ pinField.forEach((input, key) => {
                         clear_pins_del_page.style.transition = "color 0.5s ease-in-out";
                         clear_pins_del_page.style.opacity = isDarkMode ? "55%" : "70%"
                         // Reset opacity based on theme
-                        forgotPinDelete.style.opacity = isDarkMode ? "55%" : "70%";
+                        // forgotPinDelete.style.opacity = isDarkMode ? "55%" : "70%";
+                        forgotPinDelete.style.opacity = "100%";
                         // Reset the pin fields
                         pinField.forEach(pin => {
                             pin.value = '';
