@@ -601,7 +601,7 @@ input {
 ::placeholder {
     color: var(--text-color);
     opacity: 45%;
-    font-size: small;
+    font-size: smaller;
 }
 
 /* Submit Button */

@@ -921,6 +921,8 @@ header {
     background-color: #16bc004f;
     font-size: small;
     color: rgb(4, 176, 4);
+    color: rgb(182, 206, 170);
+    font-weight: bold;
   }
 
   .hours_entered_check {
