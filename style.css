@@ -946,6 +946,8 @@ footer {
     
     footer {
         font-size: small;
+        opacity: 30%;
+        margin-top: 2em;
     }
 
     .or, .create_acct {

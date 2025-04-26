@@ -807,6 +807,22 @@ header {
 /* Desktop */
 @media screen and (min-width: 1200px) {
 
+    /* Main Nav */
+    .burger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .viking_img {
+        /* make bigger */
+        width: 3em;
+        height: 3em;
+    }
+
+    .logo_text {
+        font-size: 2rem;
+    }
+
     /* Desktop Form */
     form {
         width: 30%;
@@ -814,6 +830,19 @@ header {
         flex-direction: column;
         gap: 2em;
         margin-top: 1em;
+    }
+
+    /* Employee Hours Button Div */
+    .employee_hours_buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        margin-top: 1em;
+    }
+
+    /* Employee Hours Button */
+    .employee_hours_btn {
+        padding: 1.5em;
     }
 
     .burger {
@@ -834,26 +863,13 @@ header {
         font-size: medium;
     }
 
-   /* Logo a bit bigger */
-   .logo_name p {
-        font-size: 3rem;
-        font-weight: bold;
-   }
-
-    .hazel_park_logo {
-        width: 5em;
-        height: 5em;
-    }
 
     /* Form Elements */
     label {
         font-size: medium;
     }
 
-    .radio-container label {
-        padding: 4em;
-        padding: 2em;
-        width: 100%;
+    .page_header_label {
         font-size: medium;
     }
 
@@ -878,5 +894,9 @@ header {
 
     .submit {
         margin-top: 1em;
+    }
+
+    .link_back {
+        font-size: medium;
     }
 }
