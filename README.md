@@ -103,4 +103,4 @@ for 'Remember Me' functionality
 
 \*Emplemented architecture thinking methodology
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/t/courthub74/hazel_park_time_card?style=flat&logo=GitHub)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/courthub74/viking_arena_time_card?style=flat&logo=GitHub)
