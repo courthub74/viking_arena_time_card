@@ -4,7 +4,7 @@
 
 \*~Mobile Layout~
 
-\*Desktop Layout
+\*~Desktop Layout~
 
 \*Landscape Layout
 
@@ -53,9 +53,13 @@ for 'Remember Me' functionality
 
 \*~Profile on slide menu reads profile from the database after login~
 
+\*Migrate Account Information (to Mongo DB database)
+
+## Accounts
+
 \*~Add delete profile feature~
 
-\*Migrate Account Information (to Mongo DB database)
+\*Add confirmation button for deleting profile
 
 ## Calendar
 
