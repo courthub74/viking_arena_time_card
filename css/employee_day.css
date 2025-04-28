@@ -971,20 +971,18 @@ header {
 
 /* Time picker select */
 .time-picker select {
-    /* display: inline-block; */
-    /* padding: 1em; */
+    background: none;
     background-color: var(--input-background);
-    /* background: none; */
-    background-color: rgb(19, 21, 21);
     border: none;
     color: var(--text-color);
-    /* color: black; */
     font-family: 'Poppins';
     opacity: 60%;
     font-weight: bold;
     font-size: 1rem;
-    /* padding: 0 .5em 0 .5em; */
 }
+
+/* Time picker select on focus */
+
 
 .time-picker span {
     opacity: 50%;

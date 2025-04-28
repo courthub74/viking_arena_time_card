@@ -860,6 +860,15 @@ label {
     height: 1.5em;
   }
 
+/* Back to Dashboard Button */
+.back_to_dashboard {
+    background: none;
+    color: var(--text-color);
+    border: none;
+    opacity: 50%;
+    font-weight: bold;
+}
+
 footer {
     font-size: x-small;
     opacity: 50%;
