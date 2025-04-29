@@ -64,6 +64,9 @@
      /* Slide Menu Icons */
      --slide-menu-item-icon-filter: brightness(90%) contrast(100%);
      
+     /* Successful Entry Notify */
+     --successfull-entry: #16bc004f;
+
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -126,6 +129,9 @@ body.dark-mode {
      --slide-menu-item-background: #15191d;
      --slide-menu-item-trim: #2065a578;
      --slide-menu-item-trim: #3d4a5653;
+
+      /* Successful Entry Notify */
+      --successfull-entry: #16bc004f;
      
      /* *********************************** */
      /* *********************************** */
@@ -912,17 +918,15 @@ header {
 
   .current_day_datepicker {
     display: flex;
-    /* flex-direction: column; */
-    /* justify-content: center; */
     align-items: center;
     padding: 1em;
     gap: 3em;
-    /* font-weight: bold; */
     background-color: #16bc004f;
+    background-color: var(--successfull-entry);
     font-size: small;
-    color: rgb(4, 176, 4);
     color: rgb(182, 206, 170);
     font-weight: bold;
+    border: 1px solid green;
   }
 
   .hours_entered_check {
