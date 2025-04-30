@@ -1102,6 +1102,10 @@ header {
         color: var(--text-color);
     }
 
+    .current_day_datepicker #current_day {
+        font-size: medium;
+    }
+
     /* Clock */
     .dash_hours {
         width: 20px;

@@ -1,4 +1,4 @@
-console.log("calendar.js loaded");
+console.log("employee calendar.js loaded");
 
 // Retrieve the current user from session storage
 var currentUser = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
