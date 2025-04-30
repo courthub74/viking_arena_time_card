@@ -1107,5 +1107,11 @@ header {
 
     .submit {
         margin-top: 1em;
+        font-size: medium;
+    }
+
+    .back_to_div a {
+        margin-top: 1em;
+        font-size: medium;
     }
 }

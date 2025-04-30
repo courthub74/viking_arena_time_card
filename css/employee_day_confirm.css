@@ -904,6 +904,7 @@ header {
     padding: .8em;
     width: 100%;
     font-size: small;
+    /* font-size: medium; */
     border-radius: 5px;
     transition: all 0.3s ease;
   }
@@ -921,9 +922,11 @@ header {
     align-items: center;
     padding: 1em;
     gap: 3em;
+    /* Make BELOW a CSS variable */
     background-color: #16bc004f;
     background-color: var(--successfull-entry);
     font-size: small;
+    /* Make BELOW a CSS variable */
     color: rgb(182, 206, 170);
     font-weight: bold;
     border: 1px solid green;
@@ -1120,11 +1123,19 @@ header {
         align-items: center;
     }
 
-    .submit {
-        margin-top: 1em;
+    /* Confirms Bigger */
+    .input_divs {
+        font-size: medium;
     }
 
-    .back_to_div {
+
+    .submit {
         margin-top: 1em;
+        font-size: medium;
+    }
+
+    .back_to_div a {
+        margin-top: 2em;
+        font-size: medium;
     }
 }
