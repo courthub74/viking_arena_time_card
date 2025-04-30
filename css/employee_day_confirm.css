@@ -50,9 +50,13 @@
 
      /* Calendar Datepicker Logo */
      --calendar-logo: invert(100%) sepia(0%) saturate(20%) hue-rotate(0deg) brightness(0%) contrast(100%);
+
+     /* The Success Square */
+     --success-square: #16bc004f;
+
     /* *********************************** */
      /* *********************************** */
-     /* **********DAY MODE SLIDE IN********** */
+     /* **********DAY MODE SLIDE IN******** */
 
      /* Menu Item Colors */
      --slide-menu-item-background: #5186b148;
@@ -65,7 +69,10 @@
      --slide-menu-item-icon-filter: brightness(90%) contrast(100%);
      
      /* Successful Entry Notify */
-     --successfull-entry: #16bc004f;
+     --successfull-entry: #18630fe5;
+     --successfull-entry-trim: rgb(14, 28, 14);
+     --successfull-entry-trim: #2065a578;
+     --successfull-entry-text: rgba(5, 5, 5, 0.724);
 
      /* *********************************** */
      /* *********************************** */
@@ -132,6 +139,9 @@ body.dark-mode {
 
       /* Successful Entry Notify */
       --successfull-entry: #16bc004f;
+      --successfull-entry-trim: green;
+      --successfull-entry-trim: #009df88c;
+      --successfull-entry-text: rgba(255, 255, 255, 0.737);
      
      /* *********************************** */
      /* *********************************** */
@@ -773,7 +783,7 @@ header {
     font-size: small;
     transition: all 0.3s ease;
     text-decoration: none;
-    /* margin-top: 1em; */
+    margin-top: -1.5em;
 }
 
 /* No outline on focus */
@@ -868,7 +878,7 @@ header {
     border-radius: 5px;
     font-size: medium;
     font-size: small;
-    gap: 2em;
+    gap: 1.5em;
   }
 
   .input_divs {
@@ -891,6 +901,7 @@ header {
   /* Success Alert */
   .success_div {
     background-color: var(--background-color);
+    margin-top: -1.5em;
     /* border: 1px solid var(--button-background); */
   }
 
@@ -919,22 +930,28 @@ header {
 
   .current_day_datepicker {
     display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 1em;
-    gap: 3em;
+    /* gap: 3em; */
+    /* Gap Smaller */
+    gap: 1em;
     /* Make BELOW a CSS variable */
-    background-color: #16bc004f;
     background-color: var(--successfull-entry);
-    font-size: small;
+    background-color: var(--background-color);
+    font-size: .7rem;
     /* Make BELOW a CSS variable */
-    color: rgb(182, 206, 170);
+    color: var(--successfull-entry-text);
     font-weight: bold;
-    border: 1px solid green;
+    border: 1px solid var(--successfull-entry-trim);
   }
 
   .hours_entered_check {
     width: 2.5em;
     height: 2.5em;
+    /* Make Bigger */
+    width: 3.5em;
+    height: 3.5em;
   }
 
   #current_day {
@@ -1116,16 +1133,33 @@ header {
         filter: var(--dashboard-logo);
     }
 
+    /* Success Div */
+    .success_div {
+        margin-top: .5em;
+    }
+
     .current_day_datepicker {
         display: flex;
-        gap: 6.5em;
-        /* justify-content: center; */
+        /* gap: 6.5em; */
+        /* Gap Smaller */
+        gap: 1em;
+        font-size: .8rem;
         align-items: center;
+        margin-bottom: 1em;
     }
+
+    .hours_entered_check {
+        width: 2.5em;
+        height: 2.5em;
+        /* Make Bigger */
+        width: 4em;
+        height: 4em;
+      }
 
     /* Confirms Bigger */
     .input_divs {
         font-size: medium;
+
     }
 
 

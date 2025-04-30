@@ -50,6 +50,8 @@
 
      /* Calendar Datepicker Logo */
      --calendar-logo: invert(100%) sepia(0%) saturate(20%) hue-rotate(0deg) brightness(0%) contrast(100%);
+
+
     /* *********************************** */
      /* *********************************** */
      /* **********DAY MODE SLIDE IN********** */
@@ -753,7 +755,6 @@ header {
   }
 
 
-
 /* Submit Button */
 .submit {
     background-color: var(--button-background);
@@ -982,7 +983,10 @@ header {
 }
 
 /* Time picker select on focus */
-
+.time-picker select:focus {
+    background-color: var(--input-background);
+    color: var(--text-color);
+}
 
 .time-picker span {
     opacity: 50%;
@@ -1086,9 +1090,16 @@ header {
         font-size: medium;
     }
 
+    /* Style the dropdown background */
+
     /* Employee Selects Buttons */
     .employee_selects {
         margin-top: 2em;
+    }
+
+    select:focus {
+        background-color: var(--input-background);
+        color: var(--text-color);
     }
 
     /* Clock */
