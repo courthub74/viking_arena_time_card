@@ -633,16 +633,21 @@ header {
     height: 3.5em;
 }
 
-/* Page Header */
-/* label {
-    opacity: 100%;
-    font-size: medium;
+.employee_hours_list {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 100%;
+    /* margin-top: 1em; */
+}
+
+.instructions {
     font-size: small;
     font-size: .8rem;
-    display: flex;
-    gap: .5em;
-    width: 100%;
-} */
+    color: var(--text-color);
+    opacity: 55%;
+    /* margin-top: -1em; */
+}
 
 /* The Dashboard Header */
 .page_header_label {
@@ -832,12 +837,28 @@ header {
         margin-top: 1em;
     }
 
+    .employee_hours_list {
+        display: flex;
+        flex-direction: column;
+        /* gap: 2em; */
+        width: 100%;
+        margin-top: 1em;
+    }
+    
+    .instructions {
+        font-size: small;
+        font-size: .8rem;
+        color: var(--text-color);
+        opacity: 55%;
+        /* margin-top: -1em; */
+    }
+
     /* Employee Hours Button Div */
     .employee_hours_buttons {
         display: flex;
         flex-direction: column;
         gap: 1.5em;
-        margin-top: 1em;
+        /* margin-top: 1em; */
     }
 
     /* Employee Hours Button */
