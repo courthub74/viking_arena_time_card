@@ -811,6 +811,7 @@ header {
     color: var(--text-color);
     font-size: small;
     opacity: 50%;
+    cursor: pointer;
 }
 
 /* ********************************* */
