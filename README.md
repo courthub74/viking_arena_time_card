@@ -69,6 +69,10 @@ for 'Remember Me' functionality
 
 \*Add a calendar for hour entry
 
+\*NOTE: for calendar - have all entries on the same calendar just filter out by account name manager will see all accounts hours when clicking the view employee calendar
+
+\*Each employee hours button will lead to a list of hours for the week for that employee
+
 ## Messaging
 
 \*Add direct messaging between all users

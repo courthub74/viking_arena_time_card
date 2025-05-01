@@ -13,7 +13,7 @@ console.log(manager_hours);
 const manager_schedule = document.querySelector("#weeks_schedule");
 
 //GET MESSAGES
-const manager_messaging = document.querySelector("#manager_messaging");
+const employee_calendar = document.querySelector("#employee_calendar");
 
 // Now we will add the event listeners to the buttons
 // MANAGER //
@@ -40,14 +40,14 @@ manager_schedule.addEventListener("click", function(e) {
     }, 1000);
 });
 
-manager_messaging.addEventListener("click", function(e) {
+employee_calendar.addEventListener("click", function(e) {
     e.preventDefault(); // Prevent the default action of the button
-    manager_messaging.classList.add("clicked");
+    employee_calendar.classList.add("clicked");
     setTimeout(() => {
         manager_messaging.classList.remove("clicked");
     }, 1000);
     setTimeout(() => {
-        window.location.href = "../../manager_messaging.html";
+        window.location.href = "../../html/calendar/monthly_calendar.html"
     }, 1000);
 });
 

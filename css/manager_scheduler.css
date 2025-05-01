@@ -849,7 +849,7 @@ header {
         font-size: small;
         font-size: .8rem;
         color: var(--text-color);
-        opacity: 55%;
+        opacity: 50%;
         /* margin-top: -1em; */
     }
 
