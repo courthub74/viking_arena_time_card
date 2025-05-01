@@ -4,13 +4,12 @@
 //HOURS
 const employee_hours = document.querySelector("#employee_hours");
 
-console.log(employee_hours);
+//CALENDAR
+const employee_calendar = document.querySelector("#employee_calendar");
 
 //SCHEDULE
 const employee_schedule = document.querySelector("#schedule_requests");
 
-//MESSAGING
-const employee_messaging = document.querySelector("#employee_messaging");
 
 
 // Now we will add the event listeners to the buttons
@@ -28,6 +27,18 @@ employee_hours.addEventListener("click", function(e) {
     }, 500);
 });
 
+employee_calendar.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent the default action of the button
+    employee_calendar.classList.add("clicked");
+    setTimeout(() => {
+        employee_calendar.classList.remove("clicked");
+    }, 2000);
+    setTimeout(() => {
+        window.location.href = "./employee_calendar.html";
+         window.location.href = "../../html/calendar/monthly_calendar.html"
+    }, 500);
+});
+
 employee_schedule.addEventListener("click", function(e) {
     e.preventDefault(); // Prevent the default action of the button
     employee_schedule.classList.add("clicked");
@@ -39,14 +50,4 @@ employee_schedule.addEventListener("click", function(e) {
     }, 500);
 });
 
-employee_messaging.addEventListener("click", function(e) {
-    e.preventDefault(); // Prevent the default action of the button
-    employee_messaging.classList.add("clicked");
-    setTimeout(() => {
-        employee_messaging.classList.remove("clicked");
-    }, 2000);
-    setTimeout(() => {
-        window.location.href = "./employee_messaging.html";
-    }, 500);
-});
 
