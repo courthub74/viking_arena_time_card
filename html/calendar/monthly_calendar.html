@@ -147,67 +147,32 @@
 
                 <!-- The CALENDAR -->
                 <div class="manager_calendar_div">
-                    <div id="calendar">
-
 
                         <!-- Calendar will be inserted here -->
-                        <div class="calendarContainer">
-                            <div class="calendarheader">
-                              <div id="monthDisplay">Month</div>
-                              <div>
-                                <button class="month_buttons" id="backButton">Back</button>
-                                <button class="month_buttons" id="nextButton">Next</button>
-                              </div>
-                            </div>
                       
-                            <div id="weekdays">
-                              <div>S</div>
-                              <div>M</div>
-                              <div>Tu</div>
-                              <div>W</div>
-                              <div>Th</div>
-                              <div>F</div>
-                              <div>S</div>
-                            </div>
-                      
-                            <div id="calendar"></div>
-                          </div>
-                      
-                          <div id="newEventModal">
-                            <h2>Select Employee</h2>
-                            <select name="employee" id="schedule_name">
-                                <option value="employee1">Employee 1</option>
-                                <option value="employee2">Employee 2</option>
-                                <option value="employee3">Employee 3</option>
-                            </select>
+                       <!-- THE CALENDAR CONTAINER -->
+                        <div id="calendar-container">
 
-                            <label>Time In:</label>
-                            <input id="eventTitleInput" placeholder="Event Title" />
+                            <!-- THE CALENDAR HEADER -->
+                            <div class="calendar-header">
+                            
+                                <p id="current-month">Month Year</p>
+                                <div class="month_buttons">
+                                    <button class="month_go" onclick="prevMonth()">&lt;</button>
+                                    <button class="month_go" onclick="nextMonth()">&gt;</button>
+                                </div>
 
-                            <label>Time Out:</label>
-                            <input id="eventTitleInput" placeholder="Event Title" />
-                      
-                            <button id="saveButton">Save</button>
-                            <button id="cancelButton">Cancel</button>
-                            <!-- Delete Option -->
-                            <div id="deleteEventModal">
-                                <h2>Event</h2>
-                          
-                                <p id="eventText"></p>
-                          
-                                <button id="deleteButton">Delete</button>
-                                <button id="closeButton">Close</button>
-                              </div>
-                          </div>
-                      
-                      
-                          <!-- <div id="modalBackDrop"></div> -->
-                      
-                          <script src="./script.js"></script>
-                    </div>
+                            </div>
+
+                            <!-- THE CALENDAR -->
+                            <table id="calendar-body">
+                            <!-- Calendar will be populated by JavaScript -->
+                            </table>
+                    
+                        </div>
 
                     
-                 </div>
+                </div>
 
                  <!-- Next button -->
                  <!-- <button class="submit" id="dashboard_advance" disabled>Submit Hours</button> -->
