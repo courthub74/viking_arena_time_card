@@ -67,6 +67,7 @@
      --empty-day: #f9f9f9;
      --day-border: #eaeaea;
      --date-color: #444;
+     --today-color: #e8f4fd;
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -134,9 +135,13 @@ body.dark-mode {
 
 
      /* Calendar Colors */
-     --empty-day: #272626;
+     --empty-day: #121a21a7;
+     --empty-day: none;
+     /* --empty-day: #19223d8d; */
      --day-border: #3d4a5653;
+     --day-border: #243d5453;
      --date-color: #d1cfcf;
+     --today-color: #141d25c5;
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -797,7 +802,7 @@ header {
     font-size: 16px;
     cursor: pointer;
     padding: 5px 10px;
-    /* border-radius: 4px; */
+    border-radius: 4px;
 }
 
 
@@ -894,7 +899,7 @@ tr {
 
 /* Current day */
 #calendar-body td.today {
-    background-color: #e8f4fd;
+    background-color: var(--today-color);
     font-weight: bold;
     color: #3498db;
     /* border: 1px solid #3498db; */
