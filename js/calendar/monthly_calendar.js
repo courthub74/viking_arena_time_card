@@ -45,7 +45,18 @@ function renderCalendar(month, year) {
       // the modal will open.  There you will enter date and hours worked
       // and then save it to the database
       cell.classList.add('calendar-cell');
-      
+      // The JS will query all the cells and when each is clicked
+      // the modal will open.  There you will enter date and hours worked
+      let eachDay = document.querySelectorAll('.calendar-cell');
+      // Add event listener to each cell
+      // This will open a modal or perform an action when a cell is clicked
+      eachDay.forEach(function(cell) {
+        cell.addEventListener('click', function() {
+          // Open modal or perform action here
+          console.log(`Clicked on ${cell.textContent}`);
+        });
+      });
+
       const cellContent = document.createElement('span');
       
       // Add dates starting from the correct day of the week
