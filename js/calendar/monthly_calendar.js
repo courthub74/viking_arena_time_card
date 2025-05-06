@@ -39,6 +39,13 @@ function renderCalendar(month, year) {
     // Create cells for each day of the week
     for (let j = 0; j < 7; j++) {
       const cell = document.createElement('td');
+      
+      // Add class to be queryable in javascript 
+      // here you will query all the cells and when each is clicked
+      // the modal will open.  There you will enter date and hours worked
+      // and then save it to the database
+      cell.classList.add('calendar-cell');
+      
       const cellContent = document.createElement('span');
       
       // Add dates starting from the correct day of the week
