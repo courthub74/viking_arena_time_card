@@ -64,10 +64,21 @@
      
 
      /* Calendar Colors */
+     --calendar-border: #009df8c2;
+
+     --month-buttons: #6ebce9; 
      --empty-day: #f9f9f9;
+     --empty-day: none;
      --day-border: #eaeaea;
+     --day-border: none;
      --date-color: #444;
-     --today-color: #e8f4fd;
+     /* --today-color: #e8f4fd;
+     --today-color: #009df8c2; */
+     --today-color: #6ebce9;
+
+     /* May be taken care of in JS */
+     --filled-color: #009df8c2;
+
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -135,13 +146,20 @@ body.dark-mode {
 
 
      /* Calendar Colors */
+     --calendar-border: #009df8c2;
+
+     --month-buttons: #009df88b;
      --empty-day: #121a21a7;
      --empty-day: none;
-     /* --empty-day: #19223d8d; */
-     --day-border: #3d4a5653;
      --day-border: #243d5453;
+     --day-border: none;
      --date-color: #d1cfcf;
-     --today-color: #141d25c5;
+     --today-color: #009df8c2;
+     --today-color: #009df88b;
+
+     /* May be taken care of in JS */
+     --filled-color: #009df8c2;
+
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -765,7 +783,10 @@ header {
 /* ********************************* */
 /* THE CALENDAR */
 #calendar-container {
-    border: 2px solid var(--button-background);
+    /* border: 2px solid var(--button-background); */
+    border: 2px solid var(--today-color);
+    border: 2px solid var(--calendar-border);
+    /* border: 1px solid var(--today-color); */
     border-radius: 5px;
 }
 
@@ -796,7 +817,7 @@ header {
 
 /* Calendar Arrows */
 .month_go {
-    background-color: #3498db;
+    background-color: var(--today-color);
     border: none;
     color: white;
     font-size: 16px;
@@ -902,12 +923,15 @@ tr {
     background-color: var(--today-color);
     font-weight: bold;
     color: #3498db;
-    /* border: 1px solid #3498db; */
+    color: var(--text-color);
+    color: white;
+    border-radius: 50%;
 }
 
 /* Selected day */
 #calendar-body td.selected {
-    background-color: #3498db;
+    background-color: var(--today-color);
+    border-radius: 50%;
     color: white;
 }
 
