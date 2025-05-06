@@ -63,11 +63,11 @@ for 'Remember Me' functionality
 
 ## Calendar
 
-\*implement a calendar API
-
 \*Add a calendar for scheduling
 
-\*Add a calendar for hour entry
+\*Add hour entry to the calendar
+
+\*Add a modal to the date buttons on calendar
 
 \*NOTE: for calendar - have all entries on the same calendar just filter out by account name manager will see all accounts hours when clicking the view employee calendar
 
