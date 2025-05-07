@@ -28,7 +28,7 @@
 
 
         <!-- THE NAVBAR AND SIDE MENU-->
-        <nav class="main_nav">
+        <nav class="main_nav modal_active">
             <!-- Burger -->
             <div class="viking_logo">
                 <img src="../../img/hazel-park-logo/Logo.png" class="viking_img" alt="viking_ice_arena">
@@ -140,7 +140,7 @@
         <!-- THE FORM -->
         <form>
                 <!-- Page Header -->
-                <label class="page_header_label" for="employee_name">
+                <label class="page_header_label modal_active" for="employee_name">
                     <span class="acct_type_label" id="employee_name"></span>
                     <span class="page_header">&nbsp;|&nbsp;Calendar</span>
                 </label>
@@ -171,10 +171,10 @@
 
                             <!-- THE MODAL FOR DATE -->
                              <!-- HERE YOU COPY THE TIME ENTRY SHEET -->
-                            <div id="modal" class="modal">
+                            <div id="cal_modal" class="cal_modal modal_active">
                                 <div class="modal-content">
                                     
-                                    <!-- THE MODAL FORM -->
+                                        <!-- THE MODAL FORM -->
                                         <form class="modal_form">
                                             <!-- Page Header -->
                                             <label class="page_header_label" for="employee_name">
@@ -246,7 +246,7 @@
                                                     the behavior accordingly -->
 
                                             <!-- <span class="close">&times; Close</span> -->
-                                            <span class="close">Close</span>
+                                            <span class="close" id="close_modal">Close</span>
                                         </form>   
                                     </div>
                                 
@@ -263,7 +263,9 @@
                             <div class="back_to_div">
                                 <a class="link_back" id="link_back">Back to Dashboard</a>
                             </div>
-                        </form>           
+                        </form>         
+                        
+                        
            
       
     </div>

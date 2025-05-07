@@ -40,7 +40,7 @@ function renderCalendar(month, year) {
     for (let j = 0; j < 7; j++) {
       const cell = document.createElement('td');
       
-      /////////////// FOR HOURS MODAL/////////////////
+      /////////////// FOR HOURS MODAL /////////////////
       ////////////////////////////////////////////////
       // Add class to be queryable in javascript 
       // here you will query all the cells and when each is clicked
@@ -53,14 +53,39 @@ function renderCalendar(month, year) {
       // Add event listener to each cell
       // This will open a modal or perform an action when a cell is clicked
       eachDay.forEach(function(cell) {
-        cell.addEventListener('click', function() {
+        cell.addEventListener('click', function(e) {
+          e.stopPropagation(); // Prevent event bubbling
+          e.preventDefault(); // Prevent default action if used in onclick
+          // Query the modal to open and close it
+          const modal = document.getElementById('cal_modal');
+          // Query the close button to close the modal
+          const closeModal = document.getElementById('close_modal');
           // Open modal or perform action here
           console.log(`Clicked on ${cell.textContent}`);
+          // Test Print 
+          console.log(`${modal} Modal Opened`);
+          // Open the modal (you can use a library or custom code to show the modal)
+          modal.classList.add = 'modal_active'; // Show the modal
+          // Add event listener to close the modal when clicking outside of it
+          window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+              modal.classList.remove = 'modal_active'; // Hide the modal
+            }
+          });
+          // Add event listener to close the modal when clicking the close button
+          closeModal.addEventListener('click', function() {
+            modal.style.display = 'none'; // Hide the modal
+          });
+          // Add event listener to close the modal when pressing the escape key
+          document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+              closeModal();
+            }
+          });
         });
       });
 
-      // Query the modal to open and close it
-      const modal = document.getElementById('modal');
+      
 
       const cellContent = document.createElement('span');
       
@@ -98,10 +123,11 @@ function renderCalendar(month, year) {
       cell.appendChild(cellContent);
       row.appendChild(cell);
     }
-    
+  }
     calendarBody.appendChild(row);
   }
-}
+
+
 
 // Function to update calendar header
 function updateCalendarHeader(month, year) {

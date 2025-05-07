@@ -175,6 +175,18 @@ body.dark-mode {
     /* border-radius: 5px; */
 }
 
+/* Main Nav and main form opacity 50%
+    when modal activated */
+/* in JS Query these elements and change the class */
+.main_nav.modal_active {
+    opacity: 0.5;
+}
+/* Main Nav and main form opacity 50%
+    when modal activated */
+.page_header_label.modal_active {
+    opacity: 0.5;
+}
+
 /* Body for All */
 body {
     min-height: 100vh;
@@ -762,7 +774,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-top: 1em; */
+    margin-top: 3em;
 }
 
 .back_to_div a {
@@ -939,9 +951,9 @@ tr {
 /* ********************************* */
 /* ********MODAL FORM*************** */
 
-.modal {
+.cal_modal {
     display: none;
-    display: flex;
+    /* display: flex; */
     position: fixed;
     top: 70px;
     left: 0;
@@ -957,6 +969,13 @@ tr {
 }
 
 /* modal shown */
+.cal_modal.modal_active {
+    display: flex;
+    opacity: 100%;
+    /* display: block; */
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* background-color: blue; */
+}
 
 
 .modal-content {
