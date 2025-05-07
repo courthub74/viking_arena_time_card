@@ -950,12 +950,136 @@ tr {
     flex-direction: column;
 }
 
-.current_day_div {
+.close {
+    color: var(--text-color);
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+    margin-right: 1em;
+}
+
+.form_label {
+    font-size: small;
+    font-size: .7rem;
+    color: var(--text-color);
+    opacity: 60%;
+  }
+
+
+  input {
+    background-color: var(--background-color);
+    background-color: var(--input-background);
+    color: var(--text-color);
+    border: 1px solid var(--button-background);
+    border: none;
+    padding: .8em;
+    width: 100%;
+    font-size: small;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  input:focus{
+    outline: none;
+    border: 1px solid var(--button-background);
+    box-shadow: 0 0 5px var(--button-background);
+  }
+
+  /* For the Date Picker */
+
+  .current_day_div {
     display: flex;
     flex-direction: column;
     margin-top: 2em;
 }
 
+
+  .current_day_datepicker {
+    background-color: var(--background-color);
+    background-color: var(--input-background);
+    color: var(--text-color);
+    border: 1px solid var(--button-background);
+    border: none;
+    padding: .5em;
+    display: flex;
+    width: 100%;
+    /* font-size: medium; */
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  #current_day {
+    border: none;
+    font-size: small;
+    cursor: pointer;
+    opacity: 55%;
+  }
+
+  .current_day_logo {
+    filter: var(--calendar-logo);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 50%;
+    margin: 6px 1em 0 0;
+  }
+
+  .current_day_logo.dark-mode {
+    filter: var(--calendar-logo);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 50%;
+    margin: 6px 1em 0 0;
+}
+
+#current_day {
+    background: none;
+}
+
+/* Time Clock */
+
+.time-picker {
+    display: inline-block;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    border: 1px solid var(--button-background);
+    /* background: none; */
+    border: none;
+    padding: 1em;
+    display: flex;
+    gap: .5em;
+    width: 100%;
+    /* font-size: medium; */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Time picker select */
+.time-picker select {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-family: 'Poppins';
+    opacity: 60%;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Time picker select on focus */
+.time-picker select:focus {
+    background-color: var(--input-background);
+    color: var(--text-color);
+}
+
+.time-picker span {
+    opacity: 50%;
+}
  
 
 /* ********************************* */
