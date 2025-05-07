@@ -63,23 +63,27 @@ function renderCalendar(month, year) {
           // Open modal or perform action here
           console.log(`Clicked on ${cell.textContent}`);
           // Test Print 
-          console.log(`${modal} Modal Opened`);
+          console.log(`${modal.classList}the new class of the modal`);
           // Open the modal (you can use a library or custom code to show the modal)
           modal.classList.add = 'modal_active'; // Show the modal
           // Add event listener to close the modal when clicking outside of it
           window.addEventListener('click', function(event) {
             if (event.target === modal) {
               modal.classList.remove = 'modal_active'; // Hide the modal
+              console.log(`${modal.classList} normal class of the modal`);
             }
           });
           // Add event listener to close the modal when clicking the close button
           closeModal.addEventListener('click', function() {
             modal.classList.remove = 'modal_active'; // Hide the modal
+            console.log(`${modal.classList} normal class of the modal`);
           });
           // Add event listener to close the modal when pressing the escape key
           document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
-              closeModal();
+              // closeModal();
+              modal.classList.remove = 'modal_active'; // Hide the modal
+              console.log(`${modal.classList} normal class of the modal`);
             }
           });
         });
