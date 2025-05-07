@@ -175,17 +175,7 @@ body.dark-mode {
     /* border-radius: 5px; */
 }
 
-/* Main Nav and main form opacity 50%
-    when modal activated */
-/* in JS Query these elements and change the class */
-.main_nav.modal_active {
-    opacity: 0.5;
-}
-/* Main Nav and main form opacity 50%
-    when modal activated */
-.page_header_label.modal_active {
-    opacity: 0.5;
-}
+
 
 /* Body for All */
 body {
@@ -711,6 +701,18 @@ header {
     font-weight: bold;
     /* width: 100%; */
     opacity: 50%;
+}
+
+/* Main Nav and main form opacity 50%
+    when modal activated */
+/* in JS Query these elements and change the class */
+.main_nav.modal_active {
+    opacity: 0.5;
+}
+/* Main Nav and main form opacity 50%
+    when modal activated */
+.page_header_label.modal_active {
+    opacity: 0.5;
 }
 
 /* Radio Button Squares */

@@ -66,30 +66,32 @@ function renderCalendar(month, year) {
           const closeModal = document.getElementById('close_modal');
           // Open modal or perform action here
           console.log(`Clicked on ${cell.textContent}`);
+          // Open the modal (you can use a library or custom code to show the modal)
+          modal.classList.add('modal_active'); // Show the modal
+          pageHeader.classList.add('modal_active'); // Fade out the top of page
           // Test Print 
           console.log(`${modal.classList}the new class of the modal`);
-          // Open the modal (you can use a library or custom code to show the modal)
-          modal.classList.add = 'modal_active'; // Show the modal
-          
-          pageHeader.classList.add = 'modal_active'; // Fade out the top of page
+          console.log(`${pageHeader.classList} the new class of the page header`);
           // Add event listener to close the modal when clicking outside of it
           window.addEventListener('click', function(event) {
             if (event.target === modal) {
-              modal.classList.remove = 'modal_active'; // Hide the modal
+              modal.classList.remove('modal_active'); // Hide the modal
               console.log(`${modal.classList} normal class of the modal`);
             }
           });
           // Add event listener to close the modal when clicking the close button
           closeModal.addEventListener('click', function() {
-            modal.classList.remove = 'modal_active'; // Hide the modal
+            modal.classList.remove('modal_active'); // Hide the modal
             console.log(`${modal.classList} normal class of the modal`);
           });
           // Add event listener to close the modal when pressing the escape key
           document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
               // closeModal();
-              modal.classList.remove = 'modal_active'; // Hide the modal
+              modal.classList.remove('modal_active'); // Hide the modal
               console.log(`${modal.classList} normal class of the modal`);
+              console.log(`${pageHeader.classList} normal class of the page header`);
+
             }
           });
         });
