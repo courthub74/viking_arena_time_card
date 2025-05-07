@@ -58,6 +58,10 @@ function renderCalendar(month, year) {
           e.preventDefault(); // Prevent default action if used in onclick
           // Query the modal to open and close it
           const modal = document.getElementById('cal_modal');
+          // Query the main nav
+          // const mainNav = document.getElementById('main-nav');
+          // Query the page header
+          const pageHeader = document.querySelector('.page_header_label');
           // Query the close button to close the modal
           const closeModal = document.getElementById('close_modal');
           // Open modal or perform action here
@@ -66,6 +70,8 @@ function renderCalendar(month, year) {
           console.log(`${modal.classList}the new class of the modal`);
           // Open the modal (you can use a library or custom code to show the modal)
           modal.classList.add = 'modal_active'; // Show the modal
+          
+          pageHeader.classList.add = 'modal_active'; // Fade out the top of page
           // Add event listener to close the modal when clicking outside of it
           window.addEventListener('click', function(event) {
             if (event.target === modal) {
