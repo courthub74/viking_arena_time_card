@@ -940,22 +940,42 @@ tr {
 /* ********MODAL FORM*************** */
 
 .modal {
+    display: none;
+    display: flex;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background-color: var(--background-color);
+    /* background-color: blue; */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
     border: 2px solid var(--today-color);
     border-radius: 5px;
-    /* background-color: var(--today-color); */
 }
+
+/* modal shown */
+
 
 .modal-content {
     display: flex;
     flex-direction: column;
+    gap: 1em;
+    height: 100%;
+    padding: 2em;
 }
 
 .close {
     color: var(--text-color);
     float: right;
-    font-size: 28px;
+    font-size: 13px;
+    font-weight: bold;
     cursor: pointer;
     margin-right: 1em;
+    padding: 3em 0 1em 0;
+    opacity: 50%;
 }
 
 .form_label {
@@ -973,6 +993,7 @@ tr {
     border: 1px solid var(--button-background);
     border: none;
     padding: .8em;
+    padding: .5em;
     width: 100%;
     font-size: small;
     font-size: medium;
@@ -992,6 +1013,7 @@ tr {
   .current_day_div {
     display: flex;
     flex-direction: column;
+    gap: 1em;
     margin-top: 2em;
 }
 
@@ -1051,6 +1073,7 @@ tr {
     /* background: none; */
     border: none;
     padding: 1em;
+    padding: .8em;
     display: flex;
     gap: .5em;
     width: 100%;
@@ -1079,6 +1102,12 @@ tr {
 
 .time-picker span {
     opacity: 50%;
+}
+
+.submit {
+    border-radius: 5px;
+    margin-top: 2em;
+    padding: .9em;
 }
  
 
