@@ -170,29 +170,97 @@
                             </table>
 
                             <!-- THE MODAL FOR DATE -->
+                             <!-- HERE YOU COPY THE TIME ENTRY SHEET -->
                             <div id="modal" class="modal">
                                 <div class="modal-content">
                                     <span class="close">&times;</span>
-                                    <h2 id="modal-date"></h2>
-                                    <p id="modal-description"></p>
-                                    <!-- add conditional if hours then make submit button edit button -->
-                                    <button id="add-times">Submit</button>
+                                    <!-- THE MODAL FORM -->
+                                        <form class="modal_form">
+                                            <!-- Page Header -->
+                                            <label class="page_header_label" for="employee_name">
+                                                <span class="acct_type_label" id="employee_name"></span>
+                                                <span class="page_header">&nbsp;|&nbsp;Hours</span>
+                                            </label>
+
+                                            <!-- The Radio Buttons -->
+                                            <div class="current_day_div">
+                                            
+                                                
+
+                                                    <div class="input_divs">
+                                                        <!-- Current Date -->
+                                                        <label class="form_label">Current Date:</label>
+                                                        <!-- Will contain the current date JS -->
+                                                        <div class="current_day_datepicker">
+                                                            <input type="text" id="current_day" placeholder="MM/DD/YYYY" readonly/>
+                                                            <img src="../../img/dashboard_logos/white_calendar.png" class="current_day_logo" alt="current_day">
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="input_divs">
+                                                        <label class="form_label">Time In:</label>
+
+                                                        <!-- This will be a time picker -->
+                                                        <div class="time-picker">
+                                                            <select id="in_hour">
+                                                                <!-- Hours will be populated by JavaScript -->
+                                                            </select>
+                                                            <!-- <span>:</span> -->
+                                                            <select id="in_minute">
+                                                                <!-- Minutes will be populated by JavaScript -->
+                                                            </select>
+                                                            <select id="in_ampm">
+                                                                <option value="AM">AM</option>
+                                                                <option value="PM">PM</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="input_divs">
+                                                        <label class="form_label">Time Out:</label>
+                                                        <!-- This will be a time picker -->
+                                                        <!-- This will be a time picker -->
+                                                        <div class="time-picker">
+                                                            <select id="out_hour">
+                                                                <!-- Hours will be populated by JavaScript -->
+                                                            </select>
+                                                            <!-- <span>:</span> -->
+                                                            <select id="out_minute">
+                                                                <!-- Minutes will be populated by JavaScript -->
+                                                            </select>
+                                                            <select id="out_ampm">
+                                                                <option value="AM">AM</option>
+                                                                <option value="PM">PM</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                            
+                                            </div>
+
+                                            <!-- Next button -->
+                                            <button class="submit" id="submit_employee_hours" disabled>Submit Hours</button>
+                                            <!-- For this button you can simply change the inner HTML -->
+                                            <!-- Add a conditional that checks for the inner HTML and gives the button
+                                                    the behavior accordingly -->
+                                        </form>   
+                                    </div>
+                                
                                 </div>
-                    
+
+                                
                             </div>
 
-                    
-                </div>
+                            <!-- Next button -->
+                            <!-- <button class="submit" id="dashboard_advance" disabled>Submit Hours</button> -->
 
-                 <!-- Next button -->
-                 <!-- <button class="submit" id="dashboard_advance" disabled>Submit Hours</button> -->
-
-                <!-- Link Back To Dashboard -->
-                 <!-- Needs a conditional to determine which dashboard (employee or manager) -->
-                <div class="back_to_div">
-                    <a class="link_back" id="link_back">Back to Dashboard</a>
-                </div>
-            </form>           
+                            <!-- Link Back To Dashboard -->
+                            <!-- Needs a conditional to determine which dashboard (employee or manager) -->
+                            <div class="back_to_div">
+                                <a class="link_back" id="link_back">Back to Dashboard</a>
+                            </div>
+                        </form>           
            
       
     </div>

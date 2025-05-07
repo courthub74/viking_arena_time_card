@@ -936,6 +936,26 @@ tr {
     color: white;
 }
 
+/* ********************************* */
+/* ********MODAL FORM*************** */
+
+.modal {
+    border: 2px solid var(--today-color);
+    border-radius: 5px;
+    /* background-color: var(--today-color); */
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.current_day_div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
  
 
 /* ********************************* */
