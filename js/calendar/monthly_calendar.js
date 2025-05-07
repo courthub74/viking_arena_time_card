@@ -40,6 +40,8 @@ function renderCalendar(month, year) {
     for (let j = 0; j < 7; j++) {
       const cell = document.createElement('td');
       
+      /////////////// FOR HOURS MODAL/////////////////
+      ////////////////////////////////////////////////
       // Add class to be queryable in javascript 
       // here you will query all the cells and when each is clicked
       // the modal will open.  There you will enter date and hours worked
@@ -56,6 +58,9 @@ function renderCalendar(month, year) {
           console.log(`Clicked on ${cell.textContent}`);
         });
       });
+
+      // Query the modal to open and close it
+      const modal = document.getElementById('modal');
 
       const cellContent = document.createElement('span');
       
