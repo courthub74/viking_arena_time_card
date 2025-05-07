@@ -955,28 +955,26 @@ tr {
 
 .cal_modal {
     display: none;
-    /* display: flex; */
     position: fixed;
     top: 70px;
-    left: 0;
-    width: 100%;
-    height: 80%;
+    /* Change from left: 0 and width: 100% to use these centering properties */
+    left: 50%;
+    transform: translateX(-50%); /* This centers the modal horizontally */
+    width: 80%; /* Reduce width to 80% of viewport (adjust as needed) */
+    max-width: 800px; /* Optional: Set a maximum width */
+    height: 75%;
     background-color: var(--background-color);
-    /* background-color: blue; */
     z-index: 1000;
     justify-content: center;
     align-items: center;
     border: 2px solid var(--today-color);
     border-radius: 5px;
+    transition: all 0.5s ease;
 }
 
-/* modal shown */
+/* For showing the modal, ensure you use display: flex */
 .cal_modal.modal_active {
     display: flex;
-    opacity: 100%;
-    /* display: block; */
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    /* background-color: blue; */
 }
 
 
@@ -985,7 +983,8 @@ tr {
     flex-direction: column;
     gap: 1em;
     height: 100%;
-    padding: 2em;
+    /* padding: 2em; */
+    padding: 2em 2em 2em 2em;
 }
 
 .close {
@@ -995,7 +994,7 @@ tr {
     font-weight: bold;
     cursor: pointer;
     margin-right: 1em;
-    padding: 3em 0 1em 0;
+    padding: 1em 0 2em 0;
     opacity: 50%;
 }
 
@@ -1035,7 +1034,7 @@ tr {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 
