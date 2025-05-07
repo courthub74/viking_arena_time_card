@@ -74,7 +74,7 @@ function renderCalendar(month, year) {
           });
           // Add event listener to close the modal when clicking the close button
           closeModal.addEventListener('click', function() {
-            modal.style.display = 'none'; // Hide the modal
+            modal.classList.remove = 'modal_active'; // Hide the modal
           });
           // Add event listener to close the modal when pressing the escape key
           document.addEventListener('keydown', function(event) {
@@ -123,8 +123,9 @@ function renderCalendar(month, year) {
       cell.appendChild(cellContent);
       row.appendChild(cell);
     }
-  }
     calendarBody.appendChild(row);
+  }
+    // calendarBody.appendChild(row);
   }
 
 
