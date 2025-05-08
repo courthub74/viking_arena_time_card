@@ -963,6 +963,7 @@ tr {
     width: 80%; /* Reduce width to 80% of viewport (adjust as needed) */
     max-width: 800px; /* Optional: Set a maximum width */
     height: 75%;
+    padding: 2em 0 2em 0;
     background-color: var(--background-color);
     z-index: 1000;
     justify-content: center;
@@ -988,6 +989,8 @@ tr {
 }
 
 .close {
+    display: flex;
+    align-items: center;
     color: var(--text-color);
     float: right;
     font-size: 13px;
@@ -996,6 +999,12 @@ tr {
     margin-right: 1em;
     padding: 1em 0 2em 0;
     opacity: 50%;
+}
+
+.back_arrow {
+    width: 1.5em;
+    height: 1.5em;
+    /* Need to filter it darker for day mode */
 }
 
 .form_label {
@@ -1043,8 +1052,9 @@ tr {
     color: var(--text-color);
     border: 1px solid var(--button-background);
     border: none;
-    padding: .2em;
+    padding: .5em;
     display: flex;
+    align-items: center;
     width: 100%;
     /* font-size: medium; */
     font-weight: bold;
@@ -1052,7 +1062,6 @@ tr {
     transition: all 0.3s ease;
     cursor: pointer;
   }
-
 
   #current_day {
     border: none;
@@ -1084,19 +1093,17 @@ tr {
 }
 
 /* Time Clock */
-
 .time-picker {
     display: inline-block;
     background-color: var(--input-background);
     color: var(--text-color);
     border: 1px solid var(--button-background);
-    /* background: none; */
+    font-size: small;
     border: none;
     padding: .3em;
     display: flex;
     gap: .5em;
     width: 100%;
-    /* font-size: medium; */
     border-radius: 5px;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -1110,7 +1117,8 @@ tr {
     font-family: 'Poppins';
     opacity: 60%;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: small;
+    padding: .3em;
 }
 
 /* Time picker select on focus */
@@ -1126,7 +1134,8 @@ tr {
 .submit {
     border-radius: 5px;
     margin-top: 2em;
-    padding: .4em;
+    padding: .5em;
+    font-size: small;
 }
  
 
