@@ -711,9 +711,9 @@ header {
 }
 /* Main Nav and main form opacity 50%
     when modal activated */
-.page_header_label.modal_active {
+/* .page_header_label.modal_active {
     opacity: 0.5;
-}
+} */
 
 /* Radio Button Squares */
 .employee_selects {

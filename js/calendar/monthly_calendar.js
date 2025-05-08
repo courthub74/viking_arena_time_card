@@ -61,17 +61,17 @@ function renderCalendar(month, year) {
           // Query the main nav
           // const mainNav = document.getElementById('main-nav');
           // Query the page header
-          const pageHeader = document.querySelector('.page_header_label');
+          // const pageHeader = document.querySelector('.page_header_label');
           // Query the close button to close the modal
           const closeModal = document.getElementById('close_modal');
           // Open modal or perform action here
           console.log(`Clicked on ${cell.textContent}`);
           // Open the modal (you can use a library or custom code to show the modal)
           modal.classList.add('modal_active'); // Show the modal
-          pageHeader.classList.add('modal_active'); // Fade out the top of page
+          // pageHeader.classList.add('modal_active'); // Fade out the top of page
           // Test Print 
           console.log(`${modal.classList}the new class of the modal`);
-          console.log(`${pageHeader.classList} the new class of the page header`);
+          // console.log(`${pageHeader.classList} the new class of the page header`);
           // Add event listener to close the modal when clicking outside of it
           window.addEventListener('click', function(event) {
             if (event.target === modal) {
@@ -90,7 +90,7 @@ function renderCalendar(month, year) {
               // closeModal();
               modal.classList.remove('modal_active'); // Hide the modal
               console.log(`${modal.classList} normal class of the modal`);
-              console.log(`${pageHeader.classList} normal class of the page header`);
+              // console.log(`${pageHeader.classList} normal class of the page header`);
 
             }
           });
