@@ -79,6 +79,10 @@
      --filled-color: #009df8c2;
      --filled-color: #2065a58a;
 
+     /* Modal Filter */
+    --modal-filter: brightness(20%) contrast(30%);
+   
+
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -160,6 +164,9 @@ body.dark-mode {
      /* May be taken care of in JS */
      --filled-color: #009df8c2;
      --filled-color: #17426b7c;
+
+      /* Modal colors filter */
+      --modal-filter: brightness(100%) contrast(100%);
 
      /* *********************************** */
      /* *********************************** */
@@ -1005,6 +1012,8 @@ tr {
     width: 1.5em;
     height: 1.5em;
     /* Need to filter it darker for day mode */
+    filter: var(--modal-filter);
+
 }
 
 .form_label {
