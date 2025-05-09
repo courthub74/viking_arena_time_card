@@ -59,19 +59,21 @@ for 'Remember Me' functionality
 
 \*~Add delete profile feature~
 
-\*Add confirmation button for deleting profile
+\*Add confirmation button (in Modal) for deleting profile
 
 ## Calendar
 
-\*Add a calendar for scheduling
+\*~Add a calendar for scheduling~
 
 \*Add hour entry to the calendar
 
-\*Add a modal to the date buttons on calendar
+\*~Add a modal to the date buttons on calendar~
 
 \*NOTE: for calendar - have all entries on the same calendar just filter out by account name manager will see all accounts hours when clicking the view employee calendar
 
 \*Each employee hours button will lead to a list of hours for the week for that employee
+
+\*Add JS to the hours entry modal
 
 ## Messaging
 
