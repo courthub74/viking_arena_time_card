@@ -221,8 +221,8 @@ function deleteAccount() {
     sessionStorage.removeItem('currentUser');
     sessionStorage.removeItem('session');
 
-    // Alert the Account Deletion
-    alert(`${nameDecoded}'s account has been deleted successfully.`);
+    // Alert the Account Deletion (for testing purposes)
+    // alert(`${nameDecoded}'s account has been deleted successfully.`);
 
     // Redirect to the index page
     window.location.href = '../../index.html';
@@ -235,6 +235,44 @@ delete_acct_button.addEventListener('click', (e) => {
     // Test Print
     console.log("Delete Account Clicked");
 
+    // Pop up the delete confirmation modal
+
+    // query the modal
+    const modal = document.getElementById('confirmation_modal');
+    // Make it visible
+    modal.classList.add('modal_active');
+    
     // call the delete account functions
-    deleteAccount();
+    // deleteAccount();
+});
+
+// query the modal cancel button
+const modalCancelButton = document.getElementById('cancel_delete');
+// query the modal confirm button
+const modalConfirmButton = document.getElementById('confirm_delete');
+
+// CANCEL / Close Confirmation Button
+modalCancelButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Test Print
+    console.log("Cancel Delete Confirmation Clicked");
+    // Hide the modal
+    const modal = document.getElementById('confirmation_modal');
+    modal.classList.remove('modal_active');
+    // Reset the pin fields
+    pinField.forEach(pin => {
+        pin.value = '';
+        pin.style.color = ''; // Reset the color to default
+    });
+    // Focus on the first input
+    pinField[0].focus();
+});
+
+// Yes DELETE Account button
+   modalConfirmButton.addEventListener('click', (e) => {
+       e.preventDefault();
+       // Test Print
+       console.log("Delete Account Clicked");
+       // call the delete account functions
+       deleteAccount();
 });

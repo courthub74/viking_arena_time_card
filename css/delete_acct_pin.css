@@ -985,8 +985,6 @@ footer {
     color: var(--text-color);
 }
 
-
-
 /* Modal On */
 .modal.modal_active {
     display: flex;
