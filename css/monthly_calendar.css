@@ -998,7 +998,7 @@ tr {
 .modal-content {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1.5em;
     height: 100%;
     padding: 2em 2em 2em 2em;
 }
@@ -1008,13 +1008,17 @@ tr {
     justify-content: center;
     align-items: center;
     color: var(--text-color);
+    background-color: var(--input-background);
+    width: 100%;
     float: right;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: small;
+    /* font-weight: bold; */
     cursor: pointer;
-    margin-right: 1em;
-    padding: 1em 0 2em 0;
-    opacity: 50%;
+    border-radius: 5px;
+    /* margin-right: 1em; */
+    /* padding: 1em 0 2em 0; */
+    padding: .5em;
+    /* opacity: 50%; */
 }
 
 .back_arrow {
