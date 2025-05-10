@@ -80,7 +80,7 @@
      --filled-color: #2065a58a;
 
      /* Modal Filter */
-    --modal-filter: brightness(20%) contrast(20%);
+    --modal-filter: brightness(20%) contrast(50%);
 
     /* Modal Box Shadow */
     --modal-box-shadow: 0 -28px 15px 0 rgba(255, 255, 255, 0.664);;
@@ -814,6 +814,7 @@ header {
     border: 2px solid var(--today-color);
     border: 2px solid var(--calendar-border);
     border-radius: 5px;
+    padding: 0 5px 0 5px;
 }
 
 /* Calendar Header */
@@ -826,6 +827,7 @@ header {
     border-bottom: 2px solid var(--calendar-border);
     color: var(--text-color);
     font-weight: bold;
+    width: 100%;
 }
 
 /* Calendar Header Text */
@@ -927,7 +929,7 @@ tr {
     font-weight: bold;
 }
 
-#calenda-bodyr td span {
+#calendar-body td span {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -948,7 +950,7 @@ tr {
 #calendar-body td.today {
     background-color: var(--today-color);
     font-weight: bold;
-    color: #3498db;
+    /* color: #3498db; */
     color: var(--text-color);
     color: white;
     border-radius: 50%;
@@ -1003,11 +1005,12 @@ tr {
 
 .close {
     display: flex;
+    justify-content: center;
     align-items: center;
     color: var(--text-color);
     float: right;
     font-size: 13px;
-    /* font-weight: bold; */
+    font-weight: bold;
     cursor: pointer;
     margin-right: 1em;
     padding: 1em 0 2em 0;
@@ -1082,7 +1085,7 @@ tr {
     border: none;
     font-size: small;
     cursor: pointer;
-    opacity: 55%;
+    opacity: 80%;
   }
 
   .current_day_logo {
