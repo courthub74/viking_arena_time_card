@@ -58,6 +58,26 @@ function renderCalendar(month, year) {
           e.preventDefault(); // Prevent default action if used in onclick
           // Query the modal to open and close it
           const modal = document.getElementById('cal_modal');
+          // Populate the header with the Logged User name
+          const pageHeader = document.getElementById('employee_name_month');
+          console.log(pageHeader);
+          // const loggedUser = sessionStorage.getItem('loggedUser') || sessionStorage.getItem('session'); // Assuming you store the logged user in session storage
+          // let calUser = JSON.parse(loggedUser); // Parse the logged user object
+          // console.log(`The Logged User: ${calUser.username}`);
+          // Parse the user name
+          const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser') || sessionStorage.getItem('session'));
+          // Get the user name from the logged user object
+          console.log(`The Logged User: ${loggedUser.username}`);
+          // Decode the user name from the logged user object
+          const decodedUser = decodeURIComponent(loggedUser.username);
+          pageHeader.innerHTML = `${decodedUser}`; // Populate the header with the logged user name
+          // Populate the modal with the clicked date
+          const cellDate = cell.textContent;
+          const cellMonth = month + 1; // Add 1 to month since it's 0-indexed
+          const cellYear = year;
+          // NOW put this in the date input in the modal
+          // const dateInput = document.getElementById('date_input');
+          // dateInput.value = `${cellYear}-${cellMonth.toString().padStart(2, '0')}-${cellDate.toString().padStart(2, '0')}`;
           // Query the close button to close the modal
           const closeModal = document.getElementById('close_modal');
           // Open modal or perform action here

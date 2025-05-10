@@ -59,7 +59,7 @@ for 'Remember Me' functionality
 
 \*~Add delete profile feature~
 
-\*Add confirmation button (in Modal) for deleting profile
+\*~Add confirmation button (in Modal) for deleting profile~
 
 ## Calendar
 
