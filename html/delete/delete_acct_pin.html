@@ -170,7 +170,40 @@
             <button class="delete_acct" id="delete_acct" disabled>Delete Account</button>
 
             <!-- CONFIRMATION MODAL -->
-             
+            <div class="modal" id="confirmation_modal">
+
+                <!-- Page Header -->
+                <label class="page_header_label" for="employee_name">
+                    <span class="acct_type_label" id="employee_name">Name Here</span>
+                    <span class="page_header">&nbsp;|&nbsp;Delete Account</span>
+                </label>
+
+                <div class="modal-content">
+
+                    <p>Are you sure you want to delete this account?</p>
+                    <!-- Account Info Square -->
+                    <div class="account_info_square">
+
+                        <!-- Employee Name -->
+                        <p class="delete_account_title">Employee Name:</p>
+                        <!-- Get name from the session storage -->
+                        <p class="delete_account_info" id="confirm_employee_name"></p>
+
+                        <!-- Account Type -->
+                        <p class="delete_account_title">Account Type:</p>
+                        <!-- Get account type from the session storage -->
+                        <p class="delete_account_info" id="confirm_account_type"></p>
+
+                    </div>
+
+                    <!-- Delete Account Buttons -->
+                    <div class="del_acct_buttons">
+                        <button class="confirm_delete" id="confirm_delete">Yes, Delete it</button>
+                        <button class="cancel_delete" id="cancel_delete">Cancel</button>
+                    </div>
+                </div>
+                <!-- <span class="close">&times;</span> -->
+            </div>
 
             <!-- Back Button -->
             <button class="back_to_dashboard">Back to Dashboard</button>

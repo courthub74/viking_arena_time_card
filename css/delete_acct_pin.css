@@ -47,6 +47,9 @@
      /* Slide Menu Icons */
      --slide-menu-item-icon-filter: brightness(90%) contrast(100%);
      
+     /* Modal Box Shadow */
+    --modal-box-shadow: 0 -28px 15px 0 rgba(255, 255, 255, 0.664);
+
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -93,6 +96,9 @@ body.dark-mode {
      --slide-menu-item-background: #15191d;
      --slide-menu-item-trim: #2065a578;
      --slide-menu-item-trim: #3d4a5653;
+
+     /* Modal Box Shadow */
+     --modal-box-shadow: 0 -28px 15px 0 rgba(0, 0, 0, 0.78); ;
      
      /* *********************************** */
      /* *********************************** */
@@ -874,6 +880,119 @@ footer {
     opacity: 50%;
     /* width: 100%; */
 }
+
+/* MODAL FOR CONFIRMATION */
+/* Modal Container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    /* Change from left: 0 and width: 100% to use these centering properties */
+    left: 50%;
+    transform: translateX(-50%); /* This centers the modal horizontally */
+    width: 80%; /* Reduce width to 80% of viewport (adjust as needed) */
+    max-width: 800px; /* Optional: Set a maximum width */
+    height: 75%;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    max-width: 500px;
+    padding: 2em 1em 2em 1em;
+    background-color: var(--background-color);
+    border: 1px solid red;
+    border-radius: 5px;
+    box-shadow: var(--modal-box-shadow);
+    z-index: 9999;
+}
+
+/* Account type label */
+.acct_type_label {
+    color: red;
+    font-weight: bold;
+}
+
+/* Modal Content */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins';
+    margin-top: 4em;
+    gap: 1em;
+    width: 100%;
+    height: 100%;
+    font-size: small;
+    color: var(--text-color);
+}
+
+/* Delete Account Buttons */
+.del_acct_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    margin-top: 2em;
+}
+
+/* Yes Delete it */
+.confirm_delete {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: .7em;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: small;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Cancel Delete it */
+.cancel_delete {
+    background-color: var(--input-background);
+    color: var(--text-color);
+    border: none;
+    padding: .7em;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: small;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Account Info Square */
+.account_info_square {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    gap: 1.5em;
+    width: 100%;
+    height: 40%;
+    background-color: var(--input-background);
+    border-radius: 5px;
+    padding: 2em 1em 1em 1em;
+}
+
+/* Account Square Content */
+.delete_account_title {
+    font-size: small;
+    opacity: 50%;
+}
+
+.delete_account_info {
+    font-size: small;
+    color: var(--text-color);
+}
+
+
+
+/* Modal On */
+.modal.modal_active {
+    display: flex;
+    /* display: block; */
+}
+
   
 
 /* For wider screens narrow the form */

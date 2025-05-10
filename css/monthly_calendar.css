@@ -83,7 +83,7 @@
     --modal-filter: brightness(20%) contrast(50%);
 
     /* Modal Box Shadow */
-    --modal-box-shadow: 0 -28px 15px 0 rgba(255, 255, 255, 0.664);;
+    --modal-box-shadow: 0 -28px 15px 0 rgba(255, 255, 255, 0.664);
 
      /* *********************************** */
      /* *********************************** */
@@ -171,7 +171,7 @@ body.dark-mode {
       --modal-filter: brightness(100%) contrast(100%);
 
       /* Modal Box Shadow */
-      --modal-box-shadow: 0 -28px 15px 0 rgba(0, 0, 0, 0.78); ;
+      --modal-box-shadow: 0 -28px 15px 0 rgba(0, 0, 0, 0.78);
 
      /* *********************************** */
      /* *********************************** */
@@ -718,9 +718,9 @@ header {
 /* Main Nav and main form opacity 50%
     when modal activated */
 /* in JS Query these elements and change the class */
-.main_nav.modal_active {
+/* .main_nav.modal_active {
     opacity: 0.5;
-}
+} */
 /* Main Nav and main form opacity 50%
     when modal activated */
 /* .page_header_label.modal_active {
