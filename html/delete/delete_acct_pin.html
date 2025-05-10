@@ -141,7 +141,7 @@
 
             <!-- Page Header -->
             <label class="page_header_label" for="employee_name">
-                <span class="del_acct_label" id="employee_name"></span>
+                <span class="del_acct_label" id="employee_name_delete"></span>
                 <span class="page_header">&nbsp;|&nbsp;Delete Account</span>
             </label>
 
@@ -180,19 +180,23 @@
 
                 <div class="modal-content">
 
-                    <p>Are you sure you want to delete this account?</p>
+                    <p class="modal_header">Are you sure you want to delete profile?</p>
                     <!-- Account Info Square -->
                     <div class="account_info_square">
 
-                        <!-- Employee Name -->
-                        <p class="delete_account_title">Employee Name:</p>
-                        <!-- Get name from the session storage -->
-                        <p class="delete_account_info" id="confirm_employee_name"></p>
+                        <div class="account_info_div">
+                            <!-- Employee Name -->
+                            <p class="delete_account_title">Employee Name:</p>
+                            <!-- Get name from the session storage -->
+                            <p class="delete_account_info" id="confirm_employee_name"></p>
+                        </div>
 
-                        <!-- Account Type -->
-                        <p class="delete_account_title">Account Type:</p>
-                        <!-- Get account type from the session storage -->
-                        <p class="delete_account_info" id="confirm_account_type"></p>
+                        <div class="account_info_div">
+                            <!-- Account Type -->
+                            <p class="delete_account_title">Account Type:</p>
+                            <!-- Get account type from the session storage -->
+                            <p class="delete_account_info" id="confirm_account_type"></p>
+                        </div>
 
                     </div>
 

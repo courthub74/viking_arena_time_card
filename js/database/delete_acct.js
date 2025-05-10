@@ -230,6 +230,47 @@ function deleteAccount() {
 
 // JavaScript to populate the modal with user info
 
+// Get logged in user from session storage
+const loggedUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('session'));
+// Error Handling (in this case if user gets logged out)
+// if (!loggedUser) {
+//     alert("User not found. You may have been logged out.");
+//     window.location.href = '../../index.html';
+//     return;
+// }
+
+// Decode User Name if it's encoded
+let nameDecoded = loggedUser.username;
+try {
+    nameDecoded = decodeURIComponent(loggedUser.username);
+} catch (e) {
+    // If decoding fails, use original name
+}
+
+// Decoding the account type if it's encoded
+let accountTypeDecoded = loggedUser.accountType;
+try {
+    accountTypeDecoded = decodeURIComponent(loggedUser.accountType);
+} catch (e) {
+    // If decoding fails, use original account type
+}
+
+// NOW we query the user and account fields in the modal
+const userNameField = document.getElementById('confirm_employee_name');
+const userAccountField = document.getElementById('confirm_account_type');
+const userAccountNameHeader = document.getElementById('employee_name_delete');
+
+// change the header to the user name
+userAccountNameHeader.innerHTML = `${nameDecoded}`;
+
+// Test Print the logged in user
+console.log("Full loggedUser object:", loggedUser);
+console.log(`${loggedUser.username} is now logged in`);
+
+// Set the user name and account info in the modal
+userNameField.innerHTML = `${nameDecoded}`;
+userAccountField.innerHTML = `${accountTypeDecoded}`;
+
 // Add Event Listener
 delete_acct_button.addEventListener('click', (e) => {
     e.preventDefault();
@@ -244,7 +285,7 @@ delete_acct_button.addEventListener('click', (e) => {
     // Make it visible
     modal.classList.add('modal_active');
     
-    // call the delete account functions
+    // call the delete account functions this is now in the modal confirm button
     // deleteAccount();
 });
 
@@ -275,7 +316,6 @@ modalCancelButton.addEventListener('click', (e) => {
        e.preventDefault();
        // Test Print
        console.log("Delete Account Clicked");
-
        // call the delete account functions
        deleteAccount();
 });
