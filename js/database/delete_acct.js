@@ -222,11 +222,13 @@ function deleteAccount() {
     sessionStorage.removeItem('session');
 
     // Alert the Account Deletion (for testing purposes)
-    // alert(`${nameDecoded}'s account has been deleted successfully.`);
+    alert(`${nameDecoded}'s account has been deleted successfully.`);
 
     // Redirect to the index page
     window.location.href = '../../index.html';
 }
+
+// JavaScript to populate the modal with user info
 
 // Add Event Listener
 delete_acct_button.addEventListener('click', (e) => {
@@ -273,6 +275,7 @@ modalCancelButton.addEventListener('click', (e) => {
        e.preventDefault();
        // Test Print
        console.log("Delete Account Clicked");
+
        // call the delete account functions
        deleteAccount();
 });
