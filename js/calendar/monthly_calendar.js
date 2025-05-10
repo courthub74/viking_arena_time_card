@@ -58,10 +58,6 @@ function renderCalendar(month, year) {
           e.preventDefault(); // Prevent default action if used in onclick
           // Query the modal to open and close it
           const modal = document.getElementById('cal_modal');
-          // Query the main nav
-          // const mainNav = document.getElementById('main-nav');
-          // Query the page header
-          // const pageHeader = document.querySelector('.page_header_label');
           // Query the close button to close the modal
           const closeModal = document.getElementById('close_modal');
           // Open modal or perform action here
@@ -90,10 +86,39 @@ function renderCalendar(month, year) {
               // closeModal();
               modal.classList.remove('modal_active'); // Hide the modal
               console.log(`${modal.classList} normal class of the modal`);
-              // console.log(`${pageHeader.classList} normal class of the page header`);
 
             }
           });
+
+
+          // // Get the date to populate the modal date input
+          // // const dateInput = document.getElementById('date_input');
+          // const dateInput = "This is a test input"; // Placeholder for the date input element
+          // // Get the date from the cell clicked
+          // const cellDate = cell.textContent;
+          // // Get the month from the current month
+          // const cellMonth = month + 1; // Add 1 to month since it's 0-indexed
+          // // Get the year from the current year
+          // const cellYear = year;
+          // // Populate the date input with the clicked date
+          // dateInput.value = `${cellYear}-${cellMonth.toString().padStart(2, '0')}-${cellDate.toString().padStart(2, '0')}`;
+          // // Test Print
+          // console.log(`Date input value: ${dateInput.value}`);
+
+
+          // Add event listener to close the modal when clicking the save button
+        //   const saveButton = document.getElementById('save_button');
+        //   saveButton.addEventListener('click', function() {
+        //     // Get the date and hours worked from the modal inputs
+        //     const dateInput = document.getElementById('date_input');
+        //     const hoursInput = document.getElementById('hours_input');  
+        //     const dateValue = dateInput.value;
+        //     const hoursValue = hoursInput.value;
+        //     // Save the data to the database or perform an action here
+        //     console.log(`Date: ${dateValue}, Hours Worked: ${hoursValue}`);
+        //     // Close the modal after saving
+        //     modal.classList.remove('modal_active'); // Hide the modal
+        //     console.log(`${modal.classList} normal class of the modal`);
         });
       });
 
