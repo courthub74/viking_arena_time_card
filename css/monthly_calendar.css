@@ -81,7 +81,9 @@
 
      /* Modal Filter */
     --modal-filter: brightness(20%) contrast(20%);
-   
+
+    /* Modal Box Shadow */
+    --modal-box-shadow: 0 -28px 15px 0 rgba(255, 255, 255, 0.664);;
 
      /* *********************************** */
      /* *********************************** */
@@ -167,6 +169,9 @@ body.dark-mode {
 
       /* Modal colors filter */
       --modal-filter: brightness(100%) contrast(100%);
+
+      /* Modal Box Shadow */
+      --modal-box-shadow: 0 -28px 15px 0 rgba(0, 0, 0, 0.78); ;
 
      /* *********************************** */
      /* *********************************** */
@@ -980,7 +985,7 @@ tr {
     transition: all 0.5s ease;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
     /* box-shadow: 100px 100px 200px rgba(0, 0, 0, 0.2); */
-    box-shadow: 0 -28px 15px 0 rgba(0, 0, 0, 0.78);
+    box-shadow: var(--modal-box-shadow);
 }
 
 /* For showing the modal, ensure you use display: flex */
