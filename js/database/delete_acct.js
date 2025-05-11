@@ -319,3 +319,21 @@ modalCancelButton.addEventListener('click', (e) => {
        // call the delete account functions
        deleteAccount();
 });
+
+
+// Query the back to dashboard link and add an event listener to it
+const backToDashboardLink = document.getElementById('link_back_delete');
+
+if (backToDashboardLink) {
+    backToDashboardLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+        const userRole = sessionStorage.getItem('accountType'); // Assuming you store the user role in local storage
+        if (userRole === 'manager') {
+            // Redirect to manager dashboard
+            window.location.href = '../../html/dashboards/manager.html'; // Replace with the actual URL for the manager dashboard
+        } else {
+            // Default redirect to the main dashboard
+            window.location.href = '../../html/dashboards/employee.html'; // Replace with the actual URL for the main dashboard
+        }
+    });
+};

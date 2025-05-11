@@ -873,6 +873,7 @@ label {
     border: none;
     opacity: 50%;
     font-weight: bold;
+    cursor: pointer;
 }
 
 footer {
