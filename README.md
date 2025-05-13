@@ -43,6 +43,8 @@ for 'Remember Me' functionality
 
 \*~Enable name registration submit even if input was entered by speech~
 
+\*~Letters and spaces only to the name inputs~
+
 ### Database
 
 \*~Add Account Registration~
@@ -64,8 +66,6 @@ for 'Remember Me' functionality
 ## Calendar
 
 \*~Add a calendar for scheduling~
-
-\*Add hour entry to the calendar
 
 \*~Add a modal to the date buttons on calendar~
 
