@@ -1,6 +1,6 @@
 # Time Card Application
 
-## Layout CSS
+### Layout CSS
 
 \*~Mobile Layout~
 

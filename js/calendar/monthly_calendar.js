@@ -65,7 +65,10 @@ function renderCalendar(month, year) {
           // let calUser = JSON.parse(loggedUser); // Parse the logged user object
           // console.log(`The Logged User: ${calUser.username}`);
           // Parse the user name
-          const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser') || sessionStorage.getItem('session'));
+          // const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser') || sessionStorage.getItem('session'));
+          const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
+          //Error handling for null userString
+          const loggedUser = userString ? JSON.parse(userString) : null;
           // Get the user name from the logged user object
           console.log(`The Logged User: ${loggedUser.username}`);
           // Decode the user name from the logged user object
