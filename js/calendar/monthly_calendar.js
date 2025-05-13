@@ -61,9 +61,6 @@ function renderCalendar(month, year) {
           // Populate the header with the Logged User name
           const pageHeader = document.getElementById('employee_name_month');
           console.log(pageHeader);
-          // const loggedUser = sessionStorage.getItem('loggedUser') || sessionStorage.getItem('session'); // Assuming you store the logged user in session storage
-          // let calUser = JSON.parse(loggedUser); // Parse the logged user object
-          // console.log(`The Logged User: ${calUser.username}`);
           // Parse the user name
           // const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser') || sessionStorage.getItem('session'));
           const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;

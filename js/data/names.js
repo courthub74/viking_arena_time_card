@@ -16,7 +16,7 @@ const firstname = document.getElementById('firstname');
 const lastname = document.getElementById('lastname');
 
 // Add event listener to the last name input to check if the first and last names are filled
-// Then enable submit button (by typing, pasting or speech)
+// Then enable SUBMIT BUTTON (by typing, pasting or speech)
 lastname.addEventListener('input', (e) => {
     e.preventDefault();
     if (firstname.value && lastname.value) {
@@ -27,34 +27,10 @@ lastname.addEventListener('input', (e) => {
     }
 });
 
-// // Function to check if the inputs are filled and enable the submit button regardless of the event type
-// function checkInputs() {
-//     if (firstname.value && lastname.value) {
-//         submit_names.disabled = false;
-//     } else {
-//         submit_names.disabled = true;
-//     }
-// }
 
-// // Enable submit button when both inputs are filled by typing 
-
-// // First Name
-// firstname.addEventListener('keyup', (e) => {
-//     e.preventDefault();
-//     checkInputs();
-// });
-
-// // Last Name
-// lastname.addEventListener('keyup', (e) => {
-//     e.preventDefault();
-//     checkInputs();
-// });
-
-// // Listen for the event input (captures all input methods including speech)
-// firstname.addEventListener('input', checkInputs);
-// lastname.addEventListener('input', checkInputs);
 
 // Add event listener to submit button to register the user
+// WHOLE NAME FORM
 names_form.addEventListener('submit', (e) => {
     // so submit doesn't refresh the page
     e.preventDefault();
@@ -67,6 +43,65 @@ names_form.addEventListener('submit', (e) => {
 
     // Query the lastname
     const lastname = document.getElementById('lastname');
+
+    // Capitalize first letter BEFORE validation
+    if (firstname.value.trim() !== '') {
+        firstname.value = firstname.value.charAt(0).toUpperCase() + firstname.value.slice(1).toLowerCase();
+    }
+
+    if (lastname.value.trim() !== '') {
+        lastname.value = lastname.value.charAt(0).toUpperCase() + lastname.value.slice(1).toLowerCase();
+    }
+
+    // The Letters Only for the first name and last name
+    // Regular expression to allow only letters (A-Z, a-z)
+    // and spaces (for names with spaces)
+    const lettersOnly = /^[A-Za-z]+$/;
+    // Check if the first name is empty or contains invalid characters
+    if (firstname.value.trim() === '' || !lettersOnly.test(firstname.value)) {
+        // Show error message
+        names_alert.innerHTML = "Please enter a valid first name (letters only).";
+        names_alert.style.color = "red";
+        names_alert.style.fontSize = "small";
+
+        // timeout to remove the error message after 3 seconds
+        setTimeout(() => {
+            // Remove the error message after 3 seconds
+            names_alert.innerHTML = "";
+            // Remove the text field firstname
+            firstname.value = "";
+            // Remove the text field lastname
+            lastname.value = "";
+        }, 3000);
+        // Set the focus back to the first name input
+        firstname.focus();
+        return;
+    }
+
+
+    // Check if the last name is empty or contains invalid characters
+    if (lastname.value.trim() === '' || !lettersOnly.test(lastname.value)) {
+        // Show error message
+        names_alert.innerHTML = "Please enter a valid last name (letters only).";
+        names_alert.style.color = "red";
+        names_alert.style.fontSize = "small";
+
+        // Capitalize the first letter of the first name
+        lastname.value = lastname.value.charAt(0).toUpperCase() + lastname.value.slice(1);
+
+        // timeout to remove the error message after 3 seconds
+        setTimeout(() => {
+            // Remove the error message after 3 seconds
+            names_alert.innerHTML = "";
+            // Remove the text field firstname
+            firstname.value = "";
+            // Remove the text field lastname
+            lastname.value = "";
+        }, 3000);
+        // Set the focus back to the first name input
+        firstname.focus();
+        return;
+    }
 
     //Retrieve user first name text, store it in variable
     let first = firstname.value;

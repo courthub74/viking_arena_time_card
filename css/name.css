@@ -596,6 +596,7 @@ input {
     font-size: small;
     outline: none;
     color: var(--text-color);
+    text-transform: capitalize;
 }
 
 ::placeholder {
