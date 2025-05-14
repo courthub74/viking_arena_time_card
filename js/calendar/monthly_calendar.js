@@ -60,7 +60,7 @@ function renderCalendar(month, year) {
           const modal = document.getElementById('cal_modal');
           // Populate the header with the Logged User name
           const pageHeader = document.getElementById('employee_name_month');
-          console.log(pageHeader);
+          console.log(`This is the Page Header: ${pageHeader.innerText}`);
           // Parse the user name
           // const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser') || sessionStorage.getItem('session'));
           const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
@@ -71,14 +71,69 @@ function renderCalendar(month, year) {
           // Decode the user name from the logged user object
           const decodedUser = decodeURIComponent(loggedUser.username);
           pageHeader.innerHTML = `${decodedUser}`; // Populate the header with the logged user name
+
+          //////////////////////////////////////////////////////
           // Populate the modal with the clicked date
           const cellDate = cell.textContent;
           const cellMonth = month + 1; // Add 1 to month since it's 0-indexed
           const cellYear = year;
+
           // NOW put this in the date input in the modal
           // const dateInput = document.getElementById('date_input');
           // dateInput.value = `${cellYear}-${cellMonth.toString().padStart(2, '0')}-${cellDate.toString().padStart(2, '0')}`;
           // Query the close button to close the modal
+          // Set current time as default
+          // Make the dates match the date in the cell clicked
+        
+          const now = new Date(); // This goes in the top date picker
+          // make now the date in the cell clicked
+          now.setDate(cellDate); // Set the date to the cell clicked
+          // Query the DatePicker element
+          const datePicker = document.getElementById('current_day');
+          // Set the value of the DatePicker to the current date in YYYY-MM-DD format
+          datePicker.value = now.toISOString().split('T')[0]; // YYYY-MM-DD
+          // Set the value of the DatePicker to month name
+          datePicker.value = now.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit'
+          });
+
+          ///////////////////////////////////////////////////////
+          // TIME PICKER
+          // Populate In Hours
+          let in_hours = now.getHours() - 7; // Get the current hour and subtract 12 to convert to 12-hour format
+          const ampm = in_hours >= 12 ? 'PM' : 'AM';
+          in_hours = in_hours % 12;
+          in_hours = in_hours ? in_hours : 12; // Convert 0 to 12
+          const inHourSelect = document.getElementById('in_hour');
+          inHourSelect.value = in_hours;
+
+          // Populate In Minutes
+          const inMinuteSelect = document.getElementById('in_minute');  // Query the In Minute select element
+          inMinuteSelect.value = now.getMinutes();
+          // set the minutes to 00
+          inMinuteSelect.value = 0; // Set the minutes to 00
+          document.getElementById('in_ampm').value = ampm;
+          // Populate Out Hours
+          let out_hours = now.getHours();
+          const out_ampm = out_hours >= 12 ? 'PM' : 'AM';
+          out_hours = out_hours % 12;
+          out_hours = out_hours ? out_hours : 12; // Convert 0 to 12
+          const outHourSelect = document.getElementById('out_hour');
+          outHourSelect.value = out_hours;
+          // Test Print
+          console.log("Out Hours: " + out_hours);
+          // Populate Out Minutes
+          const outMinuteSelect = document.getElementById('out_minute'); // Query the Out Minute select element
+          outMinuteSelect.value = now.getMinutes();
+          // set the minutes to 00
+          outMinuteSelect.value = 0; // Set the minutes to 00
+          // Test Print
+          console.log("Out Minutes: " + outMinuteSelect.value);
+
+          ///////////////////////////////////////////////////////
+
           const closeModal = document.getElementById('close_modal');
           // Open modal or perform action here
           console.log(`Clicked on ${cell.textContent}`);

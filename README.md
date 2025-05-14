@@ -101,6 +101,8 @@ for 'Remember Me' functionality
 
 \*Grant the Managers a managerial key for registration
 
+\*Add Managerial key enter screen and change the button color for Manager select button
+
 ## Obstacles
 
 \*Had to consider the user psychology and behavior patterns of users that range from 21 - 81
