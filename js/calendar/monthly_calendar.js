@@ -78,12 +78,7 @@ function renderCalendar(month, year) {
           const cellMonth = month + 1; // Add 1 to month since it's 0-indexed
           const cellYear = year;
 
-          // NOW put this in the date input in the modal
-          // const dateInput = document.getElementById('date_input');
-          // dateInput.value = `${cellYear}-${cellMonth.toString().padStart(2, '0')}-${cellDate.toString().padStart(2, '0')}`;
-          // Query the close button to close the modal
-          // Set current time as default
-          // Make the dates match the date in the cell clicked
+          
         
           const now = new Date(); // This goes in the top date picker
           // make now the date in the cell clicked
@@ -101,36 +96,71 @@ function renderCalendar(month, year) {
 
           ///////////////////////////////////////////////////////
           // TIME PICKER
-          // Populate In Hours
-          let in_hours = now.getHours() - 7; // Get the current hour and subtract 12 to convert to 12-hour format
-          const ampm = in_hours >= 12 ? 'PM' : 'AM';
-          in_hours = in_hours % 12;
-          in_hours = in_hours ? in_hours : 12; // Convert 0 to 12
-          const inHourSelect = document.getElementById('in_hour');
-          inHourSelect.value = in_hours;
 
-          // Populate In Minutes
-          const inMinuteSelect = document.getElementById('in_minute');  // Query the In Minute select element
-          inMinuteSelect.value = now.getMinutes();
-          // set the minutes to 00
-          inMinuteSelect.value = 0; // Set the minutes to 00
-          document.getElementById('in_ampm').value = ampm;
-          // Populate Out Hours
-          let out_hours = now.getHours();
-          const out_ampm = out_hours >= 12 ? 'PM' : 'AM';
-          out_hours = out_hours % 12;
-          out_hours = out_hours ? out_hours : 12; // Convert 0 to 12
+          // IN
+
+          // Hours
+          // Query the In Hour select element
+          const inHourSelect = document.getElementById('in_hour');
+          // Populate the In Hour select element with options from 1 to 12
+          for (let i = 1; i <= 12; i++) {
+            const in_option = document.createElement('option');
+            in_option.value = i;
+            in_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit hours
+            inHourSelect.appendChild(in_option);
+            console.log(`In Hour: ${inHourSelect.value}`);
+          }
+
+          // Minutes
+          // Query the In Minute select element
+          const inMinuteSelect = document.getElementById('in_minute');
+          for (let i = 0; i < 60; i++) {
+            const in_option = document.createElement('option');
+            in_option.value = i;
+            in_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit minutes
+            // just in increments of 15 minutes
+            if (i % 15 === 0) {
+              in_option.value = i;
+              in_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit minutes
+              inMinuteSelect.appendChild(in_option);
+            }
+            console.log(`In Minute: ${inMinuteSelect.value}`);
+          }
+
+
+          // OUT
+          // Query for the hour select element
           const outHourSelect = document.getElementById('out_hour');
-          outHourSelect.value = out_hours;
-          // Test Print
-          console.log("Out Hours: " + out_hours);
-          // Populate Out Minutes
-          const outMinuteSelect = document.getElementById('out_minute'); // Query the Out Minute select element
-          outMinuteSelect.value = now.getMinutes();
-          // set the minutes to 00
-          outMinuteSelect.value = 0; // Set the minutes to 00
-          // Test Print
-          console.log("Out Minutes: " + outMinuteSelect.value);
+          // Populate the hour select element with options from 1 to 12
+          for (let i = 1; i <= 12; i++) {
+            // Create an option element for each hour
+            const out_option = document.createElement('option');
+            // Set the value and text content of the option element
+            // value is set to each iteration
+            out_option.value = i;
+            // textContent is set to i, and if less than 10, it adds a leading zero else just leave it as is
+            out_option.textContent = i < 10 ? '0' + i : i;
+            // Append the option element to the hour select element
+            outHourSelect.appendChild(out_option);
+            console.log(`Out Hour: ${outHourSelect.value}`);
+          }
+          // Minutes
+          const outMinuteSelect = document.getElementById('out_minute');
+          for (let i = 0; i < 60; i++) {
+            const out_option = document.createElement('option');
+            out_option.value = i;
+            out_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit minutes
+            // just in increments of 15 minutes
+            if (i % 15 === 0) {
+              out_option.value = i;
+              out_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit minutes
+              outMinuteSelect.appendChild(out_option);
+            }
+            console.log(`Out Minute: ${outMinuteSelect.value}`);
+          }
+
+
+          
 
           ///////////////////////////////////////////////////////
 
