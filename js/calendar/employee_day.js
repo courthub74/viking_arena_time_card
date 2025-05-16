@@ -127,7 +127,7 @@ submit_button_employee_hours.addEventListener('click', (e) => {
     ///////////////////////////////////////////////////////////////////////////////////////////
 
 
-    // // Find the logged-in user in the users array
+    // // Find the logged-in user in the users array by username
     const userIndex = allUsers.findIndex(user => user.username === currentUser.username);
 
     // // Test print

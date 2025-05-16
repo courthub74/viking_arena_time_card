@@ -343,7 +343,71 @@ submitButton.addEventListener('click', function() {
     console.log(`Out Time: ${outHour}:${outMinute} ${outAmPm}`);
     console.log(`Selected Date: ${selectedDate}`);
     
-    // Rest of your code...
+    // Send data to local storage
+    const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
+    //Error handling for null userString
+    const loggedUser = userString ? JSON.parse(userString) : null;
+    // Get the user name from the logged user object
+    console.log(`The Logged User: ${loggedUser.username}`);
+    // Decode the user name from the logged user object
+    const decodedUser = decodeURIComponent(loggedUser.username);
+    console.log(`The Decoded User: ${decodedUser}`);
+    // Create an object to store the data
+    const timeEntry = {
+      inTime: `${inHour}:${inMinute} ${inAmPm}`,
+      outTime: `${outHour}:${outMinute} ${outAmPm}`,
+      date: selectedDate,
+      user: decodedUser // Store the user name
+    };
+    // Get current logged-in user from session storage
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('session')) || null;
+    // Test Print
+    console.log(currentUser.username);
+    // If No User Logged in
+    if (!currentUser) {
+      console.error('No user logged in');
+      return;
+    }
+    // Get all users from local storage
+    const allUsers = JSON.parse(localStorage.getItem('users')) || [];
+    // Test Print
+    console.log(allUsers);
+    // If No Users in Local Storage
+    if (!allUsers) {
+      console.error('No users in local storage');
+      return;
+    }
+
+    // Find the logged in user by index
+   const userIndex = allUsers.findIndex(user => user.username === loggedUser.username);
+    // Test Print
+    console.log(userIndex);
+    // If user not found in local storage
+    if (userIndex === -1) {
+      console.error('User not found in local storage');
+      return;
+    }
+
+    // If hours array doesn't exist yet for this user, create it
+    if (!allUsers[userIndex].hours) {
+      allUsers[userIndex].hours = [];
+    }
+
+    // Add the new hours (timeEntry) object to the users time array
+    allUsers[userIndex].hours.push(timeEntry);
+
+    // Update the local storage with the new user data
+    localStorage.setItem('users', JSON.stringify(allUsers));
+
+    // Test Print
+    console.log('Updated user data:', allUsers[userIndex]);
+    console.log(`Time entry added for user ${currentUser.username}:`, timeEntry);
+    
+    
+    // Store the data in local storage under another object
+    // localStorage.setItem('employeeHours', JSON.stringify(data));
+    // console.log('Data stored in local storage:', data);
+
     
   } catch (error) {
     console.error('Error in click handler:', error);
