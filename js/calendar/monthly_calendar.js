@@ -79,7 +79,7 @@ function renderCalendar(month, year) {
           const cellYear = year;
 
           
-        
+          // Set The DatePicker to the clicked date
           const now = new Date(); // This goes in the top date picker
           // make now the date in the cell clicked
           now.setDate(cellDate); // Set the date to the cell clicked
@@ -160,8 +160,6 @@ function renderCalendar(month, year) {
           }
 
 
-          
-
           ///////////////////////////////////////////////////////
 
           const closeModal = document.getElementById('close_modal');
@@ -194,36 +192,6 @@ function renderCalendar(month, year) {
 
             }
           });
-
-
-          // // Get the date to populate the modal date input
-          // // const dateInput = document.getElementById('date_input');
-          // const dateInput = "This is a test input"; // Placeholder for the date input element
-          // // Get the date from the cell clicked
-          // const cellDate = cell.textContent;
-          // // Get the month from the current month
-          // const cellMonth = month + 1; // Add 1 to month since it's 0-indexed
-          // // Get the year from the current year
-          // const cellYear = year;
-          // // Populate the date input with the clicked date
-          // dateInput.value = `${cellYear}-${cellMonth.toString().padStart(2, '0')}-${cellDate.toString().padStart(2, '0')}`;
-          // // Test Print
-          // console.log(`Date input value: ${dateInput.value}`);
-
-
-          // Add event listener to close the modal when clicking the save button
-        //   const saveButton = document.getElementById('save_button');
-        //   saveButton.addEventListener('click', function() {
-        //     // Get the date and hours worked from the modal inputs
-        //     const dateInput = document.getElementById('date_input');
-        //     const hoursInput = document.getElementById('hours_input');  
-        //     const dateValue = dateInput.value;
-        //     const hoursValue = hoursInput.value;
-        //     // Save the data to the database or perform an action here
-        //     console.log(`Date: ${dateValue}, Hours Worked: ${hoursValue}`);
-        //     // Close the modal after saving
-        //     modal.classList.remove('modal_active'); // Hide the modal
-        //     console.log(`${modal.classList} normal class of the modal`);
         });
       });
 
@@ -299,6 +267,87 @@ function nextMonth() {
 document.addEventListener('DOMContentLoaded', function() {
   renderCalendar(currentMonth, currentYear);
   updateCalendarHeader(currentMonth, currentYear);
+});
+
+// SUBMIT BUTTON
+// Query the submit button element
+const submitButton = document.getElementById('submit_employee_hours_modal');
+
+// Query the in hour select element
+const inHourSelect = document.getElementById('in_hour');
+// Query the in minute select element
+const inMinuteSelect = document.getElementById('in_minute');
+// Query the out hour select element
+const outHourSelect = document.getElementById('out_hour');
+// Query the out minute select element
+const outMinuteSelect = document.getElementById('out_minute');
+// Query the AM/PM select elements
+const inAmPmSelect = document.getElementById('in_ampm');
+const outAmPmSelect = document.getElementById('out_ampm');
+
+// Enable the submit button with select elements
+inHourSelect.addEventListener('change', function() {
+  // Enable the submit button when the out hour is changed
+  submitButton.disabled = false;
+});
+outHourSelect.addEventListener('change', function() { 
+  // Enable the submit button when the out hour is changed
+  submitButton.disabled = false;
+});
+inMinuteSelect.addEventListener('change', function() {
+  // Enable the submit button when the out hour is changed
+  submitButton.disabled = false;
+}
+);
+outMinuteSelect.addEventListener('change', function() {
+  // Enable the submit button when the out hour is changed
+  submitButton.disabled = false;
+});
+
+
+submitButton.addEventListener('click', function() {
+  
+
+  try {
+
+    console.log('Button clicked!');
+    
+    // Query the in hour select element
+    const inHourSelect = document.getElementById('in_hour');
+    const inMinuteSelect = document.getElementById('in_minute');
+    const outHourSelect = document.getElementById('out_hour');
+    const outMinuteSelect = document.getElementById('out_minute');
+    // Query the AM/PM select elements
+    const inAmPmSelect = document.getElementById('in_ampm');
+    const outAmPmSelect = document.getElementById('out_ampm');
+    // Query the date picker element
+    const datePicker = document.getElementById('current_day');
+    // Get the selected values from the hour and minute select elements
+    const inHour = inHourSelect.value;
+    // console.log(`In Hour: ${inHour}`);
+    const inMinute = inMinuteSelect.value;
+    // console.log(`In Minute: ${inMinute}`);
+    const outHour = outHourSelect.value;
+    // console.log(`Out Hour: ${outHour}`);
+    const outMinute = outMinuteSelect.value;
+    // console.log(`Out Minute: ${outMinute}`);
+    // Get the selected value from the AM/PM select element
+    const inAmPm = document.getElementById('in_ampm').value;
+    const outAmPm = document.getElementById('out_ampm').value;
+    // Get the selected date from the DatePicker element
+    const selectedDate = datePicker.value; // YYYY-MM-DD format
+    // console.log(`Selected Date: ${selectedDate}`);
+
+    // Perform your submit action here (e.g., send data to server)
+    console.log(`In Time: ${inHour}:${inMinute} ${inAmPm}`);
+    console.log(`Out Time: ${outHour}:${outMinute} ${outAmPm}`);
+    console.log(`Selected Date: ${selectedDate}`);
+    
+    // Rest of your code...
+    
+  } catch (error) {
+    console.error('Error in click handler:', error);
+  }
 });
 
 

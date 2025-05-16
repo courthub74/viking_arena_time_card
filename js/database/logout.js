@@ -6,7 +6,7 @@
 // console.log(`The current user is: ${currentUser.username}`);
 
 // Retrieve the current user from session storage
-var currentUser = sessionStorage.getItem('currentUser');
+var currentUser = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
 // Parse the current user from JSON string to object
 var currentUser = JSON.parse(currentUser);
 // Test print the current user
