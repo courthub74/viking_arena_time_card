@@ -447,21 +447,25 @@ userHours.forEach(entry => {
   const date = new Date(entry.date);
   // Get the month and year from the date
   const month = date.getMonth() + 1; // Add 1 to month since it's 0-indexed
-  // const month = date.getMonth();
   const year = date.getFullYear();
   // Get the day of the month from the date
   const day = date.getDate();
-  // Query the calendar cell for the date
-  // const cell = document.querySelector(`.calendar-cell:nth-child(${day})`);
-  const cell = "The cell for the date: " + day + " " + month + " " + year;
-  // Query the calendar cell for the date (to change the class for display)
-  // const cell = document.querySelector(`.calendar-cell:nth-child(${day})`);
-  // Test Print
-  console.log(`Cell for ${entry.date}:`, cell);
-  // If cell exists, add a class to it to highlight it
+  // If your calendar cells have data attributes for dates
+  // const cell = document.querySelector(`.calendar-cell[data-date="${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}"]`);
+
+  // OR if your cells have IDs with the date
+  // const cell = document.getElementById(`date-${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`);
+
+  // OR if your cells have a specific attribute/class naming convention
+  const cell = document.querySelector(`.calendar-cell.day-${day}.month-${month}.year-${year}`);
+  // Test Print Cell
+  console.log(`Looking for cell with day: ${day}, in month: ${month}, year: ${year}`);
+  console.log(`All calendar cells:`, document.querySelectorAll('.calendar-cell'));
+  // If cell exists add highlight to it
   if (cell) {
-    // cell.classList.add('selected');
-    console.log(`Highlighted cell for ${entry.user} on ${entry.date}`);
+    // change the style
+    cell.style.backgroundColor = "Blue"
+    cell.style.color = "Black";
   }
 });
 
