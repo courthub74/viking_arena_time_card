@@ -414,8 +414,66 @@ submitButton.addEventListener('click', function() {
   }
 });
 
+// NOW read the dates from local storage and populate the calendar with the dates
+// Query the local storage for the user data
+const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
+//Error handling for null userString
+const loggedUser = userString ? JSON.parse(userString) : null;
+// Get the user name from the logged user object
+console.log(`The Logged User: ${loggedUser.username}`);
+// Decode the user name from the logged user object
+const decodedUser = decodeURIComponent(loggedUser.username);
+console.log(`The Decoded User to get the Dates: ${decodedUser}`);
+// Get the hours array for the logged in user
+const allUsers = JSON.parse(localStorage.getItem('users')) || [];
+// Test Print
+console.log(`All users for the Date: ${allUsers}`);
+
+// Find the logged in user by index
+const userIndex = allUsers.findIndex(user => user.username === loggedUser.username);
+// Test Print
+console.log(`User Index for the Date: ${userIndex}`);
+
+// Get the hours array for the logged in user
+const userHours = allUsers[userIndex].hours || [];
+
+// Test Print
+console.log('User Hours for the Date:', userHours);
+console.log(userHours.length);
+
+// Iterate through the hours array and populate the calendar with the dates
+userHours.forEach(entry => {
+  // Get the date from the entry
+  const date = new Date(entry.date);
+  // Get the month and year from the date
+  const month = date.getMonth() + 1; // Add 1 to month since it's 0-indexed
+  // const month = date.getMonth();
+  const year = date.getFullYear();
+  // Get the day of the month from the date
+  const day = date.getDate();
+  // Query the calendar cell for the date
+  // const cell = document.querySelector(`.calendar-cell:nth-child(${day})`);
+  const cell = "The cell for the date: " + day + " " + month + " " + year;
+  // Query the calendar cell for the date (to change the class for display)
+  // const cell = document.querySelector(`.calendar-cell:nth-child(${day})`);
+  // Test Print
+  console.log(`Cell for ${entry.date}:`, cell);
+  // If cell exists, add a class to it to highlight it
+  if (cell) {
+    // cell.classList.add('selected');
+    console.log(`Highlighted cell for ${entry.user} on ${entry.date}`);
+  }
+});
+
+// Query the modal element
+// AND in it.  You say if date then 
+// change the time picker input to outputs 
+// that read the time in and out
+const modal = document.getElementById('cal_modal');
 
 
+///////////////////////////////////////////////////////////////////
+///////////////////BACK TO DASHBOARD LINK///////////////////////////////
 // Query the back to dashboard link and add an event listener to it
 const backToDashboardLink = document.getElementById('link_back');
 
