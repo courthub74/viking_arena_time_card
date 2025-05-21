@@ -472,6 +472,8 @@ userHours.forEach(entry => {
   const cell = document.querySelectorAll(`.calendar-cell[data-date="${day}"]`);
   if (cell) {
     console.log(`Cell found for date ${day}:`, cell);
+
+    console.log(`Found calendar cell for the date ${day}/${month}/${year}/In: ${entry.inTime}/Out: ${entry.outTime}`);
   }
 });
 
