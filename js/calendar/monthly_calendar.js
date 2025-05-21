@@ -38,6 +38,7 @@ function renderCalendar(month, year) {
     
     // Create cells for each day of the week
     for (let j = 0; j < 7; j++) {
+      // Each day cell is created here
       const cell = document.createElement('td');
       
       /////////////// FOR HOURS MODAL /////////////////
@@ -445,29 +446,35 @@ console.log(userHours.length);
 userHours.forEach(entry => {
   // Get the date from the entry
   const date = new Date(entry.date);
-  // Get the month and year from the date
+
+  // Get the month and year from the date box
   const month = date.getMonth() + 1; // Add 1 to month since it's 0-indexed
   const year = date.getFullYear();
   // Get the day of the month from the date
   const day = date.getDate();
-  // If your calendar cells have data attributes for dates
-  // const cell = document.querySelector(`.calendar-cell[data-date="${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}"]`);
 
-  // OR if your cells have IDs with the date
-  // const cell = document.getElementById(`date-${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`);
+  console.log(`Entry Date: ${date}`);
+  console.log(`Entry Month: ${month}`);
+  console.log(`Entry Year: ${year}`);
+  console.log(`Entry Day: ${day}`);
 
-  // OR if your cells have a specific attribute/class naming convention
-  const cell = document.querySelector(`.calendar-cell.day-${day}.month-${month}.year-${year}`);
-  // Test Print Cell
-  console.log(`Looking for cell with day: ${day}, in month: ${month}, year: ${year}`);
-  console.log(`All calendar cells:`, document.querySelectorAll('.calendar-cell'));
-  // If cell exists add highlight to it
+  // // Get the Hours worked from the entry
+//  console.log(`The Hours printed out: ${userHours.length}`);
+  console.log(`In Time: ${entry.inTime}`);
+  console.log(`Out Time: ${entry.outTime}`);
+
+  
+  // Change the color of the cell to green if the date is today
+  // How to query the cell by date that has a date entered in it
+  // If the cell has a date in it, change the class of the cell
+  // that class will be used to style the cell
+  // Get the cell element for the date
+  const cell = document.querySelectorAll(`.calendar-cell[data-date="${day}"]`);
   if (cell) {
-    // change the style
-    cell.style.backgroundColor = "Blue"
-    cell.style.color = "Black";
+    console.log(`Cell found for date ${day}:`, cell);
   }
 });
+
 
 // Query the modal element
 // AND in it.  You say if date then 
