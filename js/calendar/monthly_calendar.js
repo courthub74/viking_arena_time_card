@@ -51,6 +51,16 @@ function renderCalendar(month, year) {
       // The JS will query all the cells and when each is clicked
       // the modal will open.  There you will enter date and hours worked
       let eachDay = document.querySelectorAll('.calendar-cell');
+      // Add data attribute to each cell for the date
+      cell.setAttribute('data-date', `${date}`);
+      // Add data attribute to each cell for the month
+      cell.setAttribute('data-month', `${month}`);
+      // Add data attribute to each cell for the year
+      cell.setAttribute('data-year', `${year}`);
+      // Add data attribute to each cell for the day of the week
+      cell.setAttribute('data-day', `${j}`);
+      
+  
       // Add event listener to each cell
       // This will open a modal or perform an action when a cell is clicked
       eachDay.forEach(function(cell) {
@@ -463,6 +473,7 @@ userHours.forEach(entry => {
   console.log(`In Time: ${entry.inTime}`);
   console.log(`Out Time: ${entry.outTime}`);
 
+
   
   // Change the color of the cell to green if the date is today
   // How to query the cell by date that has a date entered in it
@@ -470,10 +481,28 @@ userHours.forEach(entry => {
   // that class will be used to style the cell
   // Get the cell element for the date
   const cell = document.querySelectorAll(`.calendar-cell[data-date="${day}"]`);
-  if (cell) {
-    console.log(`Cell found for date ${day}:`, cell);
 
+  
+  // PROBLEM: The cell is not being found because the data-date attribute is not set in the HTML
+  // You need to set the data-date attribute in the HTML for each cell
+  // You can do this by adding the data-date attribute in the renderCalendar function
+  // cell.setAttribute('data-date', `${day}`);
+
+  // **************************************
+  // Retrieve the time entry into the modal
+  // ***************************************
+  // Then apply that to the date in the calendar
+  // Check if the cell exists
+  // If the cell exists, change the class of the cell to the class that will be used to style the cell
+  
+  
+
+  if (cell) {
+    // Change the class of the cell to the class that will be used to style the cell
     console.log(`Found calendar cell for the date ${day}/${month}/${year}/In: ${entry.inTime}/Out: ${entry.outTime}`);
+    // Change the class of the cell to the class that will be used to style the cell
+  } else {
+    console.log(`No calendar cell found for ${day}/${month}/${year}`);
   }
 });
 

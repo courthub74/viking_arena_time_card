@@ -946,6 +946,7 @@ tr {
     cursor: default;
 }
 
+
 /* Current day */
 #calendar-body td.today {
     background-color: var(--today-color);
@@ -960,6 +961,13 @@ tr {
 #calendar-body td.selected {
     background-color: var(--today-color);
     background-color: var(--filled-color);
+    border-radius: 50%;
+    color: white;
+}
+
+/* Filled Cell */
+#calendar-body td.filled {
+    background-color: darkgreen;
     border-radius: 50%;
     color: white;
 }
