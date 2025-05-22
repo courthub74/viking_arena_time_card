@@ -452,6 +452,7 @@ const userHours = allUsers[userIndex].hours || [];
 console.log('User Hours for the Date:', userHours);
 console.log(userHours.length);
 
+
 // Iterate through the hours array and populate the calendar with the dates
 userHours.forEach(entry => {
   // Get the date from the entry
@@ -474,36 +475,110 @@ userHours.forEach(entry => {
   console.log(`Out Time: ${entry.outTime}`);
 
 
-  
+  if (entry.inTime && entry.outTime) {
+    console.log(`Looking for cell with: day=${day}, month=${month-1}, year=${year}, inTime=${entry.inTime}, outTime=${entry.outTime}`);
+    
+    // Try different combinations
+    let cell;
+    
+    // Option 1: month - 1 (0-indexed)
+    cell = document.querySelector(`.calendar-cell[data-date="${day}"][data-month="${month - 1}"][data-year="${year}"][data-timeIn="${entry.inTime}"][data-timeOut="${entry.outTime}"]`);
+    if (cell) console.log('Found with month - 1');
+    
+    // Option 2: actual month (1-indexed)
+    if (!cell) {
+        cell = document.querySelector(`.calendar-cell[data-date="${day}"][data-month="${month}"][data-year="${year}"]`);
+        if (cell) console.log('Found with actual month');
+    }
+    
+    // Option 3: Just data-date (if it contains full date info)
+    if (!cell) {
+        cell = document.querySelector(`.calendar-cell[data-date="${day}"]`);
+        if (cell) console.log('Found with just data-date');
+    }
+    
+    // Option 4: Combined data-date format
+    if (!cell) {
+        cell = document.querySelector(`.calendar-cell[data-date="${day}-${month}-${year}"]`);
+        if (cell) console.log('Found with combined format');
+    }
+    
+    if (cell) {
+        cell.classList.add('filled');
+        console.log(`Cell found for date ${day}/${month}/${year}`);
+    } else {
+        console.error(`Cell not found for date ${day}/${month}/${year}`);
+        // Show what cells exist for this day
+        const dayCells = document.querySelectorAll(`.calendar-cell[data-date="${day}"]`);
+        console.log(`Found ${dayCells.length} cells with data-date="${day}"`);
+    }
+}
   // Change the color of the cell to green if the date is today
-  // How to query the cell by date that has a date entered in it
-  // If the cell has a date in it, change the class of the cell
-  // that class will be used to style the cell
-  // Get the cell element for the date
-  const cell = document.querySelectorAll(`.calendar-cell[data-date="${day}"]`);
-
+  // only if there is an entry inTime and outTime
+  // if (entry.inTime && entry.outTime) {
+  //   console.log(`IF there is an In Time: ${entry.inTime}`);
+  //   console.log(`IF there is an Out Time: ${entry.outTime}`);
+  //   // Query the cell with the data-date attribute
+  //   const cell = document.querySelector(`.calendar-cell[data-date="${day}"][data-month="${month - 1}"][data-year="${year}"]`);
+  //   // Check if the cell exists
+  //   if (cell) {
+  //     // Change the class of the cell to green
+  //     cell.classList.add('filled'); // Add a class to style the cell
+  //     console.log(`Cell found for date ${day}/${month}/${year}`);
+  //   } else {
+  //     console.error(`Cell not found for date ${day}/${month}/${year}`);
+  //   }
+    // // Get the hours worked from the entry
+    // const inTime = entry.inTime.split(':'); // Split the inTime string into hours and minutes
+    // const outTime = entry.outTime.split(':'); // Split the outTime string into hours and minutes
+    // // Get the hours and minutes from the inTime and outTime strings
+    // const inHours = parseInt(inTime[0], 10); // Parse the hours from the inTime string
+    // const inMinutes = parseInt(inTime[1], 10); // Parse the minutes from the inTime string
+    // const outHours = parseInt(outTime[0], 10); // Parse the hours from the outTime string
+    // const outMinutes = parseInt(outTime[1], 10); // Parse the minutes from the outTime string
+    // // Get the AM/PM from the inTime and outTime strings
+    // const inAmPm = entry.inTime.split(' ')[1]; // Get the AM/PM from the inTime string
+    // const outAmPm = entry.outTime.split(' ')[1]; // Get the AM/PM from the outTime string
+    // // Check if the inTime and outTime are in AM/PM format
+    // if (inAmPm === 'PM' && inHours < 12) {
+    //   inHours += 12; // Convert to 24-hour format
+    // } else if (inAmPm === 'AM' && inHours === 12) {
+    //   inHours = 0; // Convert to 24-hour format
+    // }
+    // if (outAmPm === 'PM' && outHours < 12) {
+    //   outHours += 12; // Convert to 24-hour format
+    // }
+    // else if (outAmPm === 'AM' && outHours === 12) {
+    //   outHours = 0; // Convert to 24-hour format
+    // }
+    // // Get the total hours worked
+    // const totalHours = outHours - inHours; // Calculate the total hours worked
+    // const totalMinutes = outMinutes - inMinutes; // Calculate the total minutes worked
+    // // Check if the total minutes are negative
+    // if (totalMinutes < 0) {
+    //   totalHours -= 1; // Subtract 1 hour if total minutes are negative
+    //   totalMinutes += 60; // Add 60 minutes to total minutes
+    // }
+    // // Check if the total hours are negative
+    // if (totalHours < 0) {
+    //   totalHours = 0; // Set total hours to 0 if negative
+    // }
+    // // Print the total hours worked to the console
+    // console.log(`Total Hours Worked: ${totalHours} hours and ${totalMinutes} minutes`);
+   // Print it to the Modal
+  //  Then get the hours from the modal 
+  // to change the color of the cell to green
+  // }
   
   // PROBLEM: The cell is not being found because the data-date attribute is not set in the HTML
-  // You need to set the data-date attribute in the HTML for each cell
-  // You can do this by adding the data-date attribute in the renderCalendar function
-  // cell.setAttribute('data-date', `${day}`);
 
   // **************************************
   // Retrieve the time entry into the modal
   // ***************************************
+
   // Then apply that to the date in the calendar
   // Check if the cell exists
-  // If the cell exists, change the class of the cell to the class that will be used to style the cell
-  
-  
-
-  if (cell) {
-    // Change the class of the cell to the class that will be used to style the cell
-    console.log(`Found calendar cell for the date ${day}/${month}/${year}/In: ${entry.inTime}/Out: ${entry.outTime}`);
-    // Change the class of the cell to the class that will be used to style the cell
-  } else {
-    console.log(`No calendar cell found for ${day}/${month}/${year}`);
-  }
+  // If the cell exists, change the class of the cell to the class that will be used to style the cell 
 });
 
 
