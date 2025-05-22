@@ -972,6 +972,12 @@ tr {
     color: white;
 }
 
+.filled {
+    background-color: darkgreen;
+    border-radius: 50%;
+    color: white;
+}
+
 /* ********************************* */
 /* ********MODAL FORM*************** */
 

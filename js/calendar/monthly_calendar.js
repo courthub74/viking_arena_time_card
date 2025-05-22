@@ -452,134 +452,37 @@ const userHours = allUsers[userIndex].hours || [];
 console.log('User Hours for the Date:', userHours);
 console.log(userHours.length);
 
-
 // Iterate through the hours array and populate the calendar with the dates
-userHours.forEach(entry => {
-  // Get the date from the entry
-  const date = new Date(entry.date);
+for (let i = 0; i < userHours.length; i++) {
+  const date = userHours[i].date;
+  const inTime = userHours[i].inTime;
+  const outTime = userHours[i].outTime;
+  // Get the date from the date string
+  const dateString = new Date(date);
+  // Get the day of the week from the date string
+  const dayOfWeek = dateString.getDay();
+  // Get the month from the date string
+  const month = dateString.getMonth();
+  // Get the year from the date string
+  const year = dateString.getFullYear();
+  ///////////////////////////////
+  // append the date to the cell
+  console.log(`Date: ${dateString.getDate()}-${month + 1}-${year}`);
+  console.log(`In Time: ${inTime}`);
+  console.log(`Out Time: ${outTime}`);
 
-  // Get the month and year from the date box
-  const month = date.getMonth() + 1; // Add 1 to month since it's 0-indexed
-  const year = date.getFullYear();
-  // Get the day of the month from the date
-  const day = date.getDate();
-
-  console.log(`Entry Date: ${date}`);
-  console.log(`Entry Month: ${month}`);
-  console.log(`Entry Year: ${year}`);
-  console.log(`Entry Day: ${day}`);
-
-  // // Get the Hours worked from the entry
-//  console.log(`The Hours printed out: ${userHours.length}`);
-  console.log(`In Time: ${entry.inTime}`);
-  console.log(`Out Time: ${entry.outTime}`);
-
-
-  if (entry.inTime && entry.outTime) {
-    console.log(`Looking for cell with: day=${day}, month=${month-1}, year=${year}, inTime=${entry.inTime}, outTime=${entry.outTime}`);
-    
-    // Try different combinations
-    let cell;
-    
-    // Option 1: month - 1 (0-indexed)
-    cell = document.querySelector(`.calendar-cell[data-date="${day}"][data-month="${month - 1}"][data-year="${year}"][data-timeIn="${entry.inTime}"][data-timeOut="${entry.outTime}"]`);
-    if (cell) console.log('Found with month - 1');
-    
-    // Option 2: actual month (1-indexed)
-    if (!cell) {
-        cell = document.querySelector(`.calendar-cell[data-date="${day}"][data-month="${month}"][data-year="${year}"]`);
-        if (cell) console.log('Found with actual month');
-    }
-    
-    // Option 3: Just data-date (if it contains full date info)
-    if (!cell) {
-        cell = document.querySelector(`.calendar-cell[data-date="${day}"]`);
-        if (cell) console.log('Found with just data-date');
-    }
-    
-    // Option 4: Combined data-date format
-    if (!cell) {
-        cell = document.querySelector(`.calendar-cell[data-date="${day}-${month}-${year}"]`);
-        if (cell) console.log('Found with combined format');
-    }
-    
-    if (cell) {
-        cell.classList.add('filled');
-        console.log(`Cell found for date ${day}/${month}/${year}`);
-    } else {
-        console.error(`Cell not found for date ${day}/${month}/${year}`);
-        // Show what cells exist for this day
-        const dayCells = document.querySelectorAll(`.calendar-cell[data-date="${day}"]`);
-        console.log(`Found ${dayCells.length} cells with data-date="${day}"`);
-    }
+  // Get the cell for the date
+  const cell = document.querySelector(`.calendar-cell[data-date="${dateString.getDate()}"][data-month="${month}"][data-year="${year}"]`);
+  // If cell exists, add a class to it to highlight it
+  if (cell) {
+    cell.classList.add('filled');
+    // Add in and out time to the cell
+    // cell.innerHTML += `<br>In: ${inTime}<br>Out: ${outTime}`;
+    console.log(`Added in and out time to cell: ${cell}/br>In: ${inTime}<br>Out: ${outTime}`);
+  } else {
+    console.log(`Cell not found for date: ${dateString.getDate()}-${month + 1}-${year}`);
+  }
 }
-  // Change the color of the cell to green if the date is today
-  // only if there is an entry inTime and outTime
-  // if (entry.inTime && entry.outTime) {
-  //   console.log(`IF there is an In Time: ${entry.inTime}`);
-  //   console.log(`IF there is an Out Time: ${entry.outTime}`);
-  //   // Query the cell with the data-date attribute
-  //   const cell = document.querySelector(`.calendar-cell[data-date="${day}"][data-month="${month - 1}"][data-year="${year}"]`);
-  //   // Check if the cell exists
-  //   if (cell) {
-  //     // Change the class of the cell to green
-  //     cell.classList.add('filled'); // Add a class to style the cell
-  //     console.log(`Cell found for date ${day}/${month}/${year}`);
-  //   } else {
-  //     console.error(`Cell not found for date ${day}/${month}/${year}`);
-  //   }
-    // // Get the hours worked from the entry
-    // const inTime = entry.inTime.split(':'); // Split the inTime string into hours and minutes
-    // const outTime = entry.outTime.split(':'); // Split the outTime string into hours and minutes
-    // // Get the hours and minutes from the inTime and outTime strings
-    // const inHours = parseInt(inTime[0], 10); // Parse the hours from the inTime string
-    // const inMinutes = parseInt(inTime[1], 10); // Parse the minutes from the inTime string
-    // const outHours = parseInt(outTime[0], 10); // Parse the hours from the outTime string
-    // const outMinutes = parseInt(outTime[1], 10); // Parse the minutes from the outTime string
-    // // Get the AM/PM from the inTime and outTime strings
-    // const inAmPm = entry.inTime.split(' ')[1]; // Get the AM/PM from the inTime string
-    // const outAmPm = entry.outTime.split(' ')[1]; // Get the AM/PM from the outTime string
-    // // Check if the inTime and outTime are in AM/PM format
-    // if (inAmPm === 'PM' && inHours < 12) {
-    //   inHours += 12; // Convert to 24-hour format
-    // } else if (inAmPm === 'AM' && inHours === 12) {
-    //   inHours = 0; // Convert to 24-hour format
-    // }
-    // if (outAmPm === 'PM' && outHours < 12) {
-    //   outHours += 12; // Convert to 24-hour format
-    // }
-    // else if (outAmPm === 'AM' && outHours === 12) {
-    //   outHours = 0; // Convert to 24-hour format
-    // }
-    // // Get the total hours worked
-    // const totalHours = outHours - inHours; // Calculate the total hours worked
-    // const totalMinutes = outMinutes - inMinutes; // Calculate the total minutes worked
-    // // Check if the total minutes are negative
-    // if (totalMinutes < 0) {
-    //   totalHours -= 1; // Subtract 1 hour if total minutes are negative
-    //   totalMinutes += 60; // Add 60 minutes to total minutes
-    // }
-    // // Check if the total hours are negative
-    // if (totalHours < 0) {
-    //   totalHours = 0; // Set total hours to 0 if negative
-    // }
-    // // Print the total hours worked to the console
-    // console.log(`Total Hours Worked: ${totalHours} hours and ${totalMinutes} minutes`);
-   // Print it to the Modal
-  //  Then get the hours from the modal 
-  // to change the color of the cell to green
-  // }
-  
-  // PROBLEM: The cell is not being found because the data-date attribute is not set in the HTML
-
-  // **************************************
-  // Retrieve the time entry into the modal
-  // ***************************************
-
-  // Then apply that to the date in the calendar
-  // Check if the cell exists
-  // If the cell exists, change the class of the cell to the class that will be used to style the cell 
-});
 
 
 // Query the modal element
