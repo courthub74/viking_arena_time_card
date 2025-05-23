@@ -47,8 +47,8 @@ submit_button_employee_hours.addEventListener('click', (e) => {
     // Concatenate the values
     let time_in_whole = `${time_in_hour.value} ${time_in_minute.value} ${time_in_period.value}`
 
-    console.log(time_in_whole);
-    ///////////////////////////////////////////////////////////
+    console.log(`The Time In (employee_day.js): ${time_in_whole}`);
+    ////////////////////////////////////////////////////////////////
 
     // Query the TIME OUT 
 
@@ -74,20 +74,40 @@ submit_button_employee_hours.addEventListener('click', (e) => {
     let time_out_whole = `${time_out_hour.value} ${time_out_minute.value} ${time_out_period.value}`
 
     // Test Print the concatenation
-    console.log(time_out_whole);
+    console.log(`The Time Out (employee_day.js): ${time_out_whole}`);
+    ////////////////////////////////////////////////////////////////
 
     // Create an entry object with the time information
-    const timeEntry = {
-        date: the_day,
-        timeIn: time_in_whole,
-        timeOut: time_out_whole
-    };
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
+    // const timeEntry = {
+    //     date: the_day,
+    //     timeIn: time_in_whole,
+    //     timeOut: time_out_whole
+    // };
+    // const timeEntry = {
+    //     date: the_day,
+    //     inTime: time_in_whole,
+    //     outTime: time_out_whole,
+    //     user: currentUser.username,
+    // };
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
 
     // Get current logged-in user from session storage
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('session')) || null;
 
-    // Test Print
-    console.log(currentUser.username);
+    // Decode the current username and store it in a variable
+    // const currentUsername = currentUser ? currentUser.username : null;
+    let currentUsername = decodeURIComponent(currentUser.username);
+    // Test print
+    console.log("Current User:", currentUsername);
+    
 
     // If No User Logged in
     if (!currentUser) {
@@ -102,6 +122,30 @@ submit_button_employee_hours.addEventListener('click', (e) => {
 
     // Test print 
     console.log(allUsers);
+
+    
+
+    // Create an entry object with the time information
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
+    // const timeEntry = {
+    //     date: the_day,
+    //     timeIn: time_in_whole,
+    //     timeOut: time_out_whole
+    // };
+    const timeEntry = {
+        date: the_day,
+        inTime: time_in_whole,
+        outTime: time_out_whole,
+        user: currentUser.username,
+    };
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
 
     ////////////////////////////////////////////////////////////////////////////////////////
 

@@ -62,6 +62,7 @@ function renderCalendar(month, year) {
       
   
       // Add event listener to each cell
+      // MODAL FOR EACH DAY TO POPUP
       // This will open a modal or perform an action when a cell is clicked
       eachDay.forEach(function(cell) {
         cell.addEventListener('click', function(e) {
@@ -363,13 +364,23 @@ submitButton.addEventListener('click', function() {
     // Decode the user name from the logged user object
     const decodedUser = decodeURIComponent(loggedUser.username);
     console.log(`The Decoded User: ${decodedUser}`);
+
     // Create an object to store the data
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
+    /////////////////////////////////////
     const timeEntry = {
+      date: selectedDate,
       inTime: `${inHour}:${inMinute} ${inAmPm}`,
       outTime: `${outHour}:${outMinute} ${outAmPm}`,
-      date: selectedDate,
       user: decodedUser // Store the user name
     };
+    ////////////////////////////////////
+    ////////////////////////////////////
+    ////////////////////////////////////
+    ////////////////////////////////////
+
     // Get current logged-in user from session storage
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('session')) || null;
     // Test Print
@@ -452,45 +463,19 @@ const userHours = allUsers[userIndex].hours || [];
 console.log('User Hours for the Date:', userHours);
 console.log(userHours.length);
 
-// Iterate through the hours array and populate the calendar with the dates
-for (let i = 0; i < userHours.length; i++) {
-  const date = userHours[i].date;
-  const inTime = userHours[i].inTime;
-  const outTime = userHours[i].outTime;
-  // Get the date from the date string
-  const dateString = new Date(date);
-  // Get the day of the week from the date string
-  const dayOfWeek = dateString.getDay();
-  // Get the month from the date string
-  const month = dateString.getMonth();
-  // Get the year from the date string
-  const year = dateString.getFullYear();
-  ///////////////////////////////
-  // append the date to the cell
-  console.log(`Date: ${dateString.getDate()}-${month + 1}-${year}`);
+// Iterate through the userHours array and find the time entries for the logged in user
+userHours.forEach(function(entry) {
+  // Get the date from the entry
+  const date = entry.date;
+  // Get the in time from the entry
+  const inTime = entry.inTime;
+  // Get the out time from the entry
+  const outTime = entry.outTime;
+  // Test Print
+  console.log(`Date: ${date}`);
   console.log(`In Time: ${inTime}`);
   console.log(`Out Time: ${outTime}`);
-
-  // Query the modal element
-  // AND in it.  You say if date then 
-  // change the time picker input to outputs 
-  // that read the time in and out
-  const modal = document.getElementById('cal_modal');
-
-  // // Get the cell for the date
-  // const cell = document.querySelector(`.calendar-cell[data-date="${dateString.getDate()}"][data-month="${month}"][data-year="${year}"]`);
-  // // If cell exists, add a class to it to highlight it
-  // if (cell) {
-  //   cell.classList.add('filled');
-  //   // Add in and out time to the cell
-  //   // cell.innerHTML += `<br>In: ${inTime}<br>Out: ${outTime}`;
-  //   console.log(`Added in and out time to cell: ${cell}/br>In: ${inTime}<br>Out: ${outTime}`);
-  // } else {
-  //   console.log(`Cell not found for date: ${dateString.getDate()}-${month + 1}-${year}`);
-  // }
-}
-
-
+});
 
 
 

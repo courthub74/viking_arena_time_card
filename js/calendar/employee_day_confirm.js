@@ -6,6 +6,11 @@ console.log("Employee Day Confirm Page Now");
 // Get logged in user from session storage
 const confirmedUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('session'));
 
+// Decode the current username and store it in a variable
+// const currentUsername = currentUser ? currentUser.username : null;
+let confirmedUserName = decodeURIComponent(confirmedUser.username);
+// Test print
+console.log("Current User:", confirmedUserName);
 
 // Error Handling (in this case if user gets logged out)
 if (!confirmedUser) {
@@ -20,7 +25,7 @@ const allUsers = JSON.parse(localStorage.getItem('users')) || [];
 console.log("All users:", allUsers.map(user => user.username));
 console.log("All account types:", allUsers.map(user => user.accountType));
 console.log("All hours entered:", allUsers.map(user => user.hours));
-console.log(`Current user is ${confirmedUser.username}`);
+console.log(`Current user is ${confirmedUserName}`);
 
 
 // Find the logged in user in all users to retrieve the
@@ -79,8 +84,8 @@ const lastTimeEntry = userHours[lastIndex];
 
 // Test Prints
 console.log(`Date Entered: ${lastTimeEntry.date}`);
-console.log(`Time In Entered: ${lastTimeEntry.timeIn}`);
-console.log(`Time Out Entered: ${lastTimeEntry.timeOut}`);
+console.log(`Time In Entered: ${lastTimeEntry.inTime}`);
+console.log(`Time Out Entered: ${lastTimeEntry.outTime}`);
 
 // Set up as variables
 
@@ -88,10 +93,10 @@ console.log(`Time Out Entered: ${lastTimeEntry.timeOut}`);
 let date_ = lastTimeEntry.date;
 
 // Time In
-let in_ = lastTimeEntry.timeIn;
+let in_ = lastTimeEntry.inTime;
 
 // Time Out
-let out_ = lastTimeEntry.timeOut;
+let out_ = lastTimeEntry.outTime;
 
 
 
