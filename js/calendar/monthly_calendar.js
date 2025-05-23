@@ -316,7 +316,7 @@ outMinuteSelect.addEventListener('change', function() {
   submitButton.disabled = false;
 });
 
-
+// SUBMIT BUTTON FUNCTION
 submitButton.addEventListener('click', function() {
   
 
@@ -422,6 +422,8 @@ submitButton.addEventListener('click', function() {
     // localStorage.setItem('employeeHours', JSON.stringify(data));
     // console.log('Data stored in local storage:', data);
 
+    // Redirect to the confirmation page
+    window.location.href = 'employee_day_confirm.html';
     
   } catch (error) {
     console.error('Error in click handler:', error);
