@@ -77,28 +77,6 @@ submit_button_employee_hours.addEventListener('click', (e) => {
     console.log(`The Time Out (employee_day.js): ${time_out_whole}`);
     ////////////////////////////////////////////////////////////////
 
-    // Create an entry object with the time information
-    /////////////////////////////////////
-    /////////////////////////////////////
-    /////////////////////////////////////
-    /////////////////////////////////////
-    // const timeEntry = {
-    //     date: the_day,
-    //     timeIn: time_in_whole,
-    //     timeOut: time_out_whole
-    // };
-    // const timeEntry = {
-    //     date: the_day,
-    //     inTime: time_in_whole,
-    //     outTime: time_out_whole,
-    //     user: currentUser.username,
-    // };
-    /////////////////////////////////////
-    /////////////////////////////////////
-    /////////////////////////////////////
-    /////////////////////////////////////
-    /////////////////////////////////////
-
     // Get current logged-in user from session storage
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('session')) || null;
 
