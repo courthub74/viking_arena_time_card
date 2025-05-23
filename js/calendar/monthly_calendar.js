@@ -471,25 +471,27 @@ for (let i = 0; i < userHours.length; i++) {
   console.log(`In Time: ${inTime}`);
   console.log(`Out Time: ${outTime}`);
 
-  // Get the cell for the date
-  const cell = document.querySelector(`.calendar-cell[data-date="${dateString.getDate()}"][data-month="${month}"][data-year="${year}"]`);
-  // If cell exists, add a class to it to highlight it
-  if (cell) {
-    cell.classList.add('filled');
-    // Add in and out time to the cell
-    // cell.innerHTML += `<br>In: ${inTime}<br>Out: ${outTime}`;
-    console.log(`Added in and out time to cell: ${cell}/br>In: ${inTime}<br>Out: ${outTime}`);
-  } else {
-    console.log(`Cell not found for date: ${dateString.getDate()}-${month + 1}-${year}`);
-  }
+  // Query the modal element
+  // AND in it.  You say if date then 
+  // change the time picker input to outputs 
+  // that read the time in and out
+  const modal = document.getElementById('cal_modal');
+
+  // // Get the cell for the date
+  // const cell = document.querySelector(`.calendar-cell[data-date="${dateString.getDate()}"][data-month="${month}"][data-year="${year}"]`);
+  // // If cell exists, add a class to it to highlight it
+  // if (cell) {
+  //   cell.classList.add('filled');
+  //   // Add in and out time to the cell
+  //   // cell.innerHTML += `<br>In: ${inTime}<br>Out: ${outTime}`;
+  //   console.log(`Added in and out time to cell: ${cell}/br>In: ${inTime}<br>Out: ${outTime}`);
+  // } else {
+  //   console.log(`Cell not found for date: ${dateString.getDate()}-${month + 1}-${year}`);
+  // }
 }
 
 
-// Query the modal element
-// AND in it.  You say if date then 
-// change the time picker input to outputs 
-// that read the time in and out
-const modal = document.getElementById('cal_modal');
+
 
 
 ///////////////////////////////////////////////////////////////////
