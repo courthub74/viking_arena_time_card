@@ -178,7 +178,7 @@ submit_button_employee_hours.addEventListener('click', (e) => {
     console.log(`Time in for ${currentUser.username} is ${currentUser.time_in_hour} :${currentUser.time_in_minute}`);
 
     // Redirect to Time Confirmation page
-    window.location.href = '../../html/calendar/employee_day_confirm.html'
+    window.location.href = '../../html/calendar/employee_day_confirm.html';
 });
 
 
