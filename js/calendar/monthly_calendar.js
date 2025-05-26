@@ -69,8 +69,67 @@ function renderCalendar(month, year) {
         cell.addEventListener('click', function(e) {
           e.stopPropagation(); // Prevent event bubbling
           e.preventDefault(); // Prevent default action if used in onclick
+          ////////////////////////////////////////////////////////////////
+          ////////////////////////////////////////////////////////////////
+          // Check if this cell has an existing time entry
+          const hasTimeEntry = this.getAttribute('data-has-entry') === 'true';
+          const existingInTime = this.getAttribute('data-in-time');
+          const existingOutTime = this.getAttribute('data-out-time');
+          
           // Query the modal to open and close it
           const modal = document.getElementById('cal_modal');
+          
+          // Style the modal based on whether it has an entry
+          if (hasTimeEntry) {
+            modal.style.backgroundColor = 'darkblue'; // Light blue for existing entries
+            // Query the time picker in
+            const inTimeSelect = document.getElementById('time-picker-in');
+            // Query the time picker out
+            const outTimeSelect = document.getElementById('time-picker-out');
+            // Query the time picker AM/PM in
+            const inAmPmSelect = document.getElementById('in_ampm');
+            // Query the time picker AM/PM out
+            const outAmPmSelect = document.getElementById('out_ampm');
+            // Set the time picker values to the existing in and out times
+            inTimeSelect.value = existingInTime; // Set the in time picker value
+            outTimeSelect.value = existingOutTime; // Set the out time picker value
+            // Test Print
+            console.log(`Cell clicked: ${cell.textContent}`);
+            // Test Print for existing times
+            console.log(`Existing In Time: ${existingInTime}`);
+            console.log(`Existing Out Time: ${existingOutTime}`);
+            // Quer the time pickers to make them dissapear
+
+            // Query the time picker in (hours)
+            const inTimePicker = document.getElementById('in_hour');
+            // Query the time picker out (hours)
+            const outTimePicker = document.getElementById('out_hour');
+            // Query the time picker in (minutes)
+            const inMinutePicker = document.getElementById('in_minute');
+            // Query the time picker out (minutes)
+            const outMinutePicker = document.getElementById('out_minute');
+
+          //  Make the time pickers dissapear
+            inTimePicker.style.display = 'none'; // Hide the in time picker
+            outTimePicker.style.display = 'none'; // Hide the out time picker
+            inMinutePicker.style.display = 'none'; // Hide the in minute picker
+            outMinutePicker.style.display = 'none'; // Hide the out minute picker
+            inAmPmSelect.style.display = 'none'; // Hide the in AM/PM picker
+            outAmPmSelect.style.display = 'none'; // Hide the out AM/PM picker
+            
+            console.log(`Cell has existing entry: In: ${existingInTime}, Out: ${existingOutTime}`);
+            
+            // Pre-populate the form fields with existing data if needed
+            // You can add logic here to parse and set the time values
+            
+          } else {
+            modal.style.backgroundColor = ''; // Default styling for new entries
+            console.log('Cell has no existing entry');
+          }
+          ////////////////////////////////////////////////////////////////
+          ////////////////////////////////////////////////////////////////
+          // Query the modal to open and close it
+          // const modal = document.getElementById('cal_modal');
           // Populate the header with the Logged User name
           const pageHeader = document.getElementById('employee_name_month');
           console.log(`This is the Page Header: ${pageHeader.innerText}`);
