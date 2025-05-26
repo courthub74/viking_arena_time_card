@@ -81,7 +81,7 @@ function renderCalendar(month, year) {
           
           // Style the modal based on whether it has an entry
           if (hasTimeEntry) {
-            modal.style.backgroundColor = 'darkblue'; // Light blue for existing entries
+            // modal.style.backgroundColor = 'darkblue'; // Light blue for existing entries
             // Query the time picker in
             const inTimeSelect = document.getElementById('time-picker-in');
             // Query the time picker out
@@ -118,7 +118,18 @@ function renderCalendar(month, year) {
             outAmPmSelect.style.display = 'none'; // Hide the out AM/PM picker
             
             console.log(`Cell has existing entry: In: ${existingInTime}, Out: ${existingOutTime}`);
+
+            // Add the existing time values to the modal fields
+            // Query the time picker element
+            const timeSpanIn = document.getElementById('in_time_span');
+            const timeSpanOut = document.getElementById('out_time_span');
+
+            console.log(timeSpanIn)
+            // Set the time picker values to the existing in and out times
+            timeSpanIn.innerHTML = existingInTime; // Set the in time picker value
+            timeSpanOut.innerHTML = existingOutTime; // Set the out time picker value
             
+
             // Pre-populate the form fields with existing data if needed
             // You can add logic here to parse and set the time values
             
