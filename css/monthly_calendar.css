@@ -76,8 +76,8 @@
      --today-color: #009DF8;
 
      /* May be taken care of in JS */
-     --filled-color: #009df8c2;
-     --filled-color: #2065a58a;
+     --filled-color: #6fbce8c2;
+     /* --filled-color: #2065a58a; */
      --date-filled-color: rgba(78, 161, 202, 0.987);
 
      /* Modal Filter */
@@ -983,6 +983,11 @@ tr {
     /* padding: .3em .6em; */
     border-radius: 5px;
 } 
+
+.has-time-entry {
+    /* background-color: var(--filled-color); */
+   
+}
 /* ****************** */
 /* ****************** */
 /* ****************** */

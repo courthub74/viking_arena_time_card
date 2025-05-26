@@ -12,6 +12,7 @@ const monthNames = [
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
+// Function to RENDER THE CALENDAR for a specific month and year
 function renderCalendar(month, year) {
   // Get the table body
   const calendarBody = document.getElementById('calendar-body');
@@ -309,9 +310,7 @@ submitButton.addEventListener('click', function() {
     const inMinuteSelect = document.getElementById('in_minute');
     const outHourSelect = document.getElementById('out_hour');
     const outMinuteSelect = document.getElementById('out_minute');
-    // Query the AM/PM select elements
-    const inAmPmSelect = document.getElementById('in_ampm');
-    const outAmPmSelect = document.getElementById('out_ampm');
+   
     // Query the date picker element
     const datePicker = document.getElementById('current_day');
     // Get the selected values from the hour and minute select elements
@@ -468,6 +467,20 @@ function styleCellsWithTimeEntries() {
           targetCell.setAttribute('data-in-time', inTime);
           targetCell.setAttribute('data-out-time', outTime);
 
+          // HERE style the target cell modal
+          const hasTimeEntry = targetCell.getAttribute('data-has-entry') === 'true';
+          if (hasTimeEntry) {
+            // style the modal (maybe it has to get associated with the cell)
+            // Change the background color of the cell to indicate a time entry
+            const modal = document.getElementById('cal_modal');
+            modal.style.backgroundColor = '#f0f8ff'; // Light blue background
+            // targetCell.classList.add('has-time-entry');
+            // Optionally, you can add a tooltip or title to the cell
+            targetCell.title = `In: ${inTime}, Out: ${outTime}`;
+          } else {
+            // If no time entry, you can style it differently or leave it as is
+            targetCell.style.backgroundColor = 'none'; // Default white background
+          }
           
           console.log(`Successfully styled cell for ${day}/${month}/${year}`);
         } else {
