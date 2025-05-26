@@ -90,6 +90,16 @@ function renderCalendar(month, year) {
             const inAmPmSelect = document.getElementById('in_ampm');
             // Query the time picker AM/PM out
             const outAmPmSelect = document.getElementById('out_ampm');
+
+            // Add the existing time values to the modal fields
+            // Query the time picker element
+            const timeSpanIn = document.getElementById('in_time_span');
+            const timeSpanOut = document.getElementById('out_time_span');
+
+            // Set the time picker values to the existing in and out times
+            timeSpanIn.innerHTML = existingInTime; // Set the in time picker value
+            timeSpanOut.innerHTML = existingOutTime; // Set the out time picker value
+
             // Set the time picker values to the existing in and out times
             inTimeSelect.value = existingInTime; // Set the in time picker value
             outTimeSelect.value = existingOutTime; // Set the out time picker value
@@ -118,16 +128,6 @@ function renderCalendar(month, year) {
             outAmPmSelect.style.display = 'none'; // Hide the out AM/PM picker
             
             console.log(`Cell has existing entry: In: ${existingInTime}, Out: ${existingOutTime}`);
-
-            // Add the existing time values to the modal fields
-            // Query the time picker element
-            const timeSpanIn = document.getElementById('in_time_span');
-            const timeSpanOut = document.getElementById('out_time_span');
-
-            console.log(timeSpanIn)
-            // Set the time picker values to the existing in and out times
-            timeSpanIn.innerHTML = existingInTime; // Set the in time picker value
-            timeSpanOut.innerHTML = existingOutTime; // Set the out time picker value
             
 
             // Pre-populate the form fields with existing data if needed
