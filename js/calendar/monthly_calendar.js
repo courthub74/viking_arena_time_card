@@ -467,21 +467,6 @@ function styleCellsWithTimeEntries() {
           targetCell.setAttribute('data-in-time', inTime);
           targetCell.setAttribute('data-out-time', outTime);
 
-          // HERE style the target cell modal
-          const hasTimeEntry = targetCell.getAttribute('data-has-entry') === 'true';
-          if (hasTimeEntry) {
-            // style the modal (maybe it has to get associated with the cell)
-            // Change the background color of the cell to indicate a time entry
-            const modal = document.getElementById('cal_modal');
-            modal.style.backgroundColor = '#f0f8ff'; // Light blue background
-            // targetCell.classList.add('has-time-entry');
-            // Optionally, you can add a tooltip or title to the cell
-            targetCell.title = `In: ${inTime}, Out: ${outTime}`;
-          } else {
-            // If no time entry, you can style it differently or leave it as is
-            targetCell.style.backgroundColor = 'none'; // Default white background
-          }
-          
           console.log(`Successfully styled cell for ${day}/${month}/${year}`);
         } else {
           console.log(`Cell content not found for ${day}/${month}/${year}`);
