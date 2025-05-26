@@ -262,37 +262,6 @@ function updateCalendarHeader(month, year) {
 }
 
 
-// These called after the styling cells
-/////////////////////////////////////////
-/////////////////////////////////////////
-/////////////////////////////////////////
-// Function to navigate to previous month
-function prevMonth() {
-  currentMonth = currentMonth <= 0 ? 11 : currentMonth - 1;
-  currentYear = currentMonth === 11 ? currentYear - 1 : currentYear;
-  renderCalendar(currentMonth, currentYear);
-  updateCalendarHeader(currentMonth, currentYear);
-    return false; // Prevent default action if used in onclick
-}
-
-// Function to navigate to next month
-function nextMonth() {
-  currentMonth = currentMonth >= 11 ? 0 : currentMonth + 1;
-  currentYear = currentMonth === 0 ? currentYear + 1 : currentYear;
-  renderCalendar(currentMonth, currentYear);
-  updateCalendarHeader(currentMonth, currentYear);
-  return false; // Prevent default action if used in onclick
-}
-
-// Initial render
-document.addEventListener('DOMContentLoaded', function() {
-  renderCalendar(currentMonth, currentYear);
-  updateCalendarHeader(currentMonth, currentYear);
-});
-
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
 
 // SUBMIT BUTTON
 // Query the submit button element
@@ -441,99 +410,120 @@ submitButton.addEventListener('click', function() {
   }
 });
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
 
-// NOW read the dates from local storage and populate the calendar with the dates
-// Query the local storage for the user data
-const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
-//Error handling for null userString
-const loggedUser = userString ? JSON.parse(userString) : null;
-// Get the user name from the logged user object
-console.log(`The Logged User: ${loggedUser.username}`);
-// Decode the user name from the logged user object
-const decodedUser = decodeURIComponent(loggedUser.username);
-console.log(`The Decoded User to get the Dates: ${decodedUser}`);
-// Get the hours array for the logged in user
-const allUsers = JSON.parse(localStorage.getItem('users')) || [];
-// Test Print
-console.log(`All users for the Date: ${allUsers}`);
-
-// Find the logged in user by index
-const userIndex = allUsers.findIndex(user => user.username === loggedUser.username);
-// Test Print
-console.log(`User Index for the Date: ${userIndex}`);
-
-// Get the hours array for the logged in user
-const userHours = allUsers[userIndex].hours || [];
-
-// Test Print
-console.log('User Hours for the Date:', userHours);
-console.log(userHours.length);
-
-// Iterate through the userHours array and find the time entries for the logged in user
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-/////////////////GETS ENTRIES FOR EACH CELL////////////////////////////////////////////////////////
-userHours.forEach(function(entry) {
-  // Get the date from the entry
-  // const date = entry.date;
-  const entryDate = new Date(entry.date);
-  const day = entryDate.getDate();
-  const month = entryDate.getMonth();
-  const year = entryDate.getFullYear();
-  // Get the in time from the entry
-  const inTime = entry.inTime;
-  // Get the out time from the entry
-  const outTime = entry.outTime;
-  // Test Print
-  // Test Print
-  // console.log(`Date: ${entry.date}, Day: ${day}, Month: ${month}, Year: ${year}`);
-  // console.log(`In Time: ${inTime}`);
-  // console.log(`Out Time: ${outTime}`);
-
-  // GET THE MODAL HERE 
-    // It IS targeting the proper dates
-  if (inTime && outTime) {
-    //print
-    console.log(`This is a time entry for ${entryDate} In Time: ${inTime} Out Time: ${outTime}`)
-      //////////////////////////////////////////////////////////////////////////////
-      //////////////////////////////////////////////////////////////////////////////
-      //////////////////////////////////////////////////////////////////////////////
-      //////////////////////////////////////////////////////////////////////////////
-      //////////////////////////////////////////////////////////////////////////////
-      // Find the specific calendar cell for this date THIS IS FOCUS NOW
+// Function to style cells with time entries
+function styleCellsWithTimeEntries() {
+  // Get the user data
+  const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
+  const loggedUser = userString ? JSON.parse(userString) : null;
+  
+  if (!loggedUser) {
+    console.log('No logged user found');
+    return;
+  }
+  
+  // Get all users from local storage
+  const allUsers = JSON.parse(localStorage.getItem('users')) || [];
+  
+  // Find the logged in user by index
+  const userIndex = allUsers.findIndex(user => user.username === loggedUser.username);
+  
+  if (userIndex === -1) {
+    console.log('User not found in local storage');
+    return;
+  }
+  
+  // Get the hours array for the logged in user
+  const userHours = allUsers[userIndex].hours || [];
+  
+  console.log('User Hours for styling:', userHours);
+  
+  // Iterate through the userHours array and style the cells
+  userHours.forEach(function(entry) {
+    const entryDate = new Date(entry.date);
+    const day = entryDate.getDate();
+    const month = entryDate.getMonth();
+    const year = entryDate.getFullYear();
+    const inTime = entry.inTime;
+    const outTime = entry.outTime;
+    
+    if (inTime && outTime) {
+      console.log(`Styling cell for date: ${day}/${month}/${year}`);
+      
+      // Find the specific calendar cell for this date
       const targetCell = document.querySelector(`.calendar-cell[data-date="${day}"][data-month="${month}"][data-year="${year}"]`);
-      // const targetDateDigit = document.querySelector('.the_date_number');
-      console.log(`The target cell: ${targetCell}`);
-      // console.log(`The target number: ${targetDateDigit}`);
-
+      
+      console.log(`Target cell found:`, targetCell);
+      
       if (targetCell) {
         // Find the cellContent (date number) within this cell
         const cellContent = targetCell.querySelector('.the_date_number');
-
+        
         if (cellContent) {
+          // Add styling to indicate this date has time entries
+          // cellContent.style.backgroundColor = '#4CAF50'; // Green background
+          // cellContent.style.color = 'white'; // White text
+          // cellContent.style.fontWeight = 'bold';
+          // cellContent.style.borderRadius = '50%'; // Make it circular
+          // cellContent.style.padding = '4px';
+          // cellContent.style.minWidth = '24px';
+          // cellContent.style.minHeight = '24px';
+          // cellContent.style.display = 'flex';
+          // cellContent.style.alignItems = 'center';
+          // cellContent.style.justifyContent = 'center';
+          
+          // Add a class for easier identification
           cellContent.classList.add('filled');
+          
           // Store the time data as attributes on the cell for easy access
-        targetCell.setAttribute('data-has-entry', 'true');
-        targetCell.setAttribute('data-in-time', inTime);
-        targetCell.setAttribute('data-out-time', outTime);
+          targetCell.setAttribute('data-has-entry', 'true');
+          targetCell.setAttribute('data-in-time', inTime);
+          targetCell.setAttribute('data-out-time', outTime);
+          
+          console.log(`Successfully styled cell for ${day}/${month}/${year}`);
+        } else {
+          console.log(`Cell content not found for ${day}/${month}/${year}`);
         }
+      } else {
+        console.log(`Target cell not found for ${day}/${month}/${year}`);
       }
-  }
-});
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
+    }
+  });
+}
 
+// Modified DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', function() {
+  renderCalendar(currentMonth, currentYear);
+  updateCalendarHeader(currentMonth, currentYear);
+  
+  // Style cells with time entries AFTER the calendar is rendered
+  styleCellsWithTimeEntries();
+});
+
+// Also call styleCellsWithTimeEntries after month navigation
+function prevMonth() {
+  currentMonth = currentMonth <= 0 ? 11 : currentMonth - 1;
+  currentYear = currentMonth === 11 ? currentYear - 1 : currentYear;
+  renderCalendar(currentMonth, currentYear);
+  updateCalendarHeader(currentMonth, currentYear);
+  
+  // Re-style cells after rendering new month
+  styleCellsWithTimeEntries();
+  
+  return false;
+}
+
+function nextMonth() {
+  currentMonth = currentMonth >= 11 ? 0 : currentMonth + 1;
+  currentYear = currentMonth === 0 ? currentYear + 1 : currentYear;
+  renderCalendar(currentMonth, currentYear);
+  updateCalendarHeader(currentMonth, currentYear);
+  
+  // Re-style cells after rendering new month
+  styleCellsWithTimeEntries();
+  
+  return false;
+}
 ///////////////////////////////////////////////////////////////////
 ///////////////////BACK TO DASHBOARD LINK///////////////////////////////
 // Query the back to dashboard link and add an event listener to it

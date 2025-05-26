@@ -958,28 +958,27 @@ tr {
 }
 
 /* Selected day */
-#calendar-body td.selected {
+/* #calendar-body td.selected {
     background-color: var(--today-color);
     background-color: var(--filled-color);
     border-radius: 50%;
     color: white;
-}
+} */
 
 /* ****************** */
 /* ****************** */
 /* ****************** */
 /* Filled Cell */
-#calendar-body td.filled {
-    background-color: darkgreen;
-    border-radius: 50%;
-    color: white;
-}
 
 .filled {
-    background-color: darkgreen;
-    border-radius: 50%;
+    background-color: rgba(75, 185, 239, 0.648);
+    font-weight: bold;
+    color: var(--text-color);
     color: white;
-}
+    /* border-radius: 50%; */
+    padding: .3em .6em;
+    border-radius: 5px;
+} 
 /* ****************** */
 /* ****************** */
 /* ****************** */
