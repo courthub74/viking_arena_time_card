@@ -1,4 +1,5 @@
-// Populate hours
+// Populate hours and minutes into the timepickers
+// Enable the submit button when any of the timepickers are changed
 
 console.log('punch_clock.js loaded');
 
@@ -118,6 +119,9 @@ outMinuteSelect.value = now.getMinutes();
 outMinuteSelect.value = 0; // Set the minutes to 15 minutes before the current time
 document.getElementById('out_ampm').value = out_ampm;
 
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
 // SUBMIT BUTTON DISABLED BY DEFAULT FUNCTION
 
 // Query the submit button element
@@ -147,25 +151,27 @@ outMinuteSelect.addEventListener('change', function() {
     submitButton.disabled = false;
     }
 );
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
      
 
 // FOR SUBMIT HOURS BUTTON
 
-// Add a click event listener to the button
-submitButton.addEventListener('click', function() {
-    // Get the selected values from the hour and minute select elements
-    const inHour = inHourSelect.value;
-    const inMinute = inMinuteSelect.value;
-    const outHour = outHourSelect.value;
-    const outMinute = outMinuteSelect.value;
-    // Get the selected value from the AM/PM select element
-    const inAmPm = document.getElementById('in_ampm').value;
-    const outAmPm = document.getElementById('out_ampm').value;
-    // Get the selected date from the DatePicker element
-    const date = datePicker.value;
-    // Log the selected values to the console
-    console.log(`In Time: ${inHour}:${inMinute} ${inAmPm}`);
-    console.log(`Out Time: ${outHour}:${outMinute} ${outAmPm}`);
-    console.log(`Date: ${date}`);
+// // Add a click event listener to the button
+// submitButton.addEventListener('click', function() {
+//     // Get the selected values from the hour and minute select elements
+//     const inHour = inHourSelect.value;
+//     const inMinute = inMinuteSelect.value;
+//     const outHour = outHourSelect.value;
+//     const outMinute = outMinuteSelect.value;
+//     // Get the selected value from the AM/PM select element
+//     const inAmPm = document.getElementById('in_ampm').value;
+//     const outAmPm = document.getElementById('out_ampm').value;
+//     // Get the selected date from the DatePicker element
+//     const date = datePicker.value;
+//     // Log the selected values to the console
+//     console.log(`In Time: ${inHour}:${inMinute} ${inAmPm}`);
+//     console.log(`Out Time: ${outHour}:${outMinute} ${outAmPm}`);
+//     console.log(`Date: ${date}`);
 
-});
+// });
