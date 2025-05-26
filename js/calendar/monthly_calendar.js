@@ -460,18 +460,6 @@ function styleCellsWithTimeEntries() {
         const cellContent = targetCell.querySelector('.the_date_number');
         
         if (cellContent) {
-          // Add styling to indicate this date has time entries
-          // cellContent.style.backgroundColor = '#4CAF50'; // Green background
-          // cellContent.style.color = 'white'; // White text
-          // cellContent.style.fontWeight = 'bold';
-          // cellContent.style.borderRadius = '50%'; // Make it circular
-          // cellContent.style.padding = '4px';
-          // cellContent.style.minWidth = '24px';
-          // cellContent.style.minHeight = '24px';
-          // cellContent.style.display = 'flex';
-          // cellContent.style.alignItems = 'center';
-          // cellContent.style.justifyContent = 'center';
-          
           // Add a class for easier identification
           cellContent.classList.add('filled');
           
@@ -479,6 +467,7 @@ function styleCellsWithTimeEntries() {
           targetCell.setAttribute('data-has-entry', 'true');
           targetCell.setAttribute('data-in-time', inTime);
           targetCell.setAttribute('data-out-time', outTime);
+
           
           console.log(`Successfully styled cell for ${day}/${month}/${year}`);
         } else {
