@@ -972,6 +972,7 @@ tr {
 
 .filled {
     background-color: rgba(75, 185, 239, 0.648);
+    background-color: rgba(123, 134, 136, 0.665);
     font-weight: bold;
     color: var(--text-color);
     color: white;
