@@ -208,8 +208,13 @@ function renderCalendar(month, year) {
       });
 
       
-
+      ///////////////////////////////////////////////////////
+      ///////CELL CONTENT (THE DATE)
       const cellContent = document.createElement('span');
+
+      // give it a general class to style change
+      cellContent.classList.add('the_date_number');
+     
       
       // Add dates starting from the correct day of the week
       if (i === 0 && j < firstDay) {
@@ -241,14 +246,13 @@ function renderCalendar(month, year) {
         
         date++;
       }
-      
+      // The Date appended to the cell appended to the calendar
       cell.appendChild(cellContent);
       row.appendChild(cell);
     }
     calendarBody.appendChild(row);
   }
-    // calendarBody.appendChild(row);
-  }
+}
 
 
 
@@ -257,6 +261,11 @@ function updateCalendarHeader(month, year) {
   document.getElementById('current-month').textContent = `${monthNames[month]} ${year}`;
 }
 
+
+// These called after the styling cells
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
 // Function to navigate to previous month
 function prevMonth() {
   currentMonth = currentMonth <= 0 ? 11 : currentMonth - 1;
@@ -280,6 +289,10 @@ document.addEventListener('DOMContentLoaded', function() {
   renderCalendar(currentMonth, currentYear);
   updateCalendarHeader(currentMonth, currentYear);
 });
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 
 // SUBMIT BUTTON
 // Query the submit button element
@@ -428,6 +441,16 @@ submitButton.addEventListener('click', function() {
   }
 });
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 // NOW read the dates from local storage and populate the calendar with the dates
 // Query the local storage for the user data
 const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
@@ -461,68 +484,55 @@ console.log(userHours.length);
 /////////////////GETS ENTRIES FOR EACH CELL////////////////////////////////////////////////////////
 userHours.forEach(function(entry) {
   // Get the date from the entry
-  const date = entry.date;
+  // const date = entry.date;
+  const entryDate = new Date(entry.date);
+  const day = entryDate.getDate();
+  const month = entryDate.getMonth();
+  const year = entryDate.getFullYear();
   // Get the in time from the entry
   const inTime = entry.inTime;
   // Get the out time from the entry
   const outTime = entry.outTime;
   // Test Print
-  console.log(`Date: ${date}`);
-  console.log(`In Time: ${inTime}`);
-  console.log(`Out Time: ${outTime}`);
-  // GET THE MODAL HERE
+  // Test Print
+  // console.log(`Date: ${entry.date}, Day: ${day}, Month: ${month}, Year: ${year}`);
+  // console.log(`In Time: ${inTime}`);
+  // console.log(`Out Time: ${outTime}`);
+
+  // GET THE MODAL HERE 
+    // It IS targeting the proper dates
   if (inTime && outTime) {
     //print
-    console.log('This is a time entry');
+    console.log(`This is a time entry for ${entryDate} In Time: ${inTime} Out Time: ${outTime}`)
+      //////////////////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////////////////
+      // Find the specific calendar cell for this date THIS IS FOCUS NOW
+      const targetCell = document.querySelector(`.calendar-cell[data-date="${day}"][data-month="${month}"][data-year="${year}"]`);
+      // const targetDateDigit = document.querySelector('.the_date_number');
+      console.log(`The target cell: ${targetCell}`);
+      // console.log(`The target number: ${targetDateDigit}`);
 
-      // Query the cell content(Get THIS)
-      const cellContentTime = document.querySelector('span');
-      cellContentTime.classList.add('filled');
-      console.log(cellContentTime);
+      if (targetCell) {
+        // Find the cellContent (date number) within this cell
+        const cellContent = targetCell.querySelector('.the_date_number');
 
-      
+        if (cellContent) {
+          cellContent.classList.add('filled');
+          // Store the time data as attributes on the cell for easy access
+        targetCell.setAttribute('data-has-entry', 'true');
+        targetCell.setAttribute('data-in-time', inTime);
+        targetCell.setAttribute('data-out-time', outTime);
+        }
+      }
   }
 });
-// userHours.forEach(function(entry) {
-//   const date = new Date(entry.date);
-//   const day = date.getDate();
-//   const month = date.getMonth();
-//   const year = date.getFullYear();
-//   const inTime = entry.inTime;
-//   const outTime = entry.outTime;
-
-//   console.log(`In: ${inTime} Out: ${outTime}`);
-  
-//   if (inTime && outTime) {
-//     // Find cell and add entry data as attributes
-//     const cell = document.querySelector(`.calendar-cell[data-date="${day}"][data-month="${month}"][data-year="${year}"]`);
-//     console.log(`The Cell is ${cell}`);
-//     if (cell) {
-//       // Mark the cell as having an entry
-//       cell.setAttribute('data-has-entry', 'true');
-//       cell.setAttribute('data-in-time', inTime);
-//       cell.setAttribute('data-out-time', outTime);
-//       cell.style.backgroundColor = 'lightgreen';
-      
-//       // Style only modals that correspond to cells with entries
-//       const modal = document.querySelector(`.cal_modal[data-cell-id="${cell.id}"]`);
-//       // or use: const modal = cell.querySelector('.cal_modal');
-      
-//       if (modal) {
-//         modal.style.backgroundColor = 'red';
-//       }
-//     } else {
-//       console.log("Cell is Null");
-//     }
-//   } else {
-//     console.log("Found Nothing");
-//   }
-// });
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-
-
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////
 ///////////////////BACK TO DASHBOARD LINK///////////////////////////////
