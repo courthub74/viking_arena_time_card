@@ -68,14 +68,26 @@ function renderCalendar(month, year) {
                         // Get the modal content elements
                         // You can add more functionality here
 
-                        // Cancel Button
-                        const closeModal = document.getElementById('close_modal');
-                        if (closeModal) {
-                            closeModal.addEventListener('click', function() {
-                                modal.style.display = 'none'; // Hide the modal
-                            });
-                        } else {
-                            console.error('Close modal button not found');
+                        // Get the selected date
+                        const selectedDate = cell.textContent;
+                        const selectedMonth = monthNames[month];
+                        const selectedYear = year;
+                        // Display the selected date in the modal
+                        const now = new Date();
+                        now.setDate(selectedDate);
+                        now.setMonth(month);
+                        now.setFullYear(year);
+                        const modalDate = document.getElementById('current_day');
+                        if (modalDate) {
+                            console.log(`Selected Date: ${selectedDate} ${selectedMonth} ${selectedYear}`);
+                            // Format the date for display
+                            // modalDate.value = now.toISOString().split('T')[0]; // Set the value of the date input
+                            modalDate.value = now.toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: '2-digit'
+                              });
+                            console.log(`Modal Date: ${modalDate.value}`);
                         }
 
                         // Set the Time picker values
@@ -114,7 +126,7 @@ function renderCalendar(month, year) {
                             outHourSelect.appendChild(out_option);
                             console.log(`Out Hour: ${outHourSelect.value}`);
                         }
-                        
+
                         // Out Minutes select element
                         const outMinuteSelect = document.getElementById('out_minute');
                         // Populate the outMinutesSelect with options
@@ -125,6 +137,17 @@ function renderCalendar(month, year) {
                             outMinuteSelect.appendChild(out_minute_option);
                             console.log(`Out Minute: ${outMinuteSelect.value}`);
                         }
+
+                         // Close the modal 
+                         const closeModal = document.getElementById('close_modal');
+                         if (closeModal) {
+                             closeModal.addEventListener('click', function() {
+                                 modal.style.display = 'none'; // Hide the modal
+                             });
+                         } else {
+                             console.error('Close modal button not found');
+                         }
+
                     } else {
                         console.error('Modal element not found');
                     }
