@@ -92,7 +92,8 @@ function prevMonth() {
     currentYear = currentMonth === 11 ? currentYear - 1 : currentYear;
     renderCalendar(currentMonth, currentYear);
     updateCalendarHeader(currentMonth, currentYear);
-    
+    // Call the function to style today's cell (after month navigation)
+    styleTodayCell();
     return false;
   }
   
@@ -101,7 +102,8 @@ function prevMonth() {
     currentYear = currentMonth === 0 ? currentYear + 1 : currentYear;
     renderCalendar(currentMonth, currentYear);
     updateCalendarHeader(currentMonth, currentYear);
-    
+    // Call the function to style today's cell (after month navigation)
+    styleTodayCell();
     return false;
   }
 
@@ -117,5 +119,24 @@ function updateCalendarHeader(month, year) {
 // Initial call to update the header
 updateCalendarHeader(currentMonth, currentYear);
 
+// Style the today's date cell
+function styleTodayCell() {
+    const today = new Date();
+    const todayMonth = today.getMonth();
+    const todayYear = today.getFullYear();
+    const todayDate = today.getDate();
+
+    // Check if the current month and year match today's
+    if (currentMonth === todayMonth && currentYear === todayYear) {
+        const cells = document.querySelectorAll('.calendar-cell');
+        cells.forEach(cell => {
+            if (cell.textContent == todayDate) {
+                cell.classList.add('today');
+            }
+        });
+    }
+}
 
 
+// Call the function to style today's cell (after initial render)
+styleTodayCell();
