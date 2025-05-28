@@ -67,6 +67,7 @@ function renderCalendar(month, year) {
                         modal.style.display = 'block'; // Show the modal
                         // Get the modal content elements
                         // You can add more functionality here
+
                         // Cancel Button
                         const closeModal = document.getElementById('close_modal');
                         if (closeModal) {
@@ -75,6 +76,54 @@ function renderCalendar(month, year) {
                             });
                         } else {
                             console.error('Close modal button not found');
+                        }
+
+                        // Set the Time picker values
+
+                        // IN TIME
+                        // In Hours select element
+                        const inHourSelect = document.getElementById('in_hour');
+                        // Populate the inHoursSelect with options
+                        for (let i = 1; i <= 12; i++) {
+                            const in_option = document.createElement('option');
+                            in_option.value = i;
+                            in_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit hours
+                            inHourSelect.appendChild(in_option);
+                            console.log(`In Hour: ${inHourSelect.value}`);
+                          }
+
+                        // In Minutes select element
+                        const inMinuteSelect = document.getElementById('in_minute');
+                        // Populate the inMinutesSelect with options
+                        for (let i = 0; i < 60; i += 5) {
+                            const in_minute_option = document.createElement('option');
+                            in_minute_option.value = i;
+                            in_minute_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit minutes
+                            inMinuteSelect.appendChild(in_minute_option);
+                            console.log(`In Minute: ${inMinuteSelect.value}`);
+                        }
+
+                        // OUT TIME
+                        // Out Hours select element
+                        const outHourSelect = document.getElementById('out_hour');
+                        // Populate the outHoursSelect with options
+                        for (let i = 1; i <= 12; i++) {
+                            const out_option = document.createElement('option');
+                            out_option.value = i;
+                            out_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit hours
+                            outHourSelect.appendChild(out_option);
+                            console.log(`Out Hour: ${outHourSelect.value}`);
+                        }
+                        
+                        // Out Minutes select element
+                        const outMinuteSelect = document.getElementById('out_minute');
+                        // Populate the outMinutesSelect with options
+                        for (let i = 0; i < 60; i += 5) {
+                            const out_minute_option = document.createElement('option');
+                            out_minute_option.value = i;
+                            out_minute_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit minutes
+                            outMinuteSelect.appendChild(out_minute_option);
+                            console.log(`Out Minute: ${outMinuteSelect.value}`);
                         }
                     } else {
                         console.error('Modal element not found');
