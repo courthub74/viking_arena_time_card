@@ -152,6 +152,7 @@ function renderCalendar(month, year) {
 
 
 
+
                         //  style an input field to test
                         const modal_in_field = document.getElementById('time-picker-in');
                         const modal_out_field = document.getElementById('time-picker-out');
@@ -167,7 +168,57 @@ function renderCalendar(month, year) {
                         const modal_in_span = document.getElementById('in_time_span');
                         const modal_out_span = document.getElementById('out_time_span');
 
-                        // if timeIn and timeOut from local storage are not null, set the value of the input fields
+                        // Get the logged user from session storage
+                        const currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('session')) || null;
+                        // Test Print
+                        // console.log(currentUser.username);
+                        // decode the current user from session storage
+                        const userName = decodeURIComponent(currentUser.username);
+                        // Test Print
+                        console.log(`Current User: ${userName}`);
+                        // If No User Logged in
+                        if (!currentUser) {
+                        console.error('No user logged in');
+                             return;
+                        }
+                        // Place user name in the modal title
+                        const modalName = document.getElementById('employee_name_month');
+                        if (modalName) {
+                            modalName.textContent = `${userName}`;
+                        } else {
+                            console.error('Modal name element not found');
+                        }
+                        
+                        // Get the hours for user and style the appropriate cells
+                        // Get the user data
+                        const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
+                        const loggedUser = userString ? JSON.parse(userString) : null;
+                        
+                        if (!loggedUser) {
+                            error.log('No logged user found');
+                            return;
+                        }
+                        
+                        // Get all users from local storage
+                        const allUsers = JSON.parse(localStorage.getItem('users')) || [];
+                        
+                        // Find the logged in user by index
+                        const userIndex = allUsers.findIndex(user => user.username === loggedUser.username);
+                        
+                        if (userIndex === -1) {
+                            console.log('User not found in local storage');
+                            return;
+                        }
+                        
+                        // Get the hours array for the logged in user
+                        const userHours = allUsers[userIndex].hours || [];
+                        
+                        console.log('User Hours for styling:', userHours);
+                        
+                        
+
+                        // Get the times from the hours array associated with 
+                        //  that user from local storage
                         
 
                         //  Enable the submit button when the time pickers are changed
