@@ -55,7 +55,9 @@ function renderCalendar(month, year) {
                 cell.textContent = cellIndex - firstDay + 1;
                 cell.classList.add('calendar-cell');
                 // Add event listener to each cell
-                cell.addEventListener('click', function() {
+                cell.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default action
+                    e.stopPropagation(); // Stop the event from bubbling up
                     console.log(`You clicked on ${cell.textContent} ${monthNames[month]} ${year}`);
                     // Here you can add functionality to handle the click event
                     // For example, you can open a modal or display a message
@@ -63,11 +65,16 @@ function renderCalendar(month, year) {
                     const modal = document.getElementById('cal_modal');
                     if (modal) {
                         modal.style.display = 'block'; // Show the modal
-                        const modalContent = document.getElementById('modal-content');
-                        if (modalContent) {
-                            modalContent.textContent = `You clicked on ${cell.textContent} ${monthNames[month]} ${year}`;
+                        // Get the modal content elements
+                        // You can add more functionality here
+                        // Cancel Button
+                        const closeModal = document.getElementById('close_modal');
+                        if (closeModal) {
+                            closeModal.addEventListener('click', function() {
+                                modal.style.display = 'none'; // Hide the modal
+                            });
                         } else {
-                            console.error('Modal content element not found');
+                            console.error('Close modal button not found');
                         }
                     } else {
                         console.error('Modal element not found');
