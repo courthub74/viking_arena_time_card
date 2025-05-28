@@ -44,14 +44,18 @@ function renderCalendar(month, year) {
       
       /////////////// FOR HOURS MODAL /////////////////
       ////////////////////////////////////////////////
+      ////////////////////////////////////////////////
       // Add class to be queryable in javascript 
       // here you will query all the cells and when each is clicked
       // the modal will open.  There you will enter date and hours worked
       // and then save it to the database
       cell.classList.add('calendar-cell');
+
+
       // The JS will query all the cells and when each is clicked
       // the modal will open.  There you will enter date and hours worked
       let eachDay = document.querySelectorAll('.calendar-cell');
+
       // Add data attribute to each cell for the date
       cell.setAttribute('data-date', `${date}`);
       // Add data attribute to each cell for the month
@@ -66,6 +70,8 @@ function renderCalendar(month, year) {
       // MODAL FOR EACH DAY TO POPUP
       // This will open a modal or perform an action when a cell is clicked
       eachDay.forEach(function(cell) {
+
+        // Add click event listener to each cell
         cell.addEventListener('click', function(e) {
           e.stopPropagation(); // Prevent event bubbling
           e.preventDefault(); // Prevent default action if used in onclick
@@ -96,6 +102,13 @@ function renderCalendar(month, year) {
             const timeSpanIn = document.getElementById('in_time_span');
             const timeSpanOut = document.getElementById('out_time_span');
 
+            // Add padding to the time picker elements
+            timeSpanIn.style.padding = '4px'; // Add padding to the in time picker
+            timeSpanOut.style.padding = '4px'; // Add padding to the out time picker
+            // eliminate cursor pointer on the time picker elements
+            timeSpanIn.style.cursor = 'default'; // Remove pointer cursor from the in time picker
+            timeSpanOut.style.cursor = 'default'; // Remove pointer cursor from the out time picker
+
             // Set the time picker values to the existing in and out times
             timeSpanIn.innerHTML = existingInTime; // Set the in time picker value
             timeSpanOut.innerHTML = existingOutTime; // Set the out time picker value
@@ -103,12 +116,15 @@ function renderCalendar(month, year) {
             // Set the time picker values to the existing in and out times
             inTimeSelect.value = existingInTime; // Set the in time picker value
             outTimeSelect.value = existingOutTime; // Set the out time picker value
+
             // Test Print
             console.log(`Cell clicked: ${cell.textContent}`);
             // Test Print for existing times
             console.log(`Existing In Time: ${existingInTime}`);
             console.log(`Existing Out Time: ${existingOutTime}`);
-            // Quer the time pickers to make them dissapear
+            
+            // Query the total hours span element
+            const totalHoursSpan = document.getElementById('total_hours_span');
 
             // Query the time picker in (hours)
             const inTimePicker = document.getElementById('in_hour');
@@ -126,6 +142,10 @@ function renderCalendar(month, year) {
             outMinutePicker.style.display = 'none'; // Hide the out minute picker
             inAmPmSelect.style.display = 'none'; // Hide the in AM/PM picker
             outAmPmSelect.style.display = 'none'; // Hide the out AM/PM picker
+
+            // needs to work every time the modal is opened
+            // Calculate total hours worked
+            
             
             console.log(`Cell has existing entry: In: ${existingInTime}, Out: ${existingOutTime}`);
             
