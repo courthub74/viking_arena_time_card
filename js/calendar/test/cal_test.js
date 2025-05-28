@@ -242,6 +242,36 @@ function renderCalendar(month, year) {
                             submitButton.disabled = false;
                         });
 
+                        // Submit button functionality send it to the local storage
+                        submitButton.addEventListener('click', function() {
+                            // Get the selected in and out times
+                            const inHour = inHourSelect.value;
+                            const inMinute = inMinuteSelect.value;
+                            const outHour = outHourSelect.value;
+                            const outMinute = outMinuteSelect.value;
+
+                            // Create a new time entry object
+                            const timeEntry = {
+                                // date: now.toISOString().split('T')[0], // Format date as YYYY-MM-DD
+                                date: modalDate.value,
+                                inTime: `${inHour}:${inMinute}`,
+                                outTime: `${outHour}:${outMinute}`,
+                                user: userName // Add the user name
+                            };
+
+                            // Add the time entry to the user's hours array
+                            userHours.push(timeEntry);
+
+                            // Update the user's hours in local storage
+                            allUsers[userIndex].hours = userHours;
+                            localStorage.setItem('users', JSON.stringify(allUsers));
+
+                            console.log('Time entry submitted:', timeEntry);
+                            
+                            // Close the modal after submission
+                            modal.style.display = 'none';
+                        });
+
 
                     } else {
                         console.error('Modal element not found');
