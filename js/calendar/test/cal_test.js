@@ -57,6 +57,21 @@ function renderCalendar(month, year) {
                 // Add event listener to each cell
                 cell.addEventListener('click', function() {
                     console.log(`You clicked on ${cell.textContent} ${monthNames[month]} ${year}`);
+                    // Here you can add functionality to handle the click event
+                    // For example, you can open a modal or display a message
+                    // MODAL HERE
+                    const modal = document.getElementById('cal_modal');
+                    if (modal) {
+                        modal.style.display = 'block'; // Show the modal
+                        const modalContent = document.getElementById('modal-content');
+                        if (modalContent) {
+                            modalContent.textContent = `You clicked on ${cell.textContent} ${monthNames[month]} ${year}`;
+                        } else {
+                            console.error('Modal content element not found');
+                        }
+                    } else {
+                        console.error('Modal element not found');
+                    }
                 });
             } else {
                 cell.textContent = '';
@@ -140,3 +155,24 @@ function styleTodayCell() {
 
 // Call the function to style today's cell (after initial render)
 styleTodayCell();
+
+
+
+///////////////////////////////////////////////////////////////////
+///////////////////BACK TO DASHBOARD LINK///////////////////////////////
+// Query the back to dashboard link and add an event listener to it
+const backToDashboardLink = document.getElementById('link_back');
+
+if (backToDashboardLink) {
+    backToDashboardLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+        const userRole = sessionStorage.getItem('accountType'); // Assuming you store the user role in local storage
+        if (userRole === 'manager') {
+            // Redirect to manager dashboard
+            window.location.href = '../../html/dashboards/manager.html'; // Replace with the actual URL for the manager dashboard
+        } else {
+            // Default redirect to the main dashboard
+            window.location.href = '../../html/dashboards/employee.html'; // Replace with the actual URL for the main dashboard
+        }
+    });
+};
