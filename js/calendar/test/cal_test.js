@@ -72,6 +72,8 @@ function renderCalendar(month, year) {
                         const selectedDate = cell.textContent;
                         const selectedMonth = monthNames[month];
                         const selectedYear = year;
+
+
                         // Display the selected date in the modal
                         const now = new Date();
                         now.setDate(selectedDate);
@@ -147,6 +149,48 @@ function renderCalendar(month, year) {
                          } else {
                              console.error('Close modal button not found');
                          }
+
+
+
+                        //  style an input field to test
+                        const modal_in_field = document.getElementById('time-picker-in');
+                        const modal_out_field = document.getElementById('time-picker-out');
+
+                        // remove the time pickers
+                        const timePickerHourIn = document.getElementById('in_hour');
+                        const timePickerMinuteIn = document.getElementById('in_minute');
+                        const timePickerHourOut = document.getElementById('out_hour');
+                        const timePickerMinuteOut = document.getElementById('out_minute');
+                        
+
+                        // change the spans html to the pertaining day
+                        const modal_in_span = document.getElementById('in_time_span');
+                        const modal_out_span = document.getElementById('out_time_span');
+
+                        // if timeIn and timeOut from local storage are not null, set the value of the input fields
+                        
+
+                        //  Enable the submit button when the time pickers are changed
+                        const submitButton = document.getElementById('submit_employee_hours_modal');
+
+                        // Enable the submit button with select elements
+                        inHourSelect.addEventListener('change', function() {
+                            // Enable the submit button when the out hour is changed
+                            submitButton.disabled = false;
+                        });
+                        outHourSelect.addEventListener('change', function() { 
+                            // Enable the submit button when the out hour is changed
+                            submitButton.disabled = false;
+                        });
+                        inMinuteSelect.addEventListener('change', function() {
+                            // Enable the submit button when the out hour is changed
+                            submitButton.disabled = false;
+                        });
+                        outMinuteSelect.addEventListener('change', function() {
+                            // Enable the submit button when the out hour is changed
+                            submitButton.disabled = false;
+                        });
+
 
                     } else {
                         console.error('Modal element not found');
