@@ -74,10 +74,13 @@
      --date-color: #444;
      --today-color: #6ebce9;
      --today-color: #009DF8;
+     /* --today-color: #009df849; */
 
      /* May be taken care of in JS */
-     --filled-color: #009df8c2;
-     --filled-color: #2065a58a;
+     --filled-color: #6fbce8c2;
+     /* --filled-color: #2065a58a; */
+     --date-filled-color: rgba(78, 161, 202, 0.987);
+     --date-filled-color: #009DF8;
 
      /* Modal Filter */
     --modal-filter: brightness(20%) contrast(50%);
@@ -162,10 +165,12 @@ body.dark-mode {
      --date-color: #d1cfcf;
      --today-color: #009df8c2;
      --today-color: #009df88b;
+     --today-color: #009df847;
 
      /* May be taken care of in JS */
      --filled-color: #009df8c2;
      --filled-color: #17426b7c;
+     --date-filled-color: rgba(75, 185, 239, 0.648);
 
       /* Modal colors filter */
       --modal-filter: brightness(100%) contrast(100%);
@@ -873,6 +878,7 @@ header {
     table-layout: fixed;
 }
 
+
 tr {
     height: 100%;
 }
@@ -955,31 +961,27 @@ tr {
     color: var(--text-color);
     color: white;
     border-radius: 50%;
+    border-radius: 5px;
 }
 
-/* Selected day */
-/* #calendar-body td.selected {
-    background-color: var(--today-color);
-    background-color: var(--filled-color);
-    border-radius: 50%;
-    color: white;
-} */
+
 
 /* ****************** */
 /* ****************** */
 /* ****************** */
 /* Filled Cell */
 
-.filled {
-    background-color: rgba(75, 185, 239, 0.648);
-    background-color: rgba(123, 134, 136, 0.665);
+#calendar-body td.has-entry {
+    /* background-color: rgba(75, 185, 239, 0.648);
+    background-color: rgba(123, 134, 136, 0.665); */
+    background: none;
+    color: rgba(75, 185, 239, 0.648);
+    color: var(--date-filled-color);
     font-weight: bold;
-    color: var(--text-color);
-    color: white;
-    /* border-radius: 50%; */
-    padding: .3em .6em;
+    /* padding: .3em .6em; */
     border-radius: 5px;
 } 
+
 /* ****************** */
 /* ****************** */
 /* ****************** */

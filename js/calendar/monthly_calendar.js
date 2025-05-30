@@ -12,6 +12,7 @@ const monthNames = [
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
+// Function to RENDER THE CALENDAR for a specific month and year
 function renderCalendar(month, year) {
   // Get the table body
   const calendarBody = document.getElementById('calendar-body');
@@ -43,14 +44,18 @@ function renderCalendar(month, year) {
       
       /////////////// FOR HOURS MODAL /////////////////
       ////////////////////////////////////////////////
+      ////////////////////////////////////////////////
       // Add class to be queryable in javascript 
       // here you will query all the cells and when each is clicked
       // the modal will open.  There you will enter date and hours worked
       // and then save it to the database
       cell.classList.add('calendar-cell');
+
+
       // The JS will query all the cells and when each is clicked
       // the modal will open.  There you will enter date and hours worked
       let eachDay = document.querySelectorAll('.calendar-cell');
+
       // Add data attribute to each cell for the date
       cell.setAttribute('data-date', `${date}`);
       // Add data attribute to each cell for the month
@@ -65,11 +70,97 @@ function renderCalendar(month, year) {
       // MODAL FOR EACH DAY TO POPUP
       // This will open a modal or perform an action when a cell is clicked
       eachDay.forEach(function(cell) {
+
+        // Add click event listener to each cell
         cell.addEventListener('click', function(e) {
           e.stopPropagation(); // Prevent event bubbling
           e.preventDefault(); // Prevent default action if used in onclick
+          ////////////////////////////////////////////////////////////////
+          ////////////////////////////////////////////////////////////////
+          // Check if this cell has an existing time entry
+          const hasTimeEntry = this.getAttribute('data-has-entry') === 'true';
+          const existingInTime = this.getAttribute('data-in-time');
+          const existingOutTime = this.getAttribute('data-out-time');
+          
           // Query the modal to open and close it
           const modal = document.getElementById('cal_modal');
+          
+          // Style the modal based on whether it has an entry
+          if (hasTimeEntry) {
+            // modal.style.backgroundColor = 'darkblue'; // Light blue for existing entries
+            // Query the time picker in
+            const inTimeSelect = document.getElementById('time-picker-in');
+            // Query the time picker out
+            const outTimeSelect = document.getElementById('time-picker-out');
+            // Query the time picker AM/PM in
+            const inAmPmSelect = document.getElementById('in_ampm');
+            // Query the time picker AM/PM out
+            const outAmPmSelect = document.getElementById('out_ampm');
+
+            // Add the existing time values to the modal fields
+            // Query the time picker element
+            const timeSpanIn = document.getElementById('in_time_span');
+            const timeSpanOut = document.getElementById('out_time_span');
+
+            // Add padding to the time picker elements
+            timeSpanIn.style.padding = '4px'; // Add padding to the in time picker
+            timeSpanOut.style.padding = '4px'; // Add padding to the out time picker
+            // eliminate cursor pointer on the time picker elements
+            timeSpanIn.style.cursor = 'default'; // Remove pointer cursor from the in time picker
+            timeSpanOut.style.cursor = 'default'; // Remove pointer cursor from the out time picker
+
+            // Set the time picker values to the existing in and out times
+            timeSpanIn.innerHTML = existingInTime; // Set the in time picker value
+            timeSpanOut.innerHTML = existingOutTime; // Set the out time picker value
+
+            // Set the time picker values to the existing in and out times
+            inTimeSelect.value = existingInTime; // Set the in time picker value
+            outTimeSelect.value = existingOutTime; // Set the out time picker value
+
+            // Test Print
+            console.log(`Cell clicked: ${cell.textContent}`);
+            // Test Print for existing times
+            console.log(`Existing In Time: ${existingInTime}`);
+            console.log(`Existing Out Time: ${existingOutTime}`);
+            
+            // Query the total hours span element
+            const totalHoursSpan = document.getElementById('total_hours_span');
+
+            // Query the time picker in (hours)
+            const inTimePicker = document.getElementById('in_hour');
+            // Query the time picker out (hours)
+            const outTimePicker = document.getElementById('out_hour');
+            // Query the time picker in (minutes)
+            const inMinutePicker = document.getElementById('in_minute');
+            // Query the time picker out (minutes)
+            const outMinutePicker = document.getElementById('out_minute');
+
+          //  Make the time pickers dissapear
+            inTimePicker.style.display = 'none'; // Hide the in time picker
+            outTimePicker.style.display = 'none'; // Hide the out time picker
+            inMinutePicker.style.display = 'none'; // Hide the in minute picker
+            outMinutePicker.style.display = 'none'; // Hide the out minute picker
+            inAmPmSelect.style.display = 'none'; // Hide the in AM/PM picker
+            outAmPmSelect.style.display = 'none'; // Hide the out AM/PM picker
+
+            // needs to work every time the modal is opened
+            // Calculate total hours worked
+            
+            
+            console.log(`Cell has existing entry: In: ${existingInTime}, Out: ${existingOutTime}`);
+            
+
+            // Pre-populate the form fields with existing data if needed
+            // You can add logic here to parse and set the time values
+            
+          } else {
+            modal.style.backgroundColor = ''; // Default styling for new entries
+            console.log('Cell has no existing entry');
+          }
+          ////////////////////////////////////////////////////////////////
+          ////////////////////////////////////////////////////////////////
+          // Query the modal to open and close it
+          // const modal = document.getElementById('cal_modal');
           // Populate the header with the Logged User name
           const pageHeader = document.getElementById('employee_name_month');
           console.log(`This is the Page Header: ${pageHeader.innerText}`);
@@ -309,9 +400,7 @@ submitButton.addEventListener('click', function() {
     const inMinuteSelect = document.getElementById('in_minute');
     const outHourSelect = document.getElementById('out_hour');
     const outMinuteSelect = document.getElementById('out_minute');
-    // Query the AM/PM select elements
-    const inAmPmSelect = document.getElementById('in_ampm');
-    const outAmPmSelect = document.getElementById('out_ampm');
+   
     // Query the date picker element
     const datePicker = document.getElementById('current_day');
     // Get the selected values from the hour and minute select elements
@@ -460,18 +549,6 @@ function styleCellsWithTimeEntries() {
         const cellContent = targetCell.querySelector('.the_date_number');
         
         if (cellContent) {
-          // Add styling to indicate this date has time entries
-          // cellContent.style.backgroundColor = '#4CAF50'; // Green background
-          // cellContent.style.color = 'white'; // White text
-          // cellContent.style.fontWeight = 'bold';
-          // cellContent.style.borderRadius = '50%'; // Make it circular
-          // cellContent.style.padding = '4px';
-          // cellContent.style.minWidth = '24px';
-          // cellContent.style.minHeight = '24px';
-          // cellContent.style.display = 'flex';
-          // cellContent.style.alignItems = 'center';
-          // cellContent.style.justifyContent = 'center';
-          
           // Add a class for easier identification
           cellContent.classList.add('filled');
           
@@ -479,7 +556,7 @@ function styleCellsWithTimeEntries() {
           targetCell.setAttribute('data-has-entry', 'true');
           targetCell.setAttribute('data-in-time', inTime);
           targetCell.setAttribute('data-out-time', outTime);
-          
+
           console.log(`Successfully styled cell for ${day}/${month}/${year}`);
         } else {
           console.log(`Cell content not found for ${day}/${month}/${year}`);

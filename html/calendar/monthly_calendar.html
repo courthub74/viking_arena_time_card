@@ -206,7 +206,8 @@
                                                         <label class="form_label">Time In:</label>
 
                                                         <!-- This will be a time picker -->
-                                                        <div class="time-picker">
+                                                        <div class="time-picker" id="time-picker-in">
+                                                            <span id="in_time_span"></span>
                                                             <select id="in_hour">
                                                                 <!-- Hours will be populated by JavaScript -->
                                                             </select>
@@ -226,7 +227,8 @@
                                                         <label class="form_label">Time Out:</label>
                                                         <!-- This will be a time picker -->
                                                         <!-- This will be a time picker -->
-                                                        <div class="time-picker">
+                                                        <div class="time-picker" id="time-picker-out">
+                                                            <span id="out_time_span"></span>
                                                             <select id="out_hour">
                                                                 <!-- Hours will be populated by JavaScript -->
                                                             </select>
@@ -240,6 +242,10 @@
                                                             </select>
                                                         </div>
                                                     </div>
+
+                                                    <!-- Total Hours for clicked on modal with entry -->
+                                                    <span class="input_divs" id="total_hours_span">
+                                                    </span>
                                             
                                             </div>
 
@@ -296,9 +302,10 @@
    <script src="../../js/calendar/calendar.js"></script> 
 
    <!-- MONTH CALENDAR JAVASCRIPT -->
-   <script src="../../js/calendar/monthly_calendar.js"></script>
+   <!-- <script src="../../js/calendar/monthly_calendar.js"></script> -->
    
-
+   <!-- CALENDAR TEST -->
+   <script src="../../js/calendar/test/cal_test_two.js"></script>
     
 </body>
 </html>
