@@ -402,6 +402,9 @@ function setupSubmitFunctionality(modalDate, selectedDate, month, year) {
         
         // disable the submit button
         newSubmitButton.disabled = true;
+
+        // Re-render the calendar to reflect changes
+        renderCalendar(currentMonth, currentYear);
     });
 }
 

@@ -165,7 +165,7 @@ body.dark-mode {
      --date-color: #d1cfcf;
      --today-color: #009df8c2;
      --today-color: #009df88b;
-     --today-color: #009df847;
+     /* --today-color: #009df847; */
 
      /* May be taken care of in JS */
      --filled-color: #009df8c2;
@@ -280,17 +280,7 @@ body {
     left: 0;
 }
 
-/* Order for the Menu button logos */
 
-/* Make the dark mode menu go away */
-/* .menu_button #menu_burgers .burger:last-child {
-    display: none;
-} */
-
-/* Make the lite mode menu come on in dark mode */
-/* .dark-mode .menu_button #menu_burgers .burger:last-child {
-    display: block;
-} */
 
 /* When Burger button (or burger class) is active */
 .burger.active {
@@ -956,12 +946,10 @@ tr {
 /* Current day */
 #calendar-body td.today {
     background-color: var(--today-color);
-    font-weight: bold;
-    /* color: #3498db; */
+    background-color: var(--input-background);
+    /* border: 2px solid var(--today-color); */
     color: var(--text-color);
-    color: white;
     border-radius: 50%;
-    border-radius: 5px;
 }
 
 
@@ -979,7 +967,6 @@ tr {
     color: var(--date-filled-color);
     font-weight: bold;
     /* padding: .3em .6em; */
-    border-radius: 5px;
 } 
 
 /* ****************** */
