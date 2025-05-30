@@ -96,6 +96,7 @@ function populateTimeSelects() {
     });
 }
 
+
 // DISPLAY EXISTING ENTRY DATA IN MODAL
 // Function to display existing entry data in modal
 function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
@@ -134,6 +135,10 @@ function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
         const inTimeSpan = document.getElementById('in_time_span');
         const outTimeSpan = document.getElementById('out_time_span');
         console.log(existingEntry)
+        // Set the time span text content
+        inTimeSpan.textContent = existingEntry.inTime || '';
+        outTimeSpan.textContent = existingEntry.outTime || '';
+        
         
     } else if (!existingEntry) {
         // Show the dropdown time pickers for new entries
@@ -154,8 +159,8 @@ function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
         inMinuteSelect.value = '';
         outHourSelect.value = '';
         outMinuteSelect.value = '';
-        // in_ampm.value = '';
-        // out_ampm.value = '';
+        
+       
         
         console.log('No existing entry found - showing dropdown time pickers for new entry');
     }
@@ -213,8 +218,61 @@ function renderCalendar(month, year) {
                             });
                         }
 
-                        // Populate time selects (only if they're empty)
-                        populateTimeSelects();
+                        // Enable The Submit Button on Modals
+                        // first iterate through every single cell
+
+
+                        // Enable Submit Button on modal
+                        function enableSubmitButton() {
+                            const submitButton = document.getElementById('submit_employee_hours_modal');
+                            // Query the timepickers
+                            const inHourSelect = document.getElementById('in_hour');
+                            const inMinuteSelect = document.getElementById('in_minute');
+                            const outHourSelect = document.getElementById('out_hour');
+                            const outMinuteSelect = document.getElementById('out_minute');
+                            const in_ampm = document.getElementById('in_ampm');
+                            const out_ampm = document.getElementById('out_ampm');
+
+                            if (!submitButton || !inHourSelect || !inMinuteSelect || !outHourSelect || !outMinuteSelect || !in_ampm || !out_ampm) {
+                                console.error('One or more elements are missing');
+                                return;
+                            }
+
+                            // add event listeners to the time pickers
+                            inHourSelect.addEventListener('change', () => {
+                                submitButton.disabled = false;
+                                console.log('In Hour changed');
+                            });
+                            inMinuteSelect.addEventListener('change', () => {
+                                submitButton.disabled = false;
+                            });
+                            outHourSelect.addEventListener('change', () => {
+                                submitButton.disabled = false;
+                            });
+                            outMinuteSelect.addEventListener('change', () => {
+                                submitButton.disabled = false;
+                            });
+                            in_ampm.addEventListener('change', () => {
+                                submitButton.disabled = false;
+                            });
+                            out_ampm.addEventListener('change', () => {
+                                submitButton.disabled = false;
+                            });
+                        }
+
+                        // Call the function to enable the submit button
+                        try {
+                            enableSubmitButton();
+                        } catch (error) {
+                            console.error('Error enabling submit button:', error);
+                        }
+
+                        // call the function to populate time selects
+                        try {
+                            populateTimeSelects();
+                        } catch (error) {
+                            console.error('Error populating time selects:', error);
+                        }
                         
                         // Display existing entry data if available
                         displayExistingEntryData(selectedDate, month, year);
@@ -241,7 +299,7 @@ function renderCalendar(month, year) {
                         }
 
                         // Set up form validation
-                        setupFormValidation();
+                        // setupFormValidation();
                         
                         // Set up submit functionality
                         setupSubmitFunctionality(modalDate, selectedDate, month, year);
@@ -265,42 +323,44 @@ function renderCalendar(month, year) {
     }, 100);
 }
 
+
+
 // Function to set up form validation
-function setupFormValidation() {
-    const submitButton = document.getElementById('submit_employee_hours_modal');
-    const selects = ['in_hour', 'in_minute', 'out_hour', 'out_minute'];
+// function setupFormValidation() {
+//     const submitButton = document.getElementById('submit_employee_hours_modal');
+//     const selects = ['in_hour', 'in_minute', 'out_hour', 'out_minute'];
     
-    // Remove existing listeners by cloning elements
-    selects.forEach(selectId => {
-        const select = document.getElementById(selectId);
-        if (select) {
-            const newSelect = select.cloneNode(true);
-            select.parentNode.replaceChild(newSelect, select);
-        }
-    });
+//     // Remove existing listeners by cloning elements
+//     selects.forEach(selectId => {
+//         const select = document.getElementById(selectId);
+//         if (select) {
+//             const newSelect = select.cloneNode(true);
+//             select.parentNode.replaceChild(newSelect, select);
+//         }
+//     });
     
-    // Add new listeners
-    selects.forEach(selectId => {
-        const select = document.getElementById(selectId);
-        if (select) {
-            select.addEventListener('change', function() {
-                const allSelected = selects.every(id => {
-                    const el = document.getElementById(id);
-                    return el && el.value !== '';
-                });
+// //     // Add new listeners
+// //     selects.forEach(selectId => {
+// //         const select = document.getElementById(selectId);
+// //         if (select) {
+// //             select.addEventListener('change', function() {
+// //                 const allSelected = selects.every(id => {
+// //                     const el = document.getElementById(id);
+// //                     return el && el.value !== '';
+// //                 });
                 
-                if (submitButton) {
-                    submitButton.disabled = !allSelected;
-                }
-            });
-        }
-    });
+// //                 if (submitButton) {
+// //                     submitButton.disabled = !allSelected;
+// //                 }
+// //             });
+// //         }
+// //     });
     
-    // Initially disable submit button
-    if (submitButton) {
-        submitButton.disabled = true;
-    }
-}
+// //     // Initially disable submit button
+// //     // if (submitButton) {
+// //     //     submitButton.disabled = true;
+// //     // }
+// }
 
 // Function to set up submit functionality
 function setupSubmitFunctionality(modalDate, selectedDate, month, year) {
