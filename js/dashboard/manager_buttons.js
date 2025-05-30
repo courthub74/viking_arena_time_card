@@ -47,7 +47,7 @@ employee_calendar.addEventListener("click", function(e) {
         manager_messaging.classList.remove("clicked");
     }, 1000);
     setTimeout(() => {
-        window.location.href = "../../html/calendar/monthly_calendar.html"
+        window.location.href = "../../html/manager/manager_calendar.html"
     }, 1000);
 });
 
