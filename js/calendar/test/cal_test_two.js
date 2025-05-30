@@ -431,6 +431,9 @@ function setupSubmitFunctionality(modalDate, selectedDate, month, year) {
         
         // Close modal and refresh display
         document.getElementById('cal_modal').style.display = 'none';
+        
+        // disable the submit button
+        newSubmitButton.disabled = true;
     });
 }
 
