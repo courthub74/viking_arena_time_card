@@ -73,7 +73,7 @@ for 'Remember Me' functionality
 
 \*Each employee hours button will lead to a list of hours for the week for that employee
 
-\*Add JS to the hours entry modal
+\*~Add JS to the hours entry modal~
 
 ## Messaging
 
