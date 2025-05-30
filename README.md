@@ -114,5 +114,5 @@ for 'Remember Me' functionality
 ### Next thing
 
 \*The Employee hours page for the manager
-
+\*The Manager calendar (take the js from emp cal and just display all the employees entry dates)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/courthub74/viking_arena_time_card?style=flat&logo=GitHub)
