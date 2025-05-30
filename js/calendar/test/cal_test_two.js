@@ -123,130 +123,43 @@ function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
     
     if (existingEntry) {
         // Hide the dropdown time pickers
-        if (inHourSelect) inHourSelect.style.display = 'none';
-        if (inMinuteSelect) inMinuteSelect.style.display = 'none';
-        if (outHourSelect) outHourSelect.style.display = 'none';
-        if (outMinuteSelect) outMinuteSelect.style.display = 'none';
-        if (in_ampm) in_ampm.style.display = 'none';
-        if (out_ampm) out_ampm.style.display = 'none';
+        inHourSelect.style.display = 'none';
+        inMinuteSelect.style.display = 'none';
+        outHourSelect.style.display = 'none';
+        outMinuteSelect.style.display = 'none';
+        in_ampm.style.display = 'none';
+        out_ampm.style.display = 'none';
         
-        // Display existing times in the time picker fields
-        if (timePickerIn) {
-            // See if this singles it out
-            // timePickerIn.style.backgroundColor = "red"; 
-            console.log(`Setting timePickerIn to: ${existingEntry.inTime}`);
-            timePickerIn.innerHTML = existingEntry.inTime;
-            timePickerIn.style.display = 'block';
-        }
-        if (timePickerOut) {
-            timePickerOut.innerHTML = existingEntry.outTime;
-            timePickerOut.style.display = 'block';
-        }
-        // NEED TO GET THE TIMES TO DISPLAY 
+        // Query the span elements for displaying time
+        const inTimeSpan = document.getElementById('in_time_span');
+        const outTimeSpan = document.getElementById('out_time_span');
+        console.log(existingEntry)
         
-        console.log(`Displaying existing entry in time fields: In - ${existingEntry.inTime}, Out - ${existingEntry.outTime}`);
-        
-    } else {
+    } else if (!existingEntry) {
         // Show the dropdown time pickers for new entries
-        if (inHourSelect) inHourSelect.style.display = 'block';
-        if (inMinuteSelect) inMinuteSelect.style.display = 'block';
-        if (outHourSelect) outHourSelect.style.display = 'block';
-        if (outMinuteSelect) outMinuteSelect.style.display = 'block';
-        if (in_ampm) in_ampm.style.display = 'block';
-        if (out_ampm) out_ampm.style.display = 'block';
+        inHourSelect.style.display = 'block';
+        inMinuteSelect.style.display = 'block';
+        outHourSelect.style.display = 'block';
+        outMinuteSelect.style.display = 'block';
+        in_ampm.style.display = 'block';
+        out_ampm.style.display = 'block';
         
-        // Hide the time picker input fields
-        if (timePickerIn) {
-            timePickerIn.style.display = 'flex';
-            timePickerIn.innerHTML = '';
-            timePickerIn.style.backgroundColor = ""; // Reset background color
-        }
-        if (timePickerOut) {
-            timePickerOut.style.display = 'flex';
-            timePickerOut.innerHTML = '';
-            timePickerOut.style.backgroundColor = ""; // Reset background color
-        }
+        // Reset the time span text content
+        const inTimeSpan = document.getElementById('in_time_span');
+        const outTimeSpan = document.getElementById('out_time_span');
+        inTimeSpan.textContent = '';
+        outTimeSpan.textContent = '';
+        // Reset the time select values
+        inHourSelect.value = '';
+        inMinuteSelect.value = '';
+        outHourSelect.value = '';
+        outMinuteSelect.value = '';
+        // in_ampm.value = '';
+        // out_ampm.value = '';
         
         console.log('No existing entry found - showing dropdown time pickers for new entry');
     }
 }
-
-// // Function to display existing entry data in modal
-// function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
-//     const userHours = getUserHours();
-//     const selectedDateString = new Date(selectedYear, selectedMonth, selectedDate).toLocaleDateString('en-US', {
-//         year: 'numeric',
-//         month: 'long',
-//         day: '2-digit'
-//     });
-    
-//     // Find existing entry for this date
-//     const existingEntry = userHours.find(entry => entry.date === selectedDateString);
-//     // Maybe locate user hours instead
-    
-    
-    
-//     if (existingEntry) {
-//             // HERE change the timepickers and show the time
-//             const inHourSelect = document.getElementById('in_hour');
-//             const inMinuteSelect = document.getElementById('in_minute');
-//             const outHourSelect = document.getElementById('out_hour');
-//             const outMinuteSelect = document.getElementById('out_minute');
-//             const in_ampm = document.getElementById('in_ampm');
-//             const out_ampm = document.getElementById('out_ampm');
-//             // Set the time select values based on existing entry
-//             const inTimeParts = existingEntry.inTime.split(':');
-//             const outTimeParts = existingEntry.outTime.split(':');
-//             // Make in_hour and out_hour dissapear
-            
-//             // Make the inTime and outTime appear in the timepickers place
-//             inHourSelect.value = inTimeParts[0];
-//             console.log(`Setting inHourSelect to: ${inTimeParts[0]}`);
-//             inMinuteSelect.value = inTimeParts[1];
-//             console.log(`Setting inMinuteSelect to: ${inTimeParts[1]}`);
-//             outHourSelect.value = outTimeParts[0];
-//             console.log(`Setting outHourSelect to: ${outTimeParts[0]}`);
-//             outMinuteSelect.value = outTimeParts[1];
-//             console.log(`Setting outMinuteSelect to: ${outTimeParts[1]}`);
-//             // Set AM/PM based on the hour
-//             in_ampm.value = parseInt(inTimeParts[0]) >= 12 ? 'PM' : 'AM';
-//             console.log(`Setting in_ampm to: ${in_ampm.value}`);
-//             out_ampm.value = parseInt(outTimeParts[0]) >= 12 ? 'PM' : 'AM';
-//             console.log(`Setting out_ampm to: ${out_ampm.value}`);
-//             // Display the existing entry data
-
-            
-//             ////////////////////////////////////////////////
-//             console.log(`Setting time pickers: In - ${existingEntry.inTime}, Out - ${existingEntry.outTime}`);
-            
-//             // How do I just change the timepickers to show the entries from localStorage?
-//             // make the time pickers dissapear
-//             inHourSelect.style.display = 'none';
-//             inMinuteSelect.style.display = 'none';
-//             outHourSelect.style.display = 'none';
-//             outMinuteSelect.style.display = 'none';
-//             in_ampm.style.display = 'none';
-//             out_ampm.style.display = 'none';
-
-          
-//         } else {
-//             // Reset the display if there IS a time entry in the database
-//             const inHourSelect = document.getElementById('in_hour');
-//             const inMinuteSelect = document.getElementById('in_minute');
-//             const outHourSelect = document.getElementById('out_hour');
-//             const outMinuteSelect = document.getElementById('out_minute');
-//             const in_ampm = document.getElementById('in_ampm');
-//             const out_ampm = document.getElementById('out_ampm');
-//             // Make them reappear
-//             inHourSelect.style.display = 'block';
-//             inMinuteSelect.style.display = 'block';
-//             outHourSelect.style.display = 'block';
-//             outMinuteSelect.style.display = 'block';
-//             in_ampm.style.display = 'block';
-//             out_ampm.style.display = 'block';
-//         };
-//         // entryDisplay.style.display = 'none';
-// }
 
 // Function to render the calendar
 function renderCalendar(month, year) {
@@ -404,6 +317,8 @@ function setupSubmitFunctionality(modalDate, selectedDate, month, year) {
         const inMinute = document.getElementById('in_minute').value;
         const outHour = document.getElementById('out_hour').value;
         const outMinute = document.getElementById('out_minute').value;
+        const inAmpm = document.getElementById('in_ampm').value;
+        const outAmpm = document.getElementById('out_ampm').value;
         
         const currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('session'));
         if (!currentUser) {
@@ -422,8 +337,8 @@ function setupSubmitFunctionality(modalDate, selectedDate, month, year) {
         
         const timeEntry = {
             date: modalDate.value,
-            inTime: `${inHour}:${inMinute}`,
-            outTime: `${outHour}:${outMinute}`,
+            inTime: `${inHour}:${inMinute} ${inAmpm}`,
+            outTime: `${outHour}:${outMinute} ${outAmpm}`,
             user: userName
         };
         
