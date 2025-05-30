@@ -45,7 +45,7 @@ function styleCellsWithTimeEntries() {
         // gets the date number of each cell
         const cellDate = parseInt(cell.textContent);
         // Test print the dates
-        console.log(`The CellDate: ${cellDate}`);
+        // console.log(`The CellDate: ${cellDate}`);
         if (!cellDate) return;
         
         // Create date object for this cell
@@ -70,6 +70,22 @@ function styleCellsWithTimeEntries() {
             // Test Print 
             console.log(entries);
             console.log('This prints the hours pertaining to the day ABOVE:');
+        }
+        // If there's an entry for this date, style the cell
+        if (hasEntry) {
+            cell.classList.add('has-entry');
+            // cell.style.color = 'blue';
+            console.log(`Style this cell for date: ${cellDateString}`);
+            // Add a data attribute to the cell with the date
+            cell.setAttribute('data-date', cellDateString);
+            // Add a click event listener to the cell
+            cell.addEventListener('click', function() {
+                const selectedDate = parseInt(cell.textContent);
+                displayExistingEntryData(selectedDate, currentMonth, currentYear);
+            });
+        } else {
+            // Remove the has-entry class if no entry exists
+            cell.classList.remove('filled');
         }
     });
 }
@@ -141,7 +157,9 @@ function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
         outTimeSpan.textContent = existingEntry.outTime || '';
         timePickerOut.style.padding = '8px';
         console.log('Existing entry found - displaying time in spans');
-        
+        ////////////////////////////////////////////////////////////////
+        // Style the cell dates with existing entries
+        styleCellsWithTimeEntries();
         
     } else if (!existingEntry) {
         // Show the dropdown time pickers for new entries
