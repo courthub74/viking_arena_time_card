@@ -111,4 +111,8 @@ for 'Remember Me' functionality
 
 \*Emplemented architecture thinking methodology
 
+### Next thing
+
+\*The Employee hours page for the manager
+
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/courthub74/viking_arena_time_card?style=flat&logo=GitHub)
