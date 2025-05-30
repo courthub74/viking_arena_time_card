@@ -215,10 +215,19 @@ function renderCalendar(month, year) {
                         
                         console.log('User Hours for styling:', userHours);
                         
-                        
-
-                        // Get the times from the hours array associated with 
-                        //  that user from local storage
+                        // Style the cells based on user hours
+                        // Iterate through userHours and style the cells
+                        userHours.forEach(entry => {
+                            // See if the entry date matches the selected date
+                            const entryDate = new Date(entry.date);
+                            const entryMonth = entryDate.getMonth();
+                            const entryYear = entryDate.getFullYear();
+                            const inTime = entry.inTime.split(':');
+                            const outTime = entry.outTime.split(':');
+                            
+                        });
+                        // iterate thru userHours and 
+                            // forEach entry style the cells
                         
 
                         //  Enable the submit button when the time pickers are changed
