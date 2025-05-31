@@ -64,8 +64,8 @@ console.log(users);
     // buttons to be generated there
 const employee_hours_button_div = document.getElementById('employee_hours_buttons');
 
+// BUTTON GENERATION
 // For every user create a button with the user name
-
 // FIRST iterate through the users (using forEach since you don't need to modify any array elements)
 users.forEach(user => {
 
@@ -115,6 +115,9 @@ users.forEach(user => {
     clock_img.className = 'emp_clock'; 
 });
 
+// EMPLOYEE HOURS BUTTONS
+// Query the employee hours button by its id
+// This is the button that will be clicked to redirect to the employee hours page
 const employee_hours_btn = document.getElementById('employee_hours_btn');
 // Add an event listener to the employee hours buttons
 // When clicked, it should redirect to the employee hours page with the username as a query parameter
@@ -122,10 +125,25 @@ const employee_hours_btn = document.getElementById('employee_hours_btn');
 employee_hours_btn.addEventListener('click', function(e) {
     e.preventDefault(); // Prevent default action if necessary
     console.log("Employee hours button clicked");
+     // Store the user name in a variable to read for later rendering
+    //  const employeeName = user.username;
+    const employeeName = document.getElementById('employee_name').innerText;
+    // Get the employee name from the clicked button
+    // const employeeName = e.target.querySelector('#employee_name').innerText;
     // Check if the clicked element is a button with the class 'employee_hours_btn'
-    if (e.target.classList.contains('employee_hours_btn')) {
+    if (employeeName) {
         // Get the employee name from the button
-        const employeeName = event.target.querySelector('.employee_name').innerText;
+        // if innerText name matches the name from local storage
+        // Get the users from local storage
+        // AND PARSE through the users to find the employee with the matching username
+        console.log(users);
+        if (employeeName === loggedName) {
+            // Log a message indicating that the logged in user is the one clicked
+            console.log(`Employee hours button clicked for logged in user: ${loggedName}`);
+            // Redirect to the employee hours page with the username as a query parameter
+            window.location.href = `../../html/manager/emp_hours_list.html?username=${encodeURIComponent(loggedName)}`;
+            return; // Exit the function after redirecting
+        }
         // sort through the users to find the employee with the matching username
         // const employee = users.find(user => user.username === employeeName);
         // // If the employee is not found, log an error and return
