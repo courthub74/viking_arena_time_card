@@ -969,6 +969,15 @@ tr {
     /* padding: .3em .6em; */
 } 
 
+/* Today and Filled Cell */
+#calendar-body td.today.has-entry {
+    background-color: var(--today-color);
+    background-color: var(--input-background);
+    color: var(--text-color);
+    color: var(--date-filled-color);
+    border-radius: 50%;
+}
+
 /* ****************** */
 /* ****************** */
 /* ****************** */
