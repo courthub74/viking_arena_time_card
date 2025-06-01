@@ -67,6 +67,7 @@ allUsers.forEach((user, index) => {
             empHoursList.innerHTML = ''; // Clear existing content
             userHours.forEach((hour) => {
                 const li = document.createElement('li');
+                li.style.listStyleType = 'none'; // Remove bullet points from list items
                 // Style the list item (styling can be done via CSS)
                 // li.className = 'emp_hours_list_item';
                 // set the total hours

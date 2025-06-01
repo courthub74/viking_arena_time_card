@@ -667,7 +667,6 @@ header {
 }
 
 .emp_hours_list_item {
-    list-style: none;
     padding: 1em 0 1em 0;
     /* border: 1px solid var(--calendar-arrow); */
 }
