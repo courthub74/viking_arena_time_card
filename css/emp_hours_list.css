@@ -65,6 +65,8 @@
      /* Employee Name Colors */
      --employee-names: #04324c;
 
+     --employee-hours-list-box: #297ece8a;
+
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -133,6 +135,8 @@ body.dark-mode {
 
      /* Employee Name Colors */
      --employee-names: #daf3ff;
+     /* Employee Hours List */
+     --employee-hours-list-box: #002F54;
      /* --employee-names: #ffffff; */
      
      /* *********************************** */
@@ -643,12 +647,29 @@ header {
     font-size: small;
 }
 
-.employee_hours_list {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
+/* Employee Hours Box */
+.emp_hours_box {
     width: 100%;
-    /* margin-top: 1em; */
+    /* background-color: var(--input-background); */
+    border: 1px solid var(--employee-hours-list-box);
+    border-radius: 5px;
+    text-align: center;
+    padding: 1em;
+    margin-top: 2em;
+    font-size: small;
+}
+
+/* Employee Hours List */
+.emp_hours_list {
+    display: flex;
+    gap: 1em;
+    width: 100%;
+}
+
+.emp_hours_list_item {
+    list-style: none;
+    padding: 1em 0 1em 0;
+    /* border: 1px solid var(--calendar-arrow); */
 }
 
 .instructions {
