@@ -24,6 +24,8 @@
      --input-background: #658cab92;
      --input-background: #658cab48;
      --input-background: #5186b148;
+     /* Filled Input */
+     --input-filled: #0460a5;
 
 
      /* Button Colors */
@@ -116,6 +118,8 @@ body.dark-mode {
      --input-background: #101316;
      --input-background: #1b2025;
      --input-background: #15191d;
+     /* Filled Input */
+     --input-filled: #002F54;
      
      /* Button Colors */
      --button-background: #009DF8;
