@@ -165,35 +165,52 @@ function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
         ///////////////////////////////////////////////////////////////
         // Style the time picker inputs
         // if existingEntry only on inTimeSpan
+        
+
         if (existingEntry.inTime) {
-             // inTimeSpan
-            timePickerIn.style.backgroundColor = '#0460a5'; // Example styling
+            // Style the inTimeSpan
+            timePickerIn.style.backgroundColor = '#002F54'; // Example styling
             inTimeSpan.style.color = 'white'; // Example styling
             inTimeSpan.style.fontWeight = 'bold'; // Example styling
-            // outTimeSpan
-            timePickerOut.style.backgroundColor = '#0460a5'; // Example styling
+            // set justify content to space-between
+            timePickerIn.style.justifyContent = 'space-between'; // Example styling
+            // Style the outTimeSpan
+            timePickerOut.style.backgroundColor = '#002F54'; // Example styling
             outTimeSpan.style.color = 'white'; // Example styling
             outTimeSpan.style.fontWeight = 'bold'; // Example styling
-            // Add an edit button to the time spans
-            const editButtonIn = document.createElement('button');
-            editButtonIn.textContent = 'Edit';
-            editButtonIn.className = 'edit-time-button';
-            editButtonIn.addEventListener('click', function() {
-                // Show the dropdown time pickers for editing
-                inHourSelect.style.display = 'block';
-                inMinuteSelect.style.display = 'block';
-                in_ampm.style.display = 'block';
-                
-                // Set the dropdown values to existing entry values
-                const [inHour, inMinute] = existingEntry.inTime.split(':');
-                inHourSelect.value = parseInt(inHour);
-                inMinuteSelect.value = parseInt(inMinute);
-                
-                // Hide the time span
-                inTimeSpan.textContent = '';
-            });
-            // append the edit button to the time picker in
-            timePickerIn.appendChild(editButtonIn);
+
+            // Check if edit button already exists before creating a new one
+            // FIRST Query the edit button in the time picker in
+            const editButtonIn = timePickerIn.querySelector('.edit-time-button');
+            // If the edit button does not exist, create it
+            if (!editButtonIn) {
+                // Add an edit button to the time spans
+                const editButtonIn = document.createElement('button');
+                editButtonIn.textContent = 'Edit';
+                editButtonIn.className = 'edit-time-button';
+                editButtonIn.addEventListener('click', function() {
+                    // Show the dropdown time pickers for editing
+                    inHourSelect.style.display = 'block';
+                    inMinuteSelect.style.display = 'block';
+                    in_ampm.style.display = 'block';
+                    
+                    // Set the dropdown values to existing entry values
+                    const [inHour, inMinute] = existingEntry.inTime.split(':');
+                    inHourSelect.value = parseInt(inHour);
+                    inMinuteSelect.value = parseInt(inMinute);
+                    
+                    // Hide the time span
+                    inTimeSpan.textContent = '';
+                });
+                // append the edit button to the time picker in
+                timePickerIn.appendChild(editButtonIn);
+            }
+        } else {
+            // Remove the button
+            const editButtonIn = timePickerIn.querySelector('.edit-time-button');
+            if (editButtonIn) {
+                editButtonIn.remove();
+            }
         }
         
         

@@ -716,7 +716,7 @@ header {
 
 /* EDIT BUTTON */
 .edit-time-button {
-    background-color: var(--button-background);
+    background-color: var(--input-filled);
     color: white;
     border: none;
     /* padding: 10px 15px; */
