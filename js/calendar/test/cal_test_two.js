@@ -174,11 +174,9 @@ function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
             inTimeSpan.style.fontWeight = 'bold'; // Example styling
             // set justify content to space-between
             timePickerIn.style.justifyContent = 'space-between'; // Example styling
-            // Style the outTimeSpan
-            timePickerOut.style.backgroundColor = '#002F54'; // Example styling
-            outTimeSpan.style.color = 'white'; // Example styling
-            outTimeSpan.style.fontWeight = 'bold'; // Example styling
 
+            // EDIT BUTTON FUNCTIONALITY
+            // EDIT BUTTON IN
             // Check if edit button already exists before creating a new one
             // FIRST Query the edit button in the time picker in
             const editButtonIn = timePickerIn.querySelector('.edit-time-button');
@@ -186,8 +184,15 @@ function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
             if (!editButtonIn) {
                 // Add an edit button to the time spans
                 const editButtonIn = document.createElement('button');
-                editButtonIn.textContent = 'Edit';
+                editButtonIn.textContent = '';
                 editButtonIn.className = 'edit-time-button';
+                // add image to the button
+                const img = document.createElement('img');
+                img.src = '/img/edit-buttons/edit-pen.png'; // Adjust path as needed
+                img.alt = '';
+                img.style.width = '20px'; // or whatever size you want
+                img.style.height = '20px';
+                editButtonIn.appendChild(img);
                 editButtonIn.addEventListener('click', function() {
                     // Show the dropdown time pickers for editing
                     inHourSelect.style.display = 'block';
@@ -212,12 +217,55 @@ function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
                 editButtonIn.remove();
             }
         }
-        
-        
-        // if (inTimeSpan) {
-        //     console.log(`In Time Span found ${inTimeSpan}`);
-        // } 
-        
+
+        // EDIT BUTTON OUT
+        if (existingEntry.outTime) {
+            // Style the outTimeSpan
+            // Style the outTimeSpan
+            timePickerOut.style.backgroundColor = '#002F54'; // Example styling
+            outTimeSpan.style.color = 'white'; // Example styling
+            outTimeSpan.style.fontWeight = 'bold'; // Example styling
+            timePickerOut.style.justifyContent = 'space-between';
+
+            // Check if edit button already exists before creating a new one
+            const editButtonOut = timePickerOut.querySelector('.edit-time-button');
+            // If the edit button does not exist, create it
+            if (!editButtonOut) {
+                // Add an edit button to the time spans
+                const editButtonOut = document.createElement('button');
+                editButtonOut.textContent = '';
+                editButtonOut.className = 'edit-time-button';
+                // add image to the button
+                const imgOut = document.createElement('img');
+                imgOut.src = '/img/edit-buttons/edit-pen.png'; // Adjust path as needed
+                imgOut.alt = '';
+                imgOut.style.width = '20px'; // or whatever size you want
+                imgOut.style.height = '20px';
+                editButtonOut.appendChild(imgOut);
+                editButtonOut.addEventListener('click', function() {
+                    // Show the dropdown time pickers for editing
+                    outHourSelect.style.display = 'block';
+                    outMinuteSelect.style.display = 'block';
+                    out_ampm.style.display = 'block';
+                    
+                    // Set the dropdown values to existing entry values
+                    const [outHour, outMinute] = existingEntry.outTime.split(':');
+                    outHourSelect.value = parseInt(outHour);
+                    outMinuteSelect.value = parseInt(outMinute);
+                    
+                    // Hide the time span
+                    outTimeSpan.textContent = '';
+                });
+                // append the edit button to the time picker in
+                timePickerOut.appendChild(editButtonOut);
+            } 
+        } else {
+            // Remove the button
+            const editButtonOut = timePickerOut.querySelector('.edit-time-button');
+            if (editButtonOut) {
+                editButtonOut.remove();
+            }
+        }
     } else if (!existingEntry) {
         // Show the dropdown time pickers for new entries
         inHourSelect.style.display = 'block';
@@ -241,6 +289,20 @@ function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
         outTimeSpan.style.color = '';
         outTimeSpan.style.fontWeight = '';
         // console.error('In Time Span not found');
+
+        // Remove any existing edit buttons
+        const editButtonIn = timePickerIn.querySelector('.edit-time-button');
+        const editButtonOut = timePickerOut.querySelector('.edit-time-button');
+        if (editButtonIn) {
+            editButtonIn.remove();
+            // remove space between the time picker and the edit button
+            timePickerIn.style.justifyContent = 'flex-start'; // Reset to default
+        }
+        if (editButtonOut) {
+            editButtonOut.remove();
+            // remove space between the time picker and the edit button
+            timePickerOut.style.justifyContent = 'flex-start'; // Reset to default
+        }
          
         console.log('No existing entry found - showing dropdown time pickers for new entry');
     }
