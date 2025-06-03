@@ -671,13 +671,13 @@ header {
     justify-content: center;
     /* align-items: stretch;  */
     align-items: center;         /* Make all items the same height */
-    gap: .5em;                      /* Optional: keeps a gap between items */
+    gap: .1em;                      /* Optional: keeps a gap between items */
     width: 100%;
 }
 
 .emp_hours_list_item {
     flex: 1 1 1;                   /* Allow items to grow and shrink equally */
-    padding: 1em 0;
+    padding: 1.5em 0;
     text-align: center;
     /* background-color: #002F54; */
     display: flex;
@@ -704,16 +704,22 @@ header {
 
 .copy-button {
     background-color: var(--input-filled);
+    /* background: none; */
+    padding: .5em;
     border: none;
     cursor: pointer;
     color: white;
-    transition: all 0.3s ease;
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: smaller;
+    margin-left: 2em;
 }
+
+/* .copy-button img {
+    width: 2em;
+    height: 2em;
+} */
 
 .instructions {
     font-size: small;

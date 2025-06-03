@@ -91,7 +91,8 @@ allUsers.forEach((user, index) => {
                         <div class="emp_hours_list_item">${hour.inTime}</div>
                         <span class="pipe">|</span>
                         <div class="emp_hours_list_item">${hour.outTime}</div>
-                        <button class="copy-button" onclick="copyToClipboard('${hour.date} | ${hour.inTime} | ${hour.outTime}')">Copy</button>
+                        
+                        <button class="copy-button" onclick="copyToClipboard('${hour.date} | ${hour.inTime} | ${hour.outTime}')"> <img src="../../img/edit-buttons/copy-buttons.png" alt="Copy" class="copy_logo" style="width:20px;height:20px;"></button>
                     </div>
                 `;
                 empHoursList.appendChild(li);
