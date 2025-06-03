@@ -106,4 +106,36 @@ allUsers.forEach((user, index) => {
 // Debug: Log final userIndex
 console.log('Final userIndex:', userIndex);
 
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+// JS for the side bar
+// Get Current User Name
+const nowUser = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
+// Parse the current user from session storage
+const nowUserParsed = nowUser ? JSON.parse(nowUser) : null;
+// Test print
+console.log('nowUserParsed:', nowUserParsed);
+// Decode the username to handle any URL encoding
+if (nowUserParsed) {
+    nowUserParsed.username = decodeURIComponent(nowUserParsed.username).trim();
+}
+// Render the userName object
+const currentUserName = nowUserParsed.username;
+// Test Print
+console.log(`Current User is: ${currentUserName}`);
 
+// // Check if the empName element exists
+if (currentUserName) {
+    // Query the sidebar profile elements
+    const profileName = document.getElementById('profile_scheduler_name');
+    // Set the text content of the employee name element
+    profileName.textContent = currentUserName;
+    // Place the user name in the manager name element
+    const managerName = document.getElementById('manager_name');
+    // Set the text content of the manager name element
+    managerName.textContent = currentUserName;
+} else {
+    console.log(`${currentUserName} NOT found`);
+};
+
+// 
