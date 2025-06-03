@@ -88,6 +88,7 @@ allUsers.forEach((user, index) => {
                 // empHoursList.appendChild(li);
 
                 // Create the hour entry list 
+                // I need a pipe | next to each of these
                 li.innerHTML = `
                     <div class="emp_hours_list">
                         <div class="emp_hours_list_item">${hour.date}</div>

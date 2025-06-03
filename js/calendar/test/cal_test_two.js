@@ -303,7 +303,6 @@ function displayExistingEntryData(selectedDate, selectedMonth, selectedYear) {
             // remove space between the time picker and the edit button
             timePickerOut.style.justifyContent = 'flex-start'; // Reset to default
         }
-         
         console.log('No existing entry found - showing dropdown time pickers for new entry');
     }
 }
