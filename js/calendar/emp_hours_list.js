@@ -80,12 +80,6 @@ allUsers.forEach((user, index) => {
                     day: '2-digit'
                 });
                 hour.date = formattedDate; // Update the date format
-               
-                // Set the text content of the list item
-
-                // li.textContent = `Date: ${hour.date}, Hours: ${hour.inTime} - ${hour.outTime}`;
-
-                // empHoursList.appendChild(li);
 
                 // Create the hour entry list 
                 // I need a pipe | next to each of these
@@ -97,9 +91,13 @@ allUsers.forEach((user, index) => {
                         <div class="emp_hours_list_item">${hour.inTime}</div>
                         <span class="pipe">|</span>
                         <div class="emp_hours_list_item">${hour.outTime}</div>
+                        <button class="copy-button" onclick="copyToClipboard('${hour.date} | ${hour.inTime} | ${hour.outTime}')">Copy</button>
                     </div>
                 `;
                 empHoursList.appendChild(li);
+
+                // copy to clipboard function HERE
+
             });
         } else {
             console.error('emp_hours element not found in the DOM.');

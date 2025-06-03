@@ -25,6 +25,9 @@
      --input-background: #658cab48;
      --input-background: #5186b148;
 
+     /* Filled Input */
+     --input-filled: #0460a5;
+
 
      /* Button Colors */
      --button-background: #009DF8;
@@ -96,6 +99,8 @@ body.dark-mode {
      --input-background: #1b2025;
      --input-background: #15191d; */
      --input-background: #121418;
+     /* Filled Input */
+     --input-filled: #002F54;
      
      /* Button Colors */
      --button-background: #009DF8;
@@ -666,7 +671,7 @@ header {
     justify-content: center;
     /* align-items: stretch;  */
     align-items: center;         /* Make all items the same height */
-    gap: 1em;                      /* Optional: keeps a gap between items */
+    gap: .5em;                      /* Optional: keeps a gap between items */
     width: 100%;
 }
 
@@ -696,14 +701,19 @@ header {
     /* Optional: make the pipe thinner */
     min-width: 1em;
 }
-/* .pipe {
+
+.copy-button {
+    background-color: var(--input-filled);
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+    text-decoration: none;
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 0 0.5em;
-    color: #888;
-    font-weight: bold;
-    font-size: 1.2em;
-} */
+    font-size: smaller;
+}
 
 .instructions {
     font-size: small;
