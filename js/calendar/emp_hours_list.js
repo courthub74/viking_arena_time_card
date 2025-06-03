@@ -89,10 +89,13 @@ allUsers.forEach((user, index) => {
 
                 // Create the hour entry list 
                 // I need a pipe | next to each of these
+
                 li.innerHTML = `
                     <div class="emp_hours_list">
                         <div class="emp_hours_list_item">${hour.date}</div>
+                        <span class="pipe">|</span>
                         <div class="emp_hours_list_item">${hour.inTime}</div>
+                        <span class="pipe">|</span>
                         <div class="emp_hours_list_item">${hour.outTime}</div>
                     </div>
                 `;

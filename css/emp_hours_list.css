@@ -663,7 +663,9 @@ header {
 .emp_hours_list {
     display: flex;
     justify-content: space-evenly; /* Even spacing between items */
-    align-items: stretch;          /* Make all items the same height */
+    justify-content: center;
+    /* align-items: stretch;  */
+    align-items: center;         /* Make all items the same height */
     gap: 1em;                      /* Optional: keeps a gap between items */
     width: 100%;
 }
@@ -674,12 +676,34 @@ header {
     text-align: center;
     /* background-color: #002F54; */
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     margin: 0;                     /* Remove default margin if any */
     min-width: 0;                  /* Prevent overflow */
+    font-size: smaller;
 }
+
+.pipe {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0;
+    color: #888;
+    /* font-weight: bold; */
+    font-size: 1.5em;
+    height: 100%;
+    /* Optional: make the pipe thinner */
+    min-width: 1em;
+}
+/* .pipe {
+    display: flex;
+    align-items: center;
+    padding: 0 0.5em;
+    color: #888;
+    font-weight: bold;
+    font-size: 1.2em;
+} */
 
 .instructions {
     font-size: small;
