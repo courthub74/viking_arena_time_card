@@ -130,12 +130,14 @@ if (currentUserName) {
     const profileName = document.getElementById('profile_scheduler_name');
     // Set the text content of the employee name element
     profileName.textContent = currentUserName;
-    // Place the user name in the manager name element
+    // Place the Account Type in the manager name element
+    const acctType = document.getElementById('profile_scheduler_account');
+    // Set the text content of the account type element
+    acctType.textContent = nowUserParsed.accountType || 'Manager'; // Default to 'Manager' if not set
+    // Place the user name in the manager name element (Page Header)
     const managerName = document.getElementById('manager_name');
     // Set the text content of the manager name element
     managerName.textContent = currentUserName;
 } else {
     console.log(`${currentUserName} NOT found`);
 };
-
-// 

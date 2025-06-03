@@ -113,7 +113,11 @@ for 'Remember Me' functionality
 
 ### Next thing
 
-\*Get the managers name in the header for the emp_list_page
+\*Make the Modals with entries inputs blue and add an edit pin to each
+
+\*Center, add pipes and buttons to date entries
+
+\*~Get the managers name in the header for the emp_list_page~
 
 \*~The Employee hours page for the manager~
 \*~(so its one page that renders the proper date from db and displays them into output tags)~

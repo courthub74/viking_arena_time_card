@@ -714,6 +714,19 @@ header {
     opacity: 50%;
 }
 
+/* EDIT BUTTON */
+.edit-time-button {
+    background-color: var(--button-background);
+    color: white;
+    border: none;
+    /* padding: 10px 15px; */
+    text-align: center;
+    cursor: pointer;
+    font-size: small;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
 /* Main Nav and main form opacity 50%
     when modal activated */
 /* in JS Query these elements and change the class */
@@ -765,7 +778,7 @@ header {
     font-size: small;
     transition: all 0.3s ease;
     text-decoration: none;
-    /* margin-top: 1em; */
+    margin-top: 1em;
 }
 
 /* No outline on focus */
