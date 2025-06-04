@@ -80,6 +80,7 @@ allUsers.forEach((user, index) => {
                 //     day: '2-digit'
                 // });
                 // hour.date = formattedDate; // Update the date format
+                
                 const formattedDay = new Date(hour.date).toLocaleDateString('en-US', {
                     month: 'short',
                     day: '2-digit',

@@ -113,9 +113,11 @@ for 'Remember Me' functionality
 
 ### Next thing
 
-\*Make the Modals with entries inputs blue and add an edit pin to each
+\*Make the managerial calendar which displays all employees
 
-\*Center, add pipes and buttons to date entries
+\*~Make the Modals with entries inputs blue and add an edit pin to each~
+
+\*~Center, add pipes and buttons to date entries~
 
 \*~Get the managers name in the header for the emp_list_page~
 
