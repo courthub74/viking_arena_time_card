@@ -26,7 +26,7 @@
      --input-background: #5186b148;
 
      /* Filled Input */
-     --input-filled: #0460a5;
+     --input-filled: #60afec;
 
 
      /* Button Colors */
@@ -714,6 +714,11 @@ header {
     justify-content: center;
     align-items: center;
     margin-left: 2em;
+}
+
+.copy_logo {
+    width: 15px;
+    height: 15px;
 }
 
 /* .copy-button img {
