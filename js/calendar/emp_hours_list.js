@@ -73,14 +73,21 @@ allUsers.forEach((user, index) => {
                 // set the total hours
                 // hour.totalHours = hour.outTime - hour.inTime;
                 // Format the date and times for display
-                const formattedDate = new Date(hour.date).toLocaleDateString('en-US', {
-                    weekday: 'short',
-                    year: 'numeric',
+                // const formattedDate = new Date(hour.date).toLocaleDateString('en-US', {
+                //     weekday: 'short',
+                //     year: 'numeric',
+                //     month: 'short',
+                //     day: '2-digit'
+                // });
+                // hour.date = formattedDate; // Update the date format
+                const formattedDay = new Date(hour.date).toLocaleDateString('en-US', {
                     month: 'short',
-                    day: '2-digit'
+                    day: '2-digit',
                 });
-                hour.date = formattedDate; // Update the date format
+                hour.date = formattedDay; // The Day
+                console.log(`The Formatted Day: ${formattedDay}`);
 
+                
                 // Create the hour entry list 
                 // I need a pipe | next to each of these
 
