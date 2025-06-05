@@ -1042,8 +1042,8 @@ tr {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--text-color);
-    background-color: var(--input-background);
+    color: white;
+    background-color: var(--button-background);
     width: 100%;
     float: right;
     font-size: small;

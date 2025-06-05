@@ -345,6 +345,10 @@ function renderCalendar(month, year) {
   }
 }
 
+// CANCEL BUTTON
+
+// STYLE THE CELLS FUNCTION
+
 // Function to update calendar header
 function updateCalendarHeader(month, year) {
   document.getElementById('current-month').textContent = `${monthNames[month]} ${year}`;
