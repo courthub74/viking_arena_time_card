@@ -646,6 +646,7 @@ header {
 .emp_name_box {
     width: 100%;
     background-color: var(--input-background);
+    border: 1px solid var(--employee-hours-list-box);
     border-radius: 5px;
     text-align: center;
     padding: 1em;

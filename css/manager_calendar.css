@@ -1038,12 +1038,30 @@ tr {
     /* padding: 2em 2em 2em 2em; */
 }
 
-.close {
+.submit_hours {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     background-color: var(--button-background);
+    width: 100%;
+    float: right;
+    font-size: small;
+    /* font-weight: bold; */
+    cursor: pointer;
+    border-radius: 5px;
+    /* margin-right: 1em; */
+    /* padding: 1em 0 2em 0; */
+    padding: .5em;
+    /* opacity: 50%; */
+}
+
+.close_modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: var(--input-background);
     width: 100%;
     float: right;
     font-size: small;
