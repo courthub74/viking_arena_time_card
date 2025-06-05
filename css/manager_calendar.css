@@ -1002,6 +1002,44 @@ tr {
 /* ********************************* */
 /* ********MODAL FORM*************** */
 
+.emp_label {
+    font-size: .7em;
+    opacity: 50%;
+}
+#employee_dropdown {
+    width: 100%;
+    /* padding: 1em; */
+    /* padding: 0.875rem 1rem; */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    /* color: #2d3748; */
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-color: var(--input-background);
+    /* Set Background Image to your own down arrow */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    padding: .3em;
+    /* background-size: 1.5em 1.5em; */
+    /* padding-right: 2.5rem; */
+}
+
+#employee_dropdown option {
+    color: var(--text-color);
+    font-size: small;
+}
+
+/* ************************************ */
+/* ************************************ */
+/* ************************************ */
+
+
+
+
 .cal_modal {
     display: none;
     position: fixed;
@@ -1060,7 +1098,7 @@ tr {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--text-color);
     background-color: var(--input-background);
     width: 100%;
     float: right;
