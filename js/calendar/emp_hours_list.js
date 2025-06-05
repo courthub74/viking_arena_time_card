@@ -70,6 +70,10 @@ allUsers.forEach((user, index) => {
                 li.style.listStyleType = 'none'; // Remove bullet points from list items
                 // Style the list item (styling can be done via CSS)
                 // li.className = 'emp_hours_list_item';
+
+                // TOTAL FOR NOTE
+                /////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////
                 // set the total hours
                 // hour.totalHours = hour.outTime - hour.inTime;
                 // Format the date and times for display
@@ -80,6 +84,10 @@ allUsers.forEach((user, index) => {
                 //     day: '2-digit'
                 // });
                 // hour.date = formattedDate; // Update the date format
+                ///////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////
+
+                // THE WHOLE DATE TO BE PARSED TO LOCAL DATE STRING
                 const originalDate = new Date(hour.date);
 
                 // DAY
@@ -117,7 +125,8 @@ allUsers.forEach((user, index) => {
                 // hour.date remains unchanged
                 
                 // Create the hour entry list 
-                // I need a pipe | next to each of these
+                // Give the class of 'last-line'
+                // Remove 'last-line' on all of the others
 
                 li.innerHTML = `
                     <div class="emp_hours_list">
