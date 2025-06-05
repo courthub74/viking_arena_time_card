@@ -77,86 +77,91 @@ function renderCalendar(month, year) {
           e.preventDefault(); // Prevent default action if used in onclick
           ////////////////////////////////////////////////////////////////
           ////////////////////////////////////////////////////////////////
+          // PUT THE DROPDOWN EMPLOYEE FUNCTIONALITY HERE
+          // Grab the employees
+          const users = JSON.parse(localStorage.getItem('users')) || [];
+          // Test Print
+          console.log(users);
           // Check if this cell has an existing time entry
-          const hasTimeEntry = this.getAttribute('data-has-entry') === 'true';
-          const existingInTime = this.getAttribute('data-in-time');
-          const existingOutTime = this.getAttribute('data-out-time');
+          // const hasTimeEntry = this.getAttribute('data-has-entry') === 'true';
+          // const existingInTime = this.getAttribute('data-in-time');
+          // const existingOutTime = this.getAttribute('data-out-time');
           
           // Query the modal to open and close it
           const modal = document.getElementById('cal_modal');
           
           // Style the modal based on whether it has an entry
-          if (hasTimeEntry) {
-            // modal.style.backgroundColor = 'darkblue'; // Light blue for existing entries
-            // Query the time picker in
-            const inTimeSelect = document.getElementById('time-picker-in');
-            // Query the time picker out
-            const outTimeSelect = document.getElementById('time-picker-out');
-            // Query the time picker AM/PM in
-            const inAmPmSelect = document.getElementById('in_ampm');
-            // Query the time picker AM/PM out
-            const outAmPmSelect = document.getElementById('out_ampm');
+          // if (hasTimeEntry) {
+          // //   // modal.style.backgroundColor = 'darkblue'; // Light blue for existing entries
+          // //   // Query the time picker in
+          // //   const inTimeSelect = document.getElementById('time-picker-in');
+          // //   // Query the time picker out
+          // //   const outTimeSelect = document.getElementById('time-picker-out');
+          // //   // Query the time picker AM/PM in
+          // //   const inAmPmSelect = document.getElementById('in_ampm');
+          // //   // Query the time picker AM/PM out
+          // //   const outAmPmSelect = document.getElementById('out_ampm');
 
-            // Add the existing time values to the modal fields
-            // Query the time picker element
-            const timeSpanIn = document.getElementById('in_time_span');
-            const timeSpanOut = document.getElementById('out_time_span');
+          // //   // Add the existing time values to the modal fields
+          // //   // Query the time picker element
+          // //   const timeSpanIn = document.getElementById('in_time_span');
+          // //   const timeSpanOut = document.getElementById('out_time_span');
 
-            // Add padding to the time picker elements
-            timeSpanIn.style.padding = '4px'; // Add padding to the in time picker
-            timeSpanOut.style.padding = '4px'; // Add padding to the out time picker
-            // eliminate cursor pointer on the time picker elements
-            timeSpanIn.style.cursor = 'default'; // Remove pointer cursor from the in time picker
-            timeSpanOut.style.cursor = 'default'; // Remove pointer cursor from the out time picker
+          // //   // Add padding to the time picker elements
+          // //   timeSpanIn.style.padding = '4px'; // Add padding to the in time picker
+          // //   timeSpanOut.style.padding = '4px'; // Add padding to the out time picker
+          // //   // eliminate cursor pointer on the time picker elements
+          // //   timeSpanIn.style.cursor = 'default'; // Remove pointer cursor from the in time picker
+          // //   timeSpanOut.style.cursor = 'default'; // Remove pointer cursor from the out time picker
 
-            // Set the time picker values to the existing in and out times
-            timeSpanIn.innerHTML = existingInTime; // Set the in time picker value
-            timeSpanOut.innerHTML = existingOutTime; // Set the out time picker value
+          // //   // Set the time picker values to the existing in and out times
+          // //   timeSpanIn.innerHTML = existingInTime; // Set the in time picker value
+          // //   timeSpanOut.innerHTML = existingOutTime; // Set the out time picker value
 
-            // Set the time picker values to the existing in and out times
-            inTimeSelect.value = existingInTime; // Set the in time picker value
-            outTimeSelect.value = existingOutTime; // Set the out time picker value
+          // //   // Set the time picker values to the existing in and out times
+          // //   inTimeSelect.value = existingInTime; // Set the in time picker value
+          // //   outTimeSelect.value = existingOutTime; // Set the out time picker value
 
-            // Test Print
-            console.log(`Cell clicked: ${cell.textContent}`);
-            // Test Print for existing times
-            console.log(`Existing In Time: ${existingInTime}`);
-            console.log(`Existing Out Time: ${existingOutTime}`);
+          // //   // Test Print
+          // //   console.log(`Cell clicked: ${cell.textContent}`);
+          // //   // Test Print for existing times
+          // //   console.log(`Existing In Time: ${existingInTime}`);
+          // //   console.log(`Existing Out Time: ${existingOutTime}`);
             
-            // Query the total hours span element
-            const totalHoursSpan = document.getElementById('total_hours_span');
+          // //   // Query the total hours span element
+          // //   const totalHoursSpan = document.getElementById('total_hours_span');
 
-            // Query the time picker in (hours)
-            const inTimePicker = document.getElementById('in_hour');
-            // Query the time picker out (hours)
-            const outTimePicker = document.getElementById('out_hour');
-            // Query the time picker in (minutes)
-            const inMinutePicker = document.getElementById('in_minute');
-            // Query the time picker out (minutes)
-            const outMinutePicker = document.getElementById('out_minute');
+          // //   // Query the time picker in (hours)
+          // //   const inTimePicker = document.getElementById('in_hour');
+          // //   // Query the time picker out (hours)
+          // //   const outTimePicker = document.getElementById('out_hour');
+          // //   // Query the time picker in (minutes)
+          // //   const inMinutePicker = document.getElementById('in_minute');
+          // //   // Query the time picker out (minutes)
+          // //   const outMinutePicker = document.getElementById('out_minute');
 
-          //  Make the time pickers dissapear
-            inTimePicker.style.display = 'none'; // Hide the in time picker
-            outTimePicker.style.display = 'none'; // Hide the out time picker
-            inMinutePicker.style.display = 'none'; // Hide the in minute picker
-            outMinutePicker.style.display = 'none'; // Hide the out minute picker
-            inAmPmSelect.style.display = 'none'; // Hide the in AM/PM picker
-            outAmPmSelect.style.display = 'none'; // Hide the out AM/PM picker
+          // // //  Make the time pickers dissapear
+          // //   inTimePicker.style.display = 'none'; // Hide the in time picker
+          // //   outTimePicker.style.display = 'none'; // Hide the out time picker
+          // //   inMinutePicker.style.display = 'none'; // Hide the in minute picker
+          // //   outMinutePicker.style.display = 'none'; // Hide the out minute picker
+          // //   inAmPmSelect.style.display = 'none'; // Hide the in AM/PM picker
+          // //   outAmPmSelect.style.display = 'none'; // Hide the out AM/PM picker
 
-            // needs to work every time the modal is opened
-            // Calculate total hours worked
+          // //   // needs to work every time the modal is opened
+          // //   // Calculate total hours worked
             
             
-            console.log(`Cell has existing entry: In: ${existingInTime}, Out: ${existingOutTime}`);
+          //   console.log(`Cell has existing entry: In: ${existingInTime}, Out: ${existingOutTime}`);
             
 
-            // Pre-populate the form fields with existing data if needed
-            // You can add logic here to parse and set the time values
+          //   // Pre-populate the form fields with existing data if needed
+          //   // You can add logic here to parse and set the time values
             
-          } else {
-            modal.style.backgroundColor = ''; // Default styling for new entries
-            console.log('Cell has no existing entry');
-          }
+          // } else {
+          //   modal.style.backgroundColor = ''; // Default styling for new entries
+          //   console.log('Cell has no existing entry');
+          // }
           ////////////////////////////////////////////////////////////////
           ////////////////////////////////////////////////////////////////
           // Query the modal to open and close it
