@@ -84,6 +84,7 @@ function renderCalendar(month, year) {
           const users = JSON.parse(localStorage.getItem('users')) || [];
           // Test Print
           console.log(users);
+          
           // clear the dropdown
           manager_dropdown.innerHTML = '';
           // create option
@@ -95,6 +96,11 @@ function renderCalendar(month, year) {
           manager_dropdown.appendChild(manageroption)
           // For each user
           users.forEach(user => {
+            // Filter out the Mangers
+            if (user.accountType === 'Manager') {
+               console.log(user);
+               return; // skip this user
+            }
             const option = document.createElement('option');
             option.value = user.username;
             option.textContent = user.username;
