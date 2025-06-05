@@ -78,10 +78,29 @@ function renderCalendar(month, year) {
           ////////////////////////////////////////////////////////////////
           ////////////////////////////////////////////////////////////////
           // PUT THE DROPDOWN EMPLOYEE FUNCTIONALITY HERE
+          // Query the dropdown
+          const manager_dropdown = document.getElementById('employee_dropdown');
           // Grab the employees
           const users = JSON.parse(localStorage.getItem('users')) || [];
           // Test Print
           console.log(users);
+          // clear the dropdown
+          manager_dropdown.innerHTML = '';
+          // create option
+          const manageroption = document.createElement('option');
+          manageroption.value = '';
+          manageroption.selected = true;
+          manageroption.disabled = true;
+          manageroption.style.color = 'white';
+          manager_dropdown.appendChild(manageroption)
+          // For each user
+          users.forEach(user => {
+            const option = document.createElement('option');
+            option.value = user.username;
+            option.textContent = user.username;
+            option.textContent = decodeURIComponent(user.username);
+            manager_dropdown.appendChild(option);
+          });
           // Check if this cell has an existing time entry
           // const hasTimeEntry = this.getAttribute('data-has-entry') === 'true';
           // const existingInTime = this.getAttribute('data-in-time');

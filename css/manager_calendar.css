@@ -1006,6 +1006,7 @@ tr {
     font-size: .7em;
     opacity: 50%;
 }
+
 #employee_dropdown {
     width: 100%;
     /* padding: 1em; */
@@ -1031,6 +1032,14 @@ tr {
 #employee_dropdown option {
     color: var(--text-color);
     font-size: small;
+    padding: .5rem;
+}
+
+#employee_dropdown:focus {
+    color: var(--text-color);
+    font-size: small;s
+    outline: none;
+    transform: translateY(-1px);
 }
 
 /* ************************************ */
