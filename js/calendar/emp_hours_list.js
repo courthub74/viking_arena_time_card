@@ -80,24 +80,55 @@ allUsers.forEach((user, index) => {
                 //     day: '2-digit'
                 // });
                 // hour.date = formattedDate; // Update the date format
-                
-                const formattedDay = new Date(hour.date).toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: '2-digit',
+                const originalDate = new Date(hour.date);
+
+                // DAY
+                const formattedDay = originalDate.toLocaleDateString('en-US', {
+                    weekday: 'short',
                 });
-                hour.date = formattedDay; // The Day
                 console.log(`The Formatted Day: ${formattedDay}`);
 
+                // MONTH
+                const formattedMonth = originalDate.toLocaleDateString('en-US', {
+                    month: 'short'
+                });
+                console.log(`The Formatted Month: ${formattedMonth}`);
+
+                // DATE
+                const formattedDate = originalDate.toLocaleDateString('en-US', {
+                    day: '2-digit'
+                });
+                console.log(`The Formatted Date: ${formattedDate}`);
+                
+                // YEAR
+                const formattedYear = originalDate.toLocaleDateString('en-US', {
+                    year: 'numeric'
+                });
+                console.log(`The Formatted Year: ${formattedYear}`);
+
+                // Store Formats to print to list:
+                hour.dayFormat = formattedDay;
+                hour.monthFormat = formattedMonth;
+                hour.dateFormat = formattedDate;
+                hour.yearFormat = formattedYear;
+
+
+                // Or keep the original date intact:
+                // hour.date remains unchanged
                 
                 // Create the hour entry list 
                 // I need a pipe | next to each of these
 
                 li.innerHTML = `
                     <div class="emp_hours_list">
-                        <div class="emp_hours_list_item">${hour.date}</div>
+                        <div class="emp_hours_list_item" style="font-weight:bold;">${hour.dayFormat}</div>
+                        <span class="pipe">|</span>
+                        <div class="emp_hours_list_item">${hour.monthFormat}</div>
+                        <span class="comma">,</span>
+                        <div class="emp_hours_list_item">${hour.dateFormat}</div>
                         <span class="pipe">|</span>
                         <div class="emp_hours_list_item">${hour.inTime}</div>
-                        <span class="pipe">|</span>
+                        <span class="line">-</span>
                         <div class="emp_hours_list_item">${hour.outTime}</div>
                         
                         <button class="copy-button" onclick="copyToClipboard('${hour.date} | ${hour.inTime} | ${hour.outTime}')"> <img src="../../img/edit-buttons/copy-buttons.png" alt="Copy" class="copy_logo"></button>
