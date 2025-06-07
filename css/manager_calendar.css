@@ -794,6 +794,13 @@ header {
     cursor: not-allowed;
 }
 
+/* Scheduled Dropdown */
+.scheduled {
+    font-size: .8rem;
+    list-style: none;
+    background-color: var(--input-background);
+}
+
 
 /* Back to Dashboard */
 .back_to_div {
