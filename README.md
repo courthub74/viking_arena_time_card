@@ -103,13 +103,15 @@ for 'Remember Me' functionality
 
 \*Add Managerial key enter screen and change the button color for Manager select button
 
-## Obstacles
+## Challenges
 
 \*Had to consider the user psychology and behavior patterns of users that range from 21 - 81
 
 \*Emplemented design thinking methodology
 
 \*Emplemented architecture thinking methodology
+
+\*Guide AI Assistance for User Metrics
 
 ### Next thing
 
