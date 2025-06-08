@@ -799,10 +799,11 @@ header {
     display: flex;
     flex-direction: column;
     gap: .5em;
-    font-size: .6rem;
+    font-size: small;
     list-style: none;
-    background-color: var(--input-background);
+    background-color: var(--filled-color);
     padding: .5em;
+    border-radius: 5px;
 }
 
 .sched_name {
@@ -1159,6 +1160,7 @@ tr {
     opacity: 60%;
   }
 
+
 /* MODAL INPUT */
   input {
     background-color: var(--background-color);
@@ -1179,6 +1181,14 @@ tr {
     outline: none;
     border: 1px solid var(--button-background);
     box-shadow: 0 0 5px var(--button-background);
+  }
+
+  .input_divs_dissapear {
+    display: none;
+  }
+
+  .submit_hours {
+    display: none;
   }
 
   /* For the Date Picker */

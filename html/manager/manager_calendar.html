@@ -142,7 +142,7 @@
                 <!-- Page Header -->
                 <label class="page_header_label" for="employee_name">
                     <span class="acct_type_label" id="employee_name"></span>
-                    <span class="page_header">&nbsp;|&nbsp;Calendar</span>
+                    <span class="page_header">&nbsp;|&nbsp;Monthly View</span>
                 </label>
 
                 <!-- The CALENDAR -->
@@ -183,21 +183,11 @@
                                             <!-- Page Header -->
                                             <label class="page_header_label" for="employee_name">
                                                 <span class="acct_type_label" id="employee_name_month">Name Here</span>
-                                                <span class="page_header">&nbsp;|&nbsp;Schedule Employees</span>
+                                                <span class="page_header">&nbsp;|&nbsp;Employees Worked</span>
                                             </label>
 
                                             <!-- The Radio Buttons -->
                                             <div class="current_day_div">
-                                            
-                                                    <!-- ADD A DROPDOWN HERE -->
-                                                      <div class="users_drop_container">
-                                                            <label for="name_select" class="emp_label">Select Employee:</label>
-                                                            <select name="users" id="employee_dropdown">
-                                                                <!-- <option value="" selected class="drop_label"></option> -->
-                                                                <!-- ------------- -->
-                                                                <!-- NAMES ADDED FROM LOCAL STORAGE -->
-                                                            </select>
-                                                     </div>
 
                                                     <div class="input_divs">
                                                         <!-- Current Date -->
@@ -209,8 +199,35 @@
                                                         </div>
                                                         
                                                     </div>
+                                            
+                                                    <!-- ADD A DROPDOWN HERE -->
+                                                      <div class="users_drop_container">
+                                                            <label for="name_select" class="emp_label">Select Employee:</label>
+                                                            <select name="users" id="employee_dropdown">
+                                                                <!-- <option value="" selected class="drop_label"></option> -->
+                                                                <!-- ------------- -->
+                                                                <!-- NAMES ADDED FROM LOCAL STORAGE -->
+                                                            </select>
+                                                     </div>
 
-                                                    <div class="input_divs">
+                                                      <!-- Try an Entered list here -->
+                                                    <div class="sched_div">
+                                                        <label class="form_label">Hours Worked:</label>
+                                                    
+                                                        <div class="scheduled">
+                                                            <li class="sched_name">
+                                                                <!-- <p>Gabriel Mihelicic</p> -->
+                                                                <p>8:00AM - 3:00PM</p>
+                                                                <!-- <button class="edit_sched">Edit</button> -->
+                                                            </li>
+                                                            
+                                                            
+                                                        </div>
+                                                    </div>
+
+                                                    
+
+                                                    <div class="input_divs_dissapear">
                                                         <label class="form_label">Time In:</label>
 
                                                         <!-- This will be a time picker -->
@@ -231,7 +248,7 @@
 
                                                     </div>
 
-                                                    <div class="input_divs">
+                                                    <div class="input_divs_dissapear">
                                                         <label class="form_label">Time Out:</label>
                                                         <!-- This will be a time picker -->
                                                         <!-- This will be a time picker -->
@@ -258,35 +275,6 @@
 
                                             <!-- BACK TO CALENDAR BUTTON-->
                                             <span class="submit_hours" id="#">Submit Hours</span>
-
-                                            <!-- Try an Entered list here -->
-                                            <div class="sched_div">
-                                                <label class="form_label">Scheduled:</label>
-                                            
-                                                <div class="scheduled">
-                                                    <li class="sched_name">
-                                                        <p>Gabriel Mihelicic</p>
-                                                        <p>8:00AM - 3:00PM</p>
-                                                        <button class="edit_sched">Edit</button>
-                                                    </li>
-                                                    <li class="sched_name">
-                                                        <p>Roy Marsac</p>
-                                                        <p>8:00AM - 3:00PM</p>
-                                                        <button class="edit_sched">Edit</button>
-                                                    </li>
-                                                    <li class="sched_name">
-                                                        <p>Tyree Hill</p>
-                                                        <p>8:00AM - 3:00PM</p>
-                                                        <button class="edit_sched">Edit</button>
-                                                    </li>
-                                                    <li class="sched_name">
-                                                        <p>Bill Tammer</p>
-                                                        <p>8:00AM - 3:00PM</p>
-                                                        <button class="edit_sched">Edit</button>
-                                                    </li>
-                                                    
-                                                </div>
-                                            </div>
 
                                             <span class="close_modal" id="close_modal">Close</span>
                                         </form>   
