@@ -115,7 +115,11 @@ for 'Remember Me' functionality
 
 ### Next thing
 
-\*Make the managerial calendar which displays all employees
+\*Render the hours worked for the managerial calendar
+
+\*Set up the weekly calendar page
+
+\*~Make the managerial calendar which displays all employees hours~
 
 \*~Make the Modals with entries inputs blue and add an edit pin to each~
 
