@@ -162,9 +162,11 @@ function renderCalendar(month, year) {
                   // Query the hours worked element
                   const hours_worked = document.getElementById('sched_hours');
                   // Change the inner HTML to the worked hours for that day
-                  console.log(`The User Hours are: ${userHours}`);
-                  hours_worked.innerText = userHours;
-
+                  // Place In time and Out time
+                  const whole_time = `${userHours.inTime} - ${userHours.outTime}`;
+                  hours_worked.innerText = whole_time;
+                  // Still gotta clear for each new select 
+                  // add padding to keep field at size
 
                 } else {
                   console.log(`❌ No hours found for ${selectedUser.username} on ${clickedDate}`);
@@ -172,10 +174,12 @@ function renderCalendar(month, year) {
                   // Try alternative date formats for debugging
                   const altDate1 = `${formattedMonth}/${formattedDate}/${cellYear}`;
                   const altDate2 = `${cellMonth + 1}/${cellDate}/${cellYear}`;
+                  const altDate3 = `${formattedMonth} ${formattedDate}, ${cellYear}`;
                   
                   console.log('Trying alternative formats:');
                   console.log(`  Format MM/DD/YYYY: ${altDate1}`);
                   console.log(`  Format M/D/YYYY: ${altDate2}`);
+                  console.log(`  Format Month Day, Year: ${altDate3}`);
                   
                   const altMatch1 = selectedUser.hours.find(hour => hour.date === altDate1);
                   const altMatch2 = selectedUser.hours.find(hour => hour.date === altDate2);
