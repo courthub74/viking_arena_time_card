@@ -104,41 +104,57 @@ function renderCalendar(month, year) {
             }
             const option = document.createElement('option');
             option.value = user.username;
-            option.textContent = user.username;
             option.textContent = decodeURIComponent(user.username);
             manager_dropdown.appendChild(option);
-            // Grab the Hours
-            console.log("The User Hours Below:")
-            console.log(user.hours);
-            const user_hours = user.hours;
-            // Query the output for hours display
-            const hours_displayed = document.getElementById('sched_hours');
-            // Show the user hours in the user output
-            // FIRST iterate through the hours
-            user_hours.forEach(hour => {
-              // Test Print
-              console.log("The Hour Date Below:")
-              console.log(hour.date);
-              // Store in Variables
-              const worked_date = hour.date;
-              const worked_inTime = hour.inTime;
-              const worked_outTime = hour.outTime;
-              // Change the HTML
-              hours_displayed.innerHTML = `${worked_inTime} - ${worked_outTime}`;
-              // Grab the selected name and match with the worked_hour
-            }); 
-            // Parse thru user_hours
-            // Match them to user name
           });
-          // Grab the Users Objects
-          // Parse through the user objects
-          // Grab the times
-          // Render the times to the modal interface
-          // Filter in only the employee selected from dropdown
-          // Check if this cell has an existing time entry
-          // const hasTimeEntry = this.getAttribute('data-has-entry') === 'true';
-          // const existingInTime = this.getAttribute('data-in-time');
-          // const existingOutTime = this.getAttribute('data-out-time');
+
+          // Store current clicked date
+          // let currentClickedDate = null;
+
+          // Handle dropdown change
+          manager_dropdown.addEventListener('change', function() {
+            // Test Print
+            console.log("A Name was picked");
+            // Check for current clicked date
+            // if (!currentClickedDate) {
+            //   console.log("Please Select a Date");
+            //   return;
+            // }
+            const selectedUsername = manager_dropdown.value;
+            if (selectedUsername) {
+              // clicked name match here and store it in a variable
+              const selectedUser = users.find(user => user.username === selectedUsername);
+              // Test print
+              console.log(`The selected user: ${selectedUser.username}`);
+              // Get clicked date info from the cell
+              const cellDate = cell.getAttribute('data-date');
+              const cellMonth = cell.getAttribute('data-month');
+              const cellYear = cell.getAttribute('data-year');
+
+              // May need to format these as Month 00, 0000 
+              const clickedDate = `${cellYear}-${String(parseInt(cellMonth) + 1).padStart(2, '0')}-${String(cellDate).padStart(2, '0')}`;
+
+              // Test Print
+              console.log(`Looking for date: ${clickedDate}`);
+
+              // NOW for the match
+              if (selectedUser && selectedUser.hours) {
+                // find the hours entry for the clicked date
+                const userHours = selectedUser.hours.find(hour => hour.date === clickedDate);
+
+                if (userHours) {
+                   // Found hours for this date
+                  console.log(`Found hours for ${selectedUser.username} on ${clickedDate}:`, userHours);
+                } else {
+                  // No hours found for this date
+                  console.log(`No hours found for ${selectedUser.username} on ${clickedDate}`);
+                }
+              } else {
+                console.log(`No hours data found for user: ${selectedUser.username}`);
+              }
+            }
+
+          });
           
           // Query the modal to open and close it
           const modal = document.getElementById('cal_modal');
@@ -184,74 +200,7 @@ function renderCalendar(month, year) {
             day: '2-digit'
           });
 
-          ///////////////////////////////////////////////////////
-          // TIME PICKER
-
-          // IN
-
-          // Hours
-          // Query the In Hour select element
-          const inHourSelect = document.getElementById('in_hour');
-          // Populate the In Hour select element with options from 1 to 12
-          for (let i = 1; i <= 12; i++) {
-            const in_option = document.createElement('option');
-            in_option.value = i;
-            in_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit hours
-            inHourSelect.appendChild(in_option);
-            console.log(`In Hour: ${inHourSelect.value}`);
-          }
-
-          // Minutes
-          // Query the In Minute select element
-          const inMinuteSelect = document.getElementById('in_minute');
-          for (let i = 0; i < 60; i++) {
-            const in_option = document.createElement('option');
-            in_option.value = i;
-            in_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit minutes
-            // just in increments of 15 minutes
-            if (i % 15 === 0) {
-              in_option.value = i;
-              in_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit minutes
-              inMinuteSelect.appendChild(in_option);
-            }
-            console.log(`In Minute: ${inMinuteSelect.value}`);
-          }
-
-
-          // OUT
-          // Query for the hour select element
-          const outHourSelect = document.getElementById('out_hour');
-          // Populate the hour select element with options from 1 to 12
-          for (let i = 1; i <= 12; i++) {
-            // Create an option element for each hour
-            const out_option = document.createElement('option');
-            // Set the value and text content of the option element
-            // value is set to each iteration
-            out_option.value = i;
-            // textContent is set to i, and if less than 10, it adds a leading zero else just leave it as is
-            out_option.textContent = i < 10 ? '0' + i : i;
-            // Append the option element to the hour select element
-            outHourSelect.appendChild(out_option);
-            console.log(`Out Hour: ${outHourSelect.value}`);
-          }
-          // Minutes
-          const outMinuteSelect = document.getElementById('out_minute');
-          for (let i = 0; i < 60; i++) {
-            const out_option = document.createElement('option');
-            out_option.value = i;
-            out_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit minutes
-            // just in increments of 15 minutes
-            if (i % 15 === 0) {
-              out_option.value = i;
-              out_option.textContent = i < 10 ? '0' + i : i; // Add leading zero for single digit minutes
-              outMinuteSelect.appendChild(out_option);
-            }
-            console.log(`Out Minute: ${outMinuteSelect.value}`);
-          }
-
-
-          ///////////////////////////////////////////////////////
-
+          // CLOSE MODAL BUTTON
           const closeModal = document.getElementById('close_modal');
           // Open modal or perform action here
           console.log(`Clicked on ${cell.textContent}`);
