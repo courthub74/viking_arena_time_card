@@ -88,13 +88,15 @@ function renderCalendar(month, year) {
           
           // clear the dropdown
           manager_dropdown.innerHTML = '';
+
           // create option
           const manageroption = document.createElement('option');
           manageroption.value = '';
           manageroption.selected = true;
           manageroption.disabled = true;
           manageroption.style.color = 'white';
-          manager_dropdown.appendChild(manageroption)
+          manager_dropdown.appendChild(manageroption);
+
           // For each user
           users.forEach(user => {
             // Filter out the Mangers
@@ -127,8 +129,65 @@ function renderCalendar(month, year) {
               const selectedUser = users.find(user => user.username === selectedUsername);
               // Test Print
               console.log(`The Selected User:` , selectedUser);
+
+              // Get clicked date info from the stored cell reference
+              const cellDate = clickedCell.getAttribute('data-date');
+              const cellMonth = clickedCell.getAttribute('data-month');
+              const cellYear = clickedCell.getAttribute('data-year');
+
+              // Test Print
+              console.log(`Cell Data:`, {cellDate, cellMonth, cellYear});
+
+              // Format the date - ensure proper padding
+              const formattedMonth = monthNames[parseInt(cellMonth)]; // Get month name (e.g., "May")
+              const formattedDate = String(cellDate).padStart(2, '0'); // Ensure date is two digits (e.g., "10")
+              // const formattedMonth = String(parseInt(cellMonth) + 1).padStart(2, '0');
+              // const formattedDate = String(cellDate).padStart(2, '0');
+              const clickedDate = `${formattedMonth} ${formattedDate}, ${cellYear}`;
+
+              // Test Print
+              console.log(`Looking for the Date of: ${clickedDate}`);
+              console.log(`${selectedUsername} hours array:`, selectedUser.hours);
+
+              // Debug: Show all dates in the hours array
+              if (selectedUser && selectedUser.hours) {
+                console.log(`Available dates in hours:`, selectedUser.hours.map(h => h.date));
+
+                const userHours = selectedUser.hours.find(hour => hour.date === clickedDate);
+                console.log(userHours);
+                if (userHours) {
+                  console.log(`✅ Found hours for ${selectedUser.username} on ${clickedDate}:`, userHours);
+
+                  // Populate the Field HERE
+                  // Query the hours worked element
+                  const hours_worked = document.getElementById('sched_hours');
+                  // Change the inner HTML to the worked hours for that day
+                  console.log(`The User Hours are: ${userHours}`);
+                  hours_worked.innerText = userHours;
+
+
+                } else {
+                  console.log(`❌ No hours found for ${selectedUser.username} on ${clickedDate}`);
+
+                  // Try alternative date formats for debugging
+                  const altDate1 = `${formattedMonth}/${formattedDate}/${cellYear}`;
+                  const altDate2 = `${cellMonth + 1}/${cellDate}/${cellYear}`;
+                  
+                  console.log('Trying alternative formats:');
+                  console.log(`  Format MM/DD/YYYY: ${altDate1}`);
+                  console.log(`  Format M/D/YYYY: ${altDate2}`);
+                  
+                  const altMatch1 = selectedUser.hours.find(hour => hour.date === altDate1);
+                  const altMatch2 = selectedUser.hours.find(hour => hour.date === altDate2);
+                  
+                  if (altMatch1) console.log('✅ Found with MM/DD/YYYY format:', altMatch1);
+                  if (altMatch2) console.log('✅ Found with M/D/YYYY format:', altMatch2);
+                }
+              } else {
+                  console.log(`No hours data found for user: ${selectedUser?.username}`);
+              }
             }
-          })
+          });
 
           // // Handle dropdown change
           // manager_dropdown.addEventListener('change', function() {
