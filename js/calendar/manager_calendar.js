@@ -84,6 +84,7 @@ function renderCalendar(month, year) {
           const users = JSON.parse(localStorage.getItem('users')) || [];
           // Test Print
           console.log(users);
+          console.log(`Line 86: the Users`);
           
           // clear the dropdown
           manager_dropdown.innerHTML = '';
@@ -106,7 +107,34 @@ function renderCalendar(month, year) {
             option.textContent = user.username;
             option.textContent = decodeURIComponent(user.username);
             manager_dropdown.appendChild(option);
+            // Grab the Hours
+            console.log("The User Hours Below:")
+            console.log(user.hours);
+            const user_hours = user.hours;
+            // Query the output for hours display
+            const hours_displayed = document.getElementById('sched_hours');
+            // Show the user hours in the user output
+            // FIRST iterate through the hours
+            user_hours.forEach(hour => {
+              // Test Print
+              console.log("The Hour Date Below:")
+              console.log(hour.date);
+              // Store in Variables
+              const worked_date = hour.date;
+              const worked_inTime = hour.inTime;
+              const worked_outTime = hour.outTime;
+              // Change the HTML
+              hours_displayed.innerHTML = `${worked_inTime} - ${worked_outTime}`;
+              // Grab the selected name and match with the worked_hour
+            }); 
+            // Parse thru user_hours
+            // Match them to user name
           });
+          // Grab the Users Objects
+          // Parse through the user objects
+          // Grab the times
+          // Render the times to the modal interface
+          // Filter in only the employee selected from dropdown
           // Check if this cell has an existing time entry
           // const hasTimeEntry = this.getAttribute('data-has-entry') === 'true';
           // const existingInTime = this.getAttribute('data-in-time');
