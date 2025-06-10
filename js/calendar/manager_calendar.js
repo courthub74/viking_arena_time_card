@@ -111,50 +111,69 @@ function renderCalendar(month, year) {
           // Store current clicked date
           // let currentClickedDate = null;
 
+          // Store referencr to clicked cell for use in dropdown handler
+          const clickedCell = this;
+
+          // Remove any existing change listeners to prevent duplicates
+          manager_dropdown.replaceWith(manager_dropdown.cloneNode(true));
+          const newDropdown = document.getElementById('employee_dropdown');
+
           // Handle dropdown change
-          manager_dropdown.addEventListener('change', function() {
-            // Test Print
-            console.log("A Name was picked");
-            // Check for current clicked date
-            // if (!currentClickedDate) {
-            //   console.log("Please Select a Date");
-            //   return;
-            // }
-            const selectedUsername = manager_dropdown.value;
+          newDropdown.addEventListener('change', function() {
+            console.log("A name was picked");
+
+            const selectedUsername = this.value;
             if (selectedUsername) {
-              // clicked name match here and store it in a variable
               const selectedUser = users.find(user => user.username === selectedUsername);
-              // Test print
-              console.log(`The selected user: ${selectedUser.username}`);
-              // Get clicked date info from the cell
-              const cellDate = cell.getAttribute('data-date');
-              const cellMonth = cell.getAttribute('data-month');
-              const cellYear = cell.getAttribute('data-year');
-
-              // May need to format these as Month 00, 0000 
-              const clickedDate = `${cellYear}-${String(parseInt(cellMonth) + 1).padStart(2, '0')}-${String(cellDate).padStart(2, '0')}`;
-
               // Test Print
-              console.log(`Looking for date: ${clickedDate}`);
-
-              // NOW for the match
-              if (selectedUser && selectedUser.hours) {
-                // find the hours entry for the clicked date
-                const userHours = selectedUser.hours.find(hour => hour.date === clickedDate);
-
-                if (userHours) {
-                   // Found hours for this date
-                  console.log(`Found hours for ${selectedUser.username} on ${clickedDate}:`, userHours);
-                } else {
-                  // No hours found for this date
-                  console.log(`No hours found for ${selectedUser.username} on ${clickedDate}`);
-                }
-              } else {
-                console.log(`No hours data found for user: ${selectedUser.username}`);
-              }
+              console.log(`The Selected User:` , selectedUser);
             }
+          })
 
-          });
+          // // Handle dropdown change
+          // manager_dropdown.addEventListener('change', function() {
+          //   // Test Print
+          //   console.log("A Name was picked");
+          //   // Check for current clicked date
+          //   // if (!currentClickedDate) {
+          //   //   console.log("Please Select a Date");
+          //   //   return;
+          //   // }
+          //   const selectedUsername = manager_dropdown.value;
+          //   if (selectedUsername) {
+          //     // clicked name match here and store it in a variable
+          //     const selectedUser = users.find(user => user.username === selectedUsername);
+          //     // Test print
+          //     console.log(`The selected user: ${selectedUser.username}`);
+          //     // Get clicked date info from the cell
+          //     const cellDate = cell.getAttribute('data-date');
+          //     const cellMonth = cell.getAttribute('data-month');
+          //     const cellYear = cell.getAttribute('data-year');
+
+          //     // May need to format these as Month 00, 0000 
+          //     const clickedDate = `${cellYear}-${String(parseInt(cellMonth) + 1).padStart(2, '0')}-${String(cellDate).padStart(2, '0')}`;
+
+          //     // Test Print
+          //     console.log(`Looking for date: ${clickedDate}`);
+
+          //     // NOW for the match
+          //     if (selectedUser && selectedUser.hours) {
+          //       // find the hours entry for the clicked date
+          //       const userHours = selectedUser.hours.find(hour => hour.date === clickedDate);
+
+          //       if (userHours) {
+          //          // Found hours for this date
+          //         console.log(`Found hours for ${selectedUser.username} on ${clickedDate}:`, userHours);
+          //       } else {
+          //         // No hours found for this date
+          //         console.log(`No hours found for ${selectedUser.username} on ${clickedDate}`);
+          //       }
+          //     } else {
+          //       console.log(`No hours data found for user: ${selectedUser.username}`);
+          //     }
+          //   }
+
+          // });
           
           // Query the modal to open and close it
           const modal = document.getElementById('cal_modal');
