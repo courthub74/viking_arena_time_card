@@ -115,7 +115,7 @@ for 'Remember Me' functionality
 
 ### Next thing
 
-\*Render the hours worked for the managerial calendar
+\*~Render the hours worked for the managerial calendar~
 
 \*Set up the weekly calendar page
 
