@@ -84,7 +84,7 @@ function renderWeeklyCalendar(weekStart) {
     // Add day name
     const dayName = document.createElement('span');
     dayName.classList.add('day-name');
-    dayName.textContent = dayNames[i];
+    dayName.textContent = `${dayNames[i]}\u00A0\u00A0|\u00A0\u00A0`;
     
     // Add date number
     const dateNumber = document.createElement('span');
@@ -128,7 +128,7 @@ function renderWeeklyCalendar(weekStart) {
     
     // Assemble button content
     buttonContent.appendChild(dayName);
-    buttonContent.appendChild(dateNumber);
+    // buttonContent.appendChild(dateNumber);
     buttonContent.appendChild(fullDate);
     dayButton.appendChild(buttonContent);
     
