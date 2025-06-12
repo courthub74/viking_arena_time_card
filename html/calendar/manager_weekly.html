@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viking Time Card</title>
+
+      <!-- CSS -->
+      <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
+      <link rel="stylesheet" href="../../css/monthly_calendar.css">
+
+      <!-- Calendar for NOW -->
+      <!-- <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.css' rel='stylesheet' /> -->
+      
+    
+</head>
+<body>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- --------------COPY HERE TO THE OTHER LINE FIELD--------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+
+
+        <!-- THE NAVBAR AND SIDE MENU-->
+        <nav class="main_nav">
+            <!-- Burger -->
+            <div class="viking_logo">
+                <img src="../../img/hazel-park-logo/Logo.png" class="viking_img" alt="viking_ice_arena">
+                <p class="logo_text">Time Card</p>
+            </div>
+            
+            <!-- Light/Dark -->
+            <div class="menu_button">
+                <!-- Day/Nite -->
+                <button id="menu_burgers">
+                    <img src="../../img/hamburgers/hamburger_blue.png" class="burger" id="burger_one" alt="menu">
+                    <!-- <img src="./img/hamburgers/hamburger-blue.png" class="burger" id="burger_two" alt="menu"> -->
+                </button>
+            </div>
+        </nav>
+
+        <!-- SLIDE IN MENU -->
+        <div class="side-menu">
+            <!-- Header Logo -->
+             <div class="slide_header_logo">
+                <img src="../../img/hazel-park-logo/Logo.png"  alt="logo">
+                <p class="slide_in_logo_text">Time Card</p>
+             </div>
+            
+             <!-- Menu Items -->
+             <div class="menu_items">
+                <a href="#" class="menu-item"><span>Tech Support</span><img src="../../img/slide-in-menu/tech_support.png" alt="tech_support"></a>
+                <a href="#" class="menu-item"><span>Messaging</span><img src="../../img/slide-in-menu/messaging.png" alt="messaging"></a>
+                <button id="theme_switch" class="menu-item"><span>Day/Nite Mode</span><img src="../../img/slide-in-menu/day_nite.png" alt="theme_switch"></button>
+             </div>
+            <!-- Logged in Profile -->
+            <div class="profile">
+                <div class="profile_header">
+                    <p class="profile_text">Profile</p>
+                    <img src="../../img/slide-in-menu/profile.png" class="profile_circle">
+                </div>
+
+                <!-- Profile Name -->
+                <div class="profile_info">
+                    <label>Name:</label>
+                    <p class="profile_text_data" id="profile_calendar_name"></p>
+                 </div>
+
+                 <!-- Profile Account Type -->
+                 <div class="profile_info">
+                    <label>Account type:</label>
+                    <p class="profile_text_data" id="profile_calendar_account"></p>
+                 </div>
+
+                 <!-- Profile Pin Number -->
+                  <!-- This you will turn into a password output -->
+                 <div class="profile_info">
+                    <div class="pin_and_peak">
+                        <button class="delete_account_button" id="delete_acct_slide">
+                            <p class="delete_text">Delete Profile</p>
+                        </button>
+                        <!-- Pin Number -->
+                        <!-- <div class="pin_profile_div">
+                            <label>Pin #:</label>
+                            <p class="profile_pin" id="profile_pin">****</p>
+                        </div> -->
+
+                         <!-- Pin Code peak -->
+                        <!-- <div class="pin_code_peak">
+                            <button id="pin_code_peak">
+                                <img src="./img/slide-in-menu/pin_peek.png">
+                            </button>
+                        </div> -->
+                    </div>
+                 </div>
+            </div>
+             <!-- Delete Button -->
+             <div class="delete_account_div">
+                <!-- This button needs to delete the session storage -->
+                 <!-- and redirect to the index page -->
+                  <!-- Give the button an onclick to do this -->
+                <button class="logout_account_button" id="logout_employee" onclick="logoutUser()">
+                    <img src="../../img/logout/white_logout.png" class="logout_logo">
+                    <p class="logout_text">
+                        <!-- <a href="../../index.html">Log Out</a> -->
+                        Log Out
+                    </p>
+                </button>
+             </div> 
+        </div>
+
+        <!-- Overlay -->
+        <div class="menu-overlay"></div>
+
+        <!-- ----------COPY ABOVE FOR ALL OTHER PAGES REDO---------- -->
+
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+        <!---------------------------------------------------------- -->
+
+        <!-- THE PAGE -->
+
+        <!-- THE FORM -->
+        <form>
+                <!-- Page Header -->
+                <label class="page_header_label" for="employee_name">
+                    <span class="acct_type_label" id="employee_name"></span>
+                    <span class="page_header">&nbsp;|&nbsp;Weekly Schedule</span>
+                </label>
+
+                <!-- The CALENDAR -->
+                <div class="manager_calendar_div">
+
+                        <!-- Calendar will be inserted here -->
+                      
+                       <!-- THE CALENDAR CONTAINER -->
+                        <div id="calendar-container">
+
+                            <!-- THE CALENDAR HEADER -->
+                            <div class="calendar-header">
+                            
+                                <p id="current-month">Month Year</p>
+                                <div class="month_buttons">
+                                    <button class="month_go" onclick="prevMonth(); return false;">&lt;</button>
+                                    <button class="month_go" onclick="nextMonth(); return false;">&gt;</button>
+                                </div>
+
+                            </div>
+
+                            <!-- THE CALENDAR -->
+                            <table id="calendar-body">
+                            <!-- Calendar will be populated by JavaScript -->
+                            </table>
+
+                            <!-- ---------------------------- -->
+                            <!-- ---------------------------- -->
+                            <!-- ---------------------------- -->
+
+                            <!-- THE MODAL FOR DATE -->
+                             <!-- HERE YOU COPY THE TIME ENTRY SHEET -->
+                            <div id="cal_modal" class="cal_modal">
+                                <div class="modal-content">
+                                    
+                                        <!-- THE MODAL FORM -->
+                                        <form class="modal_form">
+                                            <!-- Page Header -->
+                                            <label class="page_header_label" for="employee_name">
+                                                <span class="acct_type_label" id="employee_name_month">Name Here</span>
+                                                <span class="page_header">&nbsp;|&nbsp;Hours</span>
+                                            </label>
+
+                                            <!-- The Radio Buttons -->
+                                            <div class="current_day_div">
+                                            
+                                                
+
+                                                    <div class="input_divs">
+                                                        <!-- Current Date -->
+                                                        <label class="form_label">For The Date of:</label>
+                                                        <!-- Will contain the current date JS -->
+                                                        <div class="current_day_datepicker">
+                                                            <input type="text" class="current_day" id="current_day" placeholder="MM/DD/YYYY" readonly/>
+                                                            <!-- <img src="../../img/dashboard_logos/white_calendar.png" class="current_day_logo" alt="current_day"> -->
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="input_divs">
+                                                        <label class="form_label">Time In:</label>
+
+                                                        <!-- This will be a time picker -->
+                                                        <div class="time-picker" id="time-picker-in">
+                                                            <span id="in_time_span"></span>
+                                                            <select id="in_hour">
+                                                                <!-- Hours will be populated by JavaScript -->
+                                                            </select>
+                                                            <!-- <span>:</span> -->
+                                                            <select id="in_minute">
+                                                                <!-- Minutes will be populated by JavaScript -->
+                                                            </select>
+                                                            <select id="in_ampm">
+                                                                <option value="AM">AM</option>
+                                                                <option value="PM">PM</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="input_divs">
+                                                        <label class="form_label">Time Out:</label>
+                                                        <!-- This will be a time picker -->
+                                                        <!-- This will be a time picker -->
+                                                        <div class="time-picker" id="time-picker-out">
+                                                            <span id="out_time_span"></span>
+                                                            <select id="out_hour">
+                                                                <!-- Hours will be populated by JavaScript -->
+                                                            </select>
+                                                            <!-- <span>:</span> -->
+                                                            <select id="out_minute">
+                                                                <!-- Minutes will be populated by JavaScript -->
+                                                            </select>
+                                                            <select id="out_ampm">
+                                                                <option value="AM">AM</option>
+                                                                <option value="PM">PM</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Total Hours for clicked on modal with entry -->
+                                                    <span class="input_divs" id="total_hours_span">
+                                                    </span>
+                                            
+                                            </div>
+
+                                            <!-- Next button -->
+                                            <button class="submit" id="submit_employee_hours_modal" disabled>Submit Hours</button>
+                                            <!-- For this button you can simply change the inner HTML -->
+                                            <!-- Add a conditional that checks for the inner HTML and gives the button
+                                                    the behavior accordingly -->
+
+                                            <!-- <span class="close">&times; Close</span> -->
+                                            <span class="close" id="close_modal">Cancel</span>
+                                        </form>   
+                                    </div>
+                                
+                                </div>
+
+                                
+                            </div>
+
+                            <!-- Next button -->
+                            <!-- <button class="submit" id="dashboard_advance" disabled>Submit Hours</button> -->
+
+                            <!-- Link Back To Dashboard -->
+                            <!-- Needs a conditional to determine which dashboard (employee or manager) -->
+                            <div class="back_to_div">
+                                <a class="link_back" id="link_back">Back to Dashboard</a>
+                            </div>
+        </form>         
+                        
+                        
+           
+      
+    </div>
+
+    <!-- DARKMODE -->
+    <!-- <script src="/viking_arena_time_card/js/darkmode.js"></script> -->
+    <script src="../../js/darkmode.js"></script>
+
+    <!-- SLIDE IN -->
+    <!-- <script src="/viking_arena_time_card/js/slide-in.js"></script> -->
+    <script src="../../js/slide-in.js"></script>
+
+    <!-- SIDEBARS -->
+     <!-- <script src="../../js/sidebars.js"></script> -->
+
+    <!-- DELETE ACCOUNT SLIDE IN BUTTON -->
+    <script src="../../js/dashboard/delete_acct_slide.js"></script>
+
+
+     <!-- LOGOUT -->
+   <script src="../../js/database/logout.js"></script>
+
+   <!-- CALENDAR -->
+   <script src="../../js/calendar/calendar.js"></script> 
+
+   <!-- MONTH CALENDAR JAVASCRIPT -->
+   <!-- <script src="../../js/calendar/monthly_calendar.js"></script> -->
+   
+   <!-- CALENDAR TEST -->
+   <script src="../../js/calendar/test/cal_test_two.js"></script>
+    
+</body>
+</html>

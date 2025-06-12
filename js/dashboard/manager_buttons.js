@@ -36,7 +36,7 @@ manager_schedule.addEventListener("click", function(e) {
         manager_schedule.classList.remove("clicked");
     }, 1000);
     setTimeout(() => {
-        window.location.href = "../../manager_schedule.html";
+        window.location.href = "../../html/calendar/manager_weekly.html";
     }, 1000);
 });
 
