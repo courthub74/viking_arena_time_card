@@ -608,8 +608,13 @@ const backToDashboardLink = document.getElementById('link_back');
 if (backToDashboardLink) {
     backToDashboardLink.addEventListener('click', function(event) {
         event.preventDefault();
-        const userRole = sessionStorage.getItem('accountType');
-        if (userRole === 'manager') {
+
+        // You have to fix hour you grab BELOW
+        const userType = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
+        const userTypeAcc = userType ? JSON.parse(userType) : null;
+        const userRole = userTypeAcc.accountType;
+        
+        if (userRole === 'Manager') {
             window.location.href = '../../html/dashboards/manager.html';
         } else {
             window.location.href = '../../html/dashboards/employee.html';

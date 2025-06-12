@@ -609,8 +609,13 @@ const backToDashboardLink = document.getElementById('link_back');
 if (backToDashboardLink) {
     backToDashboardLink.addEventListener('click', function(event) {
         event.preventDefault(); // Prevent the default link behavior
-        const userRole = sessionStorage.getItem('accountType'); // Assuming you store the user role in local storage
-        if (userRole === 'manager') {
+
+        // You have to fix hour you grab BELOW
+        const userType = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
+        const userTypeAcc = userType ? JSON.parse(userType) : null;
+        const userRole = userTypeAcc.accountType;
+
+        if (userRole === 'Manager') {
             // Redirect to manager dashboard
             window.location.href = '../../html/dashboards/manager.html'; // Replace with the actual URL for the manager dashboard
         } else {
