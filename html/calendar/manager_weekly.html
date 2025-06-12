@@ -7,7 +7,7 @@
 
       <!-- CSS -->
       <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
-      <link rel="stylesheet" href="../../css/monthly_calendar.css">
+      <link rel="stylesheet" href="../../css/manager_weekly.css">
 
       <!-- Calendar for NOW -->
       <!-- <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.css' rel='stylesheet' /> -->
@@ -156,10 +156,11 @@
                             <!-- THE CALENDAR HEADER -->
                             <div class="calendar-header">
                             
-                                <p id="current-month">Month Year</p>
-                                <div class="month_buttons">
-                                    <button class="month_go" onclick="prevMonth(); return false;">&lt;</button>
-                                    <button class="month_go" onclick="nextMonth(); return false;">&gt;</button>
+                                
+                                <div class="week_buttons">
+                                    <button class="week_go" onclick="prevWeek(); return false;">&lt;</button>
+                                    <p id="current-week">Current Week</p>
+                                    <button class="week_go" onclick="nextWeek(); return false;">&gt;</button>
                                 </div>
 
                             </div>
