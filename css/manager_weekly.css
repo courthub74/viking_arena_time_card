@@ -850,6 +850,7 @@ header {
     /* border: 2px solid var(--calendar-border); */
     border-radius: 5px;
     padding: 5px 5px 5px 5px;
+    padding: 10px;
 }
 
 /* Calendar Header */
