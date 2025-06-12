@@ -90,6 +90,8 @@
     /* Modal Box Shadow */
     --modal-box-shadow: 0 -28px 15px 0 rgba(255, 255, 255, 0.664);
 
+    --day-button-today: #009df865;
+
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -181,6 +183,8 @@ body.dark-mode {
 
       /* Modal Box Shadow */
       --modal-box-shadow: 0 -28px 15px 0 rgba(0, 0, 0, 0.78);
+
+      --day-button-today: #009df88b;
 
      /* *********************************** */
      /* *********************************** */
@@ -917,7 +921,7 @@ header {
 }
 
 .week-day-button.today {
-  background-color: var(--today-color);
+  background-color: var(--);
   border-color: var(--dashboard-trim);
   font-weight: bold;
 }
