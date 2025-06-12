@@ -880,12 +880,6 @@ header {
     align-items: center;
 }
 
-/* Month Title */
-.current-week {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 500;
-}
 
 /* Weekly Arrows */
 .week_go {
@@ -929,8 +923,9 @@ header {
 }
 
 #current-week {
-  font-size: 15px;
-  font-weight: bold;
+  /* font-size: 15px; */
+  font-size: .9rem;
+  font-weight: normal;
   margin: 0;
   min-width: 100px;
   text-align: center;
