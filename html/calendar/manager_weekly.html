@@ -7,7 +7,7 @@
 
       <!-- CSS -->
       <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
-      <link rel="stylesheet" href="../../css/manager_calendar.css">
+      <link rel="stylesheet" href="../../css/monthly_calendar.css">
 
       <!-- Calendar for NOW -->
       <!-- <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.css' rel='stylesheet' /> -->
@@ -142,7 +142,7 @@
                 <!-- Page Header -->
                 <label class="page_header_label" for="employee_name">
                     <span class="acct_type_label" id="employee_name"></span>
-                    <span class="page_header">&nbsp;|&nbsp;Monthly View</span>
+                    <span class="page_header">&nbsp;|&nbsp;Weekly Schedule</span>
                 </label>
 
                 <!-- The CALENDAR -->
@@ -183,11 +183,13 @@
                                             <!-- Page Header -->
                                             <label class="page_header_label" for="employee_name">
                                                 <span class="acct_type_label" id="employee_name_month">Name Here</span>
-                                                <span class="page_header">&nbsp;|&nbsp;Employees Worked</span>
+                                                <span class="page_header">&nbsp;|&nbsp;Hours</span>
                                             </label>
 
                                             <!-- The Radio Buttons -->
                                             <div class="current_day_div">
+                                            
+                                                
 
                                                     <div class="input_divs">
                                                         <!-- Current Date -->
@@ -199,33 +201,8 @@
                                                         </div>
                                                         
                                                     </div>
-                                            
-                                                    <!-- ADD A DROPDOWN HERE -->
-                                                      <div class="users_drop_container">
-                                                            <label for="name_select" class="emp_label">Select Employee:</label>
-                                                            <select name="users" id="employee_dropdown">
-                                                                <!-- <option value="" selected class="drop_label"></option> -->
-                                                                <!-- ------------- -->
-                                                                <!-- NAMES ADDED FROM LOCAL STORAGE -->
-                                                            </select>
-                                                     </div>
 
-                                                      <!-- Try an Entered list here -->
-                                                    <div class="sched_div">
-                                                        <label class="form_label">Hours Worked:</label>
-                                                    
-                                                        <div class="scheduled">
-                                                            <li class="sched_name">
-                                                                <!-- <p>Gabriel Mihelicic</p> -->
-                                                                <p id="sched_hours"></p>
-                                                                <!-- <button class="edit_sched">Edit</button> -->
-                                                            </li>
-                                                        </div>
-                                                    </div>
-
-                                                    
-
-                                                    <div class="input_divs_dissapear">
+                                                    <div class="input_divs">
                                                         <label class="form_label">Time In:</label>
 
                                                         <!-- This will be a time picker -->
@@ -246,7 +223,7 @@
 
                                                     </div>
 
-                                                    <div class="input_divs_dissapear">
+                                                    <div class="input_divs">
                                                         <label class="form_label">Time Out:</label>
                                                         <!-- This will be a time picker -->
                                                         <!-- This will be a time picker -->
@@ -269,19 +246,24 @@
                                                     <!-- Total Hours for clicked on modal with entry -->
                                                     <span class="input_divs" id="total_hours_span">
                                                     </span>
+                                            
                                             </div>
 
-                                            <!-- BACK TO CALENDAR BUTTON-->
-                                            <span class="submit_hours" id="#">Submit Hours</span>
+                                            <!-- Next button -->
+                                            <button class="submit" id="submit_employee_hours_modal" disabled>Submit Hours</button>
+                                            <!-- For this button you can simply change the inner HTML -->
+                                            <!-- Add a conditional that checks for the inner HTML and gives the button
+                                                    the behavior accordingly -->
 
-                                            <span class="close_modal" id="close_modal">Close</span>
+                                            <!-- <span class="close">&times; Close</span> -->
+                                            <span class="close" id="close_modal">Cancel</span>
                                         </form>   
                                     </div>
                                 
-                            </div>
+                                </div>
 
                                 
-                        </div>
+                            </div>
 
                             <!-- Next button -->
                             <!-- <button class="submit" id="dashboard_advance" disabled>Submit Hours</button> -->
@@ -291,8 +273,6 @@
                             <div class="back_to_div">
                                 <a class="link_back" id="link_back">Back to Dashboard</a>
                             </div>
-
-                        
         </form>         
                         
                         
@@ -325,10 +305,7 @@
    <!-- <script src="../../js/calendar/monthly_calendar.js"></script> -->
    
    <!-- CALENDAR TEST -->
-   <!-- <script src="../../js/calendar/test/cal_test_two.js"></script> -->
-
-   <!-- MANAGER CALENDAR -->
-   <script src="../../js/calendar/manager_calendar.js"></script>
+   <script src="../../js/calendar/test/cal_test_two.js"></script>
     
 </body>
 </html>
