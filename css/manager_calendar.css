@@ -802,13 +802,15 @@ header {
     font-size: small;
     list-style: none;
     background-color: var(--filled-color);
-    padding: .5em;
+    padding: 8px;
+    box-sizing: border-box;
     border-radius: 5px;
 }
 
 .sched_name {
     display: flex;
     justify-content: space-between;
+    
 }
 
 .edit_sched {

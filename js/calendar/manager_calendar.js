@@ -124,7 +124,12 @@ function renderCalendar(month, year) {
           // Reset the Hours worked output
           // Query the Hours_worked output
           const hours_worked = document.getElementById('sched_hours');
-          hours_worked.innerHTML = 'Employee not selected';
+          hours_worked.innerHTML = '\u00A0';
+
+          // Add Padding to output
+          // hours_worked.style.padding = '10px';
+          hours_worked.style.boxSizing = 'border-box';
+
           // Handle dropdown change
           newDropdown.addEventListener('change', function() {
             console.log("A name was picked");
@@ -184,7 +189,7 @@ function renderCalendar(month, year) {
                   // Query the field
                   const hours_worked = document.getElementById('sched_hours');
                   // Set it to blank string
-                  hours_worked.innerHTML = 'Did not work this day';
+                  hours_worked.innerHTML = 'Not scheduled this day';
                   console.log(`❌ No hours found for ${selectedUser.username} on ${clickedDate}`);
 
                   // Try alternative date formats for debugging
