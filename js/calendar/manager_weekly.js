@@ -15,12 +15,12 @@ console.log(currentDate);
 
 // Month names array
 const monthNames = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
+  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
 ];
 
 // Day names array
-const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 // Function to get the start of the week (Sunday) for any given date
 function getWeekStart(date) {
@@ -43,11 +43,13 @@ function formatWeekRange(weekStart) {
   
   // If week spans multiple months
   if (weekStart.getMonth() !== weekEnd.getMonth()) {
-    return `${monthNames[weekStart.getMonth()]} ${weekStart.getDate()} - ${monthNames[weekEnd.getMonth()]} ${weekEnd.getDate()}, ${weekEnd.getFullYear()}`;
+    // return `${monthNames[weekStart.getMonth()]} ${weekStart.getDate()} - ${monthNames[weekEnd.getMonth()]} ${weekEnd.getDate()}, ${weekEnd.getFullYear()}`;
+    return `${monthNames[weekStart.getMonth()]} ${weekStart.getDate()} - ${monthNames[weekEnd.getMonth()]} ${weekEnd.getDate()}`;
   } 
   // If week is within same month
   else {
-    return `${monthNames[weekStart.getMonth()]} ${weekStart.getDate()} - ${weekEnd.getDate()}, ${weekStart.getFullYear()}`;
+    // return `${monthNames[weekStart.getMonth()]} ${weekStart.getDate()} - ${weekEnd.getDate()}, ${weekStart.getFullYear()}`;
+    return `${monthNames[weekStart.getMonth()]} ${weekStart.getDate()} - ${weekEnd.getDate()}`;
   }
 }
 
@@ -94,7 +96,8 @@ function renderWeeklyCalendar(weekStart) {
     // Add full date
     const fullDate = document.createElement('span');
     fullDate.classList.add('full-date');
-    fullDate.textContent = `${monthNames[dayDate.getMonth()]} ${dayDate.getDate()}, ${dayDate.getFullYear()}`;
+    // fullDate.textContent = `${monthNames[dayDate.getMonth()]} ${dayDate.getDate()}, ${dayDate.getFullYear()}`;
+    fullDate.textContent = `${monthNames[dayDate.getMonth()]} ${dayDate.getDate()}`;
     
     // Check if it's today
     const today = new Date();
@@ -124,6 +127,7 @@ function renderWeeklyCalendar(weekStart) {
       
       // Add your existing modal opening code here
       // ... (your existing modal code from the original file)
+
     });
     
     // Assemble button content
