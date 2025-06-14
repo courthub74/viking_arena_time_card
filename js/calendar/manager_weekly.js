@@ -131,6 +131,21 @@ function renderWeeklyCalendar(weekStart) {
       const make_employee_schedule = document.getElementById('cal_modal');
       // make the modal appear
       make_employee_schedule.classList.add('modal_active');
+      // make the logged in name show in the header
+      // Get the user from session storage
+      const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
+      // Error handling for logged user object
+      const loggedUser = userString ? JSON.parse(userString) : null;
+      // Test Print
+      console.log(`The Logged User: ${loggedUser.username}`);
+      // Decode the user name 
+      const decodedUser = decodeURIComponent(loggedUser.username);
+      // Query the Header
+      const emp_modal_header = document.getElementById('employee_name_month');
+      // Populate the header
+      emp_modal_header.innerHTML = decodedUser;
+
+      // style the elements
     });
     
     // Assemble button content
