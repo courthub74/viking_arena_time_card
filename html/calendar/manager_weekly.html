@@ -187,7 +187,7 @@
                                             <!-- Page Header -->
                                             <label class="page_header_label" for="employee_name">
                                                 <span class="acct_type_label" id="employee_name_month">Name Here</span>
-                                                <span class="page_header">&nbsp;|&nbsp;Hours</span>
+                                                <span class="page_header">&nbsp;|&nbsp;Employee Hours</span>
                                             </label>
 
                                             <!-- The Radio Buttons -->
@@ -196,60 +196,62 @@
                                                 
 
                                                     <div class="input_divs">
-                                                        <!-- Current Date -->
-                                                        <label class="form_label">For The Date of:</label>
-                                                        <!-- Will contain the current date JS -->
-                                                        <div class="current_day_datepicker">
-                                                            <input type="text" class="current_day" id="current_day" placeholder="MM/DD/YYYY" readonly/>
+                                                        
+                                                        <!-- Will contain the date clicked -->
+                                                        <div class="day_selected">
+                                                            <p id="day_selected"></p> 
                                                             <!-- <img src="../../img/dashboard_logos/white_calendar.png" class="current_day_logo" alt="current_day"> -->
                                                         </div>
                                                         
                                                     </div>
 
+                                                    <!-- AM Zamboni Drivers -->
                                                     <div class="input_divs">
-                                                        <label class="form_label">Time In:</label>
+                                                        <label class="form_label">Zam Drivers AM:</label>
 
-                                                        <!-- This will be a time picker -->
-                                                        <div class="time-picker" id="time-picker-in">
-                                                            <span id="in_time_span"></span>
-                                                            <select id="in_hour">
-                                                                <!-- Hours will be populated by JavaScript -->
-                                                            </select>
-                                                            <!-- <span>:</span> -->
-                                                            <select id="in_minute">
-                                                                <!-- Minutes will be populated by JavaScript -->
-                                                            </select>
-                                                            <select id="in_ampm">
-                                                                <option value="AM">AM</option>
-                                                                <option value="PM">PM</option>
-                                                            </select>
-                                                        </div>
+                                                         <div class="am_divs_inputs">
+                                                            <!-- This will be a names dropdown -->
+                                                            <div class="name-picker" id="name-picker-in">
+                                                                <select id="employee-names-am"></select>                                                            
+                                                            </div>
 
+                                                            <!-- Time Picker for In -->
+                                                            <div class="time-picker-weekly">
+                                                                <select id="zam-in-am">In</select>
+                                                            </div>
+
+                                                            <!-- Time Picker for Out -->
+                                                            <div class="time-picker-weekly">
+                                                                <select id="zam-out-am">Out</select>
+                                                            </div>
+                                                         </div>
+                                                         
                                                     </div>
 
+                                                    <!-- PM Zamboni Drivers -->
                                                     <div class="input_divs">
-                                                        <label class="form_label">Time Out:</label>
-                                                        <!-- This will be a time picker -->
-                                                        <!-- This will be a time picker -->
-                                                        <div class="time-picker" id="time-picker-out">
-                                                            <span id="out_time_span"></span>
-                                                            <select id="out_hour">
-                                                                <!-- Hours will be populated by JavaScript -->
-                                                            </select>
-                                                            <!-- <span>:</span> -->
-                                                            <select id="out_minute">
-                                                                <!-- Minutes will be populated by JavaScript -->
-                                                            </select>
-                                                            <select id="out_ampm">
-                                                                <option value="AM">AM</option>
-                                                                <option value="PM">PM</option>
-                                                            </select>
+                                                        <label class="form_label">Zam Drivers PM:</label>
+
+                                                        <!-- This will be a names dropdown -->
+                                                        <div class="name-picker" id="name-picker-in">
+                                                            <select id="employee-names"></select>                                                            
                                                         </div>
+
+                                                        <!-- Time Picker for In -->
+                                                         <div class="time-picker-weekly">
+                                                            <select id="time-picker-weekly-in-pm">In</select>
+                                                         </div>
+
+                                                        <!-- Time Picker for Out -->
+                                                         <div class="time-picker-weekly">
+                                                            <select id="time-picker-weekly-out-pm">Out</select>
+                                                         </div>
                                                     </div>
+
+                                                    
 
                                                     <!-- Total Hours for clicked on modal with entry -->
-                                                    <span class="input_divs" id="total_hours_span">
-                                                    </span>
+                                                    <!-- <span class="input_divs" id="total_hours_span"></span> -->
                                             
                                             </div>
 

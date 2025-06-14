@@ -127,7 +127,10 @@ function renderWeeklyCalendar(weekStart) {
       
       // Add your existing modal opening code here
       // ... (your existing modal code from the original file)
-
+      // Query the Modal
+      const make_employee_schedule = document.getElementById('cal_modal');
+      // make the modal appear
+      make_employee_schedule.classList.add('modal_active');
     });
     
     // Assemble button content
