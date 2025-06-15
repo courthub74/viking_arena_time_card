@@ -971,9 +971,37 @@ header {
     box-shadow: var(--modal-box-shadow);
 }
 
+/* Day Buttons */
+.calendar-cell, .week-day-button {
+    padding: .6em;
+}
+
+.day-button-content {
+    font-size: small;
+}
+
+.day_selected {
+    background-color: var(--input-background);
+    border-radius: 5px;
+    border: 1px solid var(--dashboard-selected);
+    text-align: center;
+    padding: 5px;
+}
+
+/* .calendar-cell-weekday-button {
+    padding: 0;
+    background-color: red;
+} */
+
 /* For showing the modal, ensure you use display: flex */
 .cal_modal.modal_active {
     display: flex;
+}
+
+/* AM Zam Drivers */
+.am_divs_inputs {
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-content {

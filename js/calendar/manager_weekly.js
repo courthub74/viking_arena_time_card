@@ -144,8 +144,18 @@ function renderWeeklyCalendar(weekStart) {
       const emp_modal_header = document.getElementById('employee_name_month');
       // Populate the header
       emp_modal_header.innerHTML = decodedUser;
-
-      // style the elements
+      // Query the Current Date Field
+      const emp_hours_current_date = document.getElementById('day_selected');
+      // Get current Date
+      console.log(currentDate);
+      // Formatted Date
+      const formattedDate = currentDate.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      // Put the current date in it
+      emp_hours_current_date.innerHTML = formattedDate;
     });
     
     // Assemble button content
