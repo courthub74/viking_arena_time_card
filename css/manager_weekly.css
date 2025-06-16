@@ -1047,12 +1047,13 @@ header {
 
 .name-picker::after {
      /* Select Employee */
-    content: 'Select Employee';
+    /* content: 'Select Employee'; */
     position: absolute;
     font-size: .7em;
     color: #666;
-    top: 35%;
+    top: 50%;
     right: 70px;
+    /* left: 50%; */
 }
 
 /* Time Picker Container with In Label */
@@ -1078,34 +1079,28 @@ header {
     padding: 5px;
 }
 
-/* Add "In" label */
+/* Add "In" label - centered */
 .time-picker-weekly-in::after {
     content: "in";
-    /* content: '⏷'; */
     position: absolute;
-    top: 10%;
-    opacity: 100%;
-    right: 40px;
-    transform: translateY(20%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     pointer-events: none;
     font-size: .9em;
     color: rgb(255, 255, 255);
-    /* font-size: 1.3em; */
 }
 
-/* Add "Out" label */
+/* Add "Out" label - centered */
 .time-picker-weekly-out::after {
     content: "out";
-    /* content: '⏷'; */
     position: absolute;
-    top: 10%;
-    opacity: 100%;
-    right: 40px;
-    transform: translateY(20%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     pointer-events: none;
     font-size: .9em;
     color: rgb(255, 255, 255);
-    /* font-size: 1.3em; */
 }
 
 /* Select Element Styling */
@@ -1131,6 +1126,7 @@ header {
 .time-picker-weekly-in select,
 .time-picker-weekly-out select {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-image: url("../img/arrows/white_down_arrow.png");
     background-repeat: no-repeat;
     background-position: right 8px center;
     background-size: 16px;
