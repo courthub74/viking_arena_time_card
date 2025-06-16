@@ -625,8 +625,8 @@ header {
 }
 
 .users_drop_container::after {
-    content: '▼';
-    content: '⌄'; 
+    /* content: '▼';
+    content: '⌄';  */
     content: '⏷';
     position: absolute;
     top: 43%;

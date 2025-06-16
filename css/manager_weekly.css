@@ -92,6 +92,8 @@
 
     --day-button-today: #009df865;
 
+    --trim-and-in-out-buttons: #0076CB;
+
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -1003,33 +1005,137 @@ header {
     display: flex;
 }
 
+/* ************************************************** */
+/* ************************************************** */
+/* ************************************************** */
+/* ************************************************** */
+/* ************************************************** */
+/* ************************************************** */
+/* ************************************************** */
 /* Driver Divs HERE */
+
+/* *************************************************** */
+/* *************************************************** */
+/* *************************************************** */
+/* *************************************************** */
+/* *************************************************** */
+/* *************************************************** */
+/* *************************************************** */
+/* *************************************************** */
+
+/* Container styling */
 .driver_div {
     display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
-/* The Selects */
+/* Name Picker Container */
 .name-picker {
     background-color: var(--input-background);
     border-radius: 5px;
-    border: 2px solid var(--dashboard-selected);
-    /* border: 1px solid var(--button-background); */
+    border: 1px solid var(--dashboard-selected);
     padding: 5px;
     width: 70%;
+    position: relative;
 }
 
+/* Time Picker Container with In Label */
 .time-picker-weekly {
-    background-color: var(--button-background);
+    background-color: var(--trim-and-in-out-buttons);
     border-radius: 5px;
     width: 30%;
-}
-
-/* AM Zam Drivers */
-.am_divs_inputs {
+    position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 5px;
 }
 
+/* Add "In" label */
+.time-picker-weekly::before {
+    /* content: "In"; */
+    /* content: '⏷'; */
+    position: absolute;
+    /* top: 43%;
+    top: 35%; */
+    opacity: 100%;
+    right: 20px;
+    transform: translateY(20%);
+    pointer-events: none;
+    color: white;
+    font-size: 1.3em;
+}
+
+/* Select Element Styling */
+.name-picker select,
+.time-picker-weekly select {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    font-size: 14px;
+    color: var(--text-color, #333);
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Custom dropdown arrow */
+.name-picker select,
+.time-picker-weekly select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 32px;
+}
+
+/* Hover effects */
+.name-picker:hover {
+    border-color: var(--button-background, #007bff);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.time-picker-weekly:hover {
+    background-color: var(--button-background, #007bff);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus states */
+.name-picker select:focus,
+.time-picker-weekly select:focus {
+    outline: 2px solid var(--button-background, #007bff);
+    outline-offset: 2px;
+}
+
+/* Option styling */
+.name-picker select option,
+.time-picker-weekly select option {
+    padding: 8px;
+    background-color: var(--input-background, white);
+    color: var(--text-color, #333);
+}
+
+/* The Label on the Time Picker */
+.time-picker-weekly .label {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-color, #333);
+    display: block;
+    margin-bottom: 3px;
+    text-align: center;
+}
+/* *************************************************** */
+/* *************************************************** */
+/* *************************************************** */
+/* *************************************************** */
+/* *************************************************** */
+/* *************************************************** */
 
 
 .modal-content {

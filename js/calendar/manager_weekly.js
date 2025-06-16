@@ -156,6 +156,16 @@ function renderWeeklyCalendar(weekStart) {
       });
       // Put the current date in it
       emp_hours_current_date.innerHTML = formattedDate;
+
+      // CLOSE MODAL BUTTON
+      const closeSchedulerModal = document.getElementById('close_modal');
+      // ADD EVENT LISTENER TO THE CANCEL BUTTON
+      closeSchedulerModal.addEventListener('click', function(e) {
+        // Prevent Resetting
+        e.preventDefault();
+        // Remove the showing class
+        make_employee_schedule.classList.remove('modal_active');
+      });
     });
     
     // Assemble button content
