@@ -123,7 +123,7 @@ function renderWeeklyCalendar(weekStart) {
       this.classList.add('selected');
       
       // Your existing modal logic here
-      console.log(`Clicked on ${dayDate.toDateString()}`);
+      console.log(`Clicked on `);
       
       // Add your existing modal opening code here
       // ... (your existing modal code from the original file)
@@ -146,10 +146,10 @@ function renderWeeklyCalendar(weekStart) {
       emp_modal_header.innerHTML = decodedUser;
       // Query the Current Date Field
       const emp_hours_current_date = document.getElementById('day_selected');
-      // Get current Date
-      console.log(currentDate);
+      // Get The Date of the Button
+      console.log(`The Selected Date: ${dayDate.toDateString()}`);
       // Formatted Date
-      const formattedDate = currentDate.toLocaleDateString('en-US', {
+      const formattedDate = dayDate.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
