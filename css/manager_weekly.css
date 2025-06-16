@@ -993,8 +993,6 @@ header {
     padding: 5px;
 }
 
-
-
 /* .calendar-cell-weekday-button {
     padding: 0;
     background-color: red;
@@ -1028,6 +1026,12 @@ header {
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+.am_divs_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .input_divs {
@@ -1065,7 +1069,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5px;
+    padding: 1px;
 }
 
 .time-picker-weekly-out {
@@ -1076,7 +1080,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5px;
+    padding: 1px;
 }
 
 /* Add "In" label - centered */
@@ -1277,7 +1281,7 @@ header {
   .current_day_div {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 3em;
     margin-top: 1em;
 }
 

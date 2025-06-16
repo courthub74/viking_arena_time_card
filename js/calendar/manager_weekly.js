@@ -110,6 +110,7 @@ function renderWeeklyCalendar(weekStart) {
       dayButton.classList.add('other-month');
     }
     
+    // To each Day Button
     // Add click event listener
     dayButton.addEventListener('click', function(e) {
       e.stopPropagation();
@@ -156,6 +157,34 @@ function renderWeeklyCalendar(weekStart) {
       });
       // Put the current date in it
       emp_hours_current_date.innerHTML = formattedDate;
+
+      // Let's Get the employees
+      const users_for_scheduling = JSON.parse(localStorage.getItem('users')) || [];
+
+      // Test Print 
+      console.log(users_for_scheduling);
+
+      // Filter out the Managers
+      users_for_scheduling.forEach(user => {
+        if (user.accountType === "Manager"){
+          // Test Print
+          console.log(`(Manager Weekly)Skipping User: ${user.username} as they are a manager.`);
+          return;
+        }
+        // display the Zam Driver names in the dropdowns
+        // Query the Zam Driver Dropdowns
+        const driver_one_am = document.getElementById('driver-one-am');
+        // Test Print
+        console.log(driver_one_am);
+        // Clear the dropdown first
+        driver_one_am.innerHTML = '';
+        // Add default options to the dropdown
+
+        // Append it to the dropdown
+        
+        // Add the users by user name
+        
+      });
 
       // CLOSE MODAL BUTTON
       const closeSchedulerModal = document.getElementById('close_modal');
