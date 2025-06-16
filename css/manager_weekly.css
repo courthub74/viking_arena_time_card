@@ -948,7 +948,10 @@ header {
 
 
 
-
+/* ************************************** */
+/* ************************************** */
+/* ************************************** */
+/* *****************MODAL HERE************** */
 .cal_modal {
     display: none;
     position: fixed;
@@ -956,7 +959,7 @@ header {
     /* Change from left: 0 and width: 100% to use these centering properties */
     left: 50%;
     transform: translateX(-50%); /* This centers the modal horizontally */
-    width: 80%; /* Reduce width to 80% of viewport (adjust as needed) */
+    width: 85%; /* Reduce width to 80% of viewport (adjust as needed) */
     max-width: 800px; /* Optional: Set a maximum width */
     height: 75%;
     /* height: 100%; */
@@ -988,6 +991,8 @@ header {
     padding: 5px;
 }
 
+
+
 /* .calendar-cell-weekday-button {
     padding: 0;
     background-color: red;
@@ -998,17 +1003,41 @@ header {
     display: flex;
 }
 
+/* Driver Divs HERE */
+.driver_div {
+    display: flex;
+}
+
+/* The Selects */
+.name-picker {
+    background-color: var(--input-background);
+    border-radius: 5px;
+    border: 2px solid var(--dashboard-selected);
+    /* border: 1px solid var(--button-background); */
+    padding: 5px;
+    width: 70%;
+}
+
+.time-picker-weekly {
+    background-color: var(--button-background);
+    border-radius: 5px;
+    width: 30%;
+}
+
 /* AM Zam Drivers */
 .am_divs_inputs {
     display: flex;
     flex-direction: column;
 }
 
+
+
 .modal-content {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
     height: 100%;
+    width: 100%;
     /* padding: 2em 2em 2em 2em; */
 }
 
