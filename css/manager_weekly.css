@@ -963,7 +963,7 @@ header {
     transform: translateX(-50%); /* This centers the modal horizontally */
     width: 85%; /* Reduce width to 80% of viewport (adjust as needed) */
     max-width: 800px; /* Optional: Set a maximum width */
-    height: 75%;
+    height: 80%;
     /* height: 100%; */
     padding: 2em 1em 2em 1em;
     background-color: var(--background-color);
@@ -1101,10 +1101,12 @@ header {
     position: absolute;
     top: 50%;
     left: 50%;
+    left: calc(50% - 6px);
     transform: translate(-50%, -50%);
     pointer-events: none;
     font-size: .9em;
     color: rgb(255, 255, 255);
+    /* background-color: red; */
 }
 
 /* Select Element Styling */

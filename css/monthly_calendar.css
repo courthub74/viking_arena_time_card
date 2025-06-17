@@ -1012,6 +1012,7 @@ tr {
     width: 80%; /* Reduce width to 80% of viewport (adjust as needed) */
     max-width: 800px; /* Optional: Set a maximum width */
     height: 75%;
+    height: 80%;
     padding: 2em 1em 2em 1em;
     background-color: var(--background-color);
     z-index: 1000;
