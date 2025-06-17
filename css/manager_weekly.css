@@ -93,6 +93,7 @@
     --day-button-today: #009df865;
 
     --trim-and-in-out-buttons: #0076CB;
+    --trim-and-in-out-buttons: #009DF8;
 
      /* *********************************** */
      /* *********************************** */
@@ -187,6 +188,11 @@ body.dark-mode {
       --modal-box-shadow: 0 -28px 15px 0 rgba(0, 0, 0, 0.78);
 
       --day-button-today: #009df88b;
+
+      --trim-and-in-out-buttons: #009DF8;
+
+
+
 
      /* *********************************** */
      /* *********************************** */
