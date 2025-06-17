@@ -191,9 +191,6 @@ body.dark-mode {
 
       --trim-and-in-out-buttons: #009DF8;
 
-
-
-
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -1226,6 +1223,8 @@ header {
     align-items: center;
     color: var(--text-color);
     background-color: var(--input-background);
+    /* Possible */
+    border: 1px solid var(--dashboard-selected);
     width: 100%;
     float: right;
     font-size: small;
