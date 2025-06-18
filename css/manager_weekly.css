@@ -1052,15 +1052,26 @@ header {
     position: relative;
 }
 
+/* For Driver Dropdowns */
+.name-picker .blank-option:hover {
+    background-color: var(--input-background);
+}
+.name-picker .driver-option:hover {
+    background-color: var(--input-background);
+}
+
+option {
+    background-color: var(--input-background);
+}
+
 .name-picker::after {
-     /* Select Employee */
-    /* content: 'Select Employee'; */
     position: absolute;
     font-size: .7em;
     color: #666;
     top: 50%;
     right: 70px;
-    /* left: 50%; */
+    font-size: small;
+    background-color: var(--input-background);
 }
 
 /* Time Picker Container with In Label */
@@ -1095,7 +1106,7 @@ header {
     transform: translate(-50%, -50%);
     pointer-events: none;
     font-size: .9em;
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
 }
 
 /* Add "Out" label - centered */
@@ -1108,7 +1119,7 @@ header {
     transform: translate(-50%, -50%);
     pointer-events: none;
     font-size: .9em;
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
     /* background-color: red; */
 }
 
@@ -1144,8 +1155,9 @@ header {
 
 /* Hover effects */
 .name-picker:hover {
-    border-color: var(--button-background, #007bff);
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+    background: none;
+    /* border-color: var(--button-background, #007bff);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1); */
 }
 
 .time-picker-weekly:hover {

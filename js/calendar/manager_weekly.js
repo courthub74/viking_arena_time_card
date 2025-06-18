@@ -180,22 +180,82 @@ function renderWeeklyCalendar(weekStart) {
       blank_option.value = '';
       // Set the option selected to true
       blank_option.selected = true;
+      // style the blank option
+      // blank_option.classList.add('blank-option');
+      blank_option.style.backgroundColor = 'black';
       // Append it to the main drop down
       driver_one_am_dropdown.appendChild(blank_option);
       
       // Only list the Zam Drivers
-      users_for_scheduling.forEach(user => {
-        // Test print user
-        // console.log(user.accountType);
-        if (user.accountType !== "Zamboni%20Driver"){
-          // Test Print
-          console.log(`(Manager Weekly)Skipping User: ${user.username} as they are NOT Zam Drivers.`);
-          return;
-        }
+      // Only list the Zam Drivers
+users_for_scheduling.forEach(user => {
+  // Test print user - ADD THIS TO DEBUG
+  console.log(`User: ${user.username}, Account Type: "${user.accountType}"`);
+  
+  // Decode the account type to handle URL encoding
+  const decodedAccountType = decodeURIComponent(user.accountType);
+  
+  // More flexible comparison - handles both encoded and non-encoded versions
+  const isZamboniDriver = decodedAccountType.toLowerCase() === "zamboni driver" || 
+      user.accountType === "Zamboni%20Driver" ||
+      user.accountType === "Zamboni Driver";
 
-        // Create the Driver Option element
-       
-      });
+    if (!isZamboniDriver) {
+      // Test Print
+      console.log(`(Manager Weekly)Skipping User: ${user.username} - Account Type: "${user.accountType}" (decoded: "${decodedAccountType}")`);
+      return;
+    }
+
+    // Create the Driver Option element
+    const zamDriverOption = document.createElement('option');
+
+    // Store the Zam Drivers name in a variable and decode it
+    const zamDriver = decodeURIComponent(user.username);
+    // Set the value and text content
+    zamDriverOption.value = zamDriver;
+    zamDriverOption.textContent = zamDriver; // ADD THIS LINE - you were missing textContent!
+    
+    // Test Print
+    console.log(`Zam Driver Listed: ${zamDriver}`);
+    
+    // Style the Option
+    // zamDriverOption.style.backgroundColor = 'var(--input-background)';
+    // zamDriverOption.style.color = 'var(--text-color)';
+    // zamDriverOption.style.fontSize = 'small';
+    zamDriverOption.classList.add('driver-option');
+
+    // Append to dropdown
+    driver_one_am_dropdown.appendChild(zamDriverOption);
+  });
+      // users_for_scheduling.forEach(user => {
+      //   // Test print user
+      //   // console.log(user.accountType);
+      //   if (user.accountType !== "Zamboni%20Driver"){
+      //     // Test Print
+      //     console.log(`(Manager Weekly)Skipping User: ${user.username} as they are NOT Zam Drivers.`);
+      //     return;
+      //   }
+
+      //   // Create the Driver Option element
+      //   const zamDriverOption = document.createElement('option');
+
+      //   // Store the Zam Drivers name in a variable and decode it
+      //   const zamDriver = decodeURIComponent(user.username);
+      //   // Set the value and text content
+      //   zamDriverOption.value = zamDriver;
+      //    NEED TO SET THE TEXT CONTENT
+      //   // Test Print
+      //   console.log(`Zam Driver Listed: ${zamDriver}`);
+        
+      //   // Style the Option
+      //   zamDriverOption.style.backgroundColor = 'var(--input-background)';
+      //   zamDriverOption.style.color = 'var(--text-color)';
+      //   zamDriverOption.style.fontSize = 'small';
+      //   // zamDriverOption.className = 'driver-option';
+
+      //   // Append to dropdown
+      //   driver_one_am_dropdown.appendChild(zamDriverOption);
+      // });
 
       // CLOSE MODAL BUTTON
       const closeSchedulerModal = document.getElementById('close_modal');
