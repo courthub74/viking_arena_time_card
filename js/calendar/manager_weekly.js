@@ -198,13 +198,26 @@ function renderWeeklyCalendar(weekStart) {
       blank_option.selected = true;
       // style the blank option
       // blank_option.classList.add('blank-option');
-      blank_option.style.backgroundColor = 'black';
+      blank_option.style.backgroundColor = 'var(--input-background)';
       // Append it to the main drop down
       driver_one_am_dropdown.appendChild(blank_option);
 
       //////////////////////// ZAM DRIVER TWO ////////////////////////////////
       const driver_two_am_dropdown = document.getElementById('driver-two-am');
-      
+      // Test Print
+      console.log(driver_two_am_dropdown);
+      // Clear the dropdown 
+      driver_two_am_dropdown.innerHTML = '';
+      // Create a blank option element
+      const blank_option_two = document.createElement('option');
+      // Set the value of the option to blank
+      blank_option_two.value = '';
+      // Set the option selected to true
+      blank_option_two.selected = true;
+      // Style the blank option
+      blank_option_two.style.backgroundColor = 'var(--input-background)';
+      // Append it to the main drop down
+      driver_two_am_dropdown.appendChild(blank_option_two);
 
       
       // Only list the Zam Drivers
@@ -226,6 +239,8 @@ function renderWeeklyCalendar(weekStart) {
             return;
           }
 
+          ///////////OPTION ELEMENT FOR DRIVER ONE///////////////
+
           // Create the Driver Option element
           const zamDriverOption = document.createElement('option');
 
@@ -233,6 +248,7 @@ function renderWeeklyCalendar(weekStart) {
           const zamDriver = decodeURIComponent(user.username);
           // Set the value and text content
           zamDriverOption.value = zamDriver;
+          // Set the Text content of the option
           zamDriverOption.textContent = zamDriver; // ADD THIS LINE - you were missing textContent!
           
           // Test Print
@@ -246,6 +262,27 @@ function renderWeeklyCalendar(weekStart) {
 
           // Append to dropdown
           driver_one_am_dropdown.appendChild(zamDriverOption);
+
+          ///////////OPTION ELEMENT FOR DRIVER TWO///////////////
+          const zamDriverTwoOption = document.createElement('option');
+
+          // Store the Zam Drivers name in a variable and decode it
+          const zamDriverTwo = decodeURIComponent(user.username);
+
+          // Set the value and text content
+          zamDriverTwoOption.value = zamDriverTwo;
+
+          // Set the Text content of the option
+          zamDriverTwoOption.textContent = zamDriverTwo;
+
+          // Test Print
+          console.log(`Zam Driver Listed for 2nd Drop: ${zamDriverTwo}`);
+
+          //Style the option 
+          zamDriverTwoOption.classList.add('driver-option');
+
+          // Append to dropdown
+          driver_two_am_dropdown.appendChild(zamDriverTwoOption);
         });
    
 
