@@ -966,7 +966,7 @@ header {
     transform: translateX(-50%); /* This centers the modal horizontally */
     width: 85%; /* Reduce width to 80% of viewport (adjust as needed) */
     max-width: 800px; /* Optional: Set a maximum width */
-    height: 80%;
+    height: 85%;
     /* height: 100%; */
     padding: 2em 1em 2em 1em;
     background-color: var(--background-color);
@@ -1027,7 +1027,7 @@ header {
 /* Container styling */
 .driver_div {
     display: flex;
-    gap: 10px;
+    gap: 2px;
     align-items: center;
 }
 
@@ -1035,6 +1035,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    /* gap: 2px; */
 }
 
 .input_divs {
@@ -1047,7 +1048,7 @@ header {
     background-color: var(--input-background);
     border-radius: 5px;
     border: 1px solid var(--dashboard-selected);
-    padding: 1px;
+    /* padding: 1px; */
     width: 70%;
     position: relative;
 }
@@ -1083,7 +1084,7 @@ option {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1px;
+    /* padding: 1px; */
 }
 
 .time-picker-weekly-out {
@@ -1094,7 +1095,7 @@ option {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1px;
+    /* padding: 1px; */
 }
 
 /* Add "In" label - centered */
