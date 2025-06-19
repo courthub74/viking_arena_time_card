@@ -115,7 +115,9 @@ for 'Remember Me' functionality
 
 ### Next thing
 
-\*Set up the weekly calendar page
+\*Make the page body freeze and whiteout when modal clicked
+
+\*~Set up the weekly calendar page~
 
 \*~Render the hours worked for the managerial calendar~
 
