@@ -1050,6 +1050,7 @@ header {
     border: 1px solid var(--dashboard-selected);
     /* padding: 1px; */
     width: 70%;
+    height: 2em;
     position: relative;
 }
 
@@ -1080,6 +1081,7 @@ option {
     background-color: var(--trim-and-in-out-buttons);
     border-radius: 5px;
     width: 30%;
+    height: 2em;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1091,6 +1093,7 @@ option {
     background-color: var(--trim-and-in-out-buttons);
     border-radius: 5px;
     width: 30%;
+    height: 2em;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1302,6 +1305,7 @@ option {
     display: flex;
     flex-direction: column;
     gap: 3em;
+    gap: 1em;
     margin-top: 1em;
 }
 
