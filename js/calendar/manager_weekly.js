@@ -219,6 +219,24 @@ function renderWeeklyCalendar(weekStart) {
       // Append it to the main drop down
       driver_two_am_dropdown.appendChild(blank_option_two);
 
+
+      //////////////////////// ZAM DRIVER THREE ///////////////////////////////
+      const driver_three_am_dropdown = document.getElementById('driver-three-am');
+      // Test Print
+      console.log(driver_three_am_dropdown);
+      // Clear the dropdown
+      driver_three_am_dropdown.innerHTML = '';
+      // Create a blank option element
+      const blank_option_three = document.createElement('option');
+      // Set the value of the option to blank
+      blank_option_three.value = '';
+      // Set the option selected to true
+      blank_option_three.selected = true;
+      // Style the blank option
+      blank_option_three.style.backgroundColor = 'var(--input-background)';
+      // Append it to the main drop down
+      driver_three_am_dropdown.appendChild(blank_option_three);
+
       
       // Only list the Zam Drivers
       users_for_scheduling.forEach(user => {
@@ -263,7 +281,7 @@ function renderWeeklyCalendar(weekStart) {
           // Append to dropdown
           driver_one_am_dropdown.appendChild(zamDriverOption);
 
-          ///////////OPTION ELEMENT FOR DRIVER TWO///////////////
+          ///////////OPTION ELEMENT FOR DRIVER TWO////////////////////
           const zamDriverTwoOption = document.createElement('option');
 
           // Store the Zam Drivers name in a variable and decode it
@@ -283,6 +301,27 @@ function renderWeeklyCalendar(weekStart) {
 
           // Append to dropdown
           driver_two_am_dropdown.appendChild(zamDriverTwoOption);
+
+
+          ////////////////OPTION ELEMENT FOR DRIVER THREE////////////////
+          const zamDriverThreeOption = document.createElement('option');
+
+          // Store the Zam Drivers name in a variable and decode it
+          const zamDriverThree = decodeURIComponent(user.username);
+
+          // Set the value and text content
+          zamDriverThreeOption.value = zamDriverThree;
+
+          // Set the Text content to the value
+          zamDriverThreeOption.textContent = zamDriverThree;
+
+          // Test Print
+          console.log(`Zam Driver 3 Listed: ${zamDriverThree}`);
+
+          // Style the Option
+          zamDriverThreeOption.classList.add('driver-option');
+          // Append to dropdown
+          driver_three_am_dropdown.appendChild(zamDriverThreeOption);
         });
    
 
