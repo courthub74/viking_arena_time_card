@@ -585,6 +585,10 @@ label {
     opacity: 50%;
 }
 
+.name_label {
+    font-weight: normal;
+}
+
 .pin_field {
     display: flex;
     gap: 1.7em;
@@ -824,7 +828,8 @@ label {
     }
 
     /* Form Elements */
-    label {
-        font-size: medium;
+    .name_label {
+        font-size: small;
+        font-weight: normal;
     }
 }
