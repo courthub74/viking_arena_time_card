@@ -583,7 +583,7 @@ header {
 /* Name Inputs */
 label {
     font-size: small;
-    font-weight: bold;
+    /* font-weight: bold; */
     opacity: 50%;
 }
 
