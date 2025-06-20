@@ -255,6 +255,24 @@ function renderWeeklyCalendar(weekStart) {
       // Append it to the main drop down
       driver_four_am_dropdown.appendChild(blank_option_four);
 
+
+      /////////////////////////// SKATE GUARD DROPDOWN ////////////////////////
+      const skate_guard_one_dropdown = document.getElementById('skate-guard-one');
+      // Test Print
+      console.log(skate_guard_one_dropdown);
+      // Clear the dropdown
+      skate_guard_one_dropdown.innerHTML = '';
+      // Create a blank option element
+      const blank_option_five = document.createElement('option');
+      // Set the value of the option to blank
+      blank_option_five.value = '';
+      // Set the option selected to true
+      blank_option_five.selected = true;
+      // Style the blank option
+      blank_option_five.style.backgroundColor = 'var(--input-background)';
+      // Append it to the main drop down
+      skate_guard_one_dropdown.appendChild(blank_option_five);
+
       // Only list the Zam Drivers
       users_for_scheduling.forEach(user => {
         // Test print user - ADD THIS TO DEBUG
@@ -264,6 +282,8 @@ function renderWeeklyCalendar(weekStart) {
         const decodedAccountType = decodeURIComponent(user.accountType);
         
         // More flexible comparison - handles both encoded and non-encoded versions
+
+        // For Zam Drivers
         const isZamboniDriver = decodedAccountType.toLowerCase() === "zamboni driver" || 
             user.accountType === "Zamboni%20Driver" ||
             user.accountType === "Zamboni Driver";
@@ -273,7 +293,6 @@ function renderWeeklyCalendar(weekStart) {
             console.log(`(Manager Weekly)Skipping User: ${user.username} - Account Type: "${user.accountType}" (decoded: "${decodedAccountType}")`);
             return;
           }
-
         //////////////////OPTION ELEMENTS/////////////////////////
         //////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////
@@ -366,6 +385,27 @@ function renderWeeklyCalendar(weekStart) {
           zamDriverFourOption.classList.add('driver-option');
           // Append to dropdown
           driver_four_am_dropdown.appendChild(zamDriverFourOption);
+
+
+        // Comparison for the skate guards
+        const isSkateGuard = decodedAccountType.toLowerCase() === "Skate Guard" ||
+          user.accountType === "Skate%20Guard" || 
+          user.accountType === "Skate Guard";
+
+          if (isSkateGuard) {
+            // Test Print
+            console.log(`The Skate Guard is: ${user.username}`)
+
+            ///////////////// OPTION FOR SKATE GUARDS //////////////////
+            const skateGuardOneOptions = document.createElement('option');
+
+            // Test Print
+            console.log(skateGuardOneOptions);
+          }
+
+          
+
+
         });
    
 

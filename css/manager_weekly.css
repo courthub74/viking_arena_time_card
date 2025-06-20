@@ -1053,6 +1053,7 @@ header {
     width: 70%;
     height: 2em;
     position: relative;
+    /* font-size: small; */
 }
 
 /* For Driver Dropdowns */
@@ -1073,8 +1074,9 @@ option {
     color: #666;
     top: 50%;
     right: 70px;
-    font-size: small;
+    font-size: smaller;
     background-color: var(--input-background);
+    padding: 2px 0 2px 0;
 }
 
 /* Time Picker Container with In Label */
