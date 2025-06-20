@@ -994,6 +994,7 @@ header {
     border: 1px solid var(--dashboard-selected);
     text-align: center;
     padding: 5px;
+    font-size: small;
 }
 
 /* .calendar-cell-weekday-button {
