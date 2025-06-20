@@ -221,7 +221,7 @@ function renderWeeklyCalendar(weekStart) {
 
 
       //////////////////////// ZAM DRIVER THREE ///////////////////////////////
-      const driver_three_am_dropdown = document.getElementById('driver-three-am');
+      const driver_three_am_dropdown = document.getElementById('driver-one-pm');
       // Test Print
       console.log(driver_three_am_dropdown);
       // Clear the dropdown
@@ -237,7 +237,24 @@ function renderWeeklyCalendar(weekStart) {
       // Append it to the main drop down
       driver_three_am_dropdown.appendChild(blank_option_three);
 
-      
+
+      //////////////////////// ZAM DRIVER FOUR ///////////////////////////////
+      const driver_four_am_dropdown = document.getElementById('driver-two-pm');
+      // Test Print
+      console.log(driver_four_am_dropdown);
+      // Clear the dropdown
+      driver_four_am_dropdown.innerHTML = '';
+      // Create a blank option element
+      const blank_option_four = document.createElement('option');
+      // Set the value of the option to blank
+      blank_option_four.value = '';
+      // Set the option selected to true
+      blank_option_four.selected = true;
+      // Style the blank option
+      blank_option_four.style.backgroundColor = 'var(--input-background)';
+      // Append it to the main drop down
+      driver_four_am_dropdown.appendChild(blank_option_four);
+
       // Only list the Zam Drivers
       users_for_scheduling.forEach(user => {
         // Test print user - ADD THIS TO DEBUG
@@ -256,6 +273,13 @@ function renderWeeklyCalendar(weekStart) {
             console.log(`(Manager Weekly)Skipping User: ${user.username} - Account Type: "${user.accountType}" (decoded: "${decodedAccountType}")`);
             return;
           }
+
+        //////////////////OPTION ELEMENTS/////////////////////////
+        //////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////
 
           ///////////OPTION ELEMENT FOR DRIVER ONE///////////////
 
@@ -302,7 +326,6 @@ function renderWeeklyCalendar(weekStart) {
           // Append to dropdown
           driver_two_am_dropdown.appendChild(zamDriverTwoOption);
 
-
           ////////////////OPTION ELEMENT FOR DRIVER THREE////////////////
           const zamDriverThreeOption = document.createElement('option');
 
@@ -322,6 +345,27 @@ function renderWeeklyCalendar(weekStart) {
           zamDriverThreeOption.classList.add('driver-option');
           // Append to dropdown
           driver_three_am_dropdown.appendChild(zamDriverThreeOption);
+
+
+          ////////////////OPTION ELEMENT FOR DRIVER FOUR////////////////
+          const zamDriverFourOption = document.createElement('option');
+
+          // Store the Zam Drivers name in a variable and decode it
+          const zamDriverFour = decodeURIComponent(user.username);
+
+          // Set the value and text content
+          zamDriverFourOption.value = zamDriverFour;
+
+          // Set the Text content to the value
+          zamDriverFourOption.textContent = zamDriverFour;
+
+          // Test Print
+          console.log(`Zam Driver 4 Listed: ${zamDriverFour}`);
+
+          // Style the Option
+          zamDriverFourOption.classList.add('driver-option');
+          // Append to dropdown
+          driver_four_am_dropdown.appendChild(zamDriverFourOption);
         });
    
 
