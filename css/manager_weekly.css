@@ -218,10 +218,12 @@ body {
     align-items: center;
 }
 
+/* No Scroll */
 .no-scroll {
-  overflow: hidden; /* This hides content that overflows, preventing scrolling */
+  overflow: hidden;
+  /* position: fixed; */
+  -webkit-overflow-scrolling: touch; /* Enables hardware acceleration */
 }
-
 
 .container {
     width: 100%; 

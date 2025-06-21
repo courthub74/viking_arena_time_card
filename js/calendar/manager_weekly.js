@@ -128,7 +128,7 @@ function renderWeeklyCalendar(weekStart) {
 
       // Freeze the Body
       document.body.classList.toggle('no-scroll');
-      
+
       // Remove previous selection
       const selectedButtons = document.querySelectorAll('.selected');
       selectedButtons.forEach(btn => btn.classList.remove('selected'));
@@ -432,6 +432,9 @@ function renderWeeklyCalendar(weekStart) {
 
               // Append option to dropdown
               skate_guard_one_dropdown.appendChild(skateGuardOptionOne);
+
+              //////////////////////Skate Guard Option Two//////////////////////////
+              
 
         });
    
