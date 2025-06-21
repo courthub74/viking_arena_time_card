@@ -273,7 +273,10 @@ function renderWeeklyCalendar(weekStart) {
       // Append it to the main drop down
       skate_guard_one_dropdown.appendChild(blank_option_five);
 
-      // Only list the Zam Drivers
+      //////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////
+      // ZAM DRIVERS FUNCTION
       users_for_scheduling.forEach(user => {
         // Test print user - ADD THIS TO DEBUG
         console.log(`User: ${user.username}, Account Type: "${user.accountType}"`);
@@ -293,13 +296,8 @@ function renderWeeklyCalendar(weekStart) {
             console.log(`(Manager Weekly)Skipping User: ${user.username} - Account Type: "${user.accountType}" (decoded: "${decodedAccountType}")`);
             return;
           }
-        //////////////////OPTION ELEMENTS/////////////////////////
-        //////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////
-
+          ////////////////// ZAM DRIVER OPTION ELEMENTS/////////////////////////
+        
           ///////////OPTION ELEMENT FOR DRIVER ONE///////////////
 
           // Create the Driver Option element
@@ -385,26 +383,52 @@ function renderWeeklyCalendar(weekStart) {
           zamDriverFourOption.classList.add('driver-option');
           // Append to dropdown
           driver_four_am_dropdown.appendChild(zamDriverFourOption);
+        });
 
-
-        // Comparison for the skate guards
-        const isSkateGuard = decodedAccountType.toLowerCase() === "Skate Guard" ||
-          user.accountType === "Skate%20Guard" || 
-          user.accountType === "Skate Guard";
-
-          if (isSkateGuard) {
-            // Test Print
-            console.log(`The Skate Guard is: ${user.username}`)
-
-            ///////////////// OPTION FOR SKATE GUARDS //////////////////
-            const skateGuardOneOptions = document.createElement('option');
-
-            // Test Print
-            console.log(skateGuardOneOptions);
-          }
-
+        // For Each function for the Skate Guards
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        // SKATE GUARDS FUNCTION
+        users_for_scheduling.forEach(skate_guard => {
+           // Test print user - ADD THIS TO DEBUG
+          console.log(`Skate Guard: ${skate_guard.username}, Account Type: "${skate_guard.accountType}"`);
           
+          // Decode the account type to handle URL encoding
+          const decodedAccountType = decodeURIComponent(skate_guard.accountType);
+            // Get only the skate guards
+            const isSkateGuard = decodedAccountType.toLowerCase() === "skate guard" ||
+              skate_guard.accountType === "Skate%20Guard" ||
+              skate_guard.accountType === "Skate Guard";
 
+              // Filter out only the skate guards
+              if (!isSkateGuard) {
+                // Test Print
+                console.log(`(Manager Weekly)Skipping User: ${skate_guard.username} - Account Type: ${skate_guard.accountType}`);
+                return;
+              }
+
+              /////////////////// SKATE GUARD OPTION ELEMENTS //////////////////////
+
+              /////////////////////Skate Guard Option One//////////////////////////
+              const skateGuardOptionOne = document.createElement('option');
+
+              // Store the Skate Guard name in a variable and decode it
+              const skateGuardOne = decodeURIComponent(skate_guard.username);
+
+              // Set the value and text content
+              skateGuardOptionOne.value = skateGuardOne;
+
+              // Set the Text content of the option
+              skateGuardOptionOne.textContent = skateGuardOne;
+
+              // Test Print
+              console.log(`Skate Guard Listed: ${skateGuardOne}`);
+
+              // Style the Option
+              skateGuardOptionOne.classList.add('driver-option');
+
+              // Append option to dropdown
+              skate_guard_one_dropdown.appendChild(skateGuardOptionOne);
 
         });
    
