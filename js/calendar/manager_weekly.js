@@ -120,6 +120,12 @@ function renderWeeklyCalendar(weekStart) {
     ////////////////////////////////////////////////////
     ////////////////////////////////////////////////////
 
+    // If the body contains no-scroll remove
+    // Query the body
+    const page_body = document.querySelector('body');
+    // Test print
+    console.log(page_body);
+
     // To each Day Button
     // Add click event listener
     dayButton.addEventListener('click', function(e) {
@@ -127,7 +133,12 @@ function renderWeeklyCalendar(weekStart) {
       e.preventDefault();
 
       // Freeze the Body
-      document.body.classList.toggle('no-scroll');
+       // Toggle the no-scroll class
+      if (document.body.classList.contains('no-scroll')) {
+          document.body.classList.remove('no-scroll');
+      } else {
+          document.body.classList.add('no-scroll');
+      }
 
       // Remove previous selection
       const selectedButtons = document.querySelectorAll('.selected');
@@ -434,7 +445,7 @@ function renderWeeklyCalendar(weekStart) {
               skate_guard_one_dropdown.appendChild(skateGuardOptionOne);
 
               //////////////////////Skate Guard Option Two//////////////////////////
-              
+
 
         });
    
