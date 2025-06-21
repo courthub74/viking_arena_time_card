@@ -125,6 +125,9 @@ function renderWeeklyCalendar(weekStart) {
     dayButton.addEventListener('click', function(e) {
       e.stopPropagation();
       e.preventDefault();
+
+      // Freeze the Body
+      document.body.classList.toggle('no-scroll');
       
       // Remove previous selection
       const selectedButtons = document.querySelectorAll('.selected');

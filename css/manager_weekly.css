@@ -218,6 +218,11 @@ body {
     align-items: center;
 }
 
+.no-scroll {
+  overflow: hidden; /* This hides content that overflows, preventing scrolling */
+}
+
+
 .container {
     width: 100%; 
 	/* max-width: 1000px; */
