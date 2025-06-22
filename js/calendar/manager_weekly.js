@@ -468,8 +468,22 @@ function renderWeeklyCalendar(weekStart) {
               const skateGuardOptionTwo = document.createElement('option');
 
               // Store the Skate Guard name in a variable and decode it
-              // const skteGuardTwo = decodeURIComponent()
+              const skateGuardTwo = decodeURIComponent(skate_guard.username);
 
+              // Set the value of the option
+              skateGuardOptionTwo.value = skateGuardTwo;
+
+              // Set the Text content of the option
+              skateGuardOptionTwo.text = skateGuardTwo;
+
+              // Test Print
+              console.log(`Skate Guard Listed: ${skateGuardTwo}`);
+
+              // Style the Option
+              skateGuardOptionTwo.classList.add('driver-option');
+
+              // Append option to dropdown
+              skate_guard_two_dropdown.appendChild(skateGuardOptionTwo);
         });
    
 
