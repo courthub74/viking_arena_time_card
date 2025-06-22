@@ -1250,11 +1250,7 @@ option {
     /* font-weight: bold; */
     cursor: pointer;
     border-radius: 5px;
-    /* margin-right: 1em; */
-    /* padding: 1em 0 2em 0; */
     padding: .5em;
-    /* padding: 1em; */
-    /* opacity: 50%; */
 }
 
 .close_modal {
@@ -1268,14 +1264,10 @@ option {
     width: 100%;
     float: right;
     font-size: small;
-    /* font-weight: bold; */
     cursor: pointer;
     border-radius: 5px;
-    /* margin-right: 1em; */
-    /* padding: 1em 0 2em 0; */
     padding: .5em;
     padding: 1em;
-    /* opacity: 50%; */
 }
 
 .back_arrow {
@@ -1426,6 +1418,7 @@ option {
     padding: .5em;
     padding: 1em;
     font-size: small;
+    display: none;
 }
  
 
