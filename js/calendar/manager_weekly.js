@@ -270,7 +270,9 @@ function renderWeeklyCalendar(weekStart) {
       driver_four_am_dropdown.appendChild(blank_option_four);
 
 
-      /////////////////////////// SKATE GUARD DROPDOWN ////////////////////////
+      /////////////////////////// SKATE GUARD DROPDOWNS ////////////////////////
+
+      ////////////////// Skate Guard One ///////////////////////////
       const skate_guard_one_dropdown = document.getElementById('skate-guard-one');
       // Test Print
       console.log(skate_guard_one_dropdown);
@@ -286,6 +288,24 @@ function renderWeeklyCalendar(weekStart) {
       blank_option_five.style.backgroundColor = 'var(--input-background)';
       // Append it to the main drop down
       skate_guard_one_dropdown.appendChild(blank_option_five);
+
+      ////////////////// Skate Guard Two /////////////////////////////
+      const skate_guard_two_dropdown = document.getElementById('skate-guard-two');
+      // Test Print
+      console.log(skate_guard_two_dropdown);
+      // Create a blank option element
+      skate_guard_two_dropdown.innerHTML = '';
+      // Create a blank option element
+      const blank_option_six = document.createElement('option');
+      // Set the value of the option to blank
+      blank_option_six.value = '';
+      // Set the option selected to true
+      blank_option_six.selected = true;
+      // Style the blank option
+      blank_option_six.style.backgroundColor = 'var(--input-background)';
+      // Append it to the main drop down
+      skate_guard_two_dropdown.appendChild(blank_option_six);
+
 
       //////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////
@@ -445,7 +465,10 @@ function renderWeeklyCalendar(weekStart) {
               skate_guard_one_dropdown.appendChild(skateGuardOptionOne);
 
               //////////////////////Skate Guard Option Two//////////////////////////
+              const skateGuardOptionTwo = document.createElement('option');
 
+              // Store the Skate Guard name in a variable and decode it
+              // const skteGuardTwo = decodeURIComponent()
 
         });
    

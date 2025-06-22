@@ -861,12 +861,12 @@ header {
 /* ********************************* */
 /* THE CALENDAR */
 #calendar-container {
-    border: 2px solid var(--button-background);
     border: 2px solid var(--today-color);
-    /* border: 2px solid var(--calendar-border); */
+    border: none;
     border-radius: 5px;
-    padding: 5px 5px 5px 5px;
-    padding: 10px;
+    width: 100%;
+    /* padding: 5px 5px 5px 5px; */
+    /* padding: 10px; */
 }
 
 /* Calendar Header */
@@ -913,6 +913,7 @@ header {
   flex-direction: column;
   gap: 1em;
   max-width: 400px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 15px 10px 15px 10px;
 }
@@ -924,8 +925,10 @@ header {
   border: none;
   color: var(--text-color);
   border: 1px solid var(--dashboard-selected);
+  border: none;
   border-radius: 5px;
   padding: 12px 12px;
+  /* padding: 25px 25px; */
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
@@ -933,8 +936,9 @@ header {
 }
 
 .week-day-button.today {
-  background-color: var(--);
+  /* background-color: var(--); */
   border-color: var(--dashboard-trim);
+ border: 2px solid var(--dashboard-selected);
   font-weight: bold;
 }
 
@@ -942,15 +946,18 @@ header {
   /* font-size: 15px; */
   font-size: .9rem;
   font-weight: normal;
+  font-weight: bold;
   margin: 0;
-  min-width: 100px;
+  /* min-width: 100px; */
+  width: 14em;
   text-align: center;
   color: var(--text-color);
   /* background-color: var(--today-color); */
   background-color: var(--input-background);
-  border: 1px solid var(--dashboard-selected);
+  border: 2px solid var(--dashboard-selected);
   border-radius: 5px;
-  padding: 5px 20px 5px 20px;
+  padding: 5px 25px 5px 25px;
+  padding: 10px 20px 10px 20px;
 }
 
 
@@ -1055,7 +1062,7 @@ header {
 .name-picker {
     background-color: var(--input-background);
     border-radius: 5px;
-    border: 1px solid var(--dashboard-selected);
+    /* border: 1px solid var(--dashboard-selected); */
     /* padding: 1px; */
     width: 70%;
     height: 2em;
@@ -1089,6 +1096,9 @@ option {
 /* Time Picker Container with In Label */
 .time-picker-weekly-in {
     background-color: var(--trim-and-in-out-buttons);
+    background-color: var(--input-background);
+    /* border: 1px solid var(--dashboard-selected); */
+    background-color: var(--dashboard-selected);
     border-radius: 5px;
     width: 30%;
     height: 2em;
@@ -1101,6 +1111,9 @@ option {
 
 .time-picker-weekly-out {
     background-color: var(--trim-and-in-out-buttons);
+    background-color: var(--input-background);
+    /* border: 1px solid var(--dashboard-selected); */
+    background-color: var(--dashboard-selected);
     border-radius: 5px;
     width: 30%;
     height: 2em;
