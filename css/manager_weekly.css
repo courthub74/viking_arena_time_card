@@ -1253,6 +1253,7 @@ option {
     /* margin-right: 1em; */
     /* padding: 1em 0 2em 0; */
     padding: .5em;
+    /* padding: 1em; */
     /* opacity: 50%; */
 }
 
@@ -1273,6 +1274,7 @@ option {
     /* margin-right: 1em; */
     /* padding: 1em 0 2em 0; */
     padding: .5em;
+    padding: 1em;
     /* opacity: 50%; */
 }
 
@@ -1420,8 +1422,9 @@ option {
 
 .submit {
     border-radius: 5px;
-    margin-top: 2em;
+    /* margin-top: 2em; */
     padding: .5em;
+    padding: 1em;
     font-size: small;
 }
  
