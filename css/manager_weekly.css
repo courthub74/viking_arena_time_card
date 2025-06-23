@@ -971,17 +971,22 @@ header {
 /* ************************************** */
 /* ************************************** */
 /* *****************MODAL HERE************** */
+
+/* paste here */
 .cal_modal {
     display: none;
     position: fixed;
     top: 70px;
+    top: 40px;
     /* Change from left: 0 and width: 100% to use these centering properties */
     left: 50%;
     transform: translateX(-50%); /* This centers the modal horizontally */
     width: 85%; /* Reduce width to 80% of viewport (adjust as needed) */
+    width: 90%;
     max-width: 800px; /* Optional: Set a maximum width */
     height: 85%;
-    height: 100%;
+    height: calc(100vh - 65px); /* Use calc to ensure it fits screen minus top margin */
+    /* height: 100%; */
     padding: 2em 1em 2em 1em;
     background-color: var(--background-color);
     z-index: 1000;
