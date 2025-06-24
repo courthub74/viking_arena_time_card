@@ -495,6 +495,10 @@ function renderWeeklyCalendar(weekStart) {
           e.preventDefault();
           // Remove the showing class
           make_employee_schedule.classList.remove('modal_active');
+          // Remove No Scroll
+          if (document.body.classList.contains('no-scroll')) {
+            document.body.classList.remove('no-scroll');
+          }
         });
       });
     
