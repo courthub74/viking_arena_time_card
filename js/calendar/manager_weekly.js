@@ -485,7 +485,38 @@ function renderWeeklyCalendar(weekStart) {
               // Append option to dropdown
               skate_guard_two_dropdown.appendChild(skateGuardOptionTwo);
         });
-   
+
+        // FOR TIME PICKERS 
+
+        // Function for Populating Time Pickers
+        // Inside the function:
+              // Query the Time Picker Inputs
+        function populateTimePickers() {
+          // Zam Driver One
+          const timepickerInOne = document.getElementById('zam-in-one');
+          const timepickerOutOne = document.getElementById('zam-out-one');
+          // Zam Driver Two
+          const timepickerInTwo = document.getElementById('zam-in-two');
+          const timepickerOutTwo = document.getElementById('zam-out-two');
+          // Zam Driver Three
+          const timepickerInThree = document.getElementById('zam-in-three');
+          const timepickerOutThree = document.getElementById('zam-out-three');
+          // Zam Driver Four
+          const timepickerInFour = document.getElementById('zam-in-four');
+          const timepickerOutFour = document.getElementById('zam-out-four');
+          // Skate Guard One
+          const timepickerInGuardOne = document.getElementById('skate-guard-in-one');
+          const timepickerOutGuardOne = document.getElementById('skate-guard-out-one');
+          // Skate Guard Two
+          const timepickerInGuardTwo = document.getElementById('skate-guard-in-two');
+          const timepickerOutGuardTwo = document.getElementById('skate-guard-out-two');
+          
+        }
+        // Query the Time Picker Inputs
+
+        
+
+
 
         // CLOSE MODAL BUTTON
         const closeSchedulerModal = document.getElementById('close_modal');
