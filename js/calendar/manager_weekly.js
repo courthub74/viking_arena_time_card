@@ -492,32 +492,96 @@ function renderWeeklyCalendar(weekStart) {
         // Inside the function:
               // Query the Time Picker Inputs
         function populateTimePickers() {
-          // Zam Driver One
-          const timepickerInOne = document.getElementById('zam-in-one');
-          const timepickerOutOne = document.getElementById('zam-out-one');
-          // Zam Driver Two
-          const timepickerInTwo = document.getElementById('zam-in-two');
-          const timepickerOutTwo = document.getElementById('zam-out-two');
-          // Zam Driver Three
-          const timepickerInThree = document.getElementById('zam-in-three');
-          const timepickerOutThree = document.getElementById('zam-out-three');
-          // Zam Driver Four
-          const timepickerInFour = document.getElementById('zam-in-four');
-          const timepickerOutFour = document.getElementById('zam-out-four');
-          // Skate Guard One
-          const timepickerInGuardOne = document.getElementById('skate-guard-in-one');
-          const timepickerOutGuardOne = document.getElementById('skate-guard-out-one');
-          // Skate Guard Two
-          const timepickerInGuardTwo = document.getElementById('skate-guard-in-two');
-          const timepickerOutGuardTwo = document.getElementById('skate-guard-out-two');
+          // Place Time Pickers in a an array
+          const timePickers = [
+            // Zam Driver One
+            document.getElementById('zam-in-one'),
+            document.getElementById('zam-out-one'),
+            // Zam Driver Two
+            document.getElementById('zam-in-two'),
+            document.getElementById('zam-out-two'),
+            // Zam Driver Three
+            document.getElementById('zam-in-three'),
+            document.getElementById('zam-out-three'),
+            // Zam Driver Four
+            document.getElementById('zam-in-four'),
+            document.getElementById('zam-out-four'),
+            // Skate Guard One
+            document.getElementById('skate-guard-in-one'),
+            document.getElementById('skate-guard-out-one'),
+            // Skate Guard Two
+            document.getElementById('skate-guard-in-two'),
+            document.getElementById('skate-guard-out-two'),
+          ];
+
+          // Clear existing options in the time pickers
+          timePickers.forEach(select => {
+            if (select) {
+              select.innerHTML = '';
+           
+              // Add a blank option at the top
+              const blankOption = document.createElement('option');
+              blankOption.value = ''; 
+              // blankOption.textContent = 'Select Time';
+              blankOption.selected = true; // Make it selected by default
+              select.appendChild(blankOption);
+
+              // Generate the times from 5:00 AM to 11:45 PM
+              for (let hour = 5; hour <= 23; hour++) {
+                for (let minute = 0; minute < 60; minute += 15) {
+                  addTimeOption(select, hour, minute);
+                }
+              }
+
+              // Generate times from 12:00 AM to 3:45 AM next day
+              for (let hour = 0; hour <= 3; hour++) {
+                for (let minute = 0; minute < 60; minute += 15) {
+                  addTimeOption(select, hour, minute);
+                }
+              }
+            }
+          });
+       }
+
+        // Function to add time options to a select element
+        function addTimeOption(select, hour, minute) {
+          // Convert hour to 12-hour format
+          let displayHour = hour;
+          let ampm = 'AM';
+
+          if (hour === 0) {
+            displayHour = 12; // Midnight
+          } else if (hour === 12) {
+            ampm = 'PM'; // Noon
+          } else if (hour > 12) {
+            displayHour = hour - 12; // Convert to 12-hour format
+            ampm = 'PM'; // PM for hours after noon
+          }
           
+          // Format minutes with leading zero if needed
+          const formattedMinute = minute.toString().padStart(2, '0');
+
+          // Create the time string
+          const timeString = `${displayHour}:${formattedMinute} ${ampm}`;
+
+          // Create a new option element
+          const option = document.createElement('option');
+          option.value = timeString;
+          option.textContent = timeString;
+          option.classList.add('time-option');
+          
+          select.appendChild(option);
         }
-        // Query the Time Picker Inputs
 
-        
+        // In your day button click event listener, add this line after populating the dropdowns:
+        // RIGHT AFTER THE SKATE GUARDS FOREACH LOOP, ADD:
 
+        // Populate time pickers when modal opens
+        populateTimePickers();
 
-
+        // Test Print
+        console.log('Time pickers populated');
+       
         // CLOSE MODAL BUTTON
         const closeSchedulerModal = document.getElementById('close_modal');
         // ADD EVENT LISTENER TO THE CANCEL BUTTON
