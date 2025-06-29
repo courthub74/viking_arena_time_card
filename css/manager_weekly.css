@@ -1131,7 +1131,7 @@ option {
 
 /* Add "In" label - centered */
 .time-picker-weekly-in::after {
-    content: "in";
+    /* content: "in"; */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1143,7 +1143,7 @@ option {
 
 /* Add "Out" label - centered */
 .time-picker-weekly-out::after {
-    content: "out";
+    /* content: "out"; */
     position: absolute;
     top: 50%;
     left: 50%;

@@ -525,7 +525,19 @@ function renderWeeklyCalendar(weekStart) {
               // Add a blank option at the top
               const blankOption = document.createElement('option');
               blankOption.value = ''; 
-              // blankOption.textContent = 'Select Time';
+              // blankOption.textContent = 'In';
+              // Another forEach to determine and in or out
+              
+              // if the id contains 'in' then set the text to 'In'
+              if (select.id.includes('in')) {
+                blankOption.textContent = 'In'; // Set text to 'In'
+              } else if (select.id.includes('out')) {
+                blankOption.textContent = 'Out'; // Set text to 'Out'
+              } else {
+                blankOption.textContent = 'Select Time'; // Default text
+              }
+              
+             
               blankOption.selected = true; // Make it selected by default
               // Append the blank option to the select element
               select.appendChild(blankOption);
@@ -570,7 +582,10 @@ function renderWeeklyCalendar(weekStart) {
 
           // Create a new option element
           const option = document.createElement('option');
+          // Maybe here can empty the text on the time picker
+
           option.value = timeString;
+          // Set the text content of the option
           option.textContent = timeString;
           option.classList.add('time-option');
           
