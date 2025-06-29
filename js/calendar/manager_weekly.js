@@ -516,14 +516,18 @@ function renderWeeklyCalendar(weekStart) {
 
           // Clear existing options in the time pickers
           timePickers.forEach(select => {
+            // Test Print
+            // console.log(timePickers)
             if (select) {
               select.innerHTML = '';
-           
+              // Test Print
+              console.log(`Cleared options for: ${select.id}`);
               // Add a blank option at the top
               const blankOption = document.createElement('option');
               blankOption.value = ''; 
               // blankOption.textContent = 'Select Time';
               blankOption.selected = true; // Make it selected by default
+              // Append the blank option to the select element
               select.appendChild(blankOption);
 
               // Generate the times from 5:00 AM to 11:45 PM
@@ -581,6 +585,8 @@ function renderWeeklyCalendar(weekStart) {
 
         // Test Print
         console.log('Time pickers populated');
+
+        //////////////////////////////////////////////////////////////////////////////////////////////
        
         // CLOSE MODAL BUTTON
         const closeSchedulerModal = document.getElementById('close_modal');
