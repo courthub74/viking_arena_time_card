@@ -594,83 +594,99 @@ function renderWeeklyCalendar(weekStart) {
             ampm = 'PM'; // PM for hours after noon
           }
           
-          // Format minutes with leading zero if needed
-          const formattedMinute = minute.toString().padStart(2, '0');
+      // Format minutes with leading zero if needed
+      const formattedMinute = minute.toString().padStart(2, '0');
 
-          // Create the time string
-          const timeString = `${displayHour}:${formattedMinute} ${ampm}`;
+      // Create the time string
+      const timeString = `${displayHour}:${formattedMinute} ${ampm}`;
 
-          // Create a new option element
-          const option = document.createElement('option');
-          // Maybe here can empty the text on the time picker
+      // Create a new option element
+      const option = document.createElement('option');
+      // Maybe here can empty the text on the time picker
 
-          option.value = timeString;
-          // Set the text content of the option
-          option.textContent = timeString;
-          option.classList.add('time-option');
-          
-          select.appendChild(option);
-        }
+      option.value = timeString;
+      // Set the text content of the option
+      option.textContent = timeString;
+      option.classList.add('time-option');
+      
+      select.appendChild(option);
+    }
 
-        // In your day button click event listener, add this line after populating the dropdowns:
-        // RIGHT AFTER THE SKATE GUARDS FOREACH LOOP, ADD:
+    // In your day button click event listener, add this line after populating the dropdowns:
+    // RIGHT AFTER THE SKATE GUARDS FOREACH LOOP, ADD:
 
-        // Populate time pickers when modal opens
-        populateTimePickers();
+    // Populate time pickers when modal opens
+    populateTimePickers();
 
+    // Test Print
+    console.log('Time pickers populated');
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // CLOSE MODAL BUTTON
+    const closeSchedulerModal = document.getElementById('close_modal');
+    // ADD EVENT LISTENER TO THE CANCEL BUTTON
+    closeSchedulerModal.addEventListener('click', function(e) {
+      // Prevent Resetting
+      e.preventDefault();
+      // Remove the showing class
+      make_employee_schedule.classList.remove('modal_active');
+      // Remove No Scroll
+      if (document.body.classList.contains('no-scroll')) {
+        document.body.classList.remove('no-scroll');
+      }
+    });
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    // SUBMIT SCHEDULE BUTTON
+
+    // ...existing code...
+
+    // Query all of the name selects
+    const name_selects_manager_modal = document.querySelectorAll('.name_picker_sched');
+    // Query all of the time selects
+    const time_selects_manager_modal = document.querySelectorAll('.time_picker_sched');
+    // Query the Submit Button
+    const submitScheduleButton = document.getElementById('submit_employee_hours_modal');
+
+    // Function to check if all selects have a value
+    function checkEnableSubmit() {
+        const anyNamesSelected = Array.from(name_selects_manager_modal).some(sel => sel.value && sel.value.trim() !== '');
+        const anyTimesSelected = Array.from(time_selects_manager_modal).some(sel => sel.value && sel.value.trim() !== '');
+        submitScheduleButton.disabled = !(anyNamesSelected && anyTimesSelected);
+    }
+
+    // Add event listeners to each name select element
+    name_selects_manager_modal.forEach(function(select) {
+        select.addEventListener('change', function() {
+            console.log("Name Selected");
+            checkEnableSubmit();
+        });
+    });
+
+    // Add event listeners to each time select element
+    time_selects_manager_modal.forEach(function(select) {
+        select.addEventListener('change', function() {
+            console.log("Time Selected");
+            checkEnableSubmit();
+        });
+    });
+
+    // Initially disable the submit button
+    submitScheduleButton.disabled = true;
+
+    // ...existing code...
+
+      // Enable the Submit Button if both of the above are executed
+
+      // ADD a CLICK EVENT LISTENER TO THE SUBMIT BUTTON
+      submitScheduleButton.addEventListener('click', function(e) {
+        // Prevent Default Form Submission
+        e.preventDefault();
         // Test Print
-        console.log('Time pickers populated');
-
-        //////////////////////////////////////////////////////////////////////////////////////////////
-       
-        // CLOSE MODAL BUTTON
-        const closeSchedulerModal = document.getElementById('close_modal');
-        // ADD EVENT LISTENER TO THE CANCEL BUTTON
-        closeSchedulerModal.addEventListener('click', function(e) {
-          // Prevent Resetting
-          e.preventDefault();
-          // Remove the showing class
-          make_employee_schedule.classList.remove('modal_active');
-          // Remove No Scroll
-          if (document.body.classList.contains('no-scroll')) {
-            document.body.classList.remove('no-scroll');
-          }
-        });
-
-        //////////////////////////////////////////////////////////////////////////////////////////////
-        // SUBMIT SCHEDULE BUTTON
-
-        // Query all of the name selects
-        const name_selects_manager_modal = document.querySelectorAll('.name_picker_sched');
-        // Query all of the time selects
-        const time_selects_manager_modal = document.querySelectorAll('.time_picker_sched');
-        // Query the Submit Button
-        const submitScheduleButton = document.getElementById('submit_employee_hours_modal');
-
-        // Add event listeners to each name select element
-        name_selects_manager_modal.forEach(function(select) {
-            select.addEventListener('change', function() {
-                console.log("Name Selected");
-            });
-        });
-
-        // Add event listeners to each time select element
-        time_selects_manager_modal.forEach(function(select) {
-            select.addEventListener('change', function() {
-                console.log("Time Selected");
-            });
-        });
-
-        // Enable the Submit Button if both of the above are executed
-
-        // ADD a CLICK EVENT LISTENER TO THE SUBMIT BUTTON
-        submitScheduleButton.addEventListener('click', function(e) {
-          // Prevent Default Form Submission
-          e.preventDefault();
-          // Test Print
-          console.log("Submit Hours Manager Modal Pressed");
-        });
+        console.log("Submit Hours Manager Modal Pressed");
       });
+    });
     
     // Assemble button content
     buttonContent.appendChild(dayName);
