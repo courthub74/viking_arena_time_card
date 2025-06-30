@@ -542,19 +542,39 @@ function renderWeeklyCalendar(weekStart) {
               // Append the blank option to the select element
               select.appendChild(blankOption);
 
-              // Generate the times from 5:00 AM to 11:45 PM
-              for (let hour = 5; hour <= 23; hour++) {
-                for (let minute = 0; minute < 60; minute += 15) {
+              // Generate times from 5:00 AM to 3:00 PM (30 min increments)
+              for (let hour = 5; hour <= 15; hour++) {
+                for (let minute = 0; minute < 60; minute += 30) {
                   addTimeOption(select, hour, minute);
                 }
               }
 
-              // Generate times from 12:00 AM to 3:45 AM next day
-              for (let hour = 0; hour <= 3; hour++) {
-                for (let minute = 0; minute < 60; minute += 15) {
+              // Generate times from 2:00 PM to 3:00 AM next day (30 min increments)
+              for (let hour = 14; hour <= 23; hour++) {
+                for (let minute = 0; minute < 60; minute += 30) {
                   addTimeOption(select, hour, minute);
                 }
               }
+              // Continue from 12:00 AM to 3:00 AM next day
+              for (let hour = 0; hour <= 3; hour++) {
+                for (let minute = 0; minute < 60; minute += 30) {
+                  addTimeOption(select, hour, minute);
+                }
+              }
+
+              // // Generate the times from 5:00 AM to 11:45 PM
+              // for (let hour = 5; hour <= 23; hour++) {
+              //   for (let minute = 0; minute < 60; minute += 15) {
+              //     addTimeOption(select, hour, minute);
+              //   }
+              // }
+
+              // // Generate times from 12:00 AM to 3:45 AM next day
+              // for (let hour = 0; hour <= 3; hour++) {
+              //   for (let minute = 0; minute < 60; minute += 15) {
+              //     addTimeOption(select, hour, minute);
+              //   }
+              // }
             }
           });
        }
