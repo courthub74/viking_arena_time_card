@@ -636,6 +636,40 @@ function renderWeeklyCalendar(weekStart) {
             document.body.classList.remove('no-scroll');
           }
         });
+
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        // SUBMIT SCHEDULE BUTTON
+
+        // Query all of the name selects
+        const name_selects_manager_modal = document.querySelectorAll('.name_picker_sched');
+        // Query all of the time selects
+        const time_selects_manager_modal = document.querySelectorAll('.time_picker_sched');
+        // Query the Submit Button
+        const submitScheduleButton = document.getElementById('submit_employee_hours_modal');
+
+        // Add event listeners to each name select element
+        name_selects_manager_modal.forEach(function(select) {
+            select.addEventListener('change', function() {
+                console.log("Name Selected");
+            });
+        });
+
+        // Add event listeners to each time select element
+        time_selects_manager_modal.forEach(function(select) {
+            select.addEventListener('change', function() {
+                console.log("Time Selected");
+            });
+        });
+
+        // Enable the Submit Button if both of the above are executed
+
+        // ADD a CLICK EVENT LISTENER TO THE SUBMIT BUTTON
+        submitScheduleButton.addEventListener('click', function(e) {
+          // Prevent Default Form Submission
+          e.preventDefault();
+          // Test Print
+          console.log("Submit Hours Manager Modal Pressed");
+        });
       });
     
     // Assemble button content
