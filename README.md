@@ -115,7 +115,9 @@ for 'Remember Me' functionality
 
 ### Next thing
 
-\*Make the page body freeze and whiteout when modal clicked
+\*Make the Weekly Schedule modal manager side function like the calendar employee side
+
+\*~Make the page body freeze and whiteout when modal clicked~
 
 \*~Set up the weekly calendar page~
 
