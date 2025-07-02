@@ -898,35 +898,16 @@ header {
 }
 
 /* Week Buttons Div */
-/* .week_buttons {
-    display: flex;
-    gap: 1em;
-    align-items: center;
-} */
-
-
-/* Weekly Arrows */
-/* .week_go {
-    background-color: var(--today-color);
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 4px;
-} */
-
-.week_buttons {
+.day_buttons {
     display: flex;
     align-items: stretch; /* Change from 'center' to 'stretch' */
-    width: 100%;
 }
 
-.week_prev {
+.day_prev {
     background-color: var(--today-color);
     border: none;
     color: white;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
     padding: 5px 10px;
     display: flex; /* Add this */
@@ -935,7 +916,7 @@ header {
     border-top-left-radius: 5px; /* Add this */
 }
 
-.week_next {
+.day_next {
     background-color: var(--today-color);
     border: none;
     color: white;
@@ -948,8 +929,8 @@ header {
     border-top-right-radius: 5px; /* Add this */
 }
 
-.current-week {
-    font-size: 1rem;
+.current-day {
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--text-color);
     background-color: var(--today-color);
@@ -990,10 +971,27 @@ header {
 
 .week-day-button.today {
   /* background-color: var(--); */
-  /* border-color: var(--dashboard-trim); */
-    border: 2px solid var(--dashboard-selected);
-    border: 2px solid var(--today-color);
+  border-color: var(--dashboard-trim);
+ border: 2px solid var(--dashboard-selected);
   font-weight: bold;
+}
+
+#current-week {
+  /* font-size: 15px; */
+  font-size: .9rem;
+  font-weight: normal;
+  font-weight: bold;
+  margin: 0;
+  /* min-width: 100px; */
+  width: 14em;
+  text-align: center;
+  color: var(--text-color);
+  /* background-color: var(--today-color); */
+  background-color: var(--input-background);
+  border: 2px solid var(--dashboard-selected);
+  border-radius: 5px;
+  padding: 5px 25px 5px 25px;
+  padding: 10px 20px 10px 20px;
 }
 
 

@@ -7,7 +7,7 @@
 
       <!-- CSS -->
       <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
-      <link rel="stylesheet" href="../../css/manager_dash.css">
+      <link rel="stylesheet" href="../../css/week_schedule.css">
 </head>
 <body>
 
@@ -141,14 +141,16 @@
             <!-- The Weekly Calendar -->
              <div class="list_of_weeklies">
 
+                    <!-- The Daily Buttons -->
+                    <div class="day_buttons">
+                        <button class="day_prev" onclick="prevDay(); return false;">&lt;</button>
+                        <p class="current-day" id="current-day">Daily</p>
+                        <button class="day_next" onclick="nextDay(); return false;">&gt;</button>
+                    </div>
+
                     <!-- The Schedule lists go HERE -->
                      <div class="weekly_list" id="weekly_schedule">
-                        <!-- The Daily Buttons -->
-                        <div class="day_buttons">
-                            <button class="day_go" onclick="prevDay(); return false;">&lt;</button>
-                            <p id="current-day">Daily</p>
-                            <button class="day_go" onclick="nextDay(); return false;">&gt;</button>
-                        </div>
+                        
                      </div>
                  
              </div>
