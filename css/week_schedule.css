@@ -930,7 +930,7 @@ header {
 }
 
 .current-day {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     color: var(--text-color);
     background-color: var(--today-color);
