@@ -95,6 +95,10 @@
     --trim-and-in-out-buttons: #0076CB;
     --trim-and-in-out-buttons: #009DF8;
 
+    --name-picker-trim: #000000;
+
+    --time-picker-background: #0076cb98;
+
      /* *********************************** */
      /* *********************************** */
      /* *********************************** */
@@ -190,6 +194,10 @@ body.dark-mode {
       --day-button-today: #009df88b;
 
       --trim-and-in-out-buttons: #009DF8;
+
+      --name-picker-trim: #0076cb98;
+
+      --time-picker-background: #0076cb98;
 
      /* *********************************** */
      /* *********************************** */
@@ -1066,6 +1074,7 @@ header {
 /* Name Picker Container */
 .name-picker {
     background-color: var(--input-background);
+    border: 1px solid var(--name-picker-trim);
     border-radius: 5px;
     /* border: 1px solid var(--dashboard-selected); */
     /* padding: 1px; */
@@ -1379,6 +1388,11 @@ option {
     background: none;
 }
 
+
+.time-picker-weekly-in,
+.time-picker-weekly-out {
+    background-color: var(--time-picker-background);
+}
 /* Time Clock */
 .time-picker {
     display: inline-block;
