@@ -138,10 +138,18 @@
                 <span class="page_header">&nbsp;|&nbsp;Dashboard</span>
             </label>
 
-            <!-- The Radio Buttons -->
-             <div class="employee_selects">
+            <!-- The Weekly Calendar -->
+             <div class="list_of_weeklies">
 
                     <!-- The Schedule lists go HERE -->
+                     <div class="weekly_list" id="weekly_schedule">
+                        <!-- The Daily Buttons -->
+                        <div class="day_buttons">
+                            <button class="day_go" onclick="prevDay(); return false;">&lt;</button>
+                            <p id="current-day">Daily</p>
+                            <button class="day_go" onclick="nextDay(); return false;">&gt;</button>
+                        </div>
+                     </div>
                  
              </div>
 
