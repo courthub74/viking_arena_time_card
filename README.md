@@ -4,7 +4,7 @@
 
 \*~Mobile Layout~
 
-\*~Desktop Layout~
+\*Desktop Layout
 
 \*Landscape Layout
 
