@@ -139,7 +139,7 @@
             </label>
 
             <!-- The Weekly Calendar -->
-             <div class="list_of_weeklies">
+             <div class="manager_calendar_div">
 
                     <!-- The Daily Buttons -->
                     <div class="day_buttons">
@@ -150,6 +150,31 @@
 
                     <!-- The Schedule lists go HERE -->
                      <div class="weekly_list" id="weekly_schedule">
+                        <!-- Retreive the Name and Times worked -->
+                         <!-- For each entry (name and times) display Below-->
+                        
+                         <!-- The Days work -->
+                          <!-- These change with the day_buttons -->
+                        <label class="work_type_label">Zam Drivers:</label>
+                        <table id="zam-day-table">
+                            <!-- Will be populated by js -->
+                             <!--<div class="zam-day-work">
+                                <p class="zam-day-name">Name</p>
+                                <p class="zam-day-time">Time</p>
+                                <button class="zam-day-one-edit">Edit</button>
+                             </div>  -->
+                        </table>
+
+                        <label class="work_type_label">Skate Guards:</label>
+                        <table id="operator-day-table">
+                            <!-- Will be populated by js -->
+                             <!-- <div class="skate-guard-work">
+                                <p class="skate-guard-name">Name</p>
+                                <p class="skate-guard-time">Time</p>
+                                <button class="skate-guard-edit">Edit</button>
+                             </div> -->
+                        </table>
+                         
                         
                      </div>
                  
@@ -181,10 +206,13 @@
     <script src="../../js/dashboard/delete_acct_slide.js"></script>
 
     <!-- DASHBOARD -->
-    <script src="../../js/dashboard/manager_buttons.js"></script>
+    <!-- <script src="../../js/dashboard/manager_buttons.js"></script> -->
 
    <!-- LOGOUT -->
    <script src="../../js/database/logout.js"></script>
+
+   <!-- WEEK SCHEDULE -->
+    <script src="../../js/calendar/week_schedule.js"></script>
 
    <!-- CALENDAR -->
     <!-- <script src="../../js/calendar/manager_calendar.js"></script> -->
