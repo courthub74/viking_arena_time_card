@@ -64,3 +64,75 @@ document.addEventListener('keydown', function(event) {
         nextDay();
     }
 });
+
+// Create div elements for each employee's hours based on the day selection
+function createEmployeeHoursDivs() {
+    const employeeHoursContainer = document.getElementById('zam-day-table');
+    employeeHoursContainer.innerHTML = ''; // Clear previous content
+    // Style the container
+    employeeHoursContainer.style.display = 'flex';
+    employeeHoursContainer.style.flexDirection = 'column'; // Allow wrapping of employee divs
+    // Example employee data
+    // const employees = [
+    //     { name: 'Alice', hours: '9 AM - 5 PM' },
+    //     { name: 'Bob', hours: '10 AM - 6 PM' },
+    //     { name: 'Charlie', hours: '8 AM - 4 PM' }
+    // ];
+
+    // Get the hours for each employee from local storage
+    // (In a real application, you would fetch this data from a server or database)
+    // Get the users from local storage
+    const employees = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Check if employees exist
+    if (employees.length === 0) {
+        console.warn('No employees found in local storage.');
+        return; // Exit if no employees are found
+    }
+
+
+    employees.forEach(employee => {
+        const div = document.createElement('div');
+        div.className = 'zam-day-work';
+        // Style the div
+        div.style.flex = '1'; // Make each div take equal space
+        div.style.flexDirection = 'column'; // Stack name and hours vertically
+        div.style.margin = '0.5em'; // Add some margin for spacing
+        // Append Zam day work to Zam day table
+        employeeHoursContainer.appendChild(div);
+        // Create nested div for employee name
+        const nameDiv = document.createElement('div');
+        nameDiv.className = 'zam-day-name';
+        // Exclude the managers
+        // Assuming employee object has a 'username' property
+        // If you want to exclude managers and skate guards, you can add a condition here
+        if (employee.accountType !== 'Zamboni%20Driver') {
+            return; // Skip this employee if they are a manager or skate guard
+        }
+        
+        // Decode the username
+        employee.username = decodeURIComponent(employee.username); // Decode the username if it is URL encoded
+        // Place the user name inside the nameDiv
+        nameDiv.textContent = employee.username; // Assuming employee object has a 'name' property
+        // Append the nameDiv to Zam day work
+        div.appendChild(nameDiv);
+        // Create nested div for employee hours
+        const hoursDiv = document.createElement('div');
+        hoursDiv.className = 'zam-day-time';
+        
+        // Add more detailed logging to see what's happening
+        console.log('Employee object:', employee);
+        console.log('Employee.hours:', employee.hours);
+        console.log('Type of employee.hours:', typeof employee.hours);
+
+        const userHours = employee.hours || [];
+        console.log('User Hours after fallback:', userHours);
+        
+        div.appendChild(hoursDiv);
+
+        console.log(`The Employees: ${employee.username} : ${employee.hours}`);
+    });
+}
+
+// Call the Above function
+createEmployeeHoursDivs();
