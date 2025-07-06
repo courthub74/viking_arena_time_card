@@ -752,6 +752,48 @@ function renderWeeklyCalendar(weekStart) {
         console.log(`Driver Four Selected: ${scheduleData.driver_four}`);
         console.log(`Skate Guard One Selected: ${scheduleData.skate_guard_one}`);
         console.log(`Skate Guard Two Selected: ${scheduleData.skate_guard_two}`);
+
+        // Store the schedule data in localStorage
+        let schedules = JSON.parse(localStorage.getItem('schedules')) || [];
+        // Add the new schedule data to the array
+        schedules.push(scheduleData);
+        // Save the updated schedules back to localStorage
+        localStorage.setItem('schedules', JSON.stringify(schedules));
+        // Test Print
+        console.log('Schedule data saved to localStorage:', scheduleData);
+        // Close the modal after submission
+        make_employee_schedule.classList.remove('modal_active');
+        // Remove No Scroll
+        if (document.body.classList.contains('no-scroll')) {
+          document.body.classList.remove('no-scroll');
+        }
+        // Reset the form fields
+        driver_one.value = '';
+        driver_two.value = '';
+        driver_three.value = '';
+        driver_four.value = '';
+        skate_guard_one.value = '';
+        skate_guard_two.value = '';
+        // Reset the time pickers
+        const timePickers = document.querySelectorAll('.time_picker_sched');
+        timePickers.forEach(picker => {
+          picker.selectedIndex = 0; // Reset to the first option (blank)
+        });
+        // Reset the selected button
+        const selectedButton = document.querySelector('.selected');
+        if (selectedButton) {
+          selectedButton.classList.remove('selected');
+        }
+        // Reset the current date field
+        const emp_hours_current_date = document.getElementById('day_selected');
+        if (emp_hours_current_date) {
+          emp_hours_current_date.innerHTML = ''; // Clear the date field
+        }
+        // Optionally, you can refresh the calendar to show the updated schedule
+        renderWeeklyCalendar(currentWeekStart);
+        updateWeekHeader(currentWeekStart);
+        // Show a success message or alert
+        alert('Schedule submitted successfully!');
       });
     });
     
