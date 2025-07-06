@@ -117,7 +117,7 @@ for 'Remember Me' functionality
 
 \*Change the sidebar link from 'Messaging' to 'Schedule Requests'
 
-\*Make the Weekly Schedule modal manager side function like the calendar employee side
+\*Weekly Cal page and scheduler modals will read from 'schedules'
 
 \*~Make the page body freeze and whiteout when modal clicked~
 
