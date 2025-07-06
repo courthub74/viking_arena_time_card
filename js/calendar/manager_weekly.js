@@ -685,6 +685,73 @@ function renderWeeklyCalendar(weekStart) {
         e.preventDefault();
         // Test Print
         console.log("Submit Hours Manager Modal Pressed");
+
+        // Query the Name and Time Fields
+        const driver_one = document.getElementById('driver-one-am');
+        const driver_two = document.getElementById('driver-two-am');
+        const driver_three = document.getElementById('driver-one-pm');
+        const driver_four = document.getElementById('driver-two-pm');
+        const skate_guard_one = document.getElementById('skate-guard-one');
+        const skate_guard_two = document.getElementById('skate-guard-two');
+        // retrieve the value selected
+
+        // Driver One
+        const driver_one_value = driver_one.value;
+        // Driver Two
+        const driver_two_value = driver_two.value;
+        // Driver Three
+        const driver_three_value = driver_three.value;
+        // Driver Four
+        const driver_four_value = driver_four.value;
+        // Skate Guard One
+        const skate_guard_one_value = skate_guard_one.value;
+        // Skate Guard Two
+        const skate_guard_two_value = skate_guard_two.value;
+
+        // store all of the values in an object
+        const scheduleData = {
+          date: dayDate.toISOString().split('T')[0], // Store the date in YYYY-MM-DD format
+          driver_one: driver_one_value,
+          driver_two: driver_two_value,
+          driver_three: driver_three_value,
+          driver_four: driver_four_value,
+          skate_guard_one: skate_guard_one_value,
+          skate_guard_two: skate_guard_two_value
+        };
+
+        // if there is no driver one selected, then return text saying Not needed
+        if (!driver_one_value) {
+          scheduleData.driver_one = 'Not Needed';
+        }
+        // if there is no driver two selected, then return text saying Not needed
+        if (!driver_two_value) {
+          scheduleData.driver_two = 'Not Needed';
+        }
+        // if there is no driver three selected, then return text saying Not needed
+        if (!driver_three_value) {
+          scheduleData.driver_three = 'Not Needed';
+        }
+        // if there is no driver four selected, then return text saying Not needed
+        if (!driver_four_value) {
+          scheduleData.driver_four = 'Not Needed';
+        }
+        // if there is no skate guard one selected, then return text saying Not needed
+        if (!skate_guard_one_value) {
+          scheduleData.skate_guard_one = 'Not Needed';
+        }
+        // if there is no skate guard two selected, then return text saying Not needed
+        if (!skate_guard_two_value) {
+          scheduleData.skate_guard_two = 'Not Needed';
+        }
+
+        // Test Print
+        // console.log(`Driver Info: ${scheduleData.driver_one}, ${scheduleData.driver_two}, ${scheduleData.driver_three}, ${scheduleData.driver_four}`);
+        console.log(`Driver One Selected: ${scheduleData.driver_one}`);
+        console.log(`Driver Two Selected: ${scheduleData.driver_two}`);
+        console.log(`Driver Three Selected: ${scheduleData.driver_three}`);
+        console.log(`Driver Four Selected: ${scheduleData.driver_four}`);
+        console.log(`Skate Guard One Selected: ${scheduleData.skate_guard_one}`);
+        console.log(`Skate Guard Two Selected: ${scheduleData.skate_guard_two}`);
       });
     });
     
@@ -736,6 +803,8 @@ document.addEventListener('DOMContentLoaded', function() {
   renderWeeklyCalendar(currentWeekStart);
   updateWeekHeader(currentWeekStart);
 });
+
+
 
 // Back to dashboard functionality
 const backToDashboardLink = document.getElementById('link_back');
