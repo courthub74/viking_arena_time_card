@@ -128,6 +128,13 @@ function renderWeeklyCalendar(weekStart) {
 
     // To each Day Button
     // Add click event listener
+    //////////////////////////////////////////////////
+    //////////////////////////////////////////////////
+    //////////////////////////////////////////////////
+    //////////////////////////////////////////////////
+    //////////////////////////////////////////////////
+    //////////////////////////////////////////////////
+
     dayButton.addEventListener('click', function(e) {
       e.stopPropagation();
       e.preventDefault();
@@ -150,7 +157,7 @@ function renderWeeklyCalendar(weekStart) {
       // Your existing modal logic here
       console.log(`Clicked on a day of the week`);
       
-      // Add your existing modal opening code here
+      // Add your existing OPEN MODAL code here
       // ... (your existing modal code from the original file)
       // Query the Modal
       const make_employee_schedule = document.getElementById('cal_modal');
@@ -187,6 +194,132 @@ function renderWeeklyCalendar(weekStart) {
 
       // Test Print 
       console.log(users_for_scheduling);
+
+      // Populate dropdowns and time pickers
+      populateDropdowns();
+      populateTimePickers();
+
+
+      // Set up the close button (do this once per modal open
+      const closeModalButton = document.getElementById('close_modal');
+      // Remove any existing event listeners to prevent duplicates
+      const newCloseModalButton = closeModalButton.cloneNode(true);
+      closeModalButton.parentNode.replaceChild(newCloseModalButton, closeModalButton);
+
+      // Add a click event listener to the close button
+      newCloseModalButton.addEventListener('click', function(e) {
+        // Prevent Default Form Submission
+        e.preventDefault();
+        // Remove the showing class
+        make_employee_schedule.classList.remove('modal_active');
+        // Remove No Scroll
+        if (document.body.classList.contains('no-scroll')) {
+          document.body.classList.remove('no-scroll');
+        }
+      });
+
+      // Test Print
+      console.log(`Modal opened for date: ${formattedDate}`);
+
+      // Add the event listener for the submit button
+      // Once the page is loaded, we can add the event listener
+      document.addEventListener('DOMContentLoaded', function() {
+        // Query the Submit Button
+        const submitScheduleButton = document.getElementById('submit_employee_hours_modal');
+        if (submitScheduleButton) {
+          // Add a click event listener to the submit button
+          submitScheduleButton.addEventListener('click', function(e) {
+            // Prevent Default Form Submission
+            e.preventDefault();
+            // Test Print
+            console.log("Submit Hours Manager Modal Pressed");
+
+            // Query the Name and Time Fields
+            const driver_one = document.getElementById('driver-one-am');
+            const driver_two = document.getElementById('driver-two-am');
+            const driver_three = document.getElementById('driver-one-pm');
+            const driver_four = document.getElementById('driver-two-pm');
+        });
+            const skate_guard_one = document.getElementById('skate-guard-one');
+            const skate_guard_two = document.getElementById('skate-guard-two');
+            // retrieve the value selected
+            // Driver One
+            const driver_one_value = driver_one.value;
+            // Driver Two
+            const driver_two_value = driver_two.value;
+            // Driver Three
+            const driver_three_value = driver_three.value;
+            // Driver Four
+            const driver_four_value = driver_four.value;
+            // Skate Guard One
+            const skate_guard_one_value = skate_guard_one.value;
+            // Skate Guard Two
+            const skate_guard_two_value = skate_guard_two.value;
+            // store all of the values in an object
+            const scheduleData = {
+              date: dayDate.toISOString().split('T')[0], // Store the date in YYYY-MM-DD format
+              driver_one: driver_one_value,
+              driver_two: driver_two_value,
+              driver_three: driver_three_value,
+              driver_four: driver_four_value,
+              skate_guard_one: skate_guard_one_value,
+              skate_guard_two: skate_guard_two_value
+            };
+            // if there is no driver one selected, then return text saying Not needed
+            if (!driver_one_value) {
+              scheduleData.driver_one = 'Not Needed';
+            }
+            // if there is no driver two selected, then return text saying Not needed
+            if (!driver_two_value) {
+              scheduleData.driver_two = 'Not Needed';
+            }
+            // if there is no driver three selected, then return text saying Not needed
+            if (!driver_three_value) {
+              scheduleData.driver_three = 'Not Needed';
+            }
+            // if there is no driver four selected, then return text saying Not needed
+            if (!driver_four_value) {
+              scheduleData.driver_four = 'Not Needed';
+            }
+            // if there is no skate guard one selected, then return text saying Not needed
+            if (!skate_guard_one_value) {
+              scheduleData.skate_guard_one = 'Not Needed';
+            }
+            // if there is no skate guard two selected, then return text saying Not needed
+            if (!skate_guard_two_value) {
+              scheduleData.skate_guard_two = 'Not Needed';
+            }
+            // Test Print
+            console.log(`Schedule Data:`, scheduleData);
+            // Save the schedule data to localStorage
+            // Get existing schedules from localStorage
+            const existingSchedules = JSON.parse(localStorage.getItem('schedules')) || [];
+            // Add the new schedule data to the existing schedules
+            existingSchedules.push(scheduleData);
+            // Save the updated schedules back to localStorage
+            localStorage.setItem('schedules', JSON.stringify(existingSchedules));
+            // Test Print
+            console.log(`Schedule for ${dayDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} has been saved!`);
+            // Close the modal after saving
+            make_employee_schedule.classList.remove('modal_active');
+            // Remove No Scroll
+            if (document.body.classList.contains('no-scroll')) {
+              document.body.classList.remove('no-scroll');
+            }
+            // Show a success message
+            alert(
+              `Driver One: ${scheduleData.driver_one}` +
+                `\nDriver Two: ${scheduleData.driver_two}` +
+                `\nDriver Three: ${scheduleData.driver_three}` +
+                `\nDriver Four: ${scheduleData.driver_four}` +
+                `\nSkate Guard One: ${scheduleData.skate_guard_one}` +
+                `\nSkate Guard Two: ${scheduleData.skate_guard_two}` +
+                `\nSchedule for ${selectedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} has been saved!`
+            );
+          });
+        });
+      });
+        
 
       /////////////////////////////////////////////////
       /////////////////////////////////////////////////
@@ -307,184 +440,184 @@ function renderWeeklyCalendar(weekStart) {
       skate_guard_two_dropdown.appendChild(blank_option_six);
 
 
-      //////////////////////////////////////////////////////////
-      //////////////////////////////////////////////////////////
-      //////////////////////////////////////////////////////////
-      // ZAM DRIVERS FUNCTION
-      users_for_scheduling.forEach(user => {
-        // Test print user - ADD THIS TO DEBUG
-        console.log(`User: ${user.username}, Account Type: "${user.accountType}"`);
+      // //////////////////////////////////////////////////////////
+      // //////////////////////////////////////////////////////////
+      // //////////////////////////////////////////////////////////
+      // // ZAM DRIVERS FUNCTION
+      // users_for_scheduling.forEach(user => {
+      //   // Test print user - ADD THIS TO DEBUG
+      //   console.log(`User: ${user.username}, Account Type: "${user.accountType}"`);
         
-        // Decode the account type to handle URL encoding
-        const decodedAccountType = decodeURIComponent(user.accountType);
+      //   // Decode the account type to handle URL encoding
+      //   const decodedAccountType = decodeURIComponent(user.accountType);
         
-        // More flexible comparison - handles both encoded and non-encoded versions
+      //   // More flexible comparison - handles both encoded and non-encoded versions
 
-        // For Zam Drivers
-        const isZamboniDriver = decodedAccountType.toLowerCase() === "zamboni driver" || 
-            user.accountType === "Zamboni%20Driver" ||
-            user.accountType === "Zamboni Driver";
+      //   // For Zam Drivers
+      //   const isZamboniDriver = decodedAccountType.toLowerCase() === "zamboni driver" || 
+      //       user.accountType === "Zamboni%20Driver" ||
+      //       user.accountType === "Zamboni Driver";
 
-          if (!isZamboniDriver) {
-            // Test Print
-            console.log(`(Manager Weekly)Skipping User: ${user.username} - Account Type: "${user.accountType}" (decoded: "${decodedAccountType}")`);
-            return;
-          }
-          ////////////////// ZAM DRIVER OPTION ELEMENTS/////////////////////////
+      //     if (!isZamboniDriver) {
+      //       // Test Print
+      //       console.log(`(Manager Weekly)Skipping User: ${user.username} - Account Type: "${user.accountType}" (decoded: "${decodedAccountType}")`);
+      //       return;
+      //     }
+      //     ////////////////// ZAM DRIVER OPTION ELEMENTS/////////////////////////
         
-          ///////////OPTION ELEMENT FOR DRIVER ONE///////////////
+      //     ///////////OPTION ELEMENT FOR DRIVER ONE///////////////
 
-          // Create the Driver Option element
-          const zamDriverOption = document.createElement('option');
+      //     // Create the Driver Option element
+      //     const zamDriverOption = document.createElement('option');
 
-          // Store the Zam Drivers name in a variable and decode it
-          const zamDriver = decodeURIComponent(user.username);
-          // Set the value and text content
-          zamDriverOption.value = zamDriver;
-          // Set the Text content of the option
-          zamDriverOption.textContent = zamDriver; // ADD THIS LINE - you were missing textContent!
+      //     // Store the Zam Drivers name in a variable and decode it
+      //     const zamDriver = decodeURIComponent(user.username);
+      //     // Set the value and text content
+      //     zamDriverOption.value = zamDriver;
+      //     // Set the Text content of the option
+      //     zamDriverOption.textContent = zamDriver; // ADD THIS LINE - you were missing textContent!
           
-          // Test Print
-          console.log(`Zam Driver Listed: ${zamDriver}`);
+      //     // Test Print
+      //     console.log(`Zam Driver Listed: ${zamDriver}`);
           
-          // Style the Option
-          // zamDriverOption.style.backgroundColor = 'var(--input-background)';
-          // zamDriverOption.style.color = 'var(--text-color)';
-          // zamDriverOption.style.fontSize = 'small';
-          zamDriverOption.classList.add('driver-option');
+      //     // Style the Option
+      //     // zamDriverOption.style.backgroundColor = 'var(--input-background)';
+      //     // zamDriverOption.style.color = 'var(--text-color)';
+      //     // zamDriverOption.style.fontSize = 'small';
+      //     zamDriverOption.classList.add('driver-option');
 
-          // Append to dropdown
-          driver_one_am_dropdown.appendChild(zamDriverOption);
+      //     // Append to dropdown
+      //     driver_one_am_dropdown.appendChild(zamDriverOption);
 
-          ///////////OPTION ELEMENT FOR DRIVER TWO////////////////////
-          const zamDriverTwoOption = document.createElement('option');
+      //     ///////////OPTION ELEMENT FOR DRIVER TWO////////////////////
+      //     const zamDriverTwoOption = document.createElement('option');
 
-          // Store the Zam Drivers name in a variable and decode it
-          const zamDriverTwo = decodeURIComponent(user.username);
+      //     // Store the Zam Drivers name in a variable and decode it
+      //     const zamDriverTwo = decodeURIComponent(user.username);
 
-          // Set the value and text content
-          zamDriverTwoOption.value = zamDriverTwo;
+      //     // Set the value and text content
+      //     zamDriverTwoOption.value = zamDriverTwo;
 
-          // Set the Text content of the option
-          zamDriverTwoOption.textContent = zamDriverTwo;
+      //     // Set the Text content of the option
+      //     zamDriverTwoOption.textContent = zamDriverTwo;
 
-          // Test Print
-          console.log(`Zam Driver Listed for 2nd Drop: ${zamDriverTwo}`);
+      //     // Test Print
+      //     console.log(`Zam Driver Listed for 2nd Drop: ${zamDriverTwo}`);
 
-          //Style the option 
-          zamDriverTwoOption.classList.add('driver-option');
+      //     //Style the option 
+      //     zamDriverTwoOption.classList.add('driver-option');
 
-          // Append to dropdown
-          driver_two_am_dropdown.appendChild(zamDriverTwoOption);
+      //     // Append to dropdown
+      //     driver_two_am_dropdown.appendChild(zamDriverTwoOption);
 
-          ////////////////OPTION ELEMENT FOR DRIVER THREE////////////////
-          const zamDriverThreeOption = document.createElement('option');
+      //     ////////////////OPTION ELEMENT FOR DRIVER THREE////////////////
+      //     const zamDriverThreeOption = document.createElement('option');
 
-          // Store the Zam Drivers name in a variable and decode it
-          const zamDriverThree = decodeURIComponent(user.username);
+      //     // Store the Zam Drivers name in a variable and decode it
+      //     const zamDriverThree = decodeURIComponent(user.username);
 
-          // Set the value and text content
-          zamDriverThreeOption.value = zamDriverThree;
+      //     // Set the value and text content
+      //     zamDriverThreeOption.value = zamDriverThree;
 
-          // Set the Text content to the value
-          zamDriverThreeOption.textContent = zamDriverThree;
+      //     // Set the Text content to the value
+      //     zamDriverThreeOption.textContent = zamDriverThree;
 
-          // Test Print
-          console.log(`Zam Driver 3 Listed: ${zamDriverThree}`);
+      //     // Test Print
+      //     console.log(`Zam Driver 3 Listed: ${zamDriverThree}`);
 
-          // Style the Option
-          zamDriverThreeOption.classList.add('driver-option');
-          // Append to dropdown
-          driver_three_am_dropdown.appendChild(zamDriverThreeOption);
+      //     // Style the Option
+      //     zamDriverThreeOption.classList.add('driver-option');
+      //     // Append to dropdown
+      //     driver_three_am_dropdown.appendChild(zamDriverThreeOption);
 
 
-          ////////////////OPTION ELEMENT FOR DRIVER FOUR////////////////
-          const zamDriverFourOption = document.createElement('option');
+      //     ////////////////OPTION ELEMENT FOR DRIVER FOUR////////////////
+      //     const zamDriverFourOption = document.createElement('option');
 
-          // Store the Zam Drivers name in a variable and decode it
-          const zamDriverFour = decodeURIComponent(user.username);
+      //     // Store the Zam Drivers name in a variable and decode it
+      //     const zamDriverFour = decodeURIComponent(user.username);
 
-          // Set the value and text content
-          zamDriverFourOption.value = zamDriverFour;
+      //     // Set the value and text content
+      //     zamDriverFourOption.value = zamDriverFour;
 
-          // Set the Text content to the value
-          zamDriverFourOption.textContent = zamDriverFour;
+      //     // Set the Text content to the value
+      //     zamDriverFourOption.textContent = zamDriverFour;
 
-          // Test Print
-          console.log(`Zam Driver 4 Listed: ${zamDriverFour}`);
+      //     // Test Print
+      //     console.log(`Zam Driver 4 Listed: ${zamDriverFour}`);
 
-          // Style the Option
-          zamDriverFourOption.classList.add('driver-option');
-          // Append to dropdown
-          driver_four_am_dropdown.appendChild(zamDriverFourOption);
-        });
+      //     // Style the Option
+      //     zamDriverFourOption.classList.add('driver-option');
+      //     // Append to dropdown
+      //     driver_four_am_dropdown.appendChild(zamDriverFourOption);
+      //   });
 
         // For Each function for the Skate Guards
         ///////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////
         // SKATE GUARDS FUNCTION
-        users_for_scheduling.forEach(skate_guard => {
-           // Test print user - ADD THIS TO DEBUG
-          console.log(`Skate Guard: ${skate_guard.username}, Account Type: "${skate_guard.accountType}"`);
+        // users_for_scheduling.forEach(skate_guard => {
+        //    // Test print user - ADD THIS TO DEBUG
+        //   console.log(`Skate Guard: ${skate_guard.username}, Account Type: "${skate_guard.accountType}"`);
           
-          // Decode the account type to handle URL encoding
-          const decodedAccountType = decodeURIComponent(skate_guard.accountType);
-            // Get only the skate guards
-            const isSkateGuard = decodedAccountType.toLowerCase() === "skate guard" ||
-              skate_guard.accountType === "Skate%20Guard" ||
-              skate_guard.accountType === "Skate Guard";
+        //   // Decode the account type to handle URL encoding
+        //   const decodedAccountType = decodeURIComponent(skate_guard.accountType);
+        //     // Get only the skate guards
+        //     const isSkateGuard = decodedAccountType.toLowerCase() === "skate guard" ||
+        //       skate_guard.accountType === "Skate%20Guard" ||
+        //       skate_guard.accountType === "Skate Guard";
 
-              // Filter out only the skate guards
-              if (!isSkateGuard) {
-                // Test Print
-                console.log(`(Manager Weekly)Skipping User: ${skate_guard.username} - Account Type: ${skate_guard.accountType}`);
-                return;
-              }
+        //       // Filter out only the skate guards
+        //       if (!isSkateGuard) {
+        //         // Test Print
+        //         console.log(`(Manager Weekly)Skipping User: ${skate_guard.username} - Account Type: ${skate_guard.accountType}`);
+        //         return;
+        //       }
 
-              /////////////////// SKATE GUARD OPTION ELEMENTS //////////////////////
+        //       /////////////////// SKATE GUARD OPTION ELEMENTS //////////////////////
 
-              /////////////////////Skate Guard Option One//////////////////////////
-              const skateGuardOptionOne = document.createElement('option');
+        //       /////////////////////Skate Guard Option One//////////////////////////
+        //       const skateGuardOptionOne = document.createElement('option');
 
-              // Store the Skate Guard name in a variable and decode it
-              const skateGuardOne = decodeURIComponent(skate_guard.username);
+        //       // Store the Skate Guard name in a variable and decode it
+        //       const skateGuardOne = decodeURIComponent(skate_guard.username);
 
-              // Set the value and text content
-              skateGuardOptionOne.value = skateGuardOne;
+        //       // Set the value and text content
+        //       skateGuardOptionOne.value = skateGuardOne;
 
-              // Set the Text content of the option
-              skateGuardOptionOne.textContent = skateGuardOne;
+        //       // Set the Text content of the option
+        //       skateGuardOptionOne.textContent = skateGuardOne;
 
-              // Test Print
-              console.log(`Skate Guard Listed: ${skateGuardOne}`);
+        //       // Test Print
+        //       console.log(`Skate Guard Listed: ${skateGuardOne}`);
 
-              // Style the Option
-              skateGuardOptionOne.classList.add('driver-option');
+        //       // Style the Option
+        //       skateGuardOptionOne.classList.add('driver-option');
 
-              // Append option to dropdown
-              skate_guard_one_dropdown.appendChild(skateGuardOptionOne);
+        //       // Append option to dropdown
+        //       skate_guard_one_dropdown.appendChild(skateGuardOptionOne);
 
-              //////////////////////Skate Guard Option Two//////////////////////////
-              const skateGuardOptionTwo = document.createElement('option');
+        //       //////////////////////Skate Guard Option Two//////////////////////////
+        //       const skateGuardOptionTwo = document.createElement('option');
 
-              // Store the Skate Guard name in a variable and decode it
-              const skateGuardTwo = decodeURIComponent(skate_guard.username);
+        //       // Store the Skate Guard name in a variable and decode it
+        //       const skateGuardTwo = decodeURIComponent(skate_guard.username);
 
-              // Set the value of the option
-              skateGuardOptionTwo.value = skateGuardTwo;
+        //       // Set the value of the option
+        //       skateGuardOptionTwo.value = skateGuardTwo;
 
-              // Set the Text content of the option
-              skateGuardOptionTwo.text = skateGuardTwo;
+        //       // Set the Text content of the option
+        //       skateGuardOptionTwo.text = skateGuardTwo;
 
-              // Test Print
-              console.log(`Skate Guard Listed: ${skateGuardTwo}`);
+        //       // Test Print
+        //       console.log(`Skate Guard Listed: ${skateGuardTwo}`);
 
-              // Style the Option
-              skateGuardOptionTwo.classList.add('driver-option');
+        //       // Style the Option
+        //       skateGuardOptionTwo.classList.add('driver-option');
 
-              // Append option to dropdown
-              skate_guard_two_dropdown.appendChild(skateGuardOptionTwo);
-        });
+        //       // Append option to dropdown
+        //       skate_guard_two_dropdown.appendChild(skateGuardOptionTwo);
+        // });
 
         // FOR TIME PICKERS 
 
@@ -561,20 +694,6 @@ function renderWeeklyCalendar(weekStart) {
                   addTimeOption(select, hour, minute);
                 }
               }
-
-              // // Generate the times from 5:00 AM to 11:45 PM
-              // for (let hour = 5; hour <= 23; hour++) {
-              //   for (let minute = 0; minute < 60; minute += 15) {
-              //     addTimeOption(select, hour, minute);
-              //   }
-              // }
-
-              // // Generate times from 12:00 AM to 3:45 AM next day
-              // for (let hour = 0; hour <= 3; hour++) {
-              //   for (let minute = 0; minute < 60; minute += 15) {
-              //     addTimeOption(select, hour, minute);
-              //   }
-              // }
             }
           });
        }
@@ -818,8 +937,6 @@ function renderWeeklyCalendar(weekStart) {
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
   });
     
     // Assemble button content
