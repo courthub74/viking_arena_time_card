@@ -80,6 +80,20 @@ function setupSubmitButtonListener() {
     const skate_guard_one = document.getElementById('skate-guard-one');
     const skate_guard_two = document.getElementById('skate-guard-two');
 
+    // Need to get the values of the time pickers
+    const zam_in_one = document.getElementById('zam-in-one');
+    const zam_out_one = document.getElementById('zam-out-one'); 
+    const zam_in_two = document.getElementById('zam-in-two');
+    const zam_out_two = document.getElementById('zam-out-two'); 
+    const zam_in_three = document.getElementById('zam-in-three');
+    const zam_out_three = document.getElementById('zam-out-three'); 
+    const zam_in_four = document.getElementById('zam-in-four');
+    const zam_out_four = document.getElementById('zam-out-four');
+    const skate_guard_in_one = document.getElementById('skate-guard-in-one');
+    const skate_guard_out_one = document.getElementById('skate-guard-out-one');
+    const skate_guard_in_two = document.getElementById('skate-guard-in-two');
+    const skate_guard_out_two = document.getElementById('skate-guard-out-two');
+
     // Get values
     const scheduleData = {
       date: selectedDate,
@@ -88,7 +102,19 @@ function setupSubmitButtonListener() {
       driver_three: driver_three.value || 'Not Needed',
       driver_four: driver_four.value || 'Not Needed',
       skate_guard_one: skate_guard_one.value || 'Not Needed',
-      skate_guard_two: skate_guard_two.value || 'Not Needed'
+      skate_guard_two: skate_guard_two.value || 'Not Needed',
+      zam_in_one: zam_in_one.value || '',
+      zam_out_one: zam_out_one.value || '',
+      zam_in_two: zam_in_two.value || '',
+      zam_out_two: zam_out_two.value || '',
+      zam_in_three: zam_in_three.value || '',
+      zam_out_three: zam_out_three.value || '',
+      zam_in_four: zam_in_four.value || '',
+      zam_out_four: zam_out_four.value || '',
+      skate_guard_in_one: skate_guard_in_one.value || '',
+      skate_guard_out_one: skate_guard_out_one.value || '',
+      skate_guard_in_two: skate_guard_in_two.value || '',
+      skate_guard_out_two: skate_guard_out_two.value || ''
     };
 
     console.log('Schedule Data:', scheduleData);
@@ -116,7 +142,15 @@ function setupSubmitButtonListener() {
 
     // Show success message
     const selectedDateObj = new Date(selectedDate);
-    alert(`Schedule for ${selectedDateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} has been saved!`);
+    alert(`
+      Driver 1: ${scheduleData.driver_one} ${scheduleData.zam_in_one ? `(${scheduleData.zam_in_one} - ${scheduleData.zam_out_one})` : '' }
+      Driver 2: ${scheduleData.driver_two} ${scheduleData.zam_in_two ? `(${scheduleData.zam_in_two} - ${scheduleData.zam_out_two})` : '' }
+      Driver 3: ${scheduleData.driver_three} ${scheduleData.zam_in_three ? `(${scheduleData.zam_in_three} - ${scheduleData.zam_out_three})` : '' }
+      Driver 4: ${scheduleData.driver_four} ${scheduleData.zam_in_four ? `(${scheduleData.zam_in_four} - ${scheduleData.zam_out_four})` : '' }
+      Skate Guard 1: ${scheduleData.skate_guard_one} ${scheduleData.skate_guard_in_one ? `(${scheduleData.skate_guard_in_one} - ${scheduleData.skate_guard_out_one})` : '' }
+      Skate Guard 2: ${scheduleData.skate_guard_two} ${scheduleData.skate_guard_in_two ? `(${scheduleData.skate_guard_in_two} - ${scheduleData.skate_guard_out_two})` : '' }
+      Schedule for ${selectedDateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} has been saved!`
+    );
   });
 
   submitListenerAdded = true;
