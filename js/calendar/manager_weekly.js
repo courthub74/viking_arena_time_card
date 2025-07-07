@@ -126,6 +126,165 @@ function renderWeeklyCalendar(weekStart) {
     // Test print
     console.log(page_body);
 
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+    // Move the submit listener flag outside the event listener
+    let submitListenerAdded = false;
+    ////////////////////////////////////////////////////////////////////
+    function setupSubmitButtonListener() {
+      // Query the Submit Button
+      const submitScheduleButton = document.getElementById('submit_employee_hours_modal');
+      // Check if the submit button exists
+      if (submitScheduleButton) {
+        // If the listener is not already added, add it
+        if (!submitListenerAdded) {
+          // ADD a CLICK EVENT LISTENER TO THE SUBMIT BUTTON
+          submitScheduleButton.addEventListener('click', function(e) {
+            // Prevent Default Form Submission
+            e.preventDefault();
+            // Test Print
+            console.log("Submit Hours Manager Modal Pressed");
+
+            // Query the Name and Time Fields
+            const driver_one = document.getElementById('driver-one-am');
+            const driver_two = document.getElementById('driver-two-am');
+            const driver_three = document.getElementById('driver-one-pm');
+            const driver_four = document.getElementById('driver-two-pm');
+            const skate_guard_one = document.getElementById('skate-guard-one');
+            const skate_guard_two = document.getElementById('skate-guard-two');
+            // retrieve the value selected
+
+            // Driver One
+            const driver_one_value = driver_one.value;
+            // Driver Two
+            const driver_two_value = driver_two.value;
+            // Driver Three
+            const driver_three_value = driver_three.value;
+            // Driver Four
+            const driver_four_value = driver_four.value;
+            // Skate Guard One
+            const skate_guard_one_value = skate_guard_one.value;
+            // Skate Guard Two
+            const skate_guard_two_value = skate_guard_two.value;
+
+            // store all of the values in an object
+            const scheduleData = {
+              date: dayDate.toISOString().split('T')[0], // Store the date in YYYY-MM-DD format
+              driver_one: driver_one_value,
+              driver_two: driver_two_value,
+              driver_three: driver_three_value,
+              driver_four: driver_four_value,
+              skate_guard_one: skate_guard_one_value,
+              skate_guard_two: skate_guard_two_value
+            };
+
+            // if there is no driver one selected, then return text saying Not needed
+            if (!driver_one_value) {
+              scheduleData.driver_one = 'Not Needed';
+            }
+            // if there is no driver two selected, then return text saying Not needed
+            if (!driver_two_value) {
+              scheduleData.driver_two = 'Not Needed';
+            }
+            // if there is no driver three selected, then return text saying Not needed
+            if (!driver_three_value) {
+              scheduleData.driver_three = 'Not Needed';
+            }
+            // if there is no driver four selected, then return text saying Not needed
+            if (!driver_four_value) {
+              scheduleData.driver_four = 'Not Needed';
+            }
+            // if there is no skate guard one selected, then return text saying Not needed
+            if (!skate_guard_one_value) {
+              scheduleData.skate_guard_one = 'Not Needed';
+            }
+            // if there is no skate guard two selected, then return text saying Not needed
+            if (!skate_guard_two_value) {
+              scheduleData.skate_guard_two = 'Not Needed';
+            }
+
+            // Test Print
+            // console.log(`Driver Info: ${scheduleData.driver_one}, ${scheduleData.driver_two}, ${scheduleData.driver_three}, ${scheduleData.driver_four}`);
+            console.log(`Driver One Selected: ${scheduleData.driver_one}`);
+            console.log(`Driver Two Selected: ${scheduleData.driver_two}`);
+            console.log(`Driver Three Selected: ${scheduleData.driver_three}`);
+            console.log(`Driver Four Selected: ${scheduleData.driver_four}`);
+            console.log(`Skate Guard One Selected: ${scheduleData.skate_guard_one}`);
+            console.log(`Skate Guard Two Selected: ${scheduleData.skate_guard_two}`);
+
+            // Store the schedule data in localStorage
+            let schedules = JSON.parse(localStorage.getItem('schedules')) || [];
+            // Add the new schedule data to the array
+            schedules.push(scheduleData);
+            // Save the updated schedules back to localStorage
+            localStorage.setItem('schedules', JSON.stringify(schedules));
+            // Test Print
+            console.log('Schedule data saved to localStorage:', scheduleData);
+            // Close the modal after submission
+            make_employee_schedule.classList.remove('modal_active');
+            // Remove No Scroll
+            if (document.body.classList.contains('no-scroll')) {
+              document.body.classList.remove('no-scroll');
+            }
+            // Reset the form fields
+            driver_one.value = '';
+            driver_two.value = '';
+            driver_three.value = '';
+            driver_four.value = '';
+            skate_guard_one.value = '';
+            skate_guard_two.value = '';
+            // Reset the time pickers
+            const timePickers = document.querySelectorAll('.time_picker_sched');
+            timePickers.forEach(picker => {
+              picker.selectedIndex = 0; // Reset to the first option (blank)
+            });
+            // Reset the selected button
+            const selectedButton = document.querySelector('.selected');
+            if (selectedButton) {
+              selectedButton.classList.remove('selected');
+            }
+            // Reset the current date field
+            const emp_hours_current_date = document.getElementById('day_selected');
+            if (emp_hours_current_date) {
+              emp_hours_current_date.innerHTML = ''; // Clear the date field
+            }
+            // Optionally, you can refresh the calendar to show the updated schedule
+            renderWeeklyCalendar(currentWeekStart);
+            updateWeekHeader(currentWeekStart);
+            // Show a success message or alert
+            alert(
+              `Driver One: ${scheduleData.driver_one}` +
+              `\nDriver Two: ${scheduleData.driver_two}` +
+              `\nDriver Three: ${scheduleData.driver_three}` +
+              `\nDriver Four: ${scheduleData.driver_four}` +
+              `\nSkate Guard One: ${scheduleData.skate_guard_one}` +
+              `\nSkate Guard Two: ${scheduleData.skate_guard_two}` +
+              `\n\nSchedule for ${dayDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} has been saved!`
+            );
+          });
+          // Set the flag to true to indicate the listener has been added
+          submitListenerAdded = true;
+      }
+    }
+    // Call this function once when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      setupSubmitButtonListener();
+      renderWeeklyCalendar(currentWeekStart);
+      updateWeekHeader(currentWeekStart);
+    });
+  };
+    
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+
     // To each Day Button
     // Add click event listener
     dayButton.addEventListener('click', function(e) {
@@ -675,143 +834,8 @@ function renderWeeklyCalendar(weekStart) {
     // Initially disable the submit button
     submitScheduleButton.disabled = true;
 
-  // ...existing code...
-
-    // Enable the Submit Button if both of the above are executed
-
-    // Set Submit Button to false by default
-    let submitListernerAdded = false;
-    // Check if the submit button is already enabled
-    if (submitScheduleButton && !submitListernerAdded) {
-       ////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////
-    // ADD a CLICK EVENT LISTENER TO THE SUBMIT BUTTON
-    submitScheduleButton.addEventListener('click', function(e) {
-      // Prevent Default Form Submission
-      e.preventDefault();
-      // Test Print
-      console.log("Submit Hours Manager Modal Pressed");
-
-      // Query the Name and Time Fields
-      const driver_one = document.getElementById('driver-one-am');
-      const driver_two = document.getElementById('driver-two-am');
-      const driver_three = document.getElementById('driver-one-pm');
-      const driver_four = document.getElementById('driver-two-pm');
-      const skate_guard_one = document.getElementById('skate-guard-one');
-      const skate_guard_two = document.getElementById('skate-guard-two');
-      // retrieve the value selected
-
-      // Driver One
-      const driver_one_value = driver_one.value;
-      // Driver Two
-      const driver_two_value = driver_two.value;
-      // Driver Three
-      const driver_three_value = driver_three.value;
-      // Driver Four
-      const driver_four_value = driver_four.value;
-      // Skate Guard One
-      const skate_guard_one_value = skate_guard_one.value;
-      // Skate Guard Two
-      const skate_guard_two_value = skate_guard_two.value;
-
-      // store all of the values in an object
-      const scheduleData = {
-        date: dayDate.toISOString().split('T')[0], // Store the date in YYYY-MM-DD format
-        driver_one: driver_one_value,
-        driver_two: driver_two_value,
-        driver_three: driver_three_value,
-        driver_four: driver_four_value,
-        skate_guard_one: skate_guard_one_value,
-        skate_guard_two: skate_guard_two_value
-      };
-
-      // if there is no driver one selected, then return text saying Not needed
-      if (!driver_one_value) {
-        scheduleData.driver_one = 'Not Needed';
-      }
-      // if there is no driver two selected, then return text saying Not needed
-      if (!driver_two_value) {
-        scheduleData.driver_two = 'Not Needed';
-      }
-      // if there is no driver three selected, then return text saying Not needed
-      if (!driver_three_value) {
-        scheduleData.driver_three = 'Not Needed';
-      }
-      // if there is no driver four selected, then return text saying Not needed
-      if (!driver_four_value) {
-        scheduleData.driver_four = 'Not Needed';
-      }
-      // if there is no skate guard one selected, then return text saying Not needed
-      if (!skate_guard_one_value) {
-        scheduleData.skate_guard_one = 'Not Needed';
-      }
-      // if there is no skate guard two selected, then return text saying Not needed
-      if (!skate_guard_two_value) {
-        scheduleData.skate_guard_two = 'Not Needed';
-      }
-
-      // Test Print
-      // console.log(`Driver Info: ${scheduleData.driver_one}, ${scheduleData.driver_two}, ${scheduleData.driver_three}, ${scheduleData.driver_four}`);
-      console.log(`Driver One Selected: ${scheduleData.driver_one}`);
-      console.log(`Driver Two Selected: ${scheduleData.driver_two}`);
-      console.log(`Driver Three Selected: ${scheduleData.driver_three}`);
-      console.log(`Driver Four Selected: ${scheduleData.driver_four}`);
-      console.log(`Skate Guard One Selected: ${scheduleData.skate_guard_one}`);
-      console.log(`Skate Guard Two Selected: ${scheduleData.skate_guard_two}`);
-
-      // Store the schedule data in localStorage
-      let schedules = JSON.parse(localStorage.getItem('schedules')) || [];
-      // Add the new schedule data to the array
-      schedules.push(scheduleData);
-      // Save the updated schedules back to localStorage
-      localStorage.setItem('schedules', JSON.stringify(schedules));
-      // Test Print
-      console.log('Schedule data saved to localStorage:', scheduleData);
-      // Close the modal after submission
-      make_employee_schedule.classList.remove('modal_active');
-      // Remove No Scroll
-      if (document.body.classList.contains('no-scroll')) {
-        document.body.classList.remove('no-scroll');
-      }
-      // Reset the form fields
-      driver_one.value = '';
-      driver_two.value = '';
-      driver_three.value = '';
-      driver_four.value = '';
-      skate_guard_one.value = '';
-      skate_guard_two.value = '';
-      // Reset the time pickers
-      const timePickers = document.querySelectorAll('.time_picker_sched');
-      timePickers.forEach(picker => {
-        picker.selectedIndex = 0; // Reset to the first option (blank)
-      });
-      // Reset the selected button
-      const selectedButton = document.querySelector('.selected');
-      if (selectedButton) {
-        selectedButton.classList.remove('selected');
-      }
-      // Reset the current date field
-      const emp_hours_current_date = document.getElementById('day_selected');
-      if (emp_hours_current_date) {
-        emp_hours_current_date.innerHTML = ''; // Clear the date field
-      }
-      // Optionally, you can refresh the calendar to show the updated schedule
-      renderWeeklyCalendar(currentWeekStart);
-      updateWeekHeader(currentWeekStart);
-      // Show a success message or alert
-      alert(
-        `Driver One: ${scheduleData.driver_one}` +
-        `\nDriver Two: ${scheduleData.driver_two}` +
-        `\nDriver Three: ${scheduleData.driver_three}` +
-        `\nDriver Four: ${scheduleData.driver_four}` +
-        `\nSkate Guard One: ${scheduleData.skate_guard_one}` +
-        `\nSkate Guard Two: ${scheduleData.skate_guard_two}` +
-        `\n\nSchedule for ${dayDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} has been saved!`
-      );
-    });
-    submitListernerAdded = true; // Set the flag to true after adding the listener
-  };
+  
+  
     
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
