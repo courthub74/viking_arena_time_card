@@ -118,7 +118,6 @@ document.addEventListener('keydown', function(event) {
 // }
 
 // Create div elements for each employee's hours based on the day selection
-// Create div elements for each employee's hours based on the day selection
 function createEmployeeHoursDivs() {
     const employeeHoursContainer = document.getElementById('zam-day-table');
     employeeHoursContainer.innerHTML = ''; // Clear previous content
@@ -210,15 +209,13 @@ function createEmployeeHoursDivs() {
 function createRoleContainer(title, parentContainer) {
     const roleContainer = document.createElement('div');
     roleContainer.className = 'role-container';
-    roleContainer.style.display = 'flex';
-    roleContainer.style.flexDirection = 'column';
     roleContainer.style.marginBottom = '20px';
     
     const roleHeader = document.createElement('h3');
     roleHeader.textContent = title;
     roleHeader.style.marginBottom = '10px';
     roleHeader.style.color = '#333';
-    // roleHeader.style.borderBottom = '2px solid #ddd';
+    roleHeader.style.borderBottom = '2px solid #ddd';
     roleHeader.style.paddingBottom = '5px';
     
     roleContainer.appendChild(roleHeader);
@@ -227,19 +224,45 @@ function createRoleContainer(title, parentContainer) {
     return roleContainer;
 }
 
+// Helper function to format name as first initial + last name
+function formatName(fullName) {
+    if (!fullName || typeof fullName !== 'string') {
+        return 'N/A';
+    }
+    
+    const nameParts = fullName.trim().split(' ');
+    if (nameParts.length < 2) {
+        return fullName; // Return as-is if no space found
+    }
+    
+    const firstName = nameParts[0];
+    const lastName = nameParts[nameParts.length - 1]; // Get last part in case of middle names
+    
+    return `${firstName.charAt(0).toUpperCase()}. ${lastName}`;
+}
+
 // Helper function to create individual employee divs
 function createEmployeeDiv(employee, role, container) {
     const employeeDiv = document.createElement('div');
     employeeDiv.className = 'employee-hours';
-    employeeDiv.style.display = 'flex';
-    employeeDiv.style.justifyContent = 'space-between';
     
     // Handle different possible time field names
     const timeIn = employee.zam_in || employee.start_time || employee.in || 'N/A';
     const timeOut = employee.zam_out || employee.end_time || employee.out || 'N/A';
     
+    // Format the name as first initial + last name
+    const formattedName = formatName(employee.name);
+    
+    // Check if any field displays "not needed" and hide the entire div if so
+    if (formattedName.toLowerCase().includes('n. needed') || 
+        timeIn.toLowerCase().includes('N/A') || 
+        timeOut.toLowerCase().includes('N/A')) {
+        employeeDiv.style.display = 'none';
+        return;
+    }
+    
     employeeDiv.innerHTML = `
-        <p class="zam-day-name">${employee.name}</p>
+        <p class="zam-day-name">${formattedName}</p>
         <p class="zam-day-time">${timeIn} - ${timeOut}</p>
         <button class="edit-button">Edit</button>
     `;
