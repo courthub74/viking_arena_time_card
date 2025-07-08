@@ -1,7 +1,6 @@
 // Test Print
 console.log("Week Schedule JS Loaded");
 
-
 // Current date tracker
 let currentDate = new Date();
 let currentYear = currentDate.getFullYear();
@@ -37,6 +36,9 @@ function updateDayDisplay() {
     } else {
         dayElement.textContent = formatDate(currentDate);
     }
+    
+    // Update employee hours display when date changes
+    createEmployeeHoursDivs();
 }
 
 // Function to go to previous day
@@ -65,61 +67,14 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// // Create div elements for each employee's hours based on the day selection
-// function createEmployeeHoursDivs() {
-//     const employeeHoursContainer = document.getElementById('zam-day-table');
-//     employeeHoursContainer.innerHTML = ''; // Clear previous content
-//     // Style the container
-//     employeeHoursContainer.style.display = 'flex';
-//     employeeHoursContainer.style.flexDirection = 'column'; // Allow wrapping of employee divs
-  
-
-//     // Retrieve schedules data from local storage
-//     const schedules = JSON.parse(localStorage.getItem('schedules')) || [];
-//     // Check if schedules exist
-//     if (schedules.length === 0) {
-//         console.warn('No schedules found in local storage.');
-//         return; // Exit if no schedules are found
-//     }
-//     // Filter scedules from updateDayDisplay function
-//     // Assuming currentDate is set to the date you want to filter schedules for
-//     // Test Print
-//     console.log(`Filtering schedules for date: ${currentDate.toDateString()}`);
-//     console.log('Current Date:', currentDate);
-//     console.log('Schedules from local storage:', schedules);
-
-// //    Fill in JS with date selected from the day selected button
-//     const selectedDate = currentDate.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
-//     console.log('Selected Date:', selectedDate);
-
-//     // Filter schedules for the selected date
-//     const filteredSchedules = schedules.filter(schedule => {
-//         return schedule.date === selectedDate;
-//     });
-
-//     // Check if any schedules match the selected date
-//     if (filteredSchedules.length === 0) {
-//         console.warn(`No schedules found for date: ${selectedDate}`);
-//         return; // Exit if no schedules match the selected date
-//     }
-
-//     // Create divs for each employee's hours
-//     // CONTINUE HERE
-//     filteredSchedules.forEach(schedule => {
-//         const employeeDiv = document.createElement('div');
-//         employeeDiv.className = 'employee-hours';
-//         employeeDiv.innerHTML = `
-//             <p class="zam-day-name">${schedule.drivers.name}</p>
-//             <p class="zam-day-time">${schedule.drivers.zam_in} - ${schedule.drivers.zam_out}</p>
-//             <button class="edit-button">Edit</button>
-//         `;
-//         employeeHoursContainer.appendChild(employeeDiv);
-//     });
-// }
-
 // Create div elements for each employee's hours based on the day selection
 function createEmployeeHoursDivs() {
     const employeeHoursContainer = document.getElementById('zam-day-table');
+    if (!employeeHoursContainer) {
+        console.warn('Element with id "zam-day-table" not found.');
+        return;
+    }
+    
     employeeHoursContainer.innerHTML = ''; // Clear previous content
     // Style the container
     employeeHoursContainer.style.display = 'flex';
@@ -130,7 +85,11 @@ function createEmployeeHoursDivs() {
     // Check if schedules exist
     if (schedules.length === 0) {
         console.warn('No schedules found in local storage.');
-        return; // Exit if no schedules are found
+        // Show a message to the user
+        const noScheduleDiv = document.createElement('div');
+        noScheduleDiv.innerHTML = '<p>No schedules available for this date.</p>';
+        employeeHoursContainer.appendChild(noScheduleDiv);
+        return;
     }
 
     // Filter schedules from updateDayDisplay function
@@ -150,7 +109,11 @@ function createEmployeeHoursDivs() {
     // Check if any schedules match the selected date
     if (filteredSchedules.length === 0) {
         console.warn(`No schedules found for date: ${selectedDate}`);
-        return; // Exit if no schedules match the selected date
+        // Show a message to the user
+        const noScheduleDiv = document.createElement('div');
+        noScheduleDiv.innerHTML = `<p>No schedules found for ${formatDate(currentDate)}.</p>`;
+        employeeHoursContainer.appendChild(noScheduleDiv);
+        return;
     }
 
     // Check if we have drivers or skate guards before creating containers
@@ -215,7 +178,7 @@ function createRoleContainer(title, parentContainer) {
     roleHeader.textContent = title;
     roleHeader.style.marginBottom = '10px';
     roleHeader.style.color = '#333';
-    roleHeader.style.borderBottom = '2px solid #ddd';
+    // roleHeader.style.borderBottom = '2px solid #ddd';
     roleHeader.style.paddingBottom = '5px';
     
     roleContainer.appendChild(roleHeader);
@@ -268,6 +231,3 @@ function createEmployeeDiv(employee, role, container) {
     `;
     container.appendChild(employeeDiv);
 }
-
-// Call the Above function
-createEmployeeHoursDivs();
