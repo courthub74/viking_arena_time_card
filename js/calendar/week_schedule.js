@@ -65,14 +65,66 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// // Create div elements for each employee's hours based on the day selection
+// function createEmployeeHoursDivs() {
+//     const employeeHoursContainer = document.getElementById('zam-day-table');
+//     employeeHoursContainer.innerHTML = ''; // Clear previous content
+//     // Style the container
+//     employeeHoursContainer.style.display = 'flex';
+//     employeeHoursContainer.style.flexDirection = 'column'; // Allow wrapping of employee divs
+  
+
+//     // Retrieve schedules data from local storage
+//     const schedules = JSON.parse(localStorage.getItem('schedules')) || [];
+//     // Check if schedules exist
+//     if (schedules.length === 0) {
+//         console.warn('No schedules found in local storage.');
+//         return; // Exit if no schedules are found
+//     }
+//     // Filter scedules from updateDayDisplay function
+//     // Assuming currentDate is set to the date you want to filter schedules for
+//     // Test Print
+//     console.log(`Filtering schedules for date: ${currentDate.toDateString()}`);
+//     console.log('Current Date:', currentDate);
+//     console.log('Schedules from local storage:', schedules);
+
+// //    Fill in JS with date selected from the day selected button
+//     const selectedDate = currentDate.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+//     console.log('Selected Date:', selectedDate);
+
+//     // Filter schedules for the selected date
+//     const filteredSchedules = schedules.filter(schedule => {
+//         return schedule.date === selectedDate;
+//     });
+
+//     // Check if any schedules match the selected date
+//     if (filteredSchedules.length === 0) {
+//         console.warn(`No schedules found for date: ${selectedDate}`);
+//         return; // Exit if no schedules match the selected date
+//     }
+
+//     // Create divs for each employee's hours
+//     // CONTINUE HERE
+//     filteredSchedules.forEach(schedule => {
+//         const employeeDiv = document.createElement('div');
+//         employeeDiv.className = 'employee-hours';
+//         employeeDiv.innerHTML = `
+//             <p class="zam-day-name">${schedule.drivers.name}</p>
+//             <p class="zam-day-time">${schedule.drivers.zam_in} - ${schedule.drivers.zam_out}</p>
+//             <button class="edit-button">Edit</button>
+//         `;
+//         employeeHoursContainer.appendChild(employeeDiv);
+//     });
+// }
+
+// Create div elements for each employee's hours based on the day selection
 // Create div elements for each employee's hours based on the day selection
 function createEmployeeHoursDivs() {
     const employeeHoursContainer = document.getElementById('zam-day-table');
     employeeHoursContainer.innerHTML = ''; // Clear previous content
     // Style the container
     employeeHoursContainer.style.display = 'flex';
-    employeeHoursContainer.style.flexDirection = 'column'; // Allow wrapping of employee divs
-  
+    employeeHoursContainer.style.flexDirection = 'column';
 
     // Retrieve schedules data from local storage
     const schedules = JSON.parse(localStorage.getItem('schedules')) || [];
@@ -81,14 +133,13 @@ function createEmployeeHoursDivs() {
         console.warn('No schedules found in local storage.');
         return; // Exit if no schedules are found
     }
-    // Filter scedules from updateDayDisplay function
-    // Assuming currentDate is set to the date you want to filter schedules for
-    // Test Print
+
+    // Filter schedules from updateDayDisplay function
     console.log(`Filtering schedules for date: ${currentDate.toDateString()}`);
     console.log('Current Date:', currentDate);
     console.log('Schedules from local storage:', schedules);
 
-//    Fill in JS with date selected from the day selected button
+    // Fill in JS with date selected from the day selected button
     const selectedDate = currentDate.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
     console.log('Selected Date:', selectedDate);
 
@@ -103,19 +154,96 @@ function createEmployeeHoursDivs() {
         return; // Exit if no schedules match the selected date
     }
 
-    // Create divs for each employee's hours
-    // CONTINUE HERE
-    // filteredSchedules.forEach(schedule => {
-    //     const employeeDiv = document.createElement('div');
-    //     employeeDiv.className = 'employee-hours';
-    //     employeeDiv.innerHTML = `
-    //         <p class="employee-name">${schedule.employeeName}</p>
-    //         <p class="employee-hours">${schedule.hours}</p>
-    //         <button class="edit-button">Edit</button>
-    //     `;
-    //     employeeHoursContainer.appendChild(employeeDiv);
-    // });
+    // Check if we have drivers or skate guards before creating containers
+    let hasDrivers = false;
+    let hasSkateGuards = false;
 
+    // Check what employee types exist in the filtered schedules
+    filteredSchedules.forEach(schedule => {
+        if (schedule.drivers) {
+            hasDrivers = true;
+        }
+        if (schedule.skate_guards || schedule.skateGuards) {
+            hasSkateGuards = true;
+        }
+    });
+
+    // Only create containers if we have employees for that role
+    let driversContainer = null;
+    let skateGuardsContainer = null;
+
+    if (hasDrivers) {
+        driversContainer = createRoleContainer('Drivers', employeeHoursContainer);
+    }
+    if (hasSkateGuards) {
+        skateGuardsContainer = createRoleContainer('Skate Guards', employeeHoursContainer);
+    }
+
+    // Process each schedule
+    filteredSchedules.forEach(schedule => {
+        // Handle drivers
+        if (schedule.drivers && driversContainer) {
+            if (Array.isArray(schedule.drivers)) {
+                schedule.drivers.forEach(driver => {
+                    createEmployeeDiv(driver, 'Driver', driversContainer);
+                });
+            } else {
+                createEmployeeDiv(schedule.drivers, 'Driver', driversContainer);
+            }
+        }
+
+        // Handle skate guards
+        if ((schedule.skate_guards || schedule.skateGuards) && skateGuardsContainer) {
+            const skateGuards = schedule.skate_guards || schedule.skateGuards;
+            if (Array.isArray(skateGuards)) {
+                skateGuards.forEach(guard => {
+                    createEmployeeDiv(guard, 'Skate Guard', skateGuardsContainer);
+                });
+            } else {
+                createEmployeeDiv(skateGuards, 'Skate Guard', skateGuardsContainer);
+            }
+        }
+    });
+}
+
+// Helper function to create role containers
+function createRoleContainer(title, parentContainer) {
+    const roleContainer = document.createElement('div');
+    roleContainer.className = 'role-container';
+    roleContainer.style.display = 'flex';
+    roleContainer.style.flexDirection = 'column';
+    roleContainer.style.marginBottom = '20px';
+    
+    const roleHeader = document.createElement('h3');
+    roleHeader.textContent = title;
+    roleHeader.style.marginBottom = '10px';
+    roleHeader.style.color = '#333';
+    // roleHeader.style.borderBottom = '2px solid #ddd';
+    roleHeader.style.paddingBottom = '5px';
+    
+    roleContainer.appendChild(roleHeader);
+    parentContainer.appendChild(roleContainer);
+    
+    return roleContainer;
+}
+
+// Helper function to create individual employee divs
+function createEmployeeDiv(employee, role, container) {
+    const employeeDiv = document.createElement('div');
+    employeeDiv.className = 'employee-hours';
+    employeeDiv.style.display = 'flex';
+    employeeDiv.style.justifyContent = 'space-between';
+    
+    // Handle different possible time field names
+    const timeIn = employee.zam_in || employee.start_time || employee.in || 'N/A';
+    const timeOut = employee.zam_out || employee.end_time || employee.out || 'N/A';
+    
+    employeeDiv.innerHTML = `
+        <p class="zam-day-name">${employee.name}</p>
+        <p class="zam-day-time">${timeIn} - ${timeOut}</p>
+        <button class="edit-button">Edit</button>
+    `;
+    container.appendChild(employeeDiv);
 }
 
 // Call the Above function

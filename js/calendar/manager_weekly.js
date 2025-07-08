@@ -132,27 +132,7 @@ function setupSubmitButtonListener() {
       }
     ]
   };
-    // const scheduleData = {
-    //   date: selectedDate,
-    //   driver_one: driver_one.value || 'Not Needed',
-    //   driver_two: driver_two.value || 'Not Needed',
-    //   driver_three: driver_three.value || 'Not Needed',
-    //   driver_four: driver_four.value || 'Not Needed',
-    //   skate_guard_one: skate_guard_one.value || 'Not Needed',
-    //   skate_guard_two: skate_guard_two.value || 'Not Needed',
-    //   zam_in_one: zam_in_one.value || '',
-    //   zam_out_one: zam_out_one.value || '',
-    //   zam_in_two: zam_in_two.value || '',
-    //   zam_out_two: zam_out_two.value || '',
-    //   zam_in_three: zam_in_three.value || '',
-    //   zam_out_three: zam_out_three.value || '',
-    //   zam_in_four: zam_in_four.value || '',
-    //   zam_out_four: zam_out_four.value || '',
-    //   skate_guard_in_one: skate_guard_in_one.value || '',
-    //   skate_guard_out_one: skate_guard_out_one.value || '',
-    //   skate_guard_in_two: skate_guard_in_two.value || '',
-    //   skate_guard_out_two: skate_guard_out_two.value || ''
-    // };
+  
 
     console.log('Schedule Data:', scheduleData);
 
