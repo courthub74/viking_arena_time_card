@@ -172,6 +172,7 @@ function createEmployeeHoursDivs() {
 function createRoleContainer(title, parentContainer) {
     const roleContainer = document.createElement('div');
     roleContainer.className = 'role-container';
+    roleContainer.style.marginTop = '20px';
     roleContainer.style.marginBottom = '20px';
     
     const roleHeader = document.createElement('h3');
@@ -209,17 +210,35 @@ function createEmployeeDiv(employee, role, container) {
     const employeeDiv = document.createElement('div');
     employeeDiv.className = 'employee-hours';
     
-    // Handle different possible time field names
-    const timeIn = employee.zam_in || employee.start_time || employee.in || 'N/A';
-    const timeOut = employee.zam_out || employee.end_time || employee.out || 'N/A';
+    // Handle different possible time field names for skate guards and drivers
+    let timeIn, timeOut;
+    
+    if (role === 'Skate Guard') {
+        // For skate guards, try different possible field names
+        timeIn = employee.start_time || employee.zam_in || employee.in || employee.time_in || 'N/A';
+        timeOut = employee.end_time || employee.zam_out || employee.out || employee.time_out || 'N/A';
+    } else {
+        // For drivers, use the original field names
+        timeIn = employee.zam_in || employee.start_time || employee.in || 'N/A';
+        timeOut = employee.zam_out || employee.end_time || employee.out || 'N/A';
+    }
     
     // Format the name as first initial + last name
     const formattedName = formatName(employee.name);
     
+    // Debug logging to see what we're getting
+    console.log('Employee data:', employee);
+    console.log('Role:', role);
+    console.log('TimeIn:', timeIn);
+    console.log('TimeOut:', timeOut);
+    console.log('Formatted Name:', formattedName);
+    
     // Check if any field displays "not needed" and hide the entire div if so
+    // Fixed the condition - it was checking if timeIn/timeOut INCLUDES 'N/A', which would hide valid entries
     if (formattedName.toLowerCase().includes('n. needed') || 
-        timeIn.toLowerCase().includes('N/A') || 
-        timeOut.toLowerCase().includes('N/A')) {
+        timeIn === 'N/A' || 
+        timeOut === 'N/A') {
+        console.log('Hiding employee div due to N/A values');
         employeeDiv.style.display = 'none';
         return;
     }
