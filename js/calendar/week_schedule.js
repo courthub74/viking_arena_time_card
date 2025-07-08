@@ -72,12 +72,7 @@ function createEmployeeHoursDivs() {
     // Style the container
     employeeHoursContainer.style.display = 'flex';
     employeeHoursContainer.style.flexDirection = 'column'; // Allow wrapping of employee divs
-    // Example employee data
-    // const employees = [
-    //     { name: 'Alice', hours: '9 AM - 5 PM' },
-    //     { name: 'Bob', hours: '10 AM - 6 PM' },
-    //     { name: 'Charlie', hours: '8 AM - 4 PM' }
-    // ];
+  
 
     // Retrieve schedules data from local storage
     const schedules = JSON.parse(localStorage.getItem('schedules')) || [];
@@ -93,62 +88,33 @@ function createEmployeeHoursDivs() {
     console.log('Current Date:', currentDate);
     console.log('Schedules from local storage:', schedules);
 
-    const todaySchedules = schedules.filter(schedule => {
-        // Convert schedule date to a Date object for comparison
-        const scheduleDate = new Date(schedule.date); // Assuming schedule has a 'date' property
-        // Compare the date parts (year, month, day) to check if they match
-        return scheduleDate.getFullYear() === currentDate.getFullYear() &&
-               scheduleDate.getMonth() === currentDate.getMonth() &&
-                scheduleDate.getDate() === currentDate.getDate();
+//    Fill in JS with date selected from the day selected button
+    const selectedDate = currentDate.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+    console.log('Selected Date:', selectedDate);
+
+    // Filter schedules for the selected date
+    const filteredSchedules = schedules.filter(schedule => {
+        return schedule.date === selectedDate;
     });
-    // Check if today's schedules exist
-    if (todaySchedules.length === 0) {
-        console.warn('No schedules found for today in local storage.');
-        return; // Exit if no schedules for today are found
+
+    // Check if any schedules match the selected date
+    if (filteredSchedules.length === 0) {
+        console.warn(`No schedules found for date: ${selectedDate}`);
+        return; // Exit if no schedules match the selected date
     }
-    // Test Print
-    console.log(`Schedules for ${currentDate.toDateString()}:`, todaySchedules);
 
-    // Create a div for each employee's hours
-    todaySchedules.forEach(schedule => {
-        const div = document.createElement('div');
-        div.className = 'zam-day-work';
-        // Style the div
-        div.style.flex = '1'; // Make each div take equal space
-        div.style.flexDirection = 'column'; // Stack name and hours vertically
-        div.style.margin = '0.5em'; // Add some margin for spacing
-
-        // Create elements for employee name and hours
-        const nameElement = document.createElement('p');
-        nameElement.className = 'zam-day-name'; // Add class for styling
-        // Assuming schedule has properties driver_one and zam_in_one for name and hours
-        nameElement.textContent = schedule.driver_one; // Assuming employeeName is a property in schedule
-        const InHoursElement = document.createElement('p');
-        InHoursElement.className = 'zam-day-time'; // Add class for styling
-        // Assuming schedule has properties zam_in_one for hours
-        InHoursElement.textContent = schedule.zam_in_one; // Assuming hours is a property in schedule
-
-        // Create an edit button
-        const editButton = document.createElement('button');
-        editButton.className = 'zam-day-one-edit'; // Add class for styling
-        editButton.textContent = 'Edit'; // Set button text
-        // Add an event listener to the edit button
-        editButton.addEventListener('click', function() {
-            // Handle edit functionality here
-            // For example, you could open a modal or redirect to an edit page
-            alert(`Edit ${schedule.driver_one}'s hours: ${schedule.zam_in_one}`);
-        });
-        // Append the edit button to the div
-        div.appendChild(editButton);
-        // Test Print 
-        console.log(`Creating div for ${schedule.driver_one} with hours ${schedule.zam_in_one}`);
-        // Append name and hours to the div
-        div.appendChild(nameElement);
-        div.appendChild(InHoursElement);
-
-        // Append the employee hours div to the container
-        employeeHoursContainer.appendChild(div);
-    });
+    // Create divs for each employee's hours
+    // CONTINUE HERE
+    // filteredSchedules.forEach(schedule => {
+    //     const employeeDiv = document.createElement('div');
+    //     employeeDiv.className = 'employee-hours';
+    //     employeeDiv.innerHTML = `
+    //         <p class="employee-name">${schedule.employeeName}</p>
+    //         <p class="employee-hours">${schedule.hours}</p>
+    //         <button class="edit-button">Edit</button>
+    //     `;
+    //     employeeHoursContainer.appendChild(employeeDiv);
+    // });
 
 }
 
