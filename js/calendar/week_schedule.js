@@ -79,29 +79,77 @@ function createEmployeeHoursDivs() {
     //     { name: 'Charlie', hours: '8 AM - 4 PM' }
     // ];
 
-    // Get the employee name and hours entered on manager weekly page
-        // Store the information in a variable called employees
+    // Retrieve schedules data from local storage
+    const schedules = JSON.parse(localStorage.getItem('schedules')) || [];
+    // Check if schedules exist
+    if (schedules.length === 0) {
+        console.warn('No schedules found in local storage.');
+        return; // Exit if no schedules are found
+    }
+    // Filter scedules from updateDayDisplay function
+    // Assuming currentDate is set to the date you want to filter schedules for
+    // Test Print
+    console.log(`Filtering schedules for date: ${currentDate.toDateString()}`);
+    console.log('Current Date:', currentDate);
+    console.log('Schedules from local storage:', schedules);
 
-    // Check if employees exist
-    // if (employees.length === 0) {
-    //     console.warn('No employees found in local storage.');
-    //     return; // Exit if no employees are found
-    // }
+    const todaySchedules = schedules.filter(schedule => {
+        // Convert schedule date to a Date object for comparison
+        const scheduleDate = new Date(schedule.date); // Assuming schedule has a 'date' property
+        // Compare the date parts (year, month, day) to check if they match
+        return scheduleDate.getFullYear() === currentDate.getFullYear() &&
+               scheduleDate.getMonth() === currentDate.getMonth() &&
+                scheduleDate.getDate() === currentDate.getDate();
+    });
+    // Check if today's schedules exist
+    if (todaySchedules.length === 0) {
+        console.warn('No schedules found for today in local storage.');
+        return; // Exit if no schedules for today are found
+    }
+    // Test Print
+    console.log(`Schedules for ${currentDate.toDateString()}:`, todaySchedules);
 
+    // Create a div for each employee's hours
+    todaySchedules.forEach(schedule => {
+        const div = document.createElement('div');
+        div.className = 'zam-day-work';
+        // Style the div
+        div.style.flex = '1'; // Make each div take equal space
+        div.style.flexDirection = 'column'; // Stack name and hours vertically
+        div.style.margin = '0.5em'; // Add some margin for spacing
 
-    // employees.forEach(employee => {
-    //     const div = document.createElement('div');
-    //     div.className = 'zam-day-work';
-    //     // Style the div
-    //     div.style.flex = '1'; // Make each div take equal space
-    //     div.style.flexDirection = 'column'; // Stack name and hours vertically
-    //     div.style.margin = '0.5em'; // Add some margin for spacing
-    //     // Append Zam day work to Zam day table
-    //     employeeHoursContainer.appendChild(div);
+        // Create elements for employee name and hours
+        const nameElement = document.createElement('p');
+        nameElement.className = 'zam-day-name'; // Add class for styling
+        // Assuming schedule has properties driver_one and zam_in_one for name and hours
+        nameElement.textContent = schedule.driver_one; // Assuming employeeName is a property in schedule
+        const InHoursElement = document.createElement('p');
+        InHoursElement.className = 'zam-day-time'; // Add class for styling
+        // Assuming schedule has properties zam_in_one for hours
+        InHoursElement.textContent = schedule.zam_in_one; // Assuming hours is a property in schedule
 
-    //     //  Get the Data entered by the manager that will be stored in local storage
-    
-    // });
+        // Create an edit button
+        const editButton = document.createElement('button');
+        editButton.className = 'zam-day-one-edit'; // Add class for styling
+        editButton.textContent = 'Edit'; // Set button text
+        // Add an event listener to the edit button
+        editButton.addEventListener('click', function() {
+            // Handle edit functionality here
+            // For example, you could open a modal or redirect to an edit page
+            alert(`Edit ${schedule.driver_one}'s hours: ${schedule.zam_in_one}`);
+        });
+        // Append the edit button to the div
+        div.appendChild(editButton);
+        // Test Print 
+        console.log(`Creating div for ${schedule.driver_one} with hours ${schedule.zam_in_one}`);
+        // Append name and hours to the div
+        div.appendChild(nameElement);
+        div.appendChild(InHoursElement);
+
+        // Append the employee hours div to the container
+        employeeHoursContainer.appendChild(div);
+    });
+
 }
 
 // Call the Above function

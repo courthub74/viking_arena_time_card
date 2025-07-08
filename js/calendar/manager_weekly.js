@@ -96,26 +96,63 @@ function setupSubmitButtonListener() {
 
     // Get values
     const scheduleData = {
-      date: selectedDate,
-      driver_one: driver_one.value || 'Not Needed',
-      driver_two: driver_two.value || 'Not Needed',
-      driver_three: driver_three.value || 'Not Needed',
-      driver_four: driver_four.value || 'Not Needed',
-      skate_guard_one: skate_guard_one.value || 'Not Needed',
-      skate_guard_two: skate_guard_two.value || 'Not Needed',
-      zam_in_one: zam_in_one.value || '',
-      zam_out_one: zam_out_one.value || '',
-      zam_in_two: zam_in_two.value || '',
-      zam_out_two: zam_out_two.value || '',
-      zam_in_three: zam_in_three.value || '',
-      zam_out_three: zam_out_three.value || '',
-      zam_in_four: zam_in_four.value || '',
-      zam_out_four: zam_out_four.value || '',
-      skate_guard_in_one: skate_guard_in_one.value || '',
-      skate_guard_out_one: skate_guard_out_one.value || '',
-      skate_guard_in_two: skate_guard_in_two.value || '',
-      skate_guard_out_two: skate_guard_out_two.value || ''
-    };
+    date: selectedDate,
+    drivers: [
+      {
+        name: driver_one.value || 'Not Needed',
+        zam_in: zam_in_one.value || '',
+        zam_out: zam_out_one.value || ''
+      },
+      {
+        name: driver_two.value || 'Not Needed',
+        zam_in: zam_in_two.value || '',
+        zam_out: zam_out_two.value || ''
+      },
+      {
+        name: driver_three.value || 'Not Needed',
+        zam_in: zam_in_three.value || '',
+        zam_out: zam_out_three.value || ''
+      },
+      {
+        name: driver_four.value || 'Not Needed',
+        zam_in: zam_in_four.value || '',
+        zam_out: zam_out_four.value || ''
+      }
+    ],
+    skate_guards: [
+      {
+        name: skate_guard_one.value || 'Not Needed',
+        time_in: skate_guard_in_one.value || '',
+        time_out: skate_guard_out_one.value || ''
+      },
+      {
+        name: skate_guard_two.value || 'Not Needed',
+        time_in: skate_guard_in_two.value || '',
+        time_out: skate_guard_out_two.value || ''
+      }
+    ]
+  };
+    // const scheduleData = {
+    //   date: selectedDate,
+    //   driver_one: driver_one.value || 'Not Needed',
+    //   driver_two: driver_two.value || 'Not Needed',
+    //   driver_three: driver_three.value || 'Not Needed',
+    //   driver_four: driver_four.value || 'Not Needed',
+    //   skate_guard_one: skate_guard_one.value || 'Not Needed',
+    //   skate_guard_two: skate_guard_two.value || 'Not Needed',
+    //   zam_in_one: zam_in_one.value || '',
+    //   zam_out_one: zam_out_one.value || '',
+    //   zam_in_two: zam_in_two.value || '',
+    //   zam_out_two: zam_out_two.value || '',
+    //   zam_in_three: zam_in_three.value || '',
+    //   zam_out_three: zam_out_three.value || '',
+    //   zam_in_four: zam_in_four.value || '',
+    //   zam_out_four: zam_out_four.value || '',
+    //   skate_guard_in_one: skate_guard_in_one.value || '',
+    //   skate_guard_out_one: skate_guard_out_one.value || '',
+    //   skate_guard_in_two: skate_guard_in_two.value || '',
+    //   skate_guard_out_two: skate_guard_out_two.value || ''
+    // };
 
     console.log('Schedule Data:', scheduleData);
 
@@ -143,13 +180,17 @@ function setupSubmitButtonListener() {
     // Show success message
     const selectedDateObj = new Date(selectedDate);
     alert(`
-      Driver 1: ${scheduleData.driver_one} ${scheduleData.zam_in_one ? `(${scheduleData.zam_in_one} - ${scheduleData.zam_out_one})` : '' }
-      Driver 2: ${scheduleData.driver_two} ${scheduleData.zam_in_two ? `(${scheduleData.zam_in_two} - ${scheduleData.zam_out_two})` : '' }
-      Driver 3: ${scheduleData.driver_three} ${scheduleData.zam_in_three ? `(${scheduleData.zam_in_three} - ${scheduleData.zam_out_three})` : '' }
-      Driver 4: ${scheduleData.driver_four} ${scheduleData.zam_in_four ? `(${scheduleData.zam_in_four} - ${scheduleData.zam_out_four})` : '' }
-      Skate Guard 1: ${scheduleData.skate_guard_one} ${scheduleData.skate_guard_in_one ? `(${scheduleData.skate_guard_in_one} - ${scheduleData.skate_guard_out_one})` : '' }
-      Skate Guard 2: ${scheduleData.skate_guard_two} ${scheduleData.skate_guard_in_two ? `(${scheduleData.skate_guard_in_two} - ${scheduleData.skate_guard_out_two})` : '' }
-      Schedule for ${selectedDateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} has been saved!`
+      Driver One ${scheduleData.drivers[0].name} (AM): ${scheduleData.drivers[0].zam_in} - ${scheduleData.drivers[0].zam_out}
+      Driver Two ${scheduleData.drivers[1].name} (AM): ${scheduleData.drivers[1].zam_in} - ${scheduleData.drivers[1].zam_out}
+      Driver Three ${scheduleData.drivers[2].name} (PM): ${scheduleData.drivers[2].zam_in} - ${scheduleData.drivers[2].zam_out}
+      Driver Four ${scheduleData.drivers[3].name} (PM): ${scheduleData.drivers[3].zam_in} - ${scheduleData.drivers[3].zam_out}
+      Skate Guard 1: ${scheduleData.skate_guards[0].name} ${scheduleData.skate_guards[0].time_in ? `(${scheduleData.skate_guards[0].time_in} - ${scheduleData.skate_guards[0].time_out})` : '' }  
+      Skate Guard 2: ${scheduleData.skate_guards[1].name} ${scheduleData.skate_guards[1].time_in ? `(${scheduleData.skate_guards[1].time_in} - ${scheduleData.skate_guards[1].time_out})` : '' }
+      for ${selectedDateObj.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      })}. Schedule saved successfully!`     
     );
   });
 
