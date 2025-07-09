@@ -27,6 +27,20 @@ employee_hours.addEventListener("click", function(e) {
     }, 500);
 });
 
+// View the Weekly Schedule
+employee_schedule.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent the default action of the button
+    employee_schedule.classList.add("clicked");
+    setTimeout(() => {
+        employee_schedule.classList.remove("clicked");
+    }, 2000);
+    setTimeout(() => {
+        window.location.href = "./emp_week_schedule.html";
+        window.location.href = "../../html/calendar/emp_week_schedule.html";
+    }, 500);
+});
+
+// View Month Calendar
 employee_calendar.addEventListener("click", function(e) {
     e.preventDefault(); // Prevent the default action of the button
     employee_calendar.classList.add("clicked");
@@ -36,17 +50,6 @@ employee_calendar.addEventListener("click", function(e) {
     setTimeout(() => {
         window.location.href = "./employee_calendar.html";
          window.location.href = "../../html/calendar/monthly_calendar.html"
-    }, 500);
-});
-
-employee_schedule.addEventListener("click", function(e) {
-    e.preventDefault(); // Prevent the default action of the button
-    employee_schedule.classList.add("clicked");
-    setTimeout(() => {
-        employee_schedule.classList.remove("clicked");
-    }, 2000);
-    setTimeout(() => {
-        window.location.href = "../../html/calendar/emp_week_schedule.html";
     }, 500);
 });
 
