@@ -47,16 +47,16 @@ manager_schedule.addEventListener("click", function(e) {
 });
 
 // Get Monthly Schedule
-// employee_calendar.addEventListener("click", function(e) {
-//     e.preventDefault(); // Prevent the default action of the button
-//     employee_calendar.classList.add("clicked");
-//     setTimeout(() => {
-//         manager_messaging.classList.remove("clicked");
-//     }, 1000);
-//     setTimeout(() => {
-//         window.location.href = "../../html/manager/manager_calendar.html"
-//     }, 1000);
-// });
+employee_calendar.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent the default action of the button
+    employee_calendar.classList.add("clicked");
+    setTimeout(() => {
+        manager_messaging.classList.remove("clicked");
+    }, 1000);
+    setTimeout(() => {
+        window.location.href = "../../html/manager/manager_calendar.html"
+    }, 1000);
+});
 
 // Look at Weekly Calendar
 weekly_calendar.addEventListener("click", function(e) {
