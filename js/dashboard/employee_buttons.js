@@ -46,7 +46,7 @@ employee_schedule.addEventListener("click", function(e) {
         employee_schedule.classList.remove("clicked");
     }, 2000);
     setTimeout(() => {
-        window.location.href = "./employee_schedule.html";
+        window.location.href = "../../html/calendar/emp_week_schedule.html";
     }, 500);
 });
 

@@ -7,7 +7,7 @@
 
       <!-- CSS -->
       <!-- <link rel="stylesheet" href="/viking_arena_time_card/css/confirmation.css"> -->
-      <link rel="stylesheet" href="../../css/manager_dash.css">
+      <link rel="stylesheet" href="../../css/week_schedule.css">
 </head>
 <body>
 
@@ -138,36 +138,53 @@
                 <span class="page_header">&nbsp;|&nbsp;Dashboard</span>
             </label>
 
-            <!-- The Radio Buttons -->
-             <div class="employee_selects">
+            <!-- The Weekly Calendar -->
+             <div class="manager_calendar_div">
 
-                     <!-- Button One -->
-                    <button class="radio-container" id="get_hours">
-                        <p class="dashboard_button">Get Employee Hours</p>
-                        <img src="../../img/dashboard_logos/blue_hours.png" class="dash_hours" alt="hours">
-                    </button>
+                    <!-- The Daily Buttons -->
+                    <div class="day_buttons">
+                        <button class="day_prev" onclick="prevDay(); return false;">&lt;</button>
+                        <p class="current-day" id="current-day">Daily</p>
+                        <button class="day_next" onclick="nextDay(); return false;">&gt;</button>
+                    </div>
 
-                    <!-- Button Two -->
-                    <button class="radio-container" id="weeks_schedule">
-                        <p class="dashboard_button">Make Weekly Schedule</p>
-                        <img src="../../img/dashboard_logos/blue_calendar.png" class="dash_hours" alt="schedule">
-                    </button>
+                    <!-- The Schedule lists go HERE -->
+                     <div class="weekly_list" id="weekly_schedule">
+                        <!-- Retreive the Name and Times worked -->
+                         <!-- For each entry (name and times) display Below-->
+                        
+                         <!-- The Days work -->
+                          <!-- These change with the day_buttons -->
+                        <!-- <label class="work_type_label">Zam Drivers:</label> -->
+                        <table id="zam-day-table" class="zam-day-table">
+                            <!-- Will be populated by js -->
+                             <!-- <div class="employee-hours">
+                                <p class="zam-day-name">Name</p>
+                                <p class="zam-day-time">Time</p>
+                                <button class="zam-day-one-edit">Edit</button>
+                             </div>  -->
+                        </table>
 
-                    <!-- Button Three -->
-                     <button class="radio-container" id="view_week_schedule">
-                        <p class="dashboard_button">View the Schedule</p>
-                        <!-- Optional: place the current week dates in small font -->
-                        <img src="../../img/dashboard_logos/blue_calendar.png" class="dash_hours" alt="message">
-                    </button>
-                    
-
-                    <!-- Button Four -->
-                    <!-- <button class="radio-container" id="employee_calendar">
-                        <p class="dashboard_button">View the Month</p>
-                        <img src="../../img/dashboard_logos/blue_calendar.png" class="dash_hours" alt="schedule">
-                    </button> -->
+                        <!-- <label class="work_type_label">Skate Guards:</label> -->
+                        <table id="skate-guard-one-table">
+                            <!-- Will be populated by js -->
+                             <!-- <div class="employee-hours">
+                                <p class="skate-guard-name">Name</p>
+                                <p class="skate-guard-time">Time</p>
+                                <button class="skate-guard-edit">Edit</button>
+                             </div> -->
+                        </table>
+                         
+                        
+                     </div>
                  
              </div>
+
+             <!-- Link Back To Dashboard -->
+            <!-- Needs a conditional to determine which dashboard (employee or manager) -->
+            <div class="back_to_div">
+                <a class="link_back" id="link_back">Back to Dashboard</a>
+            </div>
 
 
             <!-- Submit Button -->
@@ -195,10 +212,13 @@
     <script src="../../js/dashboard/delete_acct_slide.js"></script>
 
     <!-- DASHBOARD -->
-    <script src="../../js/dashboard/manager_buttons.js"></script>
+    <!-- <script src="../../js/dashboard/manager_buttons.js"></script> -->
 
    <!-- LOGOUT -->
    <script src="../../js/database/logout.js"></script>
+
+   <!-- WEEK SCHEDULE -->
+    <script src="../../js/calendar/emp_week_schedule.js"></script>
 
    <!-- CALENDAR -->
     <!-- <script src="../../js/calendar/manager_calendar.js"></script> -->
