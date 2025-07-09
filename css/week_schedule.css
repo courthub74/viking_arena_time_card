@@ -1417,22 +1417,29 @@ option {
 .edit-button {
     background-color: var(--input-background);
     border: none;
+    padding: 1px;
 }
 
-/* .edit-buttom {
+/* Back to Dashboard */
+.back_to_div {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    background-color: var(--input-background);
-    width: 100%;
-    float: right;
-    font-size: small;
+    margin-top: 3em;
+}
+
+.back_to_div a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
+    color: var(--text-color);
+    font-size: small;
+    opacity: 50%;
     cursor: pointer;
-    border-radius: 5px;
-    padding: .5em;
-} */
+}
+
 
 /* The Employees name and hours */
 .zam-day-work {

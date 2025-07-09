@@ -270,3 +270,24 @@ function createEmployeeDiv(employee, role, container) {
     `;
     container.appendChild(employeeDiv);
 }
+
+
+// Back to dashboard functionality
+const backToDashboardLink = document.getElementById('link_back');
+if (backToDashboardLink) {
+  backToDashboardLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    const userType = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
+    if (userType) {
+      const userTypeAcc = JSON.parse(userType);
+      const userRole = userTypeAcc.accountType;
+      
+      if (userRole === 'Manager') {
+        window.location.href = '../../html/dashboards/manager.html';
+      } else {
+        window.location.href = '../../html/dashboards/employee.html';
+      }
+    }
+  });
+}
