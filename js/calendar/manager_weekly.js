@@ -414,33 +414,30 @@ function populateTimePickers() {
     'zam-in-three', 'zam-out-three', 'zam-in-four', 'zam-out-four',
     'skate-guard-in-one', 'skate-guard-out-one', 'skate-guard-in-two', 'skate-guard-out-two'
   ];
-
   timePickers.forEach(id => {
     const select = document.getElementById(id);
     if (select) {
       select.innerHTML = '';
-      
+     
       // Add blank option
       const blankOption = document.createElement('option');
       blankOption.value = '';
       blankOption.textContent = select.id.includes('in') ? 'In' : 'Out';
       blankOption.selected = true;
       select.appendChild(blankOption);
-
-      // Generate time options (5:00 AM to 3:00 AM next day, 30 min increments)
-      // 5:00 AM to 11:30 PM
+      
+      // Generate time options (5:00 AM to 11:30 PM)
       for (let hour = 5; hour <= 23; hour++) {
         for (let minute = 0; minute < 60; minute += 30) {
           addTimeOption(select, hour, minute);
         }
       }
-      
-      // 12:00 AM to 3:00 AM next day
-      for (let hour = 0; hour <= 3; hour++) {
-        for (let minute = 0; minute < 60; minute += 30) {
-          addTimeOption(select, hour, minute);
-        }
-      }
+     
+      // Add "Close" option after 10:00 PM
+      const closeOption = document.createElement('option');
+      closeOption.value = 'close';
+      closeOption.textContent = 'Close';
+      select.appendChild(closeOption);
     }
   });
 }

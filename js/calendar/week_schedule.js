@@ -223,7 +223,7 @@ function createEmployeeDiv(employee, role, container) {
     employeeDiv.style.alignItems = 'center';    
     employeeDiv.style.padding = '10px';
     employeeDiv.style.border = '1px solid #0076cb98';
-    employeeDiv.style.borderRadius = '5px';
+    employeeDiv.style.borderRadius = '10px';
     employeeDiv.style.marginBottom = '10px';
     employeeDiv.style.backgroundColor = 'var(--input-background)';
     employeeDiv.style.fontSize = '0.9em';
@@ -253,11 +253,16 @@ function createEmployeeDiv(employee, role, container) {
     
     // Check if any field displays "not needed" and hide the entire div if so
     // Fixed the condition - it was checking if timeIn/timeOut INCLUDES 'N/A', which would hide valid entries
-    if (formattedName.toLowerCase().includes('n. needed') || 
+    if (formattedName.toLowerCase().includes('Not Needed') || 
         timeIn === 'N/A' || 
         timeOut === 'N/A') {
         console.log('Hiding employee div due to N/A values');
-        employeeDiv.style.display = 'none';
+        // employeeDiv.style.display = 'flex'; // or 'inline', 'flex', etc.
+        employeeDiv.innerHTML = `
+            <p class="zam-day-name">Not Needed today</p>
+            <p class="zam-day-time"></p>
+            <button class="edit-button" style="display:none;">
+                <img src="../../img/edit-buttons/white-edit-pen.png" alt="Edit" style="width:18px;height:18px;vertical-align:middle;">`;
         return;
     }
     
