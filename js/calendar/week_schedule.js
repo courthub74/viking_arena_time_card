@@ -172,11 +172,16 @@ function createEmployeeHoursDivs() {
 function createRoleContainer(title, parentContainer) {
     const roleContainer = document.createElement('div');
     roleContainer.className = 'role-container';
-    roleContainer.style.marginTop = '20px';
+    roleContainer.style.marginTop = '30px';
     roleContainer.style.marginBottom = '20px';
     
     const roleHeader = document.createElement('p');
     roleHeader.textContent = title;
+    roleHeader.className = 'role-header';
+    // Style the role header
+    roleHeader.style.fontSize = '1em';
+    roleHeader.style.fontWeight = 'normal';
+    roleHeader.style.color = '#0076cb';
     roleHeader.style.marginBottom = '10px';
     roleHeader.style.color = '#333';
     // roleHeader.style.borderBottom = '2px solid #ddd';
@@ -193,16 +198,19 @@ function formatName(fullName) {
     if (!fullName || typeof fullName !== 'string') {
         return 'N/A';
     }
-    
+   
     const nameParts = fullName.trim().split(' ');
     if (nameParts.length < 2) {
         return fullName; // Return as-is if no space found
     }
-    
+   
     const firstName = nameParts[0];
     const lastName = nameParts[nameParts.length - 1]; // Get last part in case of middle names
-    
-    return `${firstName.charAt(0).toUpperCase()}. ${lastName}`;
+   
+    // Limit last name to 6 characters
+    const truncatedLastName = lastName.length > 6 ? lastName.substring(0, 6) : lastName;
+   
+    return `${firstName.charAt(0).toUpperCase()}. ${truncatedLastName}`;
 }
 
 // Helper function to create individual employee divs
@@ -214,7 +222,11 @@ function createEmployeeDiv(employee, role, container) {
     employeeDiv.style.justifyContent = 'space-between';
     employeeDiv.style.alignItems = 'center';    
     employeeDiv.style.padding = '10px';
-    employeeDiv.style.border = '1px solid var(--border-color, #ddd)';
+    employeeDiv.style.border = '1px solid #0076cb98';
+    employeeDiv.style.borderRadius = '5px';
+    employeeDiv.style.marginBottom = '10px';
+    employeeDiv.style.backgroundColor = 'var(--input-background)';
+    employeeDiv.style.fontSize = '0.9em';
     
     // Handle different possible time field names for skate guards and drivers
     let timeIn, timeOut;
