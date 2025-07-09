@@ -175,7 +175,7 @@ function createRoleContainer(title, parentContainer) {
     roleContainer.style.marginTop = '20px';
     roleContainer.style.marginBottom = '20px';
     
-    const roleHeader = document.createElement('h3');
+    const roleHeader = document.createElement('p');
     roleHeader.textContent = title;
     roleHeader.style.marginBottom = '10px';
     roleHeader.style.color = '#333';
@@ -209,6 +209,12 @@ function formatName(fullName) {
 function createEmployeeDiv(employee, role, container) {
     const employeeDiv = document.createElement('div');
     employeeDiv.className = 'employee-hours';
+    // Style the employee div
+    employeeDiv.style.display = 'flex';
+    employeeDiv.style.justifyContent = 'space-between';
+    employeeDiv.style.alignItems = 'center';    
+    employeeDiv.style.padding = '10px';
+    employeeDiv.style.border = '1px solid var(--border-color, #ddd)';
     
     // Handle different possible time field names for skate guards and drivers
     let timeIn, timeOut;
