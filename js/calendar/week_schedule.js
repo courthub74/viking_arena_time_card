@@ -264,7 +264,9 @@ function createEmployeeDiv(employee, role, container) {
     employeeDiv.innerHTML = `
         <p class="zam-day-name">${formattedName}</p>
         <p class="zam-day-time">${timeIn} - ${timeOut}</p>
-        <button class="edit-button">Edit</button>
+        <button class="edit-button">
+        <img src="../../img/edit-buttons/white-edit-pen.png" alt="Edit" style="width:18px;height:18px;vertical-align:middle;">
+    </button>
     `;
     container.appendChild(employeeDiv);
 }
