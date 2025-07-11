@@ -487,31 +487,145 @@ function setupCloseButton() {
 }
 
 // Function to setup form validation
+// Function to setup form validation
 function setupFormValidation() {
-  const name_selects = document.querySelectorAll('.name_picker_sched');
-  const time_selects = document.querySelectorAll('.time_picker_sched');
   const submitButton = document.getElementById('submit_employee_hours_modal');
-
   if (!submitButton) return;
 
   function checkEnableSubmit() {
-    const anyNamesSelected = Array.from(name_selects).some(sel => sel.value && sel.value.trim() !== '');
-    const anyTimesSelected = Array.from(time_selects).some(sel => sel.value && sel.value.trim() !== '');
-    submitButton.disabled = !(anyNamesSelected && anyTimesSelected);
+    let hasValidEntry = false;
+
+    // Check zamboni drivers (each needs name + in time + out time)
+    const drivers = [
+      { name: 'driver-one-am', in: 'zam-in-one', out: 'zam-out-one' },
+      { name: 'driver-two-am', in: 'zam-in-two', out: 'zam-out-two' },
+      { name: 'driver-one-pm', in: 'zam-in-three', out: 'zam-out-three' },
+      { name: 'driver-two-pm', in: 'zam-in-four', out: 'zam-out-four' }
+    ];
+
+    // Check if any driver has complete entry (name + in + out)
+    drivers.forEach(driver => {
+      const nameSelect = document.getElementById(driver.name);
+      const inSelect = document.getElementById(driver.in);
+      const outSelect = document.getElementById(driver.out);
+      
+      if (nameSelect && inSelect && outSelect) {
+        const hasName = nameSelect.value && nameSelect.value.trim() !== '';
+        const hasInTime = inSelect.value && inSelect.value.trim() !== '';
+        const hasOutTime = outSelect.value && outSelect.value.trim() !== '';
+        
+        if (hasName && hasInTime && hasOutTime) {
+          hasValidEntry = true;
+        }
+      }
+    });
+
+    // Check skate guards (each needs name + in time + out time)
+    const skateGuards = [
+      { name: 'skate-guard-one', in: 'skate-guard-in-one', out: 'skate-guard-out-one' },
+      { name: 'skate-guard-two', in: 'skate-guard-in-two', out: 'skate-guard-out-two' }
+    ];
+
+    // Check if any skate guard has complete entry (name + in + out)
+    skateGuards.forEach(guard => {
+      const nameSelect = document.getElementById(guard.name);
+      const inSelect = document.getElementById(guard.in);
+      const outSelect = document.getElementById(guard.out);
+      
+      if (nameSelect && inSelect && outSelect) {
+        const hasName = nameSelect.value && nameSelect.value.trim() !== '';
+        const hasInTime = inSelect.value && inSelect.value.trim() !== '';
+        const hasOutTime = outSelect.value && outSelect.value.trim() !== '';
+        
+        if (hasName && hasInTime && hasOutTime) {
+          hasValidEntry = true;
+        }
+      }
+    });
+
+    // Enable submit button if at least one complete entry exists
+    submitButton.disabled = !hasValidEntry;
   }
 
-  // Add event listeners
-  name_selects.forEach(select => {
-    select.addEventListener('change', checkEnableSubmit);
-  });
-
-  time_selects.forEach(select => {
+  // Add event listeners to all form elements (names and times)
+  const allSelects = document.querySelectorAll('.name_picker_sched, .time_picker_sched');
+  allSelects.forEach(select => {
     select.addEventListener('change', checkEnableSubmit);
   });
 
   // Initially disable submit button
   submitButton.disabled = true;
 }
+
+// Function to setup form validation
+// function setupFormValidation() {
+//   const submitButton = document.getElementById('submit_employee_hours_modal');
+//   if (!submitButton) return;
+
+//   function checkEnableSubmit() {
+//     let hasValidEntry = false;
+
+//     // Check zamboni drivers (each needs name + in time + out time)
+//     const drivers = [
+//       { name: 'driver-one-am', in: 'zam-in-one', out: 'zam-out-one' },
+//       { name: 'driver-two-am', in: 'zam-in-two', out: 'zam-out-two' },
+//       { name: 'driver-one-pm', in: 'zam-in-three', out: 'zam-out-three' },
+//       { name: 'driver-two-pm', in: 'zam-in-four', out: 'zam-out-four' }
+//     ];
+
+//     // Check if any driver has complete entry
+//     drivers.forEach(driver => {
+//       const nameSelect = document.getElementById(driver.name);
+//       const inSelect = document.getElementById(driver.in);
+//       const outSelect = document.getElementById(driver.out);
+      
+//       if (nameSelect && inSelect && outSelect) {
+//         const hasName = nameSelect.value && nameSelect.value.trim() !== '';
+//         const hasInTime = inSelect.value && inSelect.value.trim() !== '';
+//         const hasOutTime = outSelect.value && outSelect.value.trim() !== '';
+        
+//         if (hasName && hasInTime && hasOutTime) {
+//           hasValidEntry = true;
+//         }
+//       }
+//     });
+
+//     // Check skate guards (each needs name + in time + out time)
+//     const skateGuards = [
+//       { name: 'skate-guard-one', in: 'skate-guard-in-one', out: 'skate-guard-out-one' },
+//       { name: 'skate-guard-two', in: 'skate-guard-in-two', out: 'skate-guard-out-two' }
+//     ];
+
+//     // Check if any skate guard has complete entry
+//     skateGuards.forEach(guard => {
+//       const nameSelect = document.getElementById(guard.name);
+//       const inSelect = document.getElementById(guard.in);
+//       const outSelect = document.getElementById(guard.out);
+      
+//       if (nameSelect && inSelect && outSelect) {
+//         const hasName = nameSelect.value && nameSelect.value.trim() !== '';
+//         const hasInTime = inSelect.value && inSelect.value.trim() !== '';
+//         const hasOutTime = outSelect.value && outSelect.value.trim() !== '';
+        
+//         if (hasName && hasInTime && hasOutTime) {
+//           hasValidEntry = true;
+//         }
+//       }
+//     });
+
+//     // Enable submit button if at least one complete entry exists
+//     submitButton.disabled = !hasValidEntry;
+//   }
+
+//   // Add event listeners to all form elements
+//   const allSelects = document.querySelectorAll('.name_picker_sched, .time_picker_sched');
+//   allSelects.forEach(select => {
+//     select.addEventListener('change', checkEnableSubmit);
+//   });
+
+//   // Initially disable submit button
+//   submitButton.disabled = true;
+// }
 
 // Function to update the week header display
 function updateWeekHeader(weekStart) {
