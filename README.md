@@ -115,9 +115,13 @@ for 'Remember Me' functionality
 
 ### Next thing
 
-\*Change the sidebar link from 'Messaging' to 'Schedule Requests'
+\*Change every LocalStorage request to Mongo DB fetch
 
-\*Weekly Cal page and scheduler modals will read from 'schedules'
+\*Start Mongo DB Migrations
+
+\*~Change the sidebar link from 'Messaging' to 'Schedule Requests'~
+
+\*~Weekly Cal page and scheduler modals will read from 'schedules'~
 
 \*~Make the page body freeze and whiteout when modal clicked~
 
