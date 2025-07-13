@@ -1,0 +1,25 @@
+{
+  "name": "viking_arena_time_card",
+  "version": "1.0.0",
+  "description": "\\*~Mobile Layout~",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/courthub74/viking_arena_time_card.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/courthub74/viking_arena_time_card/issues"
+  },
+  "homepage": "https://github.com/courthub74/viking_arena_time_card#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.3"
+  }
+}
