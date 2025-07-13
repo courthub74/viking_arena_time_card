@@ -43,37 +43,72 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(clearPinsButton);
     console.log(forgotPinButton);
 
+    // Migration from LocalStorage to MongoDB
+    async function migrateLocalUsersToMongo() {
+    const localUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+    for (let user of localUsers) {
+        await fetch('http://localhost:3000/api/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        });
+    }
+}
+
+
     // Call the load users function 
     loadUsers();
 
     // Function to load users from local storage into the dropdown
-    function loadUsers() {
-        // Get the users from local storage (expecting a JSON string)
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        // Test Print
-        console.log(users);
-        // Populate the dropdown with usernames
+    async function loadUsers() {
+         
+        const res = await fetch('http://localhost:3000/api/users');
+        const users = await res.json();
 
-        // Clear the dropdown first
         usersDropdown.innerHTML = '';
 
-        // Add a default option to the dropdown
         const defaultOption = document.createElement('option');
         defaultOption.value = '';
-        // defaultOption.textContent = 'Select a user';
         defaultOption.selected = true;
         defaultOption.disabled = true;
         usersDropdown.appendChild(defaultOption);
 
-        // Loop through the users and add them to the dropdown
         users.forEach(user => {
             const option = document.createElement('option');
-            option.value = user.username; // Set the value to the username
-            option.textContent = user.username; // Display the username in the dropdown
-            // Remove the %20 from the username (by decoding it)
+            option.value = user.username;
             option.textContent = decodeURIComponent(user.username);
             usersDropdown.appendChild(option);
         });
+        
+
+
+        // // Get the users from local storage (expecting a JSON string)
+        // const users = JSON.parse(localStorage.getItem('users')) || [];
+        // // Test Print
+        // console.log(users);
+        // // Populate the dropdown with usernames
+
+        // // Clear the dropdown first
+        // usersDropdown.innerHTML = '';
+
+        // // Add a default option to the dropdown
+        // const defaultOption = document.createElement('option');
+        // defaultOption.value = '';
+        // // defaultOption.textContent = 'Select a user';
+        // defaultOption.selected = true;
+        // defaultOption.disabled = true;
+        // usersDropdown.appendChild(defaultOption);
+
+        // // Loop through the users and add them to the dropdown
+        // users.forEach(user => {
+        //     const option = document.createElement('option');
+        //     option.value = user.username; // Set the value to the username
+        //     option.textContent = user.username; // Display the username in the dropdown
+        //     // Remove the %20 from the username (by decoding it)
+        //     option.textContent = decodeURIComponent(user.username);
+        //     usersDropdown.appendChild(option);
+        // });
 
         // NOW make the focus on the pin field
 
