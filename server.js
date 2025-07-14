@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
+const path = require('path');
 const connectDB = async () => {
   try {
     await mongoose.connect('mongodb://localhost:27017/employeeDB', {
@@ -20,7 +21,21 @@ connectDB();
 
 app.use(express.json());
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Serve static files for dashboards
+app.get('/employee', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/html/dashboards/employee.html'));
+});
+app.get('/manager', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/html/dashboards/manager.html'));
+});
+
 
 app.listen(3000, () => {
   console.log('Server running on port 3000');
