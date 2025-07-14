@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 const path = require('path');
+
+// Connect to MongoDB
 const connectDB = async () => {
   try {
     await mongoose.connect('mongodb://localhost:27017/employeeDB', {
@@ -15,6 +17,8 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+
+// Middleware
 app.use(cors());
 
 connectDB();
@@ -37,9 +41,14 @@ app.get('/manager', (req, res) => {
 });
 
 
+mongoose.connect('mongodb://localhost:27017/users')
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
 app.listen(3000, () => {
   console.log('Server running on port 3000');
 });
 
+// Hook Router
 const employeeRoutes = require('./routes/employees');
 app.use('/api/employees', employeeRoutes);
