@@ -64,83 +64,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
         pinField.forEach((input, key) => {
-            input.addEventListener('keyup', async () => {
-                if (input.value && key === 3) {
-                    const pin_login_value = [...pinField].map(p => p.value).join('');
-                    const selectedName = usersDropdown.value;
+            pinField.forEach((input, key) => {
+                input.addEventListener('keyup', async (e) => {
+                    // When a number is typed or Enter is pressed
+                    if (input.value && (key === 3 || e.key === 'Enter')) {
+                        const pin_login_value = [...pinField].map(p => p.value).join('');
+                        const selectedName = usersDropdown.value;
 
-                    const response = await fetch('http://localhost:3000/api/employees/login', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name: selectedName, pin: pin_login_value })
-                    });
-
-                    const data = await response.json();
-
-                    if (data.success) {
-                        loginButton.disabled = false;
-                        pinField.forEach(pin => {
-                            const isDark = document.body.classList.contains('dark-mode');
-                            pin.style.color = isDark ? "#00FF00" : "#16BC00";
+                        const response = await fetch('http://localhost:3000/api/employees/login', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name: selectedName, pin: pin_login_value })
                         });
 
-                        forgotPinButton.style.opacity = "0%";
-                        clearPinsButton.innerHTML = `Pin is Correct`;
-                        clearPinsButton.style.color = document.body.classList.contains('dark-mode') ? "#00FF00" : "#16BC00";
+                        const data = await response.json();
 
-                        setTimeout(() => {
-                            clearPinsButton.innerHTML = `Clear Pin fields`;
-                            clearPinsButton.style.color = document.body.classList.contains('dark-mode') ? "#ffffff" : "#000000";
-                            clearPinsButton.style.opacity = document.body.classList.contains('dark-mode') ? "50%" : "70%";
-                            forgotPinButton.style.opacity = "100%";
-                            pinField[0].focus();
-                        }, 2000);
-
-                        loginButton.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            const session = {
-                                sessionId: Date.now(),
-                                firstname: data.employee.firstname,
-                                lastname: data.employee.lastname,
-                                pin: pin_login_value,
-                                role: data.employee.role
-                            };
-                            sessionStorage.setItem('session', JSON.stringify(session));
-
-                            // Concatenate the firstname and lastname for the URL
-                            const fullName = `${data.employee.firstname} ${data.employee.lastname}`;
-                            const encodedUserFullname = encodeURIComponent(data.employee.firstname + ' ' + data.employee.lastname);
-                            const encodedPin = encodeURIComponent(pin_login_value);
-
-                            if (data.employee.role === 'Manager') {
-                                window.location.href = `/html/dashboards/manager.html?username=${encodedUserFullname}&role=Manager&encodedPinConfirm=${encodedPin}`;
-                            } else {
-                                window.location.href = `/html/dashboards/employee.html?username=${encodedUserFullname}&role=Employee&encodedPinConfirm=${encodedPin}`;
-                            }
-                        });
-                    } else {
-                        forgotPinButton.style.opacity = "0%";
-                        clearPinsButton.innerHTML = `Pin is Incorrect`;
-                        clearPinsButton.style.color = "#BC0000";
-                        clearPinsButton.style.opacity = "100%";
-
-                        setTimeout(() => {
-                            clearPinsButton.innerHTML = `Clear Pin fields`;
-                            clearPinsButton.style.color = document.body.classList.contains('dark-mode') ? "#ffffff" : "#000000";
-                            clearPinsButton.style.opacity = document.body.classList.contains('dark-mode') ? "55%" : "70%";
-                            forgotPinButton.style.opacity = "100%";
+                        if (data.success) {
+                            loginButton.disabled = false;
                             pinField.forEach(pin => {
-                                pin.value = '';
-                                pin.style.color = '';
+                                const isDark = document.body.classList.contains('dark-mode');
+                                pin.style.color = isDark ? "#00FF00" : "#16BC00";
                             });
-                            pinField[0].focus();
-                        }, 2000);
 
-                        loginButton.disabled = true;
-                        pinField.forEach(pin => pin.style.color = 'red');
-                        pinField[key + 1]?.focus();
+                            forgotPinButton.style.opacity = "0%";
+                            clearPinsButton.innerHTML = `Pin is Correct`;
+                            clearPinsButton.style.color = document.body.classList.contains('dark-mode') ? "#00FF00" : "#16BC00";
+
+                            setTimeout(() => {
+                                clearPinsButton.innerHTML = `Clear Pin fields`;
+                                clearPinsButton.style.color = document.body.classList.contains('dark-mode') ? "#ffffff" : "#000000";
+                                clearPinsButton.style.opacity = document.body.classList.contains('dark-mode') ? "50%" : "70%";
+                                forgotPinButton.style.opacity = "100%";
+                                pinField[0].focus();
+                            }, 2000);
+
+                            // ✅ Trigger login on Enter key press immediately
+                            if (e.key === 'Enter') {
+                                loginButton.click();
+                            }
+
+                            loginButton.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                const session = {
+                                    sessionId: Date.now(),
+                                    firstname: data.employee.firstname,
+                                    lastname: data.employee.lastname,
+                                    pin: pin_login_value,
+                                    role: data.employee.role
+                                };
+                                sessionStorage.setItem('session', JSON.stringify(session));
+
+                                const encodedUserFullname = encodeURIComponent(`${data.employee.firstname} ${data.employee.lastname}`);
+                                const encodedPin = encodeURIComponent(pin_login_value);
+
+                                if (data.employee.role === 'Manager') {
+                                    window.location.href = `/html/dashboards/manager.html?username=${encodedUserFullname}&role=Manager&encodedPinConfirm=${encodedPin}`;
+                                } else {
+                                    window.location.href = `/html/dashboards/employee.html?username=${encodedUserFullname}&role=Employee&encodedPinConfirm=${encodedPin}`;
+                                }
+                            });
+                        } else {
+                            forgotPinButton.style.opacity = "0%";
+                            clearPinsButton.innerHTML = `Pin is Incorrect`;
+                            clearPinsButton.style.color = "#BC0000";
+                            clearPinsButton.style.opacity = "100%";
+
+                            setTimeout(() => {
+                                clearPinsButton.innerHTML = `Clear Pin fields`;
+                                clearPinsButton.style.color = document.body.classList.contains('dark-mode') ? "#ffffff" : "#000000";
+                                clearPinsButton.style.opacity = document.body.classList.contains('dark-mode') ? "55%" : "70%";
+                                forgotPinButton.style.opacity = "100%";
+                                pinField.forEach(pin => {
+                                    pin.value = '';
+                                    pin.style.color = '';
+                                });
+                                pinField[0].focus();
+                            }, 2000);
+
+                            loginButton.disabled = true;
+                            pinField.forEach(pin => pin.style.color = 'red');
+                            pinField[key + 1]?.focus();
+                        }
                     }
-                }
+                });
             });
         });
     }
