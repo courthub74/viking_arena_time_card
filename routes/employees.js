@@ -1,54 +1,86 @@
 const express = require('express');
 const router = express.Router();
-const Employee = require('../models/Employee');
+const Employee = require('../models/employee');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
     
 
 // GET all employee names
 router.get('/all', async (req, res) => {
   try {
-    const employees = await Employee.find({}, 'name'); // Only return name field
+    const employees = await Employee.find({}, 'firstname lastname');
     res.json(employees);
   } catch (err) {
     res.status(500).json({ message: 'Failed to fetch employees', error: err });
   }
 });
 
+
 // POST login with name and pin
 router.post('/login', async (req, res) => {
   const { name, pin } = req.body;
 
   try {
-    const employee = await Employee.findOne({ name, pin });
+    const [first, last] = name.trim().split(' ');
+    const employee = await Employee.findOne({ firstname: first, lastname: last });
 
     if (!employee) {
-      return res.status(401).json({ success: false, message: 'Invalid name or pin' });
+      return res.status(401).json({ success: false, message: 'User not found' });
     }
 
-    res.status(200).json({
+    const pinMatch = await bcrypt.compare(pin, employee.pin);
+    if (!pinMatch) {
+      return res.status(401).json({ success: false, message: 'Incorrect PIN' });
+    }
+
+    res.json({
       success: true,
-      message: 'Login successful',
       employee: {
-        name: employee.name,
-        role: employee.role,
-        pin: employee.pin // Optional: remove if you don’t want to expose pin
+        firstname: employee.firstname,
+        lastname: employee.lastname,
+        role: employee.role
       }
     });
   } catch (err) {
-    res.status(500).json({ success: false, message: 'Login error', error: err });
+    console.error('Login error:', err);
+    res.status(500).json({ success: false, message: 'Server error' });
   }
 });
 
 
 
+// POST new employee
 router.post('/', async (req, res) => {
   const newEmployee = new Employee(req.body);
   const saved = await newEmployee.save();
   res.json(saved);
 });
 
+// GET the employees
 router.get('/', async (req, res) => {
   const employees = await Employee.find();
   res.json(employees);
+});
+
+// POST the registration
+router.post('/register', async (req, res) => {
+  try {
+    const { firstname, lastname, pin, role } = req.body;
+
+    const hashedPin = await bcrypt.hash(pin, saltRounds);
+
+    const employee = new Employee({
+      firstname,
+      lastname,
+      pin: hashedPin,
+      role
+    });
+
+    await employee.save();
+    res.status(201).json({ success: true });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
 });
 
 module.exports = router;

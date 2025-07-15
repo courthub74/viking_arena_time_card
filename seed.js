@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Employee = require('./models/employees'); // Adjust path if needed
+const Employee = require('./models/employee'); // Adjust path if needed
 
 // Sample employees
 const sampleEmployees = [

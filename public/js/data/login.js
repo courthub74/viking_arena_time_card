@@ -21,8 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         users.forEach(user => {
             const option = document.createElement('option');
-            option.value = user.name;
-            option.textContent = decodeURIComponent(user.name);
+            // OLD
+            // option.value = user.name;
+            // option.textContent = decodeURIComponent(user.name);
+            // NEW: Concatenate firstname and lastname
+            const fullName = `${user.firstname} ${user.lastname}`;
+            option.value = fullName;
+            option.textContent = decodeURIComponent(fullName);
+
             usersDropdown.appendChild(option);
         });
 

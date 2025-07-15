@@ -73,8 +73,37 @@ if (acct_type === 'Manager') {
 ////////////////////////////////////////////////////////////////////////////////
 // ENCODE THE VARIABLES TO SEND TO THE NEXT PAGE
 
-// const encoded_logged_name = encodeURIComponent(logged_name);
-// const encoded_logged_acct_type = encodeURIComponent(logged_acct_type);
+// To Mongo DB
+submit_acct_type.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    try {
+        const response = await fetch('http://localhost:3000/api/employees/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                firstname: encodedFirstName,
+                lastname: encodedLastName,
+                pin: pin_number,
+                role: acct_type
+            })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            alert('User successfully registered!');
+            window.location.href = '/html/login.html';
+        } else {
+            alert('Registration failed. Please try again.');
+            console.error(result.error);
+        }
+    } catch (error) {
+        alert('An error occurred during registration.');
+        console.error(error);
+    }
+});
+
 
 
 
