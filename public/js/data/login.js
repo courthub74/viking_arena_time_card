@@ -42,12 +42,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
         pinField.forEach((input, index) => {
             input.setAttribute('inputmode', 'numeric');
-            input.addEventListener('keypress', e => { if (!/\d/.test(e.key)) e.preventDefault(); });
-            input.addEventListener('input', () => input.value = input.value.replace(/\D/g, ''));
+
+            input.addEventListener('keypress', e => {
+                if (!/\d/.test(e.key)) e.preventDefault();
+            });
+
+            input.addEventListener('input', () => {
+                input.value = input.value.replace(/\D/g, '');
+                // Auto-advance to next input
+                if (input.value.length === 1 && index < pinField.length - 1) {
+                    pinField[index + 1].focus();
+                }
+            });
+
             input.addEventListener('keydown', e => {
-                if (e.key === 'Backspace' && input.value === '' && index > 0) pinField[index - 1].focus();
+                if (e.key === 'Backspace' && input.value === '' && index > 0) {
+                    pinField[index - 1].focus();
+                }
             });
         });
+
 
         pinField.forEach((input, key) => {
             input.addEventListener('keyup', async () => {

@@ -75,35 +75,35 @@ if (acct_type === 'Manager') {
 
 // To Mongo DB
 submit_acct_type.addEventListener('click', async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-        const response = await fetch('http://localhost:3000/api/employees/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                firstname: encodedFirstName,
-                lastname: encodedLastName,
-                pin: pin_number,
-                role: acct_type
-            })
-        });
+  try {
+    const response = await fetch('http://localhost:3000/api/employees/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstname: encodedFirstName,
+        lastname: encodedLastName,
+        pin: pin_number,
+        role: acct_type
+      })
+    });
 
-        const result = await response.json();
+    const data = await response.json();
 
-        if (result.success) {
-            alert('User successfully registered!');
-            window.location.href = '/html/login.html';
-        } else {
-            alert('Registration failed. Please try again.');
-            console.error(result.error);
-        }
-    } catch (error) {
-        alert('An error occurred during registration.');
-        console.error(error);
+    if (data.success) {
+      console.log('✅ Registration successful');
+      // Redirect to login or dashboard, or show a confirmation message
+      window.location.href = `/index.html`; // or dashboard if you want
+    } else {
+      console.error('❌ Registration failed:', data.message);
+      alert('Registration failed. Try again.');
     }
+  } catch (err) {
+    console.error('⚠️ Error registering user:', err);
+    alert('Error connecting to server. Try again.');
+  }
 });
-
 
 
 

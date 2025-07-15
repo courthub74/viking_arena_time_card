@@ -16,7 +16,7 @@ router.get('/all', async (req, res) => {
 });
 
 
-// POST login with name and pin
+// POST LOGIN with name and pin
 router.post('/login', async (req, res) => {
   const { name, pin } = req.body;
 
@@ -64,22 +64,24 @@ router.get('/', async (req, res) => {
 
 // POST the registration
 router.post('/register', async (req, res) => {
+  const { firstname, lastname, pin, role } = req.body;
+
   try {
-    const { firstname, lastname, pin, role } = req.body;
+    const hashedPin = await bcrypt.hash(pin, 10); // saltRounds = 10
 
-    const hashedPin = await bcrypt.hash(pin, saltRounds);
-
-    const employee = new Employee({
+    const newEmployee = new Employee({
       firstname,
       lastname,
       pin: hashedPin,
-      role
+      role,
     });
 
-    await employee.save();
-    res.status(201).json({ success: true });
+    await newEmployee.save();
+
+    res.status(201).json({ success: true, message: 'Employee registered' });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    console.error('Registration error:', err);
+    res.status(500).json({ success: false, message: 'Server error' });
   }
 });
 
