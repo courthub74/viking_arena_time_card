@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('profile_account').textContent = role;
 
     // Logout functionality
-    document.getElementById('logout_button').addEventListener('click', () => {
+    document.getElementById('logout_manager').addEventListener('click', () => {
         sessionStorage.clear();
         window.location.href = '/html/login.html';
     });

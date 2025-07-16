@@ -8,12 +8,14 @@ const saltRounds = 10;
 // GET all employee names
 router.get('/all', async (req, res) => {
   try {
-    const employees = await Employee.find({}, 'firstname lastname');
+    const employees = await Employee.find().select('firstname lastname role'); // Include 'role' here
     res.json(employees);
   } catch (err) {
-    res.status(500).json({ message: 'Failed to fetch employees', error: err });
+    console.error('Error fetching employees:', err);
+    res.status(500).json({ message: 'Server error' });
   }
 });
+
 
 
 // POST LOGIN with name and pin
