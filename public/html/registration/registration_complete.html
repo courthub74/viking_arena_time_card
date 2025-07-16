@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Complete</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .message {
+      text-align: center;
+    }
+
+    .message h1 {
+      font-size: 2rem;
+      color: #1e90ff;
+    }
+
+    .message p {
+      font-size: 1rem;
+      margin-top: 1rem;
+      color: #444;
+    }
+
+    .spinner {
+      margin-top: 2rem;
+      border: 6px solid #eee;
+      border-top: 6px solid #1e90ff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    .dark-mode .card {
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+
+    .dark-mode .button {
+      background-color: #333;
+      color: #fff;
+      border-color: #555;
+    }
+
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    <h1>Registration Complete!</h1>
+    <p>Redirecting to your dashboard...</p>
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+      const body = document.body;
+
+    // Check localStorage or sessionStorage for saved preference
+    const prefersDark = localStorage.getItem('darkMode') === 'true';
+
+    if (prefersDark) {
+      body.classList.add('dark-mode');
+    }
+    // Wait 3 seconds, then redirect based on session role
+    setTimeout(() => {
+      const session = JSON.parse(sessionStorage.getItem('session'));
+      if (!session) {
+        window.location.href = '/index.html';
+        return;
+      }
+
+      const fullName = encodeURIComponent(session.firstname + ' ' + session.lastname);
+      const encodedPin = encodeURIComponent(session.pin);
+
+      if (session.role === 'Manager') {
+        window.location.href = `/html/dashboards/manager.html?username=${fullName}&role=Manager&encodedPinConfirm=${encodedPin}`;
+      } else {
+        window.location.href = `/html/dashboards/employee.html?username=${fullName}&role=Employee&encodedPinConfirm=${encodedPin}`;
+      }
+    }, 3000);
+  </script>
+</body>
+</html>

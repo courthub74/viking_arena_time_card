@@ -85,4 +85,51 @@ router.post('/register', async (req, res) => {
   }
 });
 
+
+// EMPLOYEE HOURS LOGGING
+// Log employee work entry (add to workHistory)
+router.post('/log-work', async (req, res) => {
+  const { firstname, lastname, entry } = req.body;
+
+  try {
+    const employee = await Employee.findOne({ firstname, lastname });
+
+    if (!employee) {
+      return res.status(404).json({ success: false, message: 'Employee not found' });
+    }
+
+    // Initialize workHistory if undefined
+    if (!employee.workHistory) {
+      employee.workHistory = [];
+    }
+
+    employee.workHistory.push(entry);
+    await employee.save();
+
+    res.json({ success: true, message: 'Work entry logged', employee });
+  } catch (err) {
+    console.error("Error logging work:", err);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
+// HOURS for a specific employee
+router.post('/work-history', async (req, res) => {
+  const { firstname, lastname } = req.body;
+
+  try {
+    const employee = await Employee.findOne({ firstname, lastname });
+
+    if (!employee) {
+      return res.status(404).json({ success: false, message: 'Employee not found' });
+    }
+
+    res.json({ success: true, workHistory: employee.workHistory || [] });
+  } catch (err) {
+    console.error("Error retrieving work history:", err);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
+
 module.exports = router;

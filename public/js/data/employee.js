@@ -32,10 +32,21 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('employee_name').textContent = fullName;
     document.getElementById('profile_name').textContent = fullName;
     document.getElementById('profile_account').textContent = role;
+    // Set the logout button
+    // document.getElementById('logout_button').textContent = 'Logout';
 
-    document.getElementById('logout_button').addEventListener('click', () => {
-        sessionStorage.clear();
-        window.location.href = '/html/login.html';
+    document.getElementById('logout_employee').addEventListener('click', () => {
+        const submit_button_employee_hours = document.getElementById('submit_employee_hours');
+        if (!submit_button_employee_hours) {
+            console.warn("Button #submit_employee_hours not found in DOM.");
+            return;
+        }
+
+        submit_button_employee_hours.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log("Submit button clicked");
+            // Your rest of logic
+        });
     });
 
 });

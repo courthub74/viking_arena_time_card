@@ -93,15 +93,37 @@ submit_acct_type.addEventListener('click', async (e) => {
 
     if (data.success) {
       console.log('✅ Registration successful');
-      // Redirect to login or dashboard, or show a confirmation message
-      window.location.href = `/index.html`; // or dashboard if you want
-    } else {
+
+      // Prepare session object
+      const session = {
+        sessionId: Date.now(),
+        firstname: encodedFirstName,
+        lastname: encodedLastName,
+        pin: pin_number,
+        role: acct_type
+      };
+
+      // Store in sessionStorage
+      sessionStorage.setItem('session', JSON.stringify(session));
+
+      // Construct encoded values for URL (if needed later)
+      const encodedUserFullname = encodeURIComponent(`${encodedFirstName} ${encodedLastName}`);
+      const encodedPin = encodeURIComponent(pin_number);
+
+      // Log redirect for debugging
+      console.log('Redirecting to registration_complete.html');
+
+      // Redirect based on role
+      window.location.href = `/html/registration/registration_complete.html`;
+
+  }
+    else {
       console.error('❌ Registration failed:', data.message);
-      alert('Registration failed. Try again.');
+      alert(`Registration failed: ${data.message}`);
     }
-  } catch (err) {
-    console.error('⚠️ Error registering user:', err);
-    alert('Error connecting to server. Try again.');
+  } catch (error) {
+    console.error('❌ Error during registration:', error);
+    alert('An error occurred during registration. Please try again.');
   }
 });
 
