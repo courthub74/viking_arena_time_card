@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const usersDropdown = document.getElementById('users_dropdown');
     const clearPinsButton = document.getElementById('reset_button');
     const forgotPinButton = document.getElementById('forgot_button');
+    // const loginSpinner = document.getElementById('login_spinner');
 
     loadUsers();
 
@@ -71,6 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         const pin_login_value = [...pinField].map(p => p.value).join('');
                         const selectedName = usersDropdown.value;
 
+                        // Disable the login button and show spinner
+                        loginButton.disabled = true;
+                        // loginSpinner.style.display = 'block';
+
+
                         const response = await fetch('http://localhost:3000/api/employees/login', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -78,6 +84,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
 
                         const data = await response.json();
+
+                        // Hide spinner and enable login button
+                        // loginSpinner.style.display = 'none';
+
 
                         if (data.success) {
                             loginButton.disabled = false;
