@@ -841,6 +841,13 @@ header {
     font-size: .6rem;
 }
 
+/* Daily Button Entered */
+.calendar-cell.has-schedule {
+  background-color: #d1ffd1;
+  border-left: 4px solid green;
+}
+
+
 
 /* Back to Dashboard */
 .back_to_div {

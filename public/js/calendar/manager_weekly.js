@@ -227,8 +227,12 @@ function resetFormFields() {
   }
 }
 
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+// Change Here   
 // Function to render the weekly calendar as buttons in a column
-function renderWeeklyCalendar(weekStart) {
+async function renderWeeklyCalendar(weekStart) {
   const calendarBody = document.getElementById('calendar-body');
   if (!calendarBody) {
     console.error('Calendar container not found');
@@ -236,15 +240,42 @@ function renderWeeklyCalendar(weekStart) {
   }
   
   calendarBody.innerHTML = '';
+
+  // Fetch saved schedules from MongoDB for this week
+  const weekStartISO = weekStart.toISOString().split('T')[0];
+  const weekEndISO = getWeekEnd(weekStart).toISOString().split('T')[0];
+
+  const scheduleMap = await fetch(`/api/schedules?start=${weekStartISO}&end=${weekEndISO}`)
+    .then(res => res.json())
+    .then(data => {
+      const map = {};
+      data.forEach(schedule => {
+        map[schedule.date] = schedule;
+      });
+      return map;
+    })
+    .catch(err => {
+      console.error('Failed to load schedules:', err);
+      return {};
+    });
   
   // Generate 7 days starting from weekStart
+  // The buttons for each day
   for (let i = 0; i < 7; i++) {
     const dayDate = new Date(weekStart);
     dayDate.setDate(weekStart.getDate() + i);
+
+    const dateKey = dayDate.toISOString().split('T')[0];
     
     // Create button element for each day
     const dayButton = document.createElement('button');
     dayButton.classList.add('calendar-cell', 'week-day-button');
+
+    // If MongoDB has a schedule for this day
+    if (scheduleMap[dateKey]) {
+      dayButton.classList.add('has-schedule');
+      dayButton.dataset.schedule = JSON.stringify(scheduleMap[dateKey]);
+    }
     
     // Add data attributes for the date
     dayButton.setAttribute('data-date', dayDate.getDate());
@@ -697,13 +728,21 @@ if (backToDashboardLink) {
   backToDashboardLink.addEventListener('click', function(event) {
     event.preventDefault();
 
+      // ✅ Debug prints
+      console.log("Back Link Clicked");
+     
+
     const session = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
     if (session) {
       try {
         const user = JSON.parse(session);
-        const rawRole = user.accountType || '';
+        const rawRole = user.role || '';
         const userRole = decodeURIComponent(rawRole).trim().toLowerCase();
-        console.log('Back Link Detected Role:', userRole); // Debug line
+
+         // ✅ Debug prints
+        console.log('Raw user object:', user);
+        console.log('Raw role:', rawRole);
+        console.log('Decoded role:', userRole);
 
         if (userRole === 'manager') {
           window.location.href = '../../html/dashboards/manager.html';
