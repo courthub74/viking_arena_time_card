@@ -141,20 +141,39 @@ function createEmployeeDiv(employee, role, container) {
 // Dashboard back link
 const backToDashboardLink = document.getElementById('link_back');
 if (backToDashboardLink) {
-    backToDashboardLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        const user = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
-        if (!user) return;
+  backToDashboardLink.addEventListener('click', function(event) {
+    event.preventDefault();
 
-        const parsed = JSON.parse(user);
-        const role = decodeURIComponent(parsed.accountType || '').trim().toLowerCase();
+      // ✅ Debug prints
+      console.log("Back Link Clicked");
+     
 
-        if (role === 'manager') {
-            window.location.href = '../../html/dashboards/manager.html';
+    const session = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
+    if (session) {
+      try {
+        const user = JSON.parse(session);
+        const rawRole = user.role || '';
+        const userRole = decodeURIComponent(rawRole).trim().toLowerCase();
+
+         // ✅ Debug prints
+        console.log('Raw user object:', user);
+        console.log('Raw role:', rawRole);
+        console.log('Decoded role:', userRole);
+
+        if (userRole === 'manager') {
+          window.location.href = '../../html/dashboards/manager.html';
         } else {
-            window.location.href = '../../html/dashboards/employee.html';
+          window.location.href = '../../html/dashboards/employee.html';
         }
-    });
+      } catch (err) {
+        console.error('Failed to parse session user:', err);
+        window.location.href = '../../html/dashboards/employee.html';
+      }
+    } else {
+      // Default fallback
+      window.location.href = '../../html/dashboards/employee.html';
+    }
+  });
 }
 
 // Init

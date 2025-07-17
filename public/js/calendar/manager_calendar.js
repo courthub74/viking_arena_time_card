@@ -387,22 +387,38 @@ function nextMonth() {
 ///////////////////BACK TO DASHBOARD LINK///////////////////////////////
 // Query the back to dashboard link and add an event listener to it
 const backToDashboardLink = document.getElementById('link_back');
-
 if (backToDashboardLink) {
-    backToDashboardLink.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default link behavior
+  backToDashboardLink.addEventListener('click', function(event) {
+    event.preventDefault();
 
-        // Retrieving the User Role
-        const userType = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session') || null;
-        const userTypeAcc = userType ? JSON.parse(userType) : null;
-        const userRole = userTypeAcc.accountType;
+      // ✅ Debug prints
+      console.log("Back Link Clicked");
+     
 
-        if (userRole === 'Manager') {
-            // Redirect to manager dashboard
-            window.location.href = '../../html/dashboards/manager.html'; // Replace with the actual URL for the manager dashboard
+    const session = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
+    if (session) {
+      try {
+        const user = JSON.parse(session);
+        const rawRole = user.role || '';
+        const userRole = decodeURIComponent(rawRole).trim().toLowerCase();
+
+         // ✅ Debug prints
+        console.log('Raw user object:', user);
+        console.log('Raw role:', rawRole);
+        console.log('Decoded role:', userRole);
+
+        if (userRole === 'manager') {
+          window.location.href = '../../html/dashboards/manager.html';
         } else {
-            // Default redirect to the main dashboard
-            window.location.href = '../../html/dashboards/employee.html'; // Replace with the actual URL for the main dashboard
+          window.location.href = '../../html/dashboards/employee.html';
         }
-    });
-};
+      } catch (err) {
+        console.error('Failed to parse session user:', err);
+        window.location.href = '../../html/dashboards/employee.html';
+      }
+    } else {
+      // Default fallback
+      window.location.href = '../../html/dashboards/employee.html';
+    }
+  });
+}
