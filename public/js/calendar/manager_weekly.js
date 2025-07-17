@@ -406,10 +406,18 @@ async function populateDropdowns() {
       
       // Add zamboni drivers
       users_for_scheduling.forEach(user => {
-        const decodedAccountType = decodeURIComponent(user.accountType);
-        const isZamboniDriver = decodedAccountType.toLowerCase() === "zamboni driver" || 
-                               user.accountType === "Zamboni%20Driver" ||
-                               user.accountType === "Zamboni Driver";
+        // Old
+        // const decodedAccountType = decodeURIComponent(user.accountType);
+        // New
+        const decodedRole = decodeURIComponent(user.role);
+        // Old
+        // const isZamboniDriver = decodedAccountType.toLowerCase() === "zamboni driver" || 
+        //                        user.accountType === "Zamboni%20Driver" ||
+        //                        user.accountType === "Zamboni Driver";
+        // New
+        const isZamboniDriver = decodedRole.toLowerCase() === "zamboni driver" || 
+                               user.role === "Zamboni%20Driver" ||
+                               user.role === "Zamboni Driver";
         
         if (isZamboniDriver) {
           const option = document.createElement('option');
@@ -433,10 +441,18 @@ async function populateDropdowns() {
       
       // Add skate guards
       users_for_scheduling.forEach(user => {
-        const decodedAccountType = decodeURIComponent(user.accountType);
-        const isSkateGuard = decodedAccountType.toLowerCase() === "skate guard" ||
-                            user.accountType === "Skate%20Guard" ||
-                            user.accountType === "Skate Guard";
+        // Old
+        // const decodedAccountType = decodeURIComponent(user.accountType);
+        // New
+        const decodedRole = decodeURIComponent(user.role);
+        // Old
+        // const isSkateGuard = decodedAccountType.toLowerCase() === "skate guard" ||
+        //                     user.accountType === "Skate%20Guard" ||
+        //                     user.accountType === "Skate Guard";
+        // New
+        const isSkateGuard = decodedRole.toLowerCase() === "skate guard" ||
+                            user.role === "Skate%20Guard" ||
+                            user.role === "Skate Guard";
         
         if (isSkateGuard) {
           const option = document.createElement('option');
