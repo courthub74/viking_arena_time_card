@@ -61,7 +61,7 @@ function setupSubmitButtonListener() {
   const submitScheduleButton = document.getElementById('submit_employee_hours_modal');
   if (!submitScheduleButton) return;
 
-  submitScheduleButton.addEventListener('click', function(e) {
+  submitScheduleButton.addEventListener('click', async function(e) {
     e.preventDefault();
     console.log("Submit Hours Manager Modal Pressed");
 
@@ -137,9 +137,27 @@ function setupSubmitButtonListener() {
     console.log('Schedule Data:', scheduleData);
 
     // Store the schedule data in localStorage
-    let schedules = JSON.parse(localStorage.getItem('schedules')) || [];
-    schedules.push(scheduleData);
-    localStorage.setItem('schedules', JSON.stringify(schedules));
+    // let schedules = JSON.parse(localStorage.getItem('schedules')) || [];
+    // schedules.push(scheduleData);
+    // localStorage.setItem('schedules', JSON.stringify(schedules));
+
+    // New MongoDB code to save schedule
+    try {
+      const res = await fetch('/api/schedules', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(scheduleData)
+      });
+
+      if (!res.ok) throw new Error('Failed to save schedule');
+
+      console.log('Schedule successfully saved to MongoDB');
+    } catch (err) {
+      console.error('Error saving schedule:', err);
+    }
+
 
     // Close the modal
     const make_employee_schedule = document.getElementById('cal_modal');
@@ -334,8 +352,16 @@ function openScheduleModal(dayDate) {
 }
 
 // Function to populate all dropdowns
-function populateDropdowns() {
-  const users_for_scheduling = JSON.parse(localStorage.getItem('users')) || [];
+async function populateDropdowns() {
+  // const users_for_scheduling = JSON.parse(localStorage.getItem('users')) || [];
+
+  const users_for_scheduling = await fetch('/api/users')
+  .then(res => res.json())
+  .catch(err => {
+    console.error('Failed to load users:', err);
+    return [];
+  });
+
   
   // Clear and populate driver dropdowns
   const driverDropdowns = [
@@ -663,22 +689,35 @@ document.addEventListener('DOMContentLoaded', function() {
   setupSubmitButtonListener(); // Set up submit listener once
 });
 
+
+
 // Back to dashboard functionality
 const backToDashboardLink = document.getElementById('link_back');
 if (backToDashboardLink) {
   backToDashboardLink.addEventListener('click', function(event) {
     event.preventDefault();
-    
-    const userType = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
-    if (userType) {
-      const userTypeAcc = JSON.parse(userType);
-      const userRole = userTypeAcc.accountType;
-      
-      if (userRole === 'Manager') {
-        window.location.href = '../../html/dashboards/manager.html';
-      } else {
+
+    const session = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
+    if (session) {
+      try {
+        const user = JSON.parse(session);
+        const rawRole = user.accountType || '';
+        const userRole = decodeURIComponent(rawRole).trim().toLowerCase();
+        console.log('Back Link Detected Role:', userRole); // Debug line
+
+        if (userRole === 'manager') {
+          window.location.href = '../../html/dashboards/manager.html';
+        } else {
+          window.location.href = '../../html/dashboards/employee.html';
+        }
+      } catch (err) {
+        console.error('Failed to parse session user:', err);
         window.location.href = '../../html/dashboards/employee.html';
       }
+    } else {
+      // Default fallback
+      window.location.href = '../../html/dashboards/employee.html';
     }
   });
 }
+
