@@ -28,7 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Logout functionality
     document.getElementById('logout_manager').addEventListener('click', () => {
         sessionStorage.clear();
-        window.location.href = '/html/login.html';
+        // window.location.href = '/html/login.html';
+        // Test Print
+        console.log("Manager.js Logout clicked");
+        window.location.href = '../../index.html'
     });
 
 });

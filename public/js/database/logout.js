@@ -14,8 +14,9 @@ console.log(`The current user is: ${currentUser.username} and their role is: ${c
 // Check if the current user is null or undefined
 if (currentUser === null || currentUser === undefined) {
     // If the user is not logged in, redirect to the login page
-    window.location.href = '../../index.html';
-    window.location.href = '/viking_arena_time_card/index.html';
+    // window.location.href = '../../index.html';
+    window.location.href = './../../index.html';
+    // window.location.href = '/viking_arena_time_card/index.html';
 }
 
 // Display the current user's name in the header
@@ -35,7 +36,10 @@ function logoutUser() {
 
     // Redirect to login page
     window.location.href = '../../index.html';
-    window.location.href = '/viking_arena_time_card/index.html';
+    // window.location.href = '/viking_arena_time_card/index.html';
+
+    // Test Print
+    console.log("Logout Pressed");
 
 }
 
