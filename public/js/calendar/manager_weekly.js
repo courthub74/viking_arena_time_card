@@ -245,6 +245,7 @@ async function renderWeeklyCalendar(weekStart) {
   const weekStartISO = weekStart.toISOString().split('T')[0];
   const weekEndISO = getWeekEnd(weekStart).toISOString().split('T')[0];
 
+
   const scheduleMap = await fetch(`/api/schedules?start=${weekStartISO}&end=${weekEndISO}`)
     .then(res => res.json())
     .then(data => {

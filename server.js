@@ -67,6 +67,11 @@ app.get('/manager', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/html/dashboards/manager.html'));
 });
 
+// Schedule Routes server.js
+const scheduleRoutes = require('./routes/schedules');
+app.use('/api', scheduleRoutes); // ✅ this must exist
+
+
 // mongoose.connect('mongodb://localhost:27017/users')
 //   .then(() => console.log('MongoDB connected'))
 //   .catch(err => console.error('MongoDB connection error:', err));
