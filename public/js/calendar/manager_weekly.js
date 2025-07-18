@@ -340,6 +340,7 @@ async function renderWeeklyCalendar(weekStart) {
   }
 }
 
+
 // Function to open the schedule modal
 function openScheduleModal(dayDate) {
   const make_employee_schedule = document.getElementById('cal_modal');
@@ -350,17 +351,31 @@ function openScheduleModal(dayDate) {
 
   make_employee_schedule.classList.add('modal_active');
   
-  // Set user name in header
-  const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
-  if (userString) {
-    const loggedUser = JSON.parse(userString);
-    const decodedUser = decodeURIComponent(loggedUser.username);
-    const emp_modal_header = document.getElementById('employee_name_month');
-    if (emp_modal_header) {
-      emp_modal_header.innerHTML = decodedUser;
-    }
-  }
+  // document.addEventListener('DOMContentLoaded', () => {
+     // Set user name in header
+      const userString = sessionStorage.getItem('currentUser') || sessionStorage.getItem('session');
+        if (userString) {
+          try {
+            const loggedUser = JSON.parse(userString);
+            // concatenate the first and last names
+            const firstname = decodeURIComponent(loggedUser.firstname);
+            const lastname = decodeURIComponent(loggedUser.lastname);
+            const username = decodeURIComponent(`${firstname} ${lastname}`);
+            console.log(username);
+            const decodedUser = decodeURIComponent(username || 'No Name');
+            const emp_modal_header = document.getElementById('employee_name_month');
+            if (emp_modal_header) {
+              emp_modal_header.textContent = decodedUser;
+              console.log("✅ Employee name populated:", decodedUser);
+            } else {
+              console.warn("⚠️ Couldn't find #employee_name_month in DOM.");
+            }
+          } catch (err) {
+            console.error("❌ Failed to parse logged in user:", err);
+          }
+        }
   
+ 
   // Set selected date
   const emp_hours_current_date = document.getElementById('day_selected');
   if (emp_hours_current_date) {
