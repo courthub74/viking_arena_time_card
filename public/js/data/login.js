@@ -10,28 +10,31 @@ document.addEventListener('DOMContentLoaded', function() {
     loadUsers();
 
     async function loadUsers() {
+         try {
         const res = await fetch('http://localhost:3000/api/employees/all');
+        if (!res.ok) throw new Error(`HTTP error ${res.status}`);
         const users = await res.json();
+
+        console.log('Fetched users:', users); // 🔍 Check the structure
 
         usersDropdown.innerHTML = '';
         const defaultOption = document.createElement('option');
         defaultOption.value = '';
         defaultOption.selected = true;
         defaultOption.disabled = true;
+        // defaultOption.textContent = 'Select a name';
         usersDropdown.appendChild(defaultOption);
 
         users.forEach(user => {
-            const option = document.createElement('option');
-            // OLD
-            // option.value = user.name;
-            // option.textContent = decodeURIComponent(user.name);
-            // NEW: Concatenate firstname and lastname
             const fullName = `${user.firstname} ${user.lastname}`;
+            const option = document.createElement('option');
             option.value = fullName;
-            option.textContent = decodeURIComponent(fullName);
-
+            option.textContent = fullName;
             usersDropdown.appendChild(option);
         });
+        } catch (err) {
+            console.error('Failed to load users:', err);
+        }
 
         usersDropdown.addEventListener('change', (e) => {
             setTimeout(() => {

@@ -3,7 +3,6 @@ const router = express.Router();
 const Employee = require('../models/employee');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-    
 
 // GET all employee names
 router.get('/all', async (req, res) => {
@@ -15,7 +14,6 @@ router.get('/all', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-
 
 
 // POST LOGIN with name and pin
@@ -130,6 +128,30 @@ router.post('/work-history', async (req, res) => {
   } catch (err) {
     console.error("Error retrieving work history:", err);
     res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
+// GET work history by firstname/lastname (case-insensitive)
+router.get('/work-history/:firstname/:lastname', async (req, res) => {
+  const { firstname, lastname } = req.params;
+
+  try {
+    console.log("🔎 Looking up work history for:", firstname, lastname);
+
+    const employee = await Employee.findOne({
+      firstname: { $regex: `^${firstname}$`, $options: 'i' },
+      lastname: { $regex: `^${lastname}$`, $options: 'i' }
+    });
+
+    if (!employee) {
+      console.warn("⚠️ Employee not found:", firstname, lastname);
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json({ workHistory: employee.workHistory || [] });
+  } catch (err) {
+    console.error("❌ Error retrieving work history:", err);
+    res.status(500).json({ error: 'Server error', details: err.message });
   }
 });
 

@@ -55,6 +55,14 @@ function renderCalendarEntries(entries) {
     entries.forEach(entry => {
         console.log(`📅 ${entry.date}: In @ ${entry.inTime}, Out @ ${entry.outTime}`);
         // You can inject into DOM here
+        // const lastEntry = history[history.length - 1];
+    //   console.log(`Date: ${lastEntry.date}, In: ${lastEntry.inTime}, Out: ${lastEntry.outTime}`);
+
+      // Populate DOM
+      document.getElementById('whole_date').textContent = entry.date;
+      // document.getElementById('whole_date').textContent = "4:30PM";
+      document.getElementById('time_in').textContent = entry.inTime;
+      document.getElementById('time_out').textContent = entry.outTime;
     });
 }
 

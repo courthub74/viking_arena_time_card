@@ -4,6 +4,32 @@ const cors = require('cors');
 const app = express();
 const path = require('path');
 
+
+// Route: GET work history for a specific user
+app.get('/api/work-history/:firstname/:lastname', async (req, res) => {
+  const { firstname, lastname } = req.params;
+
+  try {
+    const user = await db.collection('employees').findOne({
+      firstname: { $regex: `^${firstname}$`, $options: 'i' },
+      lastname: { $regex: `^${lastname}$`, $options: 'i' }
+    });
+
+    if (!user) {
+      console.warn("User not found for:", firstname, lastname); // log here
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json({ workhistory: user.workhistory || [] });
+  } catch (err) {
+    console.error("Server error:", err);
+    res.status(500).json({ error: 'Server error', details: err.message });
+  }
+});
+
+
+
+
 // Connect to MongoDB
 const connectDB = async () => {
   try {
@@ -20,6 +46,7 @@ const connectDB = async () => {
 
 // Middleware
 app.use(cors());
+
 
 connectDB();
 
@@ -40,15 +67,18 @@ app.get('/manager', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/html/dashboards/manager.html'));
 });
 
-
-mongoose.connect('mongodb://localhost:27017/users')
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+// mongoose.connect('mongodb://localhost:27017/users')
+//   .then(() => console.log('MongoDB connected'))
+//   .catch(err => console.error('MongoDB connection error:', err));
 
 app.listen(3000, () => {
   console.log('Server running on port 3000');
 });
 
-// Hook Router
-const employeeRoutes = require('./routes/employees');
-app.use('/api/employees', employeeRoutes);
+// Mount Router
+// const employeeRoutes = require('./routes/employees');
+// app.use('/api', employeeRoutes);
+
+app.use('/api/employees', require('./routes/employees'));
+
+
