@@ -403,11 +403,17 @@ async function populateDropdowns() {
   // const users_for_scheduling = JSON.parse(localStorage.getItem('users')) || [];
 
   const users_for_scheduling = await fetch('/api/users')
+  
   .then(res => res.json())
   .catch(err => {
     console.error('Failed to load users:', err);
     return [];
   });
+
+  console.log("Users fetched for dropdowns:", users_for_scheduling);
+
+  // console.log('User:', user); // See exactly what fields exist
+
 
   
   // Clear and populate driver dropdowns

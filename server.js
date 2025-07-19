@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 const path = require('path');
+const router = express.Router();
 
 
 // Route: GET work history for a specific user
@@ -67,23 +68,34 @@ app.get('/manager', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/html/dashboards/manager.html'));
 });
 
+// For Employees in the Dropdown
+const Employee = require('./models/employee');
+
+router.get('/users', async (req, res) => {
+  try {
+    const users = await Employee.find({}, 'username role'); // Fetch only needed fields
+    res.json(users);
+  } catch (err) {
+    console.error('Failed to fetch users:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 // Schedule Routes server.js
 const scheduleRoutes = require('./routes/schedules');
 app.use('/api', scheduleRoutes); // ✅ this must exist
 
 
-// mongoose.connect('mongodb://localhost:27017/users')
-//   .then(() => console.log('MongoDB connected'))
-//   .catch(err => console.error('MongoDB connection error:', err));
-
 app.listen(3000, () => {
   console.log('Server running on port 3000');
 });
 
-// Mount Router
-// const employeeRoutes = require('./routes/employees');
-// app.use('/api', employeeRoutes);
 
+// Mount Employees Routes
 app.use('/api/employees', require('./routes/employees'));
+// Mount User Routes
+const usersRoute = require('./routes/users');
+app.use('/api', usersRoute); // ✅ This exposes /api/users
 
 
+module.exports = router;
