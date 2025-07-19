@@ -71,15 +71,6 @@ app.get('/manager', (req, res) => {
 // For Employees in the Dropdown
 const Employee = require('./models/employee');
 
-// router.get('/users', async (req, res) => {
-//   try {
-//     const users = await Employee.find({}, 'username role'); // Fetch only needed fields
-//     res.json(users);
-//   } catch (err) {
-//     console.error('Failed to fetch users:', err);
-//     res.status(500).json({ error: 'Server error' });
-//   }
-// });
 
 // Schedule Routes server.js
 const scheduleRoutes = require('./routes/schedules');
@@ -96,4 +87,4 @@ app.use('/api/employees', require('./routes/employees'));
 
 // Mount User Routes
 const userRoutes = require('./routes/users');
-app.use('/api/users', userRoutes); // ✅ This must be mounted properly
+app.use('/api/users', userRoutes);
