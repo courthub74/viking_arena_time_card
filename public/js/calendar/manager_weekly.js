@@ -402,7 +402,7 @@ function openScheduleModal(dayDate) {
 async function populateDropdowns() {
   // const users_for_scheduling = JSON.parse(localStorage.getItem('users')) || [];
 
-  const users_for_scheduling = await fetch('/api/users')
+  const users_for_scheduling = await fetch('/api/users/users')
   
   .then(res => res.json())
   .catch(err => {
