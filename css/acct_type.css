@@ -111,7 +111,7 @@ body.dark-mode {
 
 /* WHOLE BODY */
 * {
-    font-family: 'Poppins';
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
@@ -175,7 +175,7 @@ body {
 
 /* Logo Text */
 .logo_text {
-    font-family: 'Inria Sans';
+    font-family: 'Inria Sans', Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
     font-weight: bold;
 }
@@ -557,9 +557,10 @@ form {
 } */
 
 .acct_title {
-    font-size: small;
-    font-weight: bold;
-    opacity: 50%;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.65;
 }
 
 label {
@@ -586,13 +587,19 @@ label {
     height: 0;
   }
 
+  .acct_radio:focus-visible + label {
+    border-color: var(--background-color);
+  }
+
 
 .radio-container label {
     display: flex;
     justify-content: center;
     width: 100%;
     background-color: var(--input-background);
-    border: none;
+    border: 1px solid rgba(81, 134, 177, 0.28);
+    transition: var(--background-color) 0.2s ease, border-color 0.2s ease;
+    /* border: none; */
     /* padding: 1.5em; */
     /* padding: 10px; */
     padding: 20px;
@@ -601,7 +608,7 @@ label {
     font-size: medium;
     font-size: small;
     cursor: pointer;
-    font-family: 'Poppins';
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
   }
   
   .radio-container:hover {
@@ -627,7 +634,8 @@ label {
     /* font-weight: bold; */
     cursor: pointer;
     width: 100%;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
+    transition: filter 0.2s ease;
     margin-top: 1em;
     font-size: medium;
     font-size: small;
@@ -644,6 +652,28 @@ label {
     color: var(--text-color);
     opacity: .6;
     cursor: not-allowed;
+}
+
+.submit:not(:disabled) {
+    background-color: #006fba;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+@media (hover: hover) {
+    .submit:not(:disabled):hover {
+        filter: brightness(1.08);
+    }
+}
+
+.submit:not(:disabled):focus-visible {
+    filter: brightness(0.9);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.submit:not(:disabled):active {
+    filter: brightness(0.9);
 }
 
 /* For wider screens narrow the form */
