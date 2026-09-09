@@ -481,3 +481,12 @@ form {
     }
 }
 
+.pin_field .pin_put_set,
+.pin_field .pin_put_confirm {
+    border: 1px solid rgba(81, 134, 177, 0.55);
+}
+
+.pin_field .pin_put_set:focus,
+.pin_field .pin_put_confirm:focus {
+    border-color: var(--button-background);
+}
